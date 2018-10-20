@@ -1,0 +1,116 @@
+/**
+    Aula 03.05. Agrupando seletores
+
+1. Nesta aula, nos vamos mostrar como a gente pode agrupar seletores. Entao, imagine-se o 
+seguinte:
+
+2. A gente tem esse exemplo de codigo CSS, onde a gente tem um titulo, que eh um ID, uma 
+classe CSS introducao e uma classe CSS chamada missao.
+
+3. Ver empresa.html.
+
+6. A classe introducao tem a cor vermelha. A classe missao tambem tem cor vermelha e tambem
+fonte Arial, uma coisa a mais. 
+
+7. O que que a gente poderia fazer aqui para agrupar? Porque introducao tem cor vermelha,
+missao tem cor vermelha, a gente poderia reaproveitar para nao ter que ficar repetindo a
+cor, a gente poderia fazer o seguinte: agrupar.
+
+8. Ou seja, depois de .introducao, nos colocamos uma virgula, damos um espaco, para ficar
+mais legivel o codigo, e colocamos .missao. Nesse momento, nos estamos dizendo que introducao
+e missao tem cor vermelha
+.introducao, .missao {
+    color: red
+}
+, entao, nos nao precisamos mais definir 'color: red' na classe .missao,
+.missao {
+    font-family: Arial;
+}
+.
+
+9. Ou seja,
+
+.introducao, .missao {
+    color: red;
+}
+
+.missao {
+    font-family: Arial;
+}
+
+10. Mais uma coisa. O titulo tem a fonte Arial. A missao tambem tem a fonte Arial. Entao, nos
+poderiamos dizer que o titulo, .missao tem fonte do tipo Arial e podemos apagar:
+
+.missao {
+    font-family: Arial;
+}
+
+11. Ou seja, fica assim:
+#titulo, .missao {
+    font-family: Arial;
+}
+
+.introducao, .missao {
+    color: red;
+}
+
+12. Ou seja, o que nos fizemos? Nos agrupamos os seletores: O ID titulo com a classe missao
+e a classe introducao com a classe missao, entao, fica compartilhado as propriedades.
+
+13. Se nos tivessemos alguma coisa especifica, por exemplo, que so introducao tivesse, 
+alguma propriedade especifica que so a classe introducao tivesse, nao teria problema, mas
+da forma que nos fizemos, agrupando, nos compartilhamos as propriedades com dois ou mais 
+seletores.
+
+14. Vamos testar, recarregar a pagina. Vimos que esta funcionando. O titulo e missao estao
+em Arial, e esta vermelho a introducao e a missao.
+
+15. Quer dizer, entao, que a gente deve fazer isso? Sai procurando formas de agrupar? Nao,
+nao quer dizer. Eh um recurso que nos temos, mas nao quer dizer que nos temos que sair 
+juntando tudo, as vezes nao faz muito sentido, nao tem muita logica misturar uma coisa com
+outra, entao, quanto a isso, nao existe uma regra bem definida, mas eh sempre o bom senso,
+se nos devemos agrupar ou nao.
+
+16. Mas, agora nos sabemos que eh possivel fazer isso.
+
+17. Fim da Aula 03.05. Agrupando seletores.
+
+
+*/
+
+/**1. 
+#titulo {
+    font-family: Arial;
+}
+
+.introducao {
+    color: red;
+}
+
+.missao {
+    color: red;
+    font-family: Arial;
+}
+*/
+
+/**2.
+#titulo {
+    font-family: Arial;
+}
+
+.introducao, .missao {
+    color: red;
+}
+
+.missao {
+    font-family: Arial;
+}
+*/
+
+#titulo, .missao {
+    font-family: Arial;
+}
+
+.introducao, .missao {
+    color: red;
+}

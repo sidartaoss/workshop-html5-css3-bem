@@ -1,0 +1,155 @@
+<!-- 
+
+	Aula 04.02. Criando o Cabecalho da Pagina.
+
+1. Nesta aula, a gente vai comecar a implementar o cabecalho da pagina. Entao, esta aqui eh a pagina principal do nosso Web Site que a gente esta desenvolvendo. E, logicamente, a gente vai fazer tudo isso passo-a-passo, a cada aula, a gente faz um pedacinho.
+
+2. Entao, aqui esta o site, a pagina inicial completa.
+
+3. Mas, a gente vai focar, agora, no cabecalho, que eh essa parte branca aqui com a Logomarca, com a navegacao. Mas, nesta aula, a gente vai fazer so o cabecalho e a Logomarca, a navegacao do lado direito a gente vai deixar para uma aula seguinte.
+
+4. Entao, aqui, a gente ja tem o projeto, que a gente ja comecou, preparou, em uma aula anterior, e nos vamos comecar aqui colocando um elemento <header>, que representa o cabecalho da nossa pagina, entao representa esse cabecalho branco aqui.
+
+5. Dentro do header, nos vamos colocar a tag img, para a gente colocar a logomarca, ou seja, o arquivo logo.png. E nos sabemos que essa logomarca tem uma largura de 100 pixels e uma altura de 35 pixels. Vamos definir, tambem, aqui, o atributo alt, MyPilas. Isso tudo sao coisas que a gente ja viu em aulas passadas. Okay, vamos ver se
+
+<header>
+	<img src="imagens/logo.png" width="100" height=35 alt="MyPilas">
+</header>
+
+6. Okay, vamos ver, ao recarregar a pagina, se a logomarca esta aqui.
+
+7. Funcionou. Aqui no header, vejamos, vamos aqui no arquivo CSS e a gente vai colocar o seletor header, vamos criar uma regra CSS com o seletor header e, ai, a gente pode colocar, como a primeira coisa, um border-bottom de um pixel, solido e ciza, #ccc, nao muito claro nem muito escuro, entao da para ver que ficou com uma borda inferior.
+
+header {
+	border-bottom: 1px solid #ccc
+}
+
+8. Isso porque, na pagina final, tambem ha uma borda. Talvez nao de para ver, porque tem um verde ali, mas existe uma borda sim, ciza. Entao, colocamos-na ja, aqui.
+
+9. O cabecalho eh um pouco mais alto. Na verdade, nos sabemos que ele tem 60 pixels, entao, nos vamos colocar aqui, em header, a altura dele de 60 pixels e, logico, se nos estamos desenvolvendo um layout do zero, isso nunca nos vamos colocar um valor exato de primeira, nos vamos colocar aqui, em header, para a propriedade height, por exemplo, 40 pixels, vamos ver como vai ficar, vamos colocar 100 pixels, vamos recarregar a pagina e vamos ver como ficou, ate chegarmos em um valor que desejamos,
+
+header {
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+}
+
+10. Normalmente, a gente trabalha com alguns valores similares, depois que definimos os primeiros, vai sempre proporcional aquilo ali, entao, a gente vai ver durante o projeto que a gente vai estar sempre usando alguns valores similares tambem, nao vai ficar toda vez precisar ficar tentando sempre valores aleatorios nao.
+
+11. Entao, agora que a gente colocou o nosso cabecalho aqui, com a altura de 60 pixels, nao esta legal ainda, porque a logomarca esta muito coladinha la em cima.
+
+12. Vamos colocar aqui, para a imagem, no header,
+
+header img {
+	
+}
+
+13. O que nos estamos fazendo aqui? Eh um seletor buscando um seletor de descendente, pegando o img, que eh descendente de header,
+
+<header>
+	<img>
+</header>
+
+, entao, esse img eh descendente de header. Poderia, ate, colocar aqui que eh filho direto. Mas, se colocamos filho direto, ele tem que sempre ser um filho direto,
+
+header > img {
+	
+}
+
+, vamos deixar assim. Vamos ver o que vai acontecer.
+
+14. Isso sao coisas que estamos falando, mas se nao sabemos o que eh isso, eh so procurar em aulas anteriores, que ja explicamos sobre isso, sobre seletores descendentes, seletores de filhos diretos. 
+
+15. Entao, vamos colocar uma margin-top de 12 pixels, porque, como nos sabemos que a imagem tem 35 pixels de altura, 60 pixels do header para 35 pixels da imagem sobram 25 pixels. Dividindo 25 pixels por 2, daria 12,5 pixels. Entao, vamos definir 12 pixels, porque nos queremos essa imagem o mais centralizado possivel, aqui na vertical.
+
+header > img {
+	margin-top: 12px;
+}
+
+16. Mas ai, temos uma questao. A imagem esta muito colada do lado esquerdo. O que nos vamos fazer, agora, eh criar uma area, onde a gente ate vai chamar isso de um container, isso eh algo muito usado quando a gente esta desenvolvendo web sites, muitas vezes a gente nao deixa o conteudo, isso eh uma escolha nossa, depende do projeto que estamos desenvolvendo, mas, muitas vezes, a gente cria um container com uma largura fixa, porque a gente nao sabe o tamanho da resolucao, qual que eh a resolucao do monitor que o usuario esta usando.
+
+17. Se ele estiver em uma resolucao muito grande, os elementos ficam muito espalhados na tela e, ai, pode ser que seja um problema, dependendo da forma que estamos desenvolvendo. Entao, o que a gente faz eh criar um container para delimitar a area do lado esquerdo. Por exemplo, a resolucao do monitor eh 1280 pixels no monitor que esta sendo usado para gravar a aula, poderia estar usando um outro monitor com uma resolucao muito maior, entao ia ficar muito mais espalhado a imagem, como se tivesse muitos elementos aqui. Nesse caso, nos temos somente a logomarca.
+
+18. O que nos iremos fazer eh criar um container no arquivo html. Fazemos o seguinte, nos criamos aqui uma div, porque eh um elemento generico e colocamos, aqui, uma classe container, nome que estamos definindo agora,
+<div class="container">
+	<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+</div>
+
+19. E, no arquivo CSS, nos definimos uma classe .container por exemplo com um valor de 1200 pixels, poderia, tambem, ser outro valor. Como, no nosso caso, o monitor eh de 1280 pixels e estamos colocando um container de 1200 pixels, nos vamos definir uma cor de fundo para vermos a caixa. 
+
+.container {
+	width: 1200px;
+	background-color: yellow;
+}
+
+
+20. Ao recarregar a pagina, nao devemos nos preocupar com a Logomarca ter subido, porque iremos resolver isso na sequencia. Vemos que colocamos um container de 1200 pixels e sobrou 80 pixels, porque a resolucao do monitor eh de 1280 pixels. Como nao sabemos a resolucao da tela do usuario quando nos criamos um container desses, nos temos que pensar na maioria. A maioria, hoje, dos usuarios, tem resolucoes, usam resolucoes acima de 1200 pixels? Sim, entao, nos podemos colocar 1200 pixels.
+
+21. Lembrando que ainda nao estamos falando ainda de layouts responsivos, a gente esta falando de layouts para desktops, que eh o que a gente esta fazendo aqui para desktop, entao, se pensarmos: sera que um dispositivo movel com uma resolucao mais baixa, etc., a gente nao chegou ainda nessa parte, nos vamos chegar mais para a frente.
+
+22. Por enquanto, limitamos o nosso escopo apenas para o layout responsivo, que eh o que estamos fazendo. Depois nos vamos falar mais sobre layout responsivo.
+
+23. Nos podemos definir 1200 pixels, se assim nos entenemos que a maioria dos usuarios tem uma resolucao assim, dai para cima, porque se nos colocarmos, aqui, 2000 pixels, por exemplo, ai fica sobrando para o lado direito, gera scroll na horizontal e isso nao eh legal.
+
+24. Entao, nos colocamos um valor que tem uma certa seguranca. Neste caso, 1200 acreditamos que tenha certa seguranca hoje em dia. Mas acontece que nos queremos centralizar esse container, entao o que nos iremos fazer eh colocar um margin 0 auto, onde margens superior e inferior sao zero e margens esquerda e direita sao automaticas, auto. A gente ja viu isso em uma aula anterior tambem. 
+
+25. Ao recarregar a pagina, vemos que o navegador centralizou o container. Entao, a medida que vamos diminuindo a tela, estamos vendo que o container esta centralizado, a sobra do lado direito e a sobra do lado esquerdo vao diminuindo ou aumentando de acordo com o tamanho da janela.
+
+26. Claro que, se diminuirmos demais, gera scroll e, ai, nao tem como fazer nada neste caso aqui. Mas, quando a tela esta muito perto do tamanho do container, a Logomarca fica muito colada a esquerda, fica colado na margem esquerda da tela.
+
+27. Entao, o que nos fazemos, neste caso, eh adicionar padding-left de 15 pixels e padding-right de 15 pixels, entao, adiciona espacamento nas duas laterais,
+
+.container {
+	width: 1200px;
+	background-color: yellow;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+, entao, a Logomarca nao fica mais colada na margem da esquerda. Tem um espacamento tambem do lado direito, que nao estamos vendo, porque nao tem nenhum conteudo a direita para nos vermos. 
+
+
+28. Mas esta funcionando. O container eh do mesmo tamanho, continua do mesmo tamanho, porque a gente colocou o border-box. Se tirarmos o border-box, o container aumenta um pouquinho.
+
+29. Por que que a Logomarca subiu? Porque, agora, a gente adicionou um container, o <div class="container"> e o elemento img nao eh mais um filho direto de header.
+
+30. Esse eh um problema de usar o seletor de filho direto,
+
+header > img {
+	margin-top: 12px;
+}
+
+31. Esse eh o problema, quando a gente adiciona algo a mais, muda o html, a gente tem problemas, mas, tambem, nao colocar o filho direto pode gerar outros problemas, porque a gente esta selecionando todos os img's que sao descendentes do elemento header, entao, cada estrategia tem as suas particularidades,
+
+header img {
+	margin-top: 12px;
+}
+
+32. Okay, vamos deixar assim. Agora, a gente jogou a Logomarca mais para baixo. Vamos tirar essa cor de fundo amarelo e a gente tem um cabecalho com a Logomarca muito parecido com a versao final do Site do Projeto. Nao tem, ainda, a navegacao, porque a gente vai, ainda, fazer isso mais para frente,
+
+.container {
+	width: 1200px;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+}
+
+33. Nas proximas aulas, a gente vai fazer outras coisas na pagina, depois a gente volta na barra de navegacao.
+
+34. Fim da Aula 04.02. Criando o Cabecalho da Pagina.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPillas</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+</body>
+</html>

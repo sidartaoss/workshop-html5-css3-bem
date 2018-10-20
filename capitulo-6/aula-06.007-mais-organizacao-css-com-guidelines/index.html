@@ -1,0 +1,413 @@
+<!-- 
+  Aula 06.007. Mais Organizacao: CSS com Guidelines
+
+1. Com BEM, o nosso codigo ja fica bastante organizado, mas tem uma
+forma de melhorar ainda mais, que eh nos criarmos ou seguir um CSS 
+Guideline.
+
+2. E o que que significa isso?
+
+3. Eh um Style Guide, ou seja, eh um Guia de Estilos, um guia com algumas
+orientacoes para nos escrevermos codigo CSS e tambem codigo HTML. 
+
+4. Entao, como ja dissemos, o BEM ja facilitou, melhorou bastante, mas
+existem alguns guias, por exemplo, esse aqui, http://cssguidelin.es,
+e, aqui, vai ter uma documentacao com algumas diretrizes de como nos
+podemos escrever CSS. 
+
+5. Existem varios guias desse, na verdade, quem faz isso, eh um desenvolvedor,
+que, provavelmente, ele precisava padronizar a forma que escrevia codigo
+CSS na empres dele e ele resolveu publicar isso para a Internet.
+
+6. Existem varios que fazem isso, nos tambem podemos ter o nosso proprio
+guia. Qual que eh a vantagem disso?
+
+7. A vantagem eh que, quando todos os desenvolvedores da empresa escrevem
+codigo seguindo uma orientacao, seguindo um guia, isso aumenta muito a 
+produtividade, porque nos sabemos que, se nos nao temos um guia e nos
+temos uma empresa, onde nos trabalhamos em uma empresa com 10 desenvolvedores,
+por exemplo, cada um faz de um jeito e, quando nos pegamos o codigo de 
+um outro desenvolvedor, nos nos sentimos confusos no primeiro momento,
+talvez ate o proprio desenvolvedor se sinta confuso, porque, cada hora,
+ele esta fazendo de um jeito. Entao, quando nos seguimos algumas diretrizes,
+que eh um padrao, quando nos pegamos um codigo, pode ser nosso ou pode
+ser que tenha sido feito por outra pessoa, isso gera uma familiaridade
+com o codigo instantanea, nos batemos o olho no codigo e nos ja estamos
+entendendo, nos sabemos onde ficam as coisas, entao, tudo isso gracas
+as diretrizes de um guia.
+
+8. Esse aqui eh um exemplo so que o instrutor esta mostrando, a gente
+nao vai focar nesse guia, mas eh so mesmo uma dica que o instrutor nao
+poderia deixar de passar.
+
+9. Muitas coisas, inclusive, nesse guia aqui, a gente ja esta praticando.
+Esse guia aqui ele tem coisas, inclusive, sobre o BEM, ele eh bem focado
+no BEM.
+
+10. Entao, vale a pena nos darmos uma aprofundada nisso tambem. Mas, o
+nosso codigo esta bom, mas, ainda, a gente pode melhorar so um pouquinho.
+
+11. Uma coisa que a gente ja estava fazendo, de uma forma que achamos
+interessante, que, ate nesse guia que o instrutor estava mostrando, 
+parece que nao tem isso, mas o instrutor ja viu outros que tem,
+que eh o seguinte, aqui, a gente, imaginemos que o html eh assim,
+sem os espacos entre uma tag e outra, sem nada de espaco de quebra 
+de linha, o que achamos disso?
+
+12. Da para ler, mas fica bastante tumultuado. Nos nao sabemos onde
+comeca um bloco, onde termina, pelo nome, da para sabermos, mas nao
+eh bater o olho e, visualmente, ja ir sabendo onde comeca e onde termina,
+fica muito tumultuado. Ainda a identacao ajuda um pouquinho, se estivesse
+nao identado, seria terrivel, mas assim, com a identacao, ja ajuda 
+um pouquinho, mas, concordamos que, quando a gente tem esses espacos,
+ajuda na nossa legibilidade.
+
+13. Eh uma coisa, entao, que nos podemos seguir. Podemos escrever isso
+em um documento e colocarmos no nosso guia, que todo bloco tem que ter
+uma quebra de linha, uma antes e uma depois, por exemplo, entao, o header,
+a gente deixou esse bloco separado, com plano separado, cada plano aqui
+separado por uma quebra de linha, nao deixamos assim juntos, justamente
+para deixar mais simples a leitura do codigo.
+
+14. Quando uma pagina HTML eh maior, isso faz toda a diferenca. Tem gente
+que ate deixa mais linha, tem gente que coloca 4, 5 linhas entre um bloco
+e outro, algo assim.
+
+15. E nao tem nada de errado com isso, eh um guia que, se todo mundo seguir,
+todo mundo vai se acostumar e vai gerar a familiridade com o codigo 
+muito rapido.
+
+16. Outra coisa que nao esta nesse guia, mas o instrutor ja viu em outros
+tambem e nos achamos muito bom, o instrutor sempre gosta de organizar
+as propriedades CSS com alguma logica.
+
+17. Entao, tem gente que nao organiza nada, tem gente que nao deixa
+um espaco entre a primeira e as demais propriedades de uma Regra CSS,
+tem gente que poe tudo junto.
+
+18. Neste projeto, na verdade, nao estavamos nos preocupando com isso,
+ate chegar nesta hora, aqui, foi uma mera coincidencia ter um espaco
+aqui,
+
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+, mas, por que esse espaco? Se a gente deixa tudo junto aqui, fica
+muito baguncado. Tem gente que faz assim, nao eh que fica muito baguncado,
+mas tem como melhorar.
+
+19. Tem gente que deixa assim, tem gente que ordena por ordem alfabetica,
+mas o intrutor gosta de uma forma de ordenar, quem organiza, achamos que
+a maioria faz assim mesmo, eh por categoria. A gente coloca primeiro as
+propriedades de Posicionamento, que a gente nao estudou ainda, a gente
+vai chegar nessa aula daqui a pouco, sobre Posicionamento, acreditamos
+que ainda nao devemos ter usado ainda nenhuma propriedade sobre isso.
+
+body {
+  /** Posicionamento **/
+
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+20. Depois, propriedades de Display ou de Exibicao, vamos colocar aqui 
+Display e Box Model. Box Model nos lembramos o que que eh, eh tudo 
+aquilo que afeta o tamanho de uma caixa, largura, altura, tem o padding, 
+tem a borda, tem a margem, tudo isso entra aqui, em Display e Box Model.
+Por exemplo, a propriedade margin entra aqui,
+
+body {
+  /** Posicionamento **/
+
+  /** Display e Box Model **/
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+21. Depois, a gente coloca, a gente organiza por Cores, tudo que coloca
+cores, de background e cor de fonte,
+
+body {
+  /** Posicionamento **/
+
+  /** Display e Box Model **/
+  margin: 0;
+
+  /** Cores **/
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+22. Depois, texto. Entao, texto seria isso aqui,
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+body {
+  /** Posicionamento **/
+
+  /** Display e Box Model **/
+  margin: 0;
+
+  /** Cores **/
+
+ /** Texto **/
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+23. E, se tiver outra coisa, qualquer outra coisa, Outros,
+
+body {
+  /** Posicionamento **/
+
+  /** Display e Box Model **/
+  margin: 0;
+
+  /** Cores **/
+
+ /** Texto **/
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+  /** Outros **/
+}
+
+24. Entao, a gente organiza dessa forma. E entre um e outro, eh logico,
+nos nao vamos ficar colocando esses comentarios aqui,
+
+/** Posicionamento **/
+/** Display e Box Model **/
+/** Cores **/
+/** Texto **/
+/** Outros **/
+
+, mas, entre um e outro, nos sempre deixamos um espaco, uma quebra de
+linha.
+
+25. Nos vamos deixar esse aqui, dessa forma, comentado, nesse arquivo,
+para nos termos, aqui, mas, na proxima aula, vamos, ate tirar ja. Vamos
+deixar esse comentario aqui para nos te-lo aqui no nosso codigo.
+
+26. Entao, aqui, ficou dessa forma. Entao, vamos aqui para o layout.css.
+Nos temos, aqui, a altura e a borda faz parte do Box Model, entao,
+esta certinho,
+
+.layout-cabecalho {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+27. Aqui dentro da Regra CSS, ja nao tem muita ordem. Eh claro que,
+se tivessemos a largura, por exemplo, nos prefeririamos colocar a 
+largura perto da altura, eh logico isso, mas nao tem uma ordem especifica,
+
+  height: 60px;
+  width: 100px;
+  border-bottom: 1px solid #ccc;
+
+, mas devemos tentar colocar as coisas mais perto tambem.
+
+28. Aqui, como so tem uma propriedade, nao tem o que organizar nada,
+
+.layout-cabecalho img {
+  margin-top: 12px;
+}
+
+.layout-planos {
+  padding: 80px 0;
+}
+
+29. Entao, o layout esta feito, a base esta feita.
+
+30. Aqui, em componentes.css, o plano, padding e border fazem parte do
+Box Model, entao, nao tem o que organizar nada,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+}
+
+31. Vamos para a classe plano__cabecalho. Propriedade de Posicionamento
+nao tem nada, Display e Box Model, vamos pegar margin, depois eh Cores,
+background-color e color, depois, vem Texto,
+
+.plano__cabecalho {
+  margin: -10px;
+  margin-bottom: 0;
+
+  background-color: #95a4a5;
+  color: #fff;
+
+  text-align: center;
+  line-height: 2.5;
+  font-weight: normal;
+  font-size: 28px;
+}
+
+32. Entao, organizamos, Box Model, Cores e Texto. O proximo, plano__preco,
+Box Model, Cores nao tem e Texto,
+
+.plano__preco {
+  margin: 20px 0;
+
+  text-align: center;
+  font-size: 28px;
+}
+
+33. Agora, plano__caracteristicas. A propriedade list-style vai para
+Outros, que eh o ultimo,
+
+.plano__caracteristicas {
+  padding: 0;
+  margin: 20px 0;
+
+  list-style: none;
+}
+
+, entao, Box Model, Cores nao tem, Texto nao tem, depois, em Outros, colocamos
+list-style.
+
+34. Para o seletor li, filho direto da classe plano__caracteristicas e para a
+classe plano__rodape, somente uma propriedade.
+
+35. Para a classe botao, display eh em Box Model, junto com padding,
+Depois, Cores e Texto,
+
+.botao {
+  display: inline-block;
+  padding: 12px 16px;
+
+  background-color: #bbb;
+  color: #fff;
+
+  text-decoration: none;
+}
+
+36. Para as pseudo-classes botao::hover, botao::focus, Cores e Texto,
+
+.botao:hover, .botao:focus {
+  background-color: #aaa;
+  color: #fff;
+
+  text-decoration: none;  
+}
+
+37. E os demais so tem uma propriedade, botao--assinar, botao--assinar:hover,
+botao--assinar:focus.
+
+38. Entao, eh uma pratica, que nos podemos nos acostumar. Eh logico que
+todo mundo tem que estar ciente disso, senao, vira bagunca, so nos
+arrumando o codigo de uma forma e os outros desenvolvedores baguncando,
+na verdade, eles nem sabem que estao baguncando, se nos tivermos isso
+so na nossa cabeca e nao combinarmos com todos os outros desenvolvedores,
+nos nao podemos falar que eles estao baguncando, eles estao fazendo
+da forma que, ninguem combinou nada, entao, tem que ser combinado isso.
+
+39. E eh logico, quando a gente combina isso, o ideal eh que deixe-se
+documentado, para ninguem esquecer, mas, para comecar rapido, uma conversa
+de 5 minutos, dos beneficios, falar o que nos foi acabado de explicar 
+pelo instrutor, ja resolveria, mas, o ideal eh deixar isso documentado
+mesmo.
+
+40. Entao, vejamos que o nosso codigo CSS, agora, comeca a ficar ainda
+mais facil para dar manutencao, entao, vale a pena investir nessa boa
+pratica.
+
+41. Fim da Aula 06.007. Mais Organizacao: CSS com Guidelines.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>            
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

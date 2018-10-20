@@ -1,0 +1,29 @@
+Aula 01.01. Introducao ao Curso
+
+Olah, seja muito bem-vindo ao Curso Web Design Responsivo com HTML5 CSS3, e BEM. O nome do Instrutor eh Thiago Faria e eh Instrutor na AlgaWorks.
+
+Neste primeiro video, vamos falar alguns detalhes para aproveitarmos bem o Curso.
+
+1. Qual eh o objetivo do Curso?
+O objetivo deste Curso eh ensinar HTLM e CSS do zero. A gente vai usar HTML5 e CSS3, com boas praticas, convencoes de codigo e tambem a gente vai usar a metodologia do BEM. Se ainda nao se conhece, infere-se que vamos gostar muito dessa metodologia para escrever codigo escalavel, codigo que se consegue dar manutencao de forma muito facil.
+
+2. Este curso eh para quem nunca fez nada de HTML e CSS. Entao, nao eh necessario ter conhecimento em HTML ou CSS. Eh tambem eh para quem ja trabalha com HTML e CSS, porque a gente vai falar bastante coisa de boas praticas, metodologia BEM, entao, com certeza, mesmo que ja se trabalhe com HTML, com CSS, nos vamos aproveitar varias coisas deste curso. 
+
+3. O que se espera que ja se conheca para fazer este Curso? Basicamente, eh necessario conhecer sobre criacao de arquivos, usar bem o sistema operacional, ja ser um usuario com alguma experiencia em uso de Internet, ou seja, sabe fazer pesquisas na Internet, usar o Google, etc.
+
+Porque, quando estamos desenvolvendo, vao surgir varios problemas, eh necessario criar arquivos, pastas, etc.
+
+4. O que nao sera ensinado neste Curso?
+Alguns itens: JavaScript, nao eh um Curso de JavaScript. 
+Nao sera ensinado sobre pre-processador de CSS, nao sera ensinado sobre tecnicas de SO, nao sera usado, tambem o Bootstrap, os Componentes, todo o Bootstrap nao sera ensinado neste Curso. 
+Este curso eh muito focado em HTML, CSS, usando BEM.
+
+Sera um Curso muito bom em HTML e CSS, vamos termina-lo sabendo bastante coisa, criando as Paginas com codigo muito bom. Sera ensinado tambem as boas praticas, as convencoes, para fazer tudo direitinho, da forma ideal. 
+
+5. Como podemos estudar? 
+Cada pessoa tem uma forma diferente de estudar, mas tem as sugestoes: 
+Assistir todas as aulas, nao pular nenhuma aula. As vezes, ve-se o titulo da aula e assume-se que se conhece o conteudo. Mas, em todas as aulas, acaba-se falando alguma coisa extra, alguma dica, alguma boa pratica, entao, pode haver alguma coisa que nao se saiba. Entao, eh muito bom se puder se assistir a todas as aulas, inclusive, na sequencia, eh o ideal. A sugestao eh que se assista na ordem, na sequencia que foi gravado o curso e tambem fazer todos os exemplos no computador, pois as aulas sao praticas. O instrutor coloca o codigo e vai-se acompanhando no desenvolvimento desse codigo, mas sugere-se que, depois, seja feito no computador local tambem. Ou seja, assistir as aulas e ir fazendo no computador local, reproduzir tudo o que se faz na aula no computador local, porque so assistir a aula nao se aprende, se esquece. Eh necessario praticar, a pratica eh muito melhor para fixar o conteudo do que apenas assistir.
+
+
+
+

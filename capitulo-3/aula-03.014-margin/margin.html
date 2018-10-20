@@ -1,0 +1,269 @@
+<!-- 
+    Aula 03.14. Margens de Elementos
+
+1. Nesta aula, nos vamos aprender como adicionar margem nos nossos elementos e, para isso,
+nos vamos aprender sobre a propriedade margin do CSS.
+
+2. Nesta aula, nos temos aqui um arquivo html com dois paragrafos, cada paragrafo tem uma 
+classe CSS especifica, 'frase1' e 'frase2', e, no arquivo CSS, nos ja colocamos algumas regras
+bem simples para a gente renderizar isso aqui, ou seja, duas caixas com cor de fundo, bordas
+e texto diferentes dentro delas. 
+
+3. Quanto ao texto CSS, no arquivo estilos.css, nao ha novidade, tudo nos ja vimos em outras
+aulas.
+
+4. Vamos comecar aqui colocando o seletor .frase1, para pegar a primeira caixa, que eh a de
+cima, a qual chamamos a classe de 'frase1' e vamos adicionar uma margem a esquerda, ou seja,
+nos queremos que essa caixa fique mais deslocada da esquerda. Estamos vendo que ela esta
+muito proxima da borda. Nos queremos desloca-la mais.
+
+5. Entao, vamos colocar aqui a propriedade margin, traco, left, margin-left, ou seja, a 
+margem da esquerda e vamos colocar um tamanho de 200 pixels,
+
+.frase1 {
+    margin-left: 200px;
+}
+
+6. E vamos recarregar. E olha so, a caixa deslocou para a direita. Porque adicionamos uma
+margem esquerda, entao esse espaco do inicio da tela a esquerda ate a borda vermelha eh o 
+que a gente chama de margem que nos colocamos, de 200 pixels.
+
+7. Okay, entao, vamos colocar 0 pixels, para deixar a caixa bem coladinha na margem esquerda
+do documento?,
+
+.frase1 {
+    margin-left: 0px;
+}
+
+, e nos vemos que nao ficou colad o na margem do documento, a gente ve que tem um espaco em
+branco entre a margem esquerda do documento e o elemento paragrafo. Por que? Nao deveria 
+colar?
+
+8. Acontece que o nosso documento, vamos ate clicar com o botao direito na tela, Inspect,
+o body, selecionamos o corpo do documento, verificamos na Guia Styles, a esquerda do 
+Chrome DevTools, que ele tem ja uma margem padrao, de 8 pixels, que o proprio navegador 
+coloca. Entao, se olharmos, em user agent stylesheet, 'user agent' significa o navegador,
+ou seja, o proprio navegador adicionou uma margem de 8 pixels, com a propriedade margin,
+coloca 8 pixels de margem,
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+9. Entao, por isso que a gente esta vendo um espacinho entre a margem esquerda do documento
+e o paragrafo e entre o paragrafo e a margem superior do documento. Podemos nos perguntar,
+'Mas nao eh 8 pixels? Nao deveria estar os mesmos 8 pixels na margem esquerda do documento
+e na margem superior, em relacao ao paragrafo?'. 
+
+10. Sim. Sim e nao, na verdade. Acontece que o elemento que nos definimos aqui, que eh o 
+<p>, ele tambem tem margem padrao que o proprio navegador ja adiciona. Por isso, nao ficou
+do mesmo tamanho a margem esquerda e superior. O navegador adiciona margem, na verdade,
+nao a esquerda e a direita, mas em cima e embaixo ele pode adicionar margem.
+
+11. Mas vamos focar na questao do corpo, do body, depois a gente vai ver isso tambem. Nao fica
+coladinho. O que que a gente pode fazer, nesse caso? A gente pode falar que a margem do 
+body eh 0,
+
+body {
+    font-size: 32px;
+    margin: 0;
+}
+
+, entao, nos colocamos que nos nao queremos margem. Nos podemos por 0 pixels ou podemos 
+colocar somente 0 tambem, porque 0, independente da unidade de medida, eh nada. Entao,
+magem 0, recarregamos a pagina, e vemos, agora, que ficou bem colado na margem esquerda
+do documento. Entao, nos tiramos aquela margem padrao que o corpo do documento tem, 
+adicionado pelo navegador. Entao, ficou bem colado agora, nao tem mais espacinho em branco
+entre o paragrafo e a margem esquerda do documento.
+
+12. Mas, ainda, em cima do paragrafo e abaixo do paragrafo, entre uma caixa e outra, existe
+uma margem. Existe uma margem entre uma caixa e outra e acima do primeiro paragrafo. Eh como
+ja dissemos, o paragrafo, que eh o <p>, tambem tem uma margem por padrao, que o navegador
+adiciona. 
+
+13. Entao, agora sim, nos podemos colocar aqui, se nos quisermos tirar essa margem, nos 
+podemos colocar aqui a propriedade margin com 0,
+
+p {
+    margin: 0;
+}
+
+14. E, nos nao falamos, mas, no seletor .frase1, nos temos a propriedade magin-left, onde
+especificamos uma margem apenas do lado esquerdo e, quando nos colocamos margin apenas,
+ele eh um shorthand, um atalho. Quando nos colocamos um valor so, ele distribui essa margem
+para todos os lados, em cima, do lado direito, embaixo e do lado esquerdo.
+
+15. Entao, ele usa para todas as margens do elemento, entao, margin eh um shorthand. 
+Colocamos o 0 como valor para margin no seletor p, ou seja, a primeira e a segunda caixas,
+que sao paragrafos e recarregamos a pagina. 
+
+16. Vemos, agora, que ficou bem coladinho. Entao, so para lembrar, se tirarmos a 
+propriedade margin do seletor body, o paragrafo, as caixas nao tem mais margem, mas o
+documento, o corpo do documento tem margem ainda, entao nos vemos que o documento fica 
+com alguns pixels, vimos que eh 8 pixels, do lado esquerdo e em cima, ou seja,
+do paragrafo em relacao a margem esquerda e do paragrafo em relacao ao topo.
+
+17. Recolocando margem 0 no body, o navegador tira tambem essa margem e, ai, a gente consegue
+colar o paragrafo no topo do documento, ou seja, da tela.
+
+18. Geralmente, eh muito comum a gente tirar a margem do body, porque, geralmente, a gente
+nao quer esse espacinho do lado, em cima, ou seja, do documento html em relacao ao elemento,
+as vezes a gente quer colocar um topo em cima colorido, bem coladinho em cima, entao, 
+normalmente, a gente tira isso nas paginas que a gente vai criar, como fizemos aqui,
+
+body {
+    font-size: 32px;
+    margin; 0;
+}
+
+19. Mas nos podemos escolher, depende se nos formos querer tirar ou nao, depende do que nos
+estamos fazendo. No nosso projeto, nos vamos ter que tirar, no nosso projeto que a gente
+ainda vai comecar, nos vamos ter que tirar, vamos ter que definir essa margem como 0.
+
+20. Agora, nos vamos colocar, no seletor .frase1, um shorthand margin e vamos especificar,
+aqui, 10 pixels. Se nos especificarmos 10 pixels, eh somente no primeiro paragrafo,
+
+.frase1 {
+    margin: 10px;
+}
+
+, entao, o navegador colocou 10 pixels de todos os lados do primeiro paragrafo, do lado 
+direito, obviamente, a gente nao esta vendo, porque nao tem nada do lado dele, mas o 
+navegador colocou 10 pixels de margem de todos os lados.
+
+21. Aqui, estamos vendo a diferenca entre padding e margin. padding refere-se ao espacamento
+interno e margin refere-se ao espacamento externo do elemento html.
+
+22. Entao, quando definimos um valor apenas, o navegador pega e coloca de todos os lados 
+do elemento,
+
+.frase1 {
+    margin: 10px;
+}
+
+23. Se colocarmos dois valores, agora, vamos colocar 100 pixels, ai o navegador vai colocar
+em cima e embaixo 10 pixels e, do lado esquerdo e direito, 100 pixels. Entao, vemos que o
+primeiro valor refere-se a em cima e embaixo no elemento e o segundo valor refere-se a 
+esquerda e direita no elemento,
+
+.frase1 {
+    margin: 10px 100px;
+}
+
+, quando colocarmos dois valores.
+
+24. Vamos colocar, agora, quatro valores, vamos colocar 10 pixels, 0, 100 pixels e 50 pixels.
+Entao, quando colocamos quatro valores, o primeiro refere-se eh o topo, o segundo valor eh
+o lado direito, o terceiro valor eh o lado inferior e o quarto valor eh o lado esquerdo, 
+ou seja, inicia na parte superior e segue no sentido horario,
+
+.frase1 {
+    margin: 10px 0 100px 50px;
+}
+
+25. A gente pode, entao, sobrescrever so uma margem. Por exemplo, a margem superior nos
+vamos substituir para 200 pixels,
+
+.frase1 {
+    margin: 10px 0 100px 50px;
+    margin-top: 200px;
+}
+
+26. Ao recarregar a pagina, verificamos que a margem superior foi substituida com 200 pixels.
+
+27. Claro que nao teria necessidade, mas se nos quisessemos fazer isso, poderiamos 
+simplesmente fazer assim:
+
+.frase1 {
+    margin: 200px 0 100px 50px;
+}
+
+, nao teria necessidade de ter a propriedade margin-top, mas so para nos entendermos que
+podemos tambem definir assim, substituindo uma margem.
+
+28. Vamos colocar, agora, uma margem negativa. Eh permitido colocar uma margem negativa. O
+que que vai acontecer se colocarmos uma margem negativa? Nos deixamos de visualizar uma 
+parte do paragrafo, o elemento sai da area visivel do documento html. Entao, tambem eh 
+possivel colocar uma margem negativa,
+
+.frase1 {
+    margin: 10px 0 100px 50px;
+    margin-top: -100px;
+}
+
+29. Vamos voltar a como estava antes, sem margem negativa,
+
+.frase1 {
+    margin: 10px 0 100px 50px;
+}
+
+30. Vamos definir, agora, uma outra regra CSS com o seletor frase2, que eh uma classe. 
+E margem como 0, ou seja, nenhuma margem. O segundo paragrafo, ao recarregar a pagina,
+na verdade, nao mudou nada,
+
+.frase2 {
+    magin: 0;
+}
+
+, nao eh que nao mudou nada, eh que o seletor p ja tem margem definida como 0, entao, para
+o seletor frase2 nao mudou nada tambem. Quando temos o seletor p com margin: 0 e 
+frase2 com margin: 0, entao, os dois seletores tem margem 0, entao ficou com zero mesmo.
+
+31. Mas, se colocarmos, em frase2, margem zero para lado superior e inferior e 100 pixels
+para lados esquerdo e direito, ao recarregar a pagina, muda a margem do segundo paragrafo.
+
+32. Nos podemos escrever, tambem, aqui, auto,
+
+.frase2 {
+    margin: 0 auto;
+}
+
+, quando colocamos auto, o navegador vai, automaticamente, calcular as margens esquerda
+e direita e vai deixar a nossa caixa centralizada no documento html. Entao, se quisermos
+centralizar uma caixa, eh so utilizar o auto.
+
+33. Lembrando que a definicao de margin no seletor frase2 substitui a definicao da 
+propriedade margin no seletor p, porque, se pegarmos a frase2, no segundo paragrafo, 
+tem o elemento p, entao, a regra do seletor p vai ser aplicada ao elemento p, mas a 
+regra do seletor frase2 tambem vai ser aplicada ao elemento p, porque o elemento p
+tem a classe 'frase2'. Entao, tem duas coisas aqui sendo aplicadas.
+
+34. Vamos, ate, inspecionar, para entender melhor, a segunda caixa, ou seja, o segundo
+paragrafo. Se inspecionarmos o segundo paragrafo, que eh o p, a gente ve, na Guia 
+Styles, a esquerda no Chrome DevTools, que temos um p definido com margin:0, que esta
+riscado. Se ele esta riscado, eh porque alguem substituiu-o.
+
+35. E, se olharmos mais acima, o seletor frase2 substituiu aquela propriedade
+margin definida em p. Se desabilitarmos, no checkbox que aparece do lado da 
+propriedade, a propriedade margin no seletor frase2, ai
+nos vemos que, agora, no seletor p, a propriedade margin nao esta mais riscada, o
+navegador esta usando-a.
+
+36. Isso eh somente para debugarmos, eh logico que o que vale eh a propriedade definida
+no seletor frase2, mas se quisermos debugar para ver o que esta acontecendo, eh so
+habilitar/desabilitar com o checkbox que eh exibido ao lado da propriedade margin.
+
+37. Entao, isso eh apenas para vermos como funciona o CSS, duas regras aplicando para o
+mesmo elemento.
+
+38. Fim da Aula 03.14. Margens de Elementos.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <p class="frase1">Já imaginou quanto tempo você economizaria se o redeploy não fosse
+            necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou 
+            anotação do seu framework preferido?
+        </p>
+        <p class="frase2">Em maio de 2015, n evento Voxxed Days Istanbul, conversei com 
+            Reza Rahman, que é evagelista Java EE na Oracle Corporation.
+        </p>
+    </body>
+</html>

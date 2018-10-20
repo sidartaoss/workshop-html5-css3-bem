@@ -1,0 +1,491 @@
+<!-- 
+	Aula 06.004. Como usar BEM na Pratica - Parte 1
+
+6. E aqui, neste exemplo, a gente ja esta usando o BEM.
+
+7. Nos estamos trazendo o codigo, inclusive, pronto, porque nos vamos explica-lo, mas fiquemos tranquilo, porque o projeto do nosso workshop a gente vai fazer passo-a-passo.
+
+8. Aqui eh para explicarmos mesmo sem ser passo-a-passo, para explicar que, eh logico, nos vamos fazer algumas modificacoes aqui no codigo, mas explicamos um codigo pronto e, depois, a gente faz ele do zero la no nosso projeto do Curso.
+
+9. Entao, este exemplo aqui eh exatamente o mesmo, inclusive, se abrirmos o exemplo 1, mudou somente a cor, mas vejamos que eh a mesma coisa, sao os mesmos componentes, o mesmo layout, so que usando BEM agora, neste exemplo 2.
+
+10. Entao, esta bom. Lembremos que, no BEM, a gente tem tres tipos de entidades: o Bloco, o Elemento e o Modificador. 
+
+11. E vejamos so, olhando neste layout do exemplo 2, o que que a gente considera como um bloco? 
+
+12. A gente pode considerar como um bloco a primeira caixa da esquerda, que, a gente esta falando, aqui, de um portfolio de cursos, entao, a primeira caixa da esquerda a gente pode considerar como bloco. Em seguida, podemos, tambem, considerar como bloco a segunda caixa e a terceira caixa tambem.
+
+13. Ou, ainda, nos podemos considerar os tres elementos como um unico bloco, ou seja, as tres caixas como um unico bloco e cada caixa contem um elemento desse grande bloco. Por exemplo, a gente pode chamar esse bloco de 'Lista de Cursos' ou 'Portfolio de Cursos'. Seria o bloco.
+
+14. E a gente poderia falar que a caixa da esquerda eh um elemento curso dessa lista, eh um elemento curso desse portfolio, a segunda caixa eh um elemento curso desse portfolio, e a ultima caixa da direita tambem eh um elemento curso desse portfolio.
+
+15. Entao, a gente pode considerar dessa forma ou da outra que nos falamos. A gente vai fazer das duas, na verdade. 
+
+16. Entao, vejamos so. Como nos temos uma lista nao ordenada representando a lista desses cursos, 
+
+		<ul class="portfolio portfolio--mais-vendidos">
+			<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+			<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+			<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+
+, entao, nos estamos falando que essa lista eh um bloco.
+
+17. E esse bloco nos chamamos de portfolio. Entao, para nomear um bloco, nos simplesmente colocamos um nome que represente aquilo. portfolio eh o nome do nosso bloco,
+
+	<ul class="portfolio">
+		<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+		<li class="portfolio__curso"><a href="#">Javascript</a></li>			
+		<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+	</ul>
+
+18. Esse aqui eh um bloco, ou seja, uma lista de cursos, nao eh uma lista de cursos, nos chamamos de portfolio, eh um portfolio de cursos.
+
+19. Cada item da nossa lista eh um curso, ou seja, cada item, como nos dissemos, cada caixinha dessas aqui que estao sendo exibidas pelo instrutor para a pagina exemplo2.html, eh um elemento do nosso bloco. O nosso bloco eh a lista e cada caixinha eh um elemento do nosso bloco, ou seja, eh um curso do nosso portfolio.
+
+20. Entao, a gente tem um bloco aqui,
+
+<ul class="portfolio">
+</ul>
+
+, e, agora, aqui, a gente tem um elemento,
+
+<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+...
+
+, e um elemento a gente nomeia-o da seguinte forma: a convencao de nomenclatura define que a gente deve colocar aqui o nome do nosso bloco, que eh portfolio, a gente separa com dois underscores, (__), e, depois, a gente coloca o nome do elemento.
+
+21. Qual que eh o elemento desse portfolio? Nos chamamos de curso. Eh algo que tem bastante significado, curso. Entao, esse aqui eh um curso do nosso portfolio, 'portfolio__curso'.
+
+22. O interessante disso eh que quando a gente le esse nome, o nome desse elemento, ele eh auto-explicativo, eh o curso do portfolio. Se nos colocassemos assim,
+
+<li class="curso"><a href="#">HTML e CSS</a></li>
+...
+
+, nao seria tao legivel. Olhando assim, nos nao saberiamos que 'curso' depende de 'portfolio', nao conseguiria saber que curso depende de portfolio, que curso esta totalmente relacionado a portfolio, ou se esta relacionado com conteudo, nao daria muito para saber. Entao, a convencao da nomenclatura eh essa, sempre colocamos o nome do bloco, underline, underline, o nome do elemento.
+
+23. Talvez, principalmente, se ja estivermos bastante acostumados com CSS, nos podemos achar isso aqui feio no inicio, esses dois underlines separando bloco de elemento, mas podemos acreditar que isso ajuda bastante, entao, deve-se fazer uma forcinha, deve-se eliminar essa barreira, esse preconceito, deve-se fazer um experimento, porque vai ajudar muito, temos certeza de que vai valer a pena.
+
+24. Entao, nos temos, aqui, o nosso elemento,
+
+<li class="curso"><a href="#">HTML e CSS</a></li>
+...
+
+, a gente viu como se nomeia um elemento, como a gente nomeia um bloco. Se nos salvarmos e recarregarmos, na verdade, fica vermelho e sem o Novo, agora, porque nos tiramos uns modificadores, que eh o proximo passo agora.
+
+25. Os modificadores eh o seguinte. Imagine-se o seguinte. O portfolio esta mostrando as tres caixas em vermelho, mas nos queremos dizer que esse portfolio eh so dos cursos mais vendidos. E, quando esse portfolio eh dos cursos mais vendidos, no nosso exemplo, o nosso cliente pediu para as caixas ficarem verdes, ou seja, no portfolio dos cursos mais vendidos, as caixas ficam verdes, eh o portfolio inteiro dos cursos mais vendidos, as caixas ficam verdes.
+
+26. O que que a gente pode fazer, neste caso? A gente pode colocar, aqui, um modificador. Entao, um modificador, que a gente ja deixou criado, depois iremos ver o CSS, eh portfolio, esse, na verdade, eh o nome do bloco, e a nomenclatura de um modificador, a gente coloca o nome do bloco, hifen, hifen, 2 hifens, nao eh underscore, eh hifen, hifen, e o nome do modificador, se tiver uma so palavra, okay, mas, se for mais de uma palavra, nos podemos colocar um hifen,
+
+<ul class="portfolio portfolio--mais-vendidos">
+</ul>
+
+27. Entao, agora, nos estamos falando que esse portfolio eh um portfolio de mais vendidos, lembremos o que o modificador faz, ele modifica o comportamento, um estado ou a aparencia de um bloco, de um componenete como esse. Entao, ele vai modificar, como nos estamos dizendo que ele eh um portfolio de mais vendidos, ao recarregar a pagina, as tres caixas que compoem o bloco para ficaram verdes.
+
+28. O instrutor recarregou a pagina e vemos que ficaram verdes as caixas dos cursos. Entao, simplesemente, nos definimos que esse eh, agora, o portfolio dos cursos mais vendidos. Dessa forma, o interessante eh que nos podemos ter um portfolio dos mais vendidos e outro portfolio que nao seja dos cursos mais vendidos, e simplesmente, nos colocamos um modificador, nos definimos: esse eh o portfolio dos cursos mais vendidos e esse nao eh o portfolio dos cursos mais vendidos.
+
+29. E, claro, nos podemos ter mais modificadores aqui, nos nao temos, nesse caso, mas, se quisessemos colocar, aqui, o portfolio dos cursos mais caros, 
+
+<ul class="portfolio portfolio--mais-vendidos portfolio--mais-caros">
+	...
+</ul>
+
+, entao, eh um portfolio dos mais vendidos e tambem dos mais caros, por exemplo. Ai teria, eh claro, que fazer algum ajuste no layout desse portfolio, talvez colocaria um cifrao bem grosso ali para simbolizar isso, algo assim.
+
+30. Entao, onde a gente vai usar o bloco, o elemento e o modificador e, nao so isso, mas, tambem, a nomenclatura, que eh muito importante. Por que? Se a gente usa essa estrutura de sempre colocar o nome do bloco, os elementos dentro desse bloco, dessa forma, com essa nomenclatura e todo mundo seguir isso, ou se estivermos sozinhos, tambem, se sempre seguirmos isso, fica muito simples, todo mundo ja entende. 
+
+31. Quando a gente bate o olho aqui, nos sabemos, 'Ah, isso aqui eh um bloco, olha so, tenho certeza, isso aqui eh um bloco',
+
+<ul class="portfolio">
+	...
+</ul>
+
+32. conteudo eh outro bloco, sabemos que conteudo eh outro bloco. rodape eh um bloco, usuarios, tambem, eh outro bloco.
+
+33. Tem, tambem, agora, um outro modificador aqui no elemento, para lembrarmos um pouquinho, quando a gente fala de modificador, pode ser um modificador tanto de bloco, como esse,
+
+<ul class="portfolio portfolio--mais-vendidos portfolio--mais-caros">
+	...
+</ul>
+
+, como tambem pode ser um modificador de elemento. Aqui nos vamos colocar um modificador de elemento,
+
+<li class="portfolio__curso" portfolio__curso--novo><a href="#">Javascript</a></li>
+
+, vamos definir que esse curso eh novo. Quando definimos que esse curso eh novo, ao recarregar a pagina, o instrutor exibe que apareceu o Rotulo Novo, que eh um pseudo-elemento, aquele after que nos colocamos. 
+
+34. Entao, nos podemos ter o modificador dos dois jeitos, so que, quando nos temos o modificador no elemento, nos colocamos o nome do elemento, hifen, hifen, nome do modificador, entao, modificamos alguma coisa nesse elemento.
+
+35. So para esclarecer, nessa Tag ancora aqui,
+
+<li class="portfolio__curso" portfolio__curso--novo><a href="#">Javascript</a></li>
+
+, a gente nao tem nenhuma classe CSS, mas, se, por acaso, a gente tivesse, nos estamos vendo que o ancora eh filho, a Tag ancora esta dentro de um elemento, esta dentro de portfolio_curso. O que que seria o certo, entao? Seria colocar assim,
+
+<li class="portfolio__curso" portfolio__curso--novo><a class="portfolio__curso__link" href="#">Javascript</a></li>
+
+? Seria isso?
+
+36. Nao. o BEM diz que nao devemos fazer isso. Nao devemos ficar criando toda a estrutura da nossa pagina html para o CSS, isso eh errado. O elemento eh um nivel somente, nao devemos ficar entrando em varios niveis nao. Entao, aqui, seria portfolio__link, poderia ser portfolio__curso-link, algo assim. Sempre um nivel somente, nao devemos ficar colocando mais, criando toda a estrutura no nosso CSS, nao.
+
+37. Mas, neste caso, a gente nao fez assim, a gente esta deixando assim, direto, o ancora sem classe CSS. Se a gente for ver isso aqui, no arquivo CSS, o CSS esta bem mais organizado agora, esta dividido em blocos, conteudo eh um bloco, rodape eh um bloco, portfolio eh um bloco, usuarios eh outro bloco.
+
+38. Inclusive, o instrutor gosta de colocar um comentario, algo bem chamativo para separar os blocos, ou, ainda, nos podemos separar os codigos em arquivos CSS diferentes, cada bloco em um arquivo CSS, eh, ate, o mais recomendavel, mas, ai, nos precisamos, na hora de colocar isso em producao, o ideal eh que juntemos isso tudo em um arquivo so. Existem ferramentas para isso, mas, nao eh o foco deste workshop, entao, a gente vai colocar tudo aqui dentro de um arquivo so, nao tem problema nenhum tambem.
+
+39. Vamos la, no portfolio, estavamos mostrando, esse eh o codigo que estiliza o bloco portfolio,
+
+.portfolio {
+  font-size: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+, aqui nos temos um pseudo-elemento ::after, para dar um clearfix, que a gente ja viu em uma aula passada,
+
+.portfolio::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+, para limpar o float. 
+
+40. Aqui, nos temos um modificador. O modificador, simplesmente, coloca a cor de fundo verde no elemento portfolio__curso, 
+
+.portfolio--mais-vendidos .portfolio__curso {
+  background-color: green;
+}
+
+41. Nos podemos, inclusive, ter um modificador no bloco que altera um elemento? Podemos. Aqui, nos podemos ver que nos colocamos um modificador no bloco e ele altera, na verdade, a cor do elemento,
+
+<ul class="portfolio portfolio--mais-vendidos">
+...
+
+, nao tem problema fazer isso. Claro que o ideal seria a gente colocar aqui,
+
+<li class="portfolio__curso portfolio--mais-vendidos"><a href="#">HTML e CSS</a></li>
+<li class="portfolio__curso portfolio--mais-vendidos portfolio__curso--novo"><a href="#">Javascript</a></li>			
+<li class="portfolio__curso portfolio--mais-vendidos"><a href="#">Java e Orientação a Objetos</a></li>
+
+, eh uma opcao, nao esta errado, mas, aqui, nos preferimos colocar dentro do bloco portfolio, 
+
+<ul class="portfolio portfolio--mais-vendidos">
+...
+
+, e, por esse modificador: portfolio--mais-vendidos, a gente altera o filho dele: portfolio__curso, porque isso aqui,
+
+.portfolio--mais-vendidos .portfolio__curso {
+  background-color: green;
+}
+
+, so para lembrar, esta bem associado, uma coisa nao existe sem a outra, portfolio__curso nao existe sem o bloco portfolio, entao, se nos colocarmos um modificador aqui,
+
+<ul class="portfolio portfolio--mais-vendidos">
+...
+
+, nao vemos problema em alterar o elemento portfolio__curso.
+
+42. Aqui nos temos um elemento,
+
+.portfolio__curso {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  margin-bottom: 20px;
+  float: left;
+  margin-right: 30px;
+  text-align: center;
+}
+
+43. Aqui, ao inves de colocar uma classe CSS para o ancora, a gente colocou com um seletor de filho direto,
+
+.portfolio__curso > a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding-top: 20px;
+}
+
+44. Isso aqui nao eh tao recomendado, na maioria das vezes, ficarmos colocando seletor por tag. Geralmente, quando a gente usa BEM, eh classe, a gente nao usa ID, nao usar Tag, eh classe CSS, deixamos bem simplificado, a questao eh simplificar as coisas.
+
+45. Nao tem guerra de especificidade, inclusive. Mas, neste caso aqui, nos vemos o seguinte, nos nunca vamos ter um curso que tenha dois links, por exemplo. Porque, se nos tivessemos dois links, um outro link para uma outra coisa,
+
+<li class="portfolio__curso"><a href="#">HTML e CSS</a><a href="#">HTML e CSS</a></li>
+
+, ai poderia ficar errado, porque, aqui no link,
+
+.portfolio__curso > a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding-top: 20px;
+}
+
+, nos colocamos algumas propriedades que, para o outro segundo link que fossemos colocar talvez nao teria. Ai ja estaria errado e teria que definir classe CSS.
+
+46. Entao, nos deixamos assim. Eh logico que este exemplo 2 aqui eh muito simples, pode ser que nos tivessemos dois links, mas, neste caso, nao.
+
+47. E nos sempre pensando: 'Um dia nos podemos ter isso?'. Nao, mas, as 
+vezes, vai ter. Ent ao, na duvida, defina a classe CSS. Mas, ai, eh claro, 
+comeca a ficar muito burocratico, comeca a ficar bem repetitivo, 
+
+<li class="portfolio__curso"><a class="portfolio__link" href="#">HTML e CSS</a></li>
+
+, fica bem burocratico, mas eh o preco que se paga para organizar as coisas.
+
+48. Mas, so para vermos como ficou. E outra coisa, o rodape que a 
+gente tem esse bloco de usuarios, 
+
+<ul class="usuarios">
+	<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+	<li><a href="#">Maria Sebastiana</a></li>
+	<li><a href="#">José Souza</a></li>
+</ul>
+
+, o bloco de usuarios, o instrutor fez de uma forma diferente, para 
+tambem mostrar isso, cada elemento aqui, cada elemento do bloco de 
+usuarios eh um nome, entao, o elemento eh usuarios__nome,
+
+<ul class="usuarios">
+	<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+	<li><a href="#">Maria Sebastiana</a></li>
+	<li><a href="#">José Souza</a></li>
+</ul>
+
+, so que vejamos, aqui, por exemplo, nao tem nada de classe CSS,
+
+<li><a href="#">Maria Sebastiana</a></li>
+
+, se nos olharmos o codigo CSS, esse aqui eh o bloco,
+
+.usuarios {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+, e esse aqui eh o elemento,
+
+.usuarios > li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+, so que o elemento, ao inves de colocar uma classe CSS, como 
+usuarios__nome, o instrutor colocou sem, deixou assim, entao, estamos
+selecionando pela Tag.
+
+49. Nao eh que esta errado, mas o recomendado eh colocar sempre pela
+classe CSS. Mas, em alguns casos, nos temos a certeza de que nao
+vai ter problema, entao, eh muito para nos pensarmos mesmo, em alguns
+casos, podemos pensar, 'Neste caso, acho que vale a pena deixar assim,
+sempre vou usar o ul, nao quero usar outra tag mesmo, vai ser sempre
+ul, li'. Entao, eh uma responsabilidade nossa e podemos, sim, nao
+colocar uma classe CSS, um nome para o elemento e falar que o elemento
+eh a propria Tag, tudo bem. So devemos fazer isso quando a Tag tem
+uma semantica, por exemplo, o li, eh um item da lista, ou seja,
+estamos em uma lista de usuarios e o li eh o item da lista, fica bem
+claro que eh um usuario dessa lista. Entao, devemos fazer isso somente
+quando a Tag for semantica. Mas, deve-se evitar. 
+
+50. Agora, se nao estamos colocando o nome de classe do elemento, mas
+esse elemento tem um modificador, como que fazemos? 
+
+51. Nos definimos um nome, colocando o nome do bloco, underscore, 
+underscore, o nome do elemento, ou seja, usuarios__nome, mais traco,
+traco e o nome do modificador, ou seja, usuarios__nome--novo. Entao,
+eh uma outra possibilidade, mas, geralmente, nos vamos fazer dessa
+forma,
+
+<ul class="portfolio portfolio--mais-vendidos">
+	<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+	<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+	<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+</ul>
+
+, colocando o nome das classes mesmo em todos os elementos. 
+
+52. Se a gente, agora, pegar a lista de usuarios e colocarmos dentro
+do bloco de conteudo, lembremos quando o instrutor falou do caos do 
+CSS, que isso nao funcionou. Virou uma bagunca mesmo. Se nos colocarmos
+isso aqui, agora, o que vai acontecer?
+
+<div class="conteudo">
+	<ul class="portfolio portfolio--mais-vendidos">
+		<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+		<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+		<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+	</ul>
+	<ul class="usuarios">
+		<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+		<li><a href="#">Maria Sebastiana</a></li>
+		<li><a href="#">José Souza</a></li>
+	</ul>
+</div>
+
+53. Funcionou, ao recarregarmos a pagina, vimos que jogou a lista de 
+usuarios para cima, nao teve nenhuma incompatibilidade. Vamos voltar,
+agora, aqui, a lista de usuarios para o rodape,
+
+<div class="conteudo">
+	<ul class="portfolio portfolio--mais-vendidos">
+		<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+		<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+		<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+	</ul>
+</div>
+<footer class="rodape">
+	<ul class="usuarios">
+		<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+		<li><a href="#">Maria Sebastiana</a></li>
+		<li><a href="#">José Souza</a></li>
+	</ul>
+</footer>
+
+54. E se nos duplicarmos o portfolio dentro do rodape? O que vai 
+acontecer?,
+
+<div class="conteudo">
+	<ul class="portfolio portfolio--mais-vendidos">
+		<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+		<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+		<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+	</ul>
+</div>
+<footer class="rodape">
+	<ul class="portfolio">
+		<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+		<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+		<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+	</ul>	
+	<ul class="usuarios">
+		<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+		<li><a href="#">Maria Sebastiana</a></li>
+		<li><a href="#">José Souza</a></li>
+	</ul>
+</footer>
+
+, so que nao vamos colocar o modificador mais-vendidos, neste caso, 
+vamos tirar, o que que vai acontecer?
+
+55. Funcionou. Ao recarregar a pagina, vemos que o portfolio de cursos
+foi para o rodape, sem nenhuma incompatibilidade.
+
+56. Nos lembramos o quanto foi complicado, na verdade, a gente nem 
+resolveu na aula sobre o caos do CSS. Estamos vendo, agora, como eh
+facil. Por que que isso aconteceu?
+
+57. Porque os blocos sao independentes, nos podemos colocar em qualquer
+lugar da pagina, em outra pagina e podemos levar, inclusive, para outro
+projeto. 
+
+58. Se quisermos levar esse portfolio aqui de cursos para um outro 
+projeto,
+
+<ul class="portfolio portfolio--mais-vendidos">
+	<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+	<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+	<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+</ul>
+
+, nos so precisamos ir no arquivo CSS e copiar todo o codigo referente
+ao PORTFOLIO e copiar isso para o outro projeto,
+
+/*-----------------------\*
+  PORTFOLIO
+\*-----------------------*/
+.portfolio {
+  font-size: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.portfolio--mais-vendidos .portfolio__curso {
+  background-color: green;
+}
+
+.portfolio__curso {
+  width: 300px;
+  height: 300px;
+  background-color: red;
+  margin-bottom: 20px;
+  float: left;
+  margin-right: 30px;
+  text-align: center;
+}
+
+.portfolio__curso > a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding-top: 20px;
+}
+
+.portfolio__curso--novo::after {
+  content: "Novo";
+  display: block;
+  font-size: 24px;
+  margin: 0 20%;
+  margin-top: 30px;
+  background-color: yellow;
+}
+
+, e pronto, esta funcionando, nao precisamos depender de mais nada.
+Entao, essa independencia eh muito legal, quando usamos BEM.
+
+59. Fim da Aula 06.004. Como usar BEM na Pratica - Parte 1.
+
+--> 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/exemplo2.css">
+</head>
+<body>
+
+	<div class="conteudo">
+
+		<ul class="portfolio portfolio--mais-vendidos">
+			<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+			<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+			<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+
+		<!--ul class="usuarios">
+			<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">José Souza</a></li>
+		</ul-->
+
+	</div>
+
+
+	<footer class="rodape">
+
+		<ul class="portfolio">
+			<li class="portfolio__curso"><a href="#">HTML e CSS</a></li>
+			<li class="portfolio__curso portfolio__curso--novo"><a href="#">Javascript</a></li>			
+			<li class="portfolio__curso"><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+
+		<ul class="usuarios">
+			<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">José Souza</a></li>
+		</ul>
+
+	</footer>
+
+</body>
+</html>
+

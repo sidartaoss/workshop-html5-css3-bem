@@ -1,0 +1,212 @@
+<!-- 
+
+	Aula 07.019. Aplicando Estilos em Tabelas com CSS.
+
+1. A gente tem uma tabela, mas ela esta feia, ela nao esta estilizada. Entao, nesta aula, a gente vai aplicar estilos CSS deixar essa tabela mais bonita.
+
+2. Aqui, entao, a gente ja tem o nosso codigo html, com uma tabela, com thead, com tbody, e as suas linhas e colunas. Agora, a gente vai aplicar os estilos aqui no estilos.css.
+
+3. E, para isso, na nossa tabela, nos vamos aplicar uma classe CSS chamada tabela, eh um nome que inventamos agora,
+
+	<table class="tabela">
+		...
+
+4. E, aqui, no estilos.css, a gente pode colocar, aqui, as nossas regras CSS,
+
+.tabela {
+	
+}
+
+, por exemplo, no seletor tabela, na classe CSS tabela nos vamos colocar que a largura dela eh 100% da tela, entao, recarregando a pagina, vemos que deu uma espalhada nas informacoes aqui,
+
+.tabela {
+	width: 100%;	
+}
+
+5. Vamos colocar uma borda nessas linhas, porque esta muito estranho assim, vamos colocar uma borda,
+
+6. Entao, para colocar a borda, vamos colocar .tabela tbody td {},
+
+.tabela tbody td {
+		 
+}
+
+7. Eh um seletor que nos estamos colocando, aqui, para buscar, atraves da tabela, a gente pega tbody, e pegamos o td. Na verdade, vamos pegar todos os td's, nao vamos nem selecionar por tbody, todos as celulas, no caso, em todas as celulas da nossa tabela nos vamos aplicar um estilo, , e nos vamos colocar, aqui, border 1px solid #ccc;,
+
+.tabela td {
+	border: 1px solid #ccc;
+}
+
+8. Entao, ao recarregarmos, vemos que as celulas ficaram com bordas, mas, o cabecalho ficou sem borda. Por que?
+
+9. Porque a gente selecionou apenas td, a gente nao selecionou th. Entao, vamos selecionar th tambem,
+
+.tabela td, .tabela th {
+	border: 1px solid #ccc;
+}
+
+10. Recarregamos e, agora sim, tudo esta com borda. Mas, reparemos que essas bordas estao com um espaco ente elas, cada celula tem a sua borda, e tem um espaco entre uma celula e outra. Isso eh porque eh o padrao das tabelas, mas a gente pode alterar, usando a propriedade, aqui na tabela, de border-collapse, e agente coloca, como valor, collapse,
+
+.tabela {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+11. O padrao eh o valor separated, que cada celula tenha su propria borda com aquele espacinho entre elas. Quando a gente coloca collapse, fica tudo juntinho.
+
+12. Recarregamos, vemos que as celulas, agora, compartinham a mesma borda. Entao, agora, sim, esta melhor. Ainda nao vai ficar desse jeito, ainda nao esta muito bonito, mas ja ficou melhor, com a borda dessa forma, sem aquele espacinho.
+
+13. O que que a gente vai fazer agora? Na classe tabela, vamos deixar assim, vamos, agora, colocar um padding, para dar mais espaco, esta muito colado na borda, muito fininho essa linha, vamos tentar melhorar isso ai,
+
+14. Vamos colocar aqui em .tabela td, .tabela th, o padding de 15px 10px, ou seja, 15 pixels em cima e embaixo e 10 pixels a direita e a esquerda,
+
+.tabela td, .tabela th {
+	padding: 15px 10px;
+
+	border: 1px solid #ccc;
+}
+
+15. Ao recarregarmos, vemos que ja deu uma melhorada, deu um espacinho, entao, um espacinho assim ja nao fica tao tumultuado.
+
+16. Legal, mas nao acabamos ainda. Agora, a gente vai colocar o cabecalho,
+
+.tabela th {
+	
+}
+
+, porque a gente sabe que th sao sempre celulas do cabecalho, e vamos colocar, aqui, background-color com #ececec, 
+
+.tabela th {
+	background-color: #ececec;	
+}
+
+
+que vai ser um cinza, nao muito escuro, entao, a gente colocou o nosso cabecalho cinza. Notemos que somente o th, se colocassemos o td, ai colocaria cinza embaixo, nos dados da tabela, mas, no caso, a gente quer cinza somente no th.
+
+17. O que mais que a gente vai fazer aqui? Vamos colocar um font-size de 1.1em, para dar uma leve aumentada so nas fontes do cabecalho, 
+
+.tabela th {
+	background-color: #ececec;	
+
+	font-size: 1.1em;
+}
+
+18. Vamos colocar, tambem, um peso da fonte em negrito, nao precisaria, porque ja esta negrito, mas colocamos, aqui, um peso da fonte negrito, so para ter certeza de que vai ficar, mas nao precisaria, porque eh o padrao do navegador, mas o ideal eh que a gente coloque, vai que tenha alguem, em algum momento, tirando esse peso da fonte, a gente ja esta colocando aqui,
+
+.tabela th {
+	background-color: #ececec;	
+
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+19. Tambem text-align left, ou seja, nos vamos alinhas os textos a esquerda, ai nos decidimos como que nos queremos colocar, neste caso, vamos colocar a esquerda mesmo,
+
+.tabela th {
+	background-color: #ececec;	
+
+	font-size: 1.1em;
+	font-weight: bold;
+	text-align: left;
+
+}
+
+20. Entao, agora que a gente tem o nosso cabecalho, ja aplicado em estilo, vamos aplicar um estilo tambem quando nos passarmos o mouse por cima das celulas de dados. Ao passar o mouse por cima, vai selecionando a linha que o cursor esta em cima, entao, vamos colocar assim, .tabela tr:hover para pegar quando o mouse estiver em cima, nos vamos colocar background-color e a cor #faffcc, isso aqui eh uma cor amarelinha,
+
+.tabela tr:hover {
+	background-color: #faffcc;
+}
+
+21. E outra coisa que a gente vai fazer eh colocar um efeito aqui que a gente chama de zebra, que eh uma cor sim e, depois, uma cor nao. A gente vai colocar dessa forma, efeito zebra, e eh muito simples, a gente pode colocar aqui .tabela tr:, e, agora, a gente vai usar uma pseudo-classe que eh nth-child(),
+
+.tabela tr:nth-child() {
+	
+}
+
+22. E, aqui dentro dos parenteses, a gente coloca even. O que que significa isso? 
+
+.tabela tr:nth-child(even) {
+	
+}
+
+23. Nos queremos pegar todas as linhas pares, a traducao, em ingles, para even, eh par, entao, todas as linhas pares, nos vamos colocar a cor de fundo #f7f7f7, outra cor, senao, fica amarelo,
+
+.tabela tr:nth-child(even) {
+	background-color: #f7f7f7;	
+}
+
+
+24. Recarreguemos e vejamos o resultado. Todas as linhas pares ficaram cinzas. Entao, agora, quando vamos passando o mouse em cima tem um problema, a linha cinza nao fica amarela quando nos passamos o mouse em cima, ou seja, nos temos, aqui, uma guerrinha de especificidade. Como, aqui, a especificidade ficou igual, quem eh declarado depois ganha,
+
+.tabela tr:hover {
+	background-color: #faffcc;
+}
+
+.tabela tr:nth-child(even) {
+	background-color: #f7f7f7;
+}
+
+25. Entao, o que nos iremos fazer eh so inverter essa orderm aqui,
+
+.tabela tr:nth-child(even) {
+	background-color: #f7f7f7;
+}
+
+.tabela tr:hover {
+	background-color: #faffcc;
+}
+
+, porque a especificidade, se nos formos somar a especificidade aqui, vai dar o mesmo peso para os dois, entao, quem estiver declarado por ultimo, sobressai.
+
+26. Recarregamos e vemos que, como nos mudamos a ordem agora, agora que nos mudamos a ordem, funciona certinho.
+
+27. Bom, achamos que, agora ja conseguimos estilizar as tabelas da forma que nos quisermos, paa o instrutor, ate, ficou interessante a tabela dessa forma, e nos podemos fazer mais alguns testes, se nos quisermos. 
+
+28. Fim da Aula 07.019. Aplicando Estilos em Tabelas com CSS.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<table class="tabela">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Preço</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Monitor LG 22"</td>
+				<td>Informática</td>
+				<td>R$ 592,82</td>
+			</tr>
+			<tr>
+				<td>Mouse LG</td>
+				<td>Acessórios</td>
+				<td>R$ 87,00</td>
+			</tr>
+			<tr>
+				<td>Sabao em Po</td>			
+				<td>Limpeza</td>
+				<td>R$ 11,50</td>
+			</tr>		
+			<tr>
+				<td>Coca-Cola 2L</td>			
+				<td>Bebidas</td>
+				<td>R$ 5,90</td>
+			</tr>			
+		</tbody>
+	</table>
+
+
+</body>
+</html>

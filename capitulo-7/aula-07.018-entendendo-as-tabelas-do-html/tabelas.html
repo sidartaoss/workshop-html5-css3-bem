@@ -1,0 +1,196 @@
+<!-- 
+
+	Aula 07.018. Entendendo as Tabelas do HTML
+
+1. Nesta aula, a gente vai estudar sobre tabelas de dados, que eh o elemento table do html. E, para exemplificar, a gente vai criar uma tabela de produtos de uma loja ficticia. Essa tabela vai ter 3 colunas, a coluna de nome, a coluna categoria, e a coluna de preco.
+
+2. Entao, nos temos, aqui, o html sem, praticamente, nenhum estilo, somente estilos de fontes, e a gente vai criar a nossa tabela.
+
+3. O elemento de tabela do html eh o table. Entao, a gente cria, aqui, a tag table, vamos fecha-la aqui embaixo,
+
+<table>
+</table>
+
+4. Um elemento table representa dados tabulares, ou seja, uma tabela de dados. Essa tabela de dados geralmente tem o que? Tem um cabecalho.
+
+5. E esse cabecalho a gente representa usando o elemento thead,
+
+<table>
+	<thead>
+	</thead>
+</table>
+
+, ou seja, eh o cabecalho da tabela. E, dentro de um cabecalho de tabela, a gente tem linhas. Geralmente, uma linha so. E uma linha eh representada pelo elemento tr, que significa table row, ou seja, uma linha de uma tabela. Nos vamos fechar aqui o tr,
+
+<table>
+	<thead>
+		<tr>
+		</tr>
+	</thead>
+</table>
+
+
+6. E uma linha tem o que? O que que tem dentro de uma linha? Tem celulas.
+
+7. E as celulas sao representadas por td, pelo elemento td, entao nos fechamos aqui,
+
+<table>
+	<thead>
+		<tr>
+			<td></td>
+		</tr>
+	</thead>
+</table>
+
+7. So que o seguinte. Como a gente esta dentro do nosso cabecalho, o mais comum eh a gente nao usar td, eh a gente usar th, que representa uma celula do cabecalho. O td a gente usa para os dados, daqui um pouquinho a gente vai usa-lo. Aqui, na verdade, a gente vai usar o th, que eh uma celula do cabecalho,
+
+<table>
+	<thead>
+		<tr>
+			<th></th>
+		</tr>
+	</thead>
+</table>
+
+8. Vamos revisar, entao, aqui. Dentro da tabela, a gente tem um cabecalho. Dentro do cabecalho, a gente tem uma linha. Dentro de uma linha, a gente tem uma celula do cabecalho.
+
+9. O que que eh essa celula do cabecalho? A gente coloca aqui os nosmes das nossas colunas, por exemplo, a primeira coluna va iser Nome, que eh o nome do produto. A segunda coluna vai ser Categoria, que eh a categoria do produto, e a terceira coluna Preco,
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+</table>
+
+10. So isso aqui a gente ja pode consegue ver alguma coisa? Vamos recarregar.
+
+11. Vejamos so, recarregando a pagina, a gente ve que tem 3 textos aqui, Nome Categoria, e Preco, isso aqui ja eh a nossa tabela, s que a gente so tem o cabecalho da tabela, a gente nao tem dados ainda. 
+
+12. Para colocar os dados, a gente nao coloca dentro do thead, a gente abre um outro elemento aqui, colocamos um outro elemento, chamado tbody, que eh o corpo da tabela. Ele vai definir uma semantica,  tem semantica essas tags, nos podemos ver, esses elementos ai. Dentro do tbody, a gente vai colocar linhas. Cada produto eh uma linha, entao, tr, que eh uma linha, e, dentro do tr, nos colocamos td, e fechamos aqui,
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+13. Cada td eh uma celula, entao, sao 3 olunas. A primeira eh o Nome, entao, vamos colocar um nome aqui, Monitor LG 22". A segunda coluna eh a Categoria, entao, vamos seguir essa mesma sequencia, Informatica vai ser a Categoria, e o Preco, vamos colocar um preco aqui de R$ 592,82, por exemplo, ou seja, nos temos uma tabela agora que tem um cabecalho, tem um corpo, e, dentro desse corpo, tem uma linha com 3 celulas, com esses valores,
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Monitor LG 22"</td>			
+			<td>Informatica</td>
+			<td>R$ 592,82</td>
+		</tr>
+	</tbody>
+</table>
+
+14. Se nos recarregarmos, vemos que temos uma tabela. Pode nao parecer, mas, sim, eh uma tabela, uma tabela de dados.
+
+15. Agora, a gente pode colocar mais linhas. Vamos copiar e colar mais algumas linhas,
+
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Categoria</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Monitor LG 22"</td>			
+			<td>Informatica</td>
+			<td>R$ 592,82</td>
+		</tr>
+		<tr>
+			<td>Mouse LG</td>
+			<td>Acessórios</td>
+			<td>R$ 87,00</td>
+		</tr>
+		<tr>
+			<td>Sabao em Po</td>			
+			<td>Limpeza</td>
+			<td>R$ 11,50</td>
+		</tr>		
+		<tr>
+			<td>Coca-Cola 2L</td>			
+			<td>Bebidas</td>
+			<td>R$ 5,90</td>
+		</tr>		
+	</tbody>
+</table>
+
+, entao, agora, nos temos uma tabela com varias linhas. Cada linha eh representada por um tr, entao, nos temos essa tabela. Recarreguemos e vejamos como ficou.
+
+16. Eh uma tabela. Esta feio, nao esta bonito, mas eh uma tabela. E a estilizacao dessa tabela a ghente vai ver na proxima aula.
+
+17. Fim da Aula 07.018. Entendendo as Tabelas do HTML.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Preço</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Monitor LG 22"</td>
+				<td>Informática</td>
+				<td>R$ 592,82</td>
+			</tr>
+			<tr>
+				<td>Mouse LG</td>
+				<td>Acessórios</td>
+				<td>R$ 87,00</td>
+			</tr>
+			<tr>
+				<td>Sabao em Po</td>			
+				<td>Limpeza</td>
+				<td>R$ 11,50</td>
+			</tr>		
+			<tr>
+				<td>Coca-Cola 2L</td>			
+				<td>Bebidas</td>
+				<td>R$ 5,90</td>
+			</tr>			
+		</tbody>
+	</table>
+
+
+</body>
+</html>

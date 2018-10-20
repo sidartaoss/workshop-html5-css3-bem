@@ -1,0 +1,138 @@
+<!-- 
+    Aula 06.005. Como usar BEM na Pratica - Parte 2
+
+75. O que nos fizemos aqui, neste codigo, eh falar que nos temos um
+bloco portfolio e nos temos um elemento que eh portfolio__item.
+
+76. Nesse elemento portfolio__item, nos colocamos um item de portfolio,
+o que que eh esse item de portfolio? Pode ser qualquer coisa, pode ser
+um livro, pode ser um curso, pode ser um treinamento presencial, pode
+ser uma consultoria, pode ser qualquer coisa, um software, eh um item
+do nosso portfolio.
+
+77. Entao, se nos quisermos colocar, aqui, 
+
+<div class="portfolio">
+    <div class="portfolio__item">
+        Software MyPilas
+    </div>
+</div>
+
+, por exemplo, estamos inventando aqui, ao recarregar a pagina, vemos
+que ele ficou no lugar que deveria ficar.
+
+78. Entao, esse bloco aqui eh um bloco so para ajustar o layout, ou seja,
+ele eh um bloco so mesmo para organizar o layout de alguma coisa, ele
+organiza a vitrine, para nos colocarmos os produtos ali dentro, podemos,
+entre aspas, falar dessa forma.
+
+79. Isso eh legal, porque nos da mais independencia agora. Da forma que
+ficou aqui, agora, esse bloco aqui que nos chamamos de cartao-curso,
+poderia, tambem, chamar so de curso, chamamos de cartao-curso entendendo
+que cada quadradinho desses de curso eh um cartao,
+
+<article class="cartao-curso cartao-curso--mais-vendido cartao-curso--novo"><a href="#">HTML e CSS</a></article>
+
+, poderia chamar so de curso, nao estaria errado, chamamos o bloco de
+cartao-curso e, claro, agora, nos tivemos que colocar alguns modificadores,
+cartao-curso--novo, mas tambem colocamos cartao-curso--mais-vendido,
+por isso a primeira caixa da esquerda esta verde e as outras duas caixas da direita
+estao vermelhas, porque o curso mais vendido eh somente o Html e CSS.
+
+80. Podemos colocar o modificador --mais-vendido junto
+ao bloco portfolio?,
+
+<div class="portfolio portfolio--mais-vendido">
+    ...
+</div>
+
+, e, ai, pelo portolio--mais-vendido, nos alteramos a cor do cartao do
+curso?
+
+81. Podemos fazer isso? Poder, pode, mas nao eh interessante, porque,
+ai, fica dependendo, o curso fica dependendo do portfolio, e, ai, ja
+nao eh tao interessante, mas, depende do caso. As vezes, eh o preco 
+que se paga para criar essa dependencia, mas nos preferimos assim,
+
+<div class="portfolio">
+    <div class="portfolio__item">
+        <article class="cartao-curso cartao-curso--mais-vendido cartao-curso--novo"><a href="#">HTML e CSS</a></article>
+    </div>
+</div>
+
+, neste caso, nao vemos problema nos repetirmos, colocarmos aqui o 
+modificador --mais-vendido,
+
+<article class="cartao-curso cartao-curso--mais-vendido cartao-curso--novo"><a href="#">HTML e CSS</a></article>
+
+, se tiver um outro curso mais vendido, nos vamos repetir de novo porque
+que ele eh mais vendido, nao vemos problema, fica bem explicito, por
+exemplo,
+
+<article class="cartao-curso cartao-curso--mais-vendido"><a href="#">Java e Orientação a Objetos</a></article>
+
+, ao recarregar a pagina, o ultimo curso da direita, entao, ficou verde tambem.
+
+82. Se a gente for olhar agora, no arquivo CSS, nos temos o bloco do 
+PORTFOLIO e nos temos a classe portfolio, temos a classe portfolio__item,
+que define o tamanho, a largura, que ele eh float left.
+
+83. No bloco CARTAO-CURSO, ele define coisas so do cartao. So para nos
+vermos uma coisa - antes disso, nos temos as classes cartao-curso,
+cartao-curso > a, cartao-curso--mais-vendido e cartao-curso--novo::after,
+esses dois ultimos que sao os modificadores - so para nos vermos uma
+coisa, entao, se nos pegarmos um curso e colocarmos-no aqui embaixo,
+antes do rodape, 
+
+<article class="cartao-curso cartao-curso--mais-vendido cartao-curso--novo">
+    <a href="#">HTML e CSS</a>
+</article>
+<footer class="rodape">
+</footer>
+
+, ao recarregarmos a pagina, vemos que ele ficou com 100% de largura da
+tela. Isso eh uma coisa tambem, cada bloco, deve-se tentar criar o nosso
+bloco de forma que ele vai encaixar em qualquer lugar.
+
+84. Por exemplo, ver exemplo3b.html.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/exemplo3.css">
+</head>
+<body>
+
+	<div class="conteudo">
+
+        <div class="portfolio">
+            <div class="portfolio__item">
+                <article class="cartao-curso cartao-curso--mais-vendido cartao-curso--novo"><a href="#">HTML e CSS</a></article>
+                <!-- Software MyPilas -->
+            </div>
+            <div class="portfolio__item">
+                <article class="cartao-curso cartao-curso--novo"><a href="#">Javascript</a></article>
+            </div>
+            <div class="portfolio__item">
+                <article class="cartao-curso cartao-curso--mais-vendido"><a href="#">Java e Orientação a Objetos</a></article>
+            </div>
+        </div>
+
+	</div>
+
+    <article class="cartao-curso cartao-curso--mais-vendido cartao-curso--novo"><a href="#">HTML e CSS</a></article>
+
+	<footer class="rodape">
+
+		<ul class="usuarios">
+			<li class="usuarios__nome--novo"><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">José Souza</a></li>
+		</ul>
+
+	</footer>
+
+</body>
+</html>

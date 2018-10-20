@@ -1,0 +1,80 @@
+/*=====================*\
+  PLANO
+\*=====================*/
+/** article { **/ 
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+}
+
+/** 1. article > h2 { **/
+/** 2. .plano > .plano__cabecalho { **/
+.plano__cabecalho {
+  margin: -10px;
+  margin-bottom: 0;
+
+  background-color: #95a4a5;
+  color: #fff;
+
+  text-align: center;
+  line-height: 2.5;
+  font-weight: normal;
+  font-size: 28px;
+}
+
+/** article > div { **/
+.plano__preco {
+  margin: 20px 0;
+
+  text-align: center;
+  font-size: 28px;
+}
+
+/** article > ul { **/
+.plano__caracteristicas {
+  padding: 0;
+  margin: 20px 0;
+
+  list-style: none;
+}
+
+/** article > ul > li { **/ 
+.plano__caracteristicas > li {
+  text-align: center;
+}
+
+/** article > footer { **/
+.plano__rodape {
+  text-align: center;
+}
+
+/*=====================*\
+  BOTAO
+\*=====================*/
+.botao {
+  display: inline-block;
+  padding: 12px 16px;
+
+  /** background-color: #127d00; **/
+  background-color: #bbb;
+  color: #fff;
+
+  text-decoration: none;
+}
+
+.botao:hover, .botao:focus {
+  /** background-color: #0e6400; **/  
+  background-color: #aaa;
+  color: #fff;
+
+  text-decoration: none;  
+}
+
+.botao--assinar {
+    background-color: #127d00;
+}
+
+.botao--assinar:hover, .botao-assinar:focus {
+    background-color: #0e6400;
+}
+

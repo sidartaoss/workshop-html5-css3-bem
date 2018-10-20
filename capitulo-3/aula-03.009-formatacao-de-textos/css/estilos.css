@@ -1,0 +1,153 @@
+/**1.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: Arial;
+}
+*/
+/*2.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS";
+}
+*/
+
+/**3.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", Arial;
+}
+*/
+
+/**4.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+}
+*/
+
+/**5. 
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebu22222chet MS", serif;
+}
+*/
+/**6.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebu22222chet MS", sans-serif;
+}
+*/
+/**8.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+}
+*/
+
+/**7.
+.segmento {
+	font-family: Palatino, serif;
+}
+*/
+
+.segmento {
+	font-family: Pala22222tino, serif;
+}
+/**9.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: normal;
+}
+*/
+/**10.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+}
+*/
+/**11.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+	font-weight: normal;
+}
+*/
+/**12.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+	font-weight: bold;
+}
+*/
+
+/**13.
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+}
+*/
+/**14.
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: line-through;
+}
+*/
+/**15.
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: underline;
+}
+*/
+/**16.
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: none;
+}
+*/
+/**17.
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: underline;
+}
+*/
+/**18.
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: underline;
+	text-align: left;
+}
+*/
+/**
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: underline;
+	text-align: right;
+}
+*/
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: underline;
+	text-align: center;
+}

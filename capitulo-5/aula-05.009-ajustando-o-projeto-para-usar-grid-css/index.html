@@ -1,0 +1,232 @@
+<!-- 
+	Aula 05.009. Ajustando o Projeto para Usar Grid CSS.
+
+1. Agora, a gente vai usar o Grid CSS do Bootstrap no nosso Projeto
+do Curso. 
+
+2. E, antes disso, deixa nos so tirarmos as Media Queries que a gente
+colocou para essas caixinhas dos planos ficarem empilhadas, a
+gente fez isso sem Grids CSS, a gente fez isso direto na mao mesmo,
+com Media Query.
+
+3. Claro que um Grid CSS tambem usa Media Query, mas a gente fez isso
+sem pensar em Grid CSS. Alem disso, vamos tirar essa cor amarela das
+caixas, que a gente fez so para testar.
+
+4. Aqui no estilo.css, nos vamos excluir essas Media Queries, que a 
+gente tinha feito em uma aula anterior,
+
+@media (min-width: 600px) {
+  article {
+    background-color: yellow;
+  }
+}
+
+@media (min-width: 800px) {
+  article {
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+  }
+}
+
+5. Se a gente recarregar a pagina, os planos ficam todos empilhados.
+E tambem nos vamos remover essa classe CSS container. Lembremos o que 
+eh esse container, nos tinhamos criado quando tinhamos o layout fixo. A
+gente vai tirar isso. Por que? Porque o Bootstrap, o Grid CSS dele,
+quando a gente baixa, ele ja tem essas classes de container, a gente
+nao precisa criar o nosso proprio container.
+
+6. Okay, apagamos tambem,
+
+.container {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+7. Entao, agora, ficou sem o container.
+
+8. Agora, vamos colocar o arquivo do Bootstrap na pasta css.
+
+9. Agora, nos falamos, em uma aula anterior, que o Bootstrap ja vem com
+o normalize.css dentro dele, entao nao precisamos usar mais o normalize,
+vamos, ate apagar o arquivo da pasta css e remover a referencia daqui
+do arquivo html.
+
+10. Nao precisamos porque ja tem. E vamos adicionar a referencia para
+bootstrap.min.css.
+
+11. Okay, ja estamos usando o Bootstrap, vamos recarregar a pagina.
+
+12. Vejamos que, automaticamente, so de adicionar o Bootstrap, ele 
+ja comecou a utilizar um container, o container fixo, porem responsivo
+do Bootstrap. Por que?
+
+13. Porque, coincidentemente, a gente esta usando essa classe container
+aqui,
+
+<div id="planos">
+    <div class="container">
+	</div>
+</div>
+
+, nos ja tinhamos criado essa classe, nos acabamos de apagar, mas, agora,
+estamos usando do Bootstrap.
+
+14. Entao, ficou um layout fixo, usando o container fixo-responsivo. Ao
+diminuir o tamanho da tela, as caixas vao diminuindo de tamanho 
+e continuam empilhadas. A tela diminui ate um tamanho determinado, que
+nao prejudica a disposicao dos elementos dentro das caixas, eles nao
+ficam sobrepostos ou desalinhados.
+
+15. Mas nao eh assim que a gente quer. Com telas pequenas, a gente quer
+empilhado mesmo, a gente quer que essas caixas fiquem empilhadas, porem,
+quando for uma tela maior, a gente quer que essas caixas, os planos,
+fiquem lado a lado. E, para isso, a gente vai usar o Grid CSS do 
+Bootstrap.
+
+16. Entao, aqui dentro do container, nos vamos colocar um div com uma
+linha e, em seguida, vamos colocar um div com uma coluna a partir do 
+tamanho de Tela Grande, 'col-lg-'. A gente pode olhar na documentacao
+do Bootstrap, se quisermos saber exatamente o tamanho,
+http://getbootstrap.com/docs/4.1/layout/grid/#grid-options,
+o -lg, Large, vai ser a partir de 992 pixels. Entao, a partir de 992
+pixels de tamanho da largura da tela, ele vai colocar os planos 
+lado a lado, fora isso, fica empilhado mesmo. Entao, vamos definir
+o numero de colunas como 4, porque sao 3 caixas, ou seja, 3 planos,
+
+<div class="row">
+    <div class="col-lg-4">
+	</div>
+</div>
+
+17. Agora, vamos colocar o artigo Autonomo dentro do div col-lg-4.
+
+18. Talvez estejamos nos perguntando se poderia colocar essa classe
+col-lg-4, ao inves de criar um div a mais, poderia colocar esse 
+col-lg-4 dentro do article? 
+
+19. As caixas ficariam coladas uma na outra. Realmente, nao eh 
+recomendado. Apesar de ficar mais burocratico, mais codigo, eh preferivel
+separar. O artigo, a gente entende ele como algo independente 
+de layout, os div's container, row, col-lg-4, a gente esta estruturando
+o nosso layout.
+
+20. O artigo eh um componente, eh uma caixinha do plano, o article, na
+verdade, eh uma caixinha do plano, entao, preferimos separar.
+
+21. Os planos ficam todos na mesma linha, entao, vamos criar mais
+colunas, vamos identar bem o codigo, importante essa parte, nunca deixar
+com  bagunca o codigo.
+
+22. Esse estilo inline a gente nao vai mais precisar tambem,
+<article style="margin-right: 0">, porque a gente tinha feito na mao,
+antes.
+
+23. Vamos recarregar a pagina e, agora, os planos estao lado a lado. E
+vemos que, ao ir diminuindo a tela, o container, obviamente, esta 
+diminuindo de acordo com a largura da tela e os planos estao lado a lado
+ainda, mas, vai chegar um momento que os planos empilham.
+
+24. Se nos acharmos que esta empilhando muito cedo, se estiver empilhando
+muito cedo, nos mudamos de -lg- para -md-, ou seja, col-md-4, em todos
+os artigos.
+
+25. Entao, agora, ao recarregar a pagina, vai empilhar quando estiver
+os planos bem curtinhos. O -md- eh a partir de 768 pixels de largura
+da tela, a partir de 768 pixels, vamos no DevTools do Chrome para 
+mostrar a resolucao, a partir de 767 pixels, fica empilhado, dai para 
+frente, desempilha, fica lado a lado, entao esta certinho.
+
+26. Vamos deixar esse -md- mesmo, achamos que ficou bom, coube tudo 
+certinho, nao vai extrapolar aqui o conteudo, entao, vamos deixar
+assim mesmo. 
+
+27. Entao, eh isso ai, a gente esta usando, agora, o Grid CSS no nosso
+projeto, era so isso, nao tem mais nada aqui, inclusive, aqui, no 
+cabecalho, a gente ja estava usando a classe CSS container, a gente
+nao precisa fazer mais nada, a gente nao precisa fazer mais nada, 
+ja estamos usando o Grid CSS do Bootstrap.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <!--link rel="stylesheet" href="css/normalize.css"-->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+  </head>
+  <body>
+
+    <header>
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>
+
+    <div id="planos">
+		<div class="container">
+			<div class="row">
+				<!--div class="col-lg-4"-->
+				<div class="col-md-4">
+					<article>
+					  <h2>Autônomo</h2>
+					  <div>R$59/mês</div>
+					  <ul>
+						<li>Até <strong>2 usuários</strong></li>
+						<li><strong>500MB</strong> de armazenamento</li>
+						<li>Lançamentos ilimitados</li>
+						<li>Acesso seguro</li>
+						<li>Sem fidelidade</li>
+					  </ul>
+					  <footer>
+						<a href="assine.html" class="botao">Assinar</a>
+					  </footer>
+					</article>
+				</div>
+				<!--div class="col-lg-4"-->
+				<div class="col-md-4">
+					<article>
+					  <h2>Micro</h2>
+					  <div>R$89/mês</div>
+					  <ul>
+						<li>Até <strong>6 usuários</strong></li>
+						<li><strong>1GB</strong> de armazenamento</li>
+						<li>Lançamentos ilimitados</li>
+						<li>Acesso seguro</li>
+						<li>Sem fidelidade</li>
+					  </ul>
+					  <footer>
+						<a href="assine.html" class="botao">Assinar</a>
+					  </footer>
+					</article>			
+				</div>
+				<!--div class="col-lg-4"-->
+				<div class="col-md-4">
+					<article>
+					  <h2>Pequena</h2>
+					  <div>R$99/mês</div>
+					  <ul>
+						<li>Até <strong>10 usuários</strong></li>
+						<li><strong>5GB</strong> de armazenamento</li>
+						<li>Lançamentos ilimitados</li>
+						<li>Acesso seguro</li>
+						<li>Sem fidelidade</li>
+					  </ul>
+					  <footer>
+						<a href="assine.html" class="botao">Assinar</a>
+					  </footer>
+					</article>
+				</div>			
+			</div>
+		</div>
+	</div>
+  </body>
+</html>

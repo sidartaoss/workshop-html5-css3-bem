@@ -1,0 +1,223 @@
+<!-- 
+
+    Aula 07.007. Posicionamento Relativo
+
+1. Vamos estudar, agora, o posicionamento relativo, ou o position relative,
+e nos temos aqui, neste html, alguns paragrafos e algumas caixas, como
+nos podemos ver sendo exibido pelo instrutor.
+
+2. Nesta aula, a gente vai trabalhar com essas duas caixas, Caixa 1, Caixa 2.
+Caixa 3 e Caixa 4 a gente nao vai trabalhar nesta aula ainda. 
+
+3. Entao, vamos la. Aqui, no html, nos temos todo o codigo dos paragrafos,
+e o principal, para esta aula, eh esse aqui, um div que nos chamamos de
+caixa1 o nome da classe CSS e tambem a caixa2. A caixa2 esta dentro 
+da caixa1 e, logicamente, o texto Caixa 1 fica por baixo da Caixa 2, pelo
+fluxo de posicionamento normal, o posicionamento normal esta estatico,
+entao, para Caixa 1, o texto fica abaixo de Caixa 2. 
+
+4. Aqui nos temos o CSS, nos vamos focar nas classes caixa1 e caixa2.
+O CSS, aqui, esta definindo o tamanho das caixas e cor de fundo, nada 
+de mais, nenhuma novidade.
+
+5. Agora, a gente vai usar a posicao relativa. E essa posicao relativa
+significa que eh relativo ao proprio elemento. Quando a gente define 
+uma posicao relativa a um elemento, por exemplo, position: relative,
+a gente esta dizendo que a gente quer posiciona-lo relativo a ele 
+mesmo, ou seja, nos queremos posicionar essa caixa vermelha a partir
+de onde ela deveria estar. E onde ela deveria estar? Neste lugar, 
+na verdade, ela esta onde deveria estar.
+
+6. Mas nos queremos posiciona-la, agora, diferente. A partir deste lugar,
+do ponto de onde ela deveria estar, que eh este, nos queremos, por exemplo,
+move-la um pouquinho para a direita.
+
+7. Entao, a gente, depois de definir o relative, a gente define aqui 
+left, que eh o lado esquerdo, vamos colocar, aqui, por exemplo, 100 pixels,
+entao, nos queremos move-la a partir desse ponto que ela deveria estar
+100 pixels a direita,
+
+.caixa1 {
+    position: relative;
+    left: 100px;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+}
+
+8. Ao recarregarmos a pagina, vemos que moveu. Se nos colocarmos aqui,
+tambem, que queremos move-la top 100 pixels, ela vai, entao, cair um
+pouquinho, vejamos ao recarregar a pagina,
+
+.caixa1 {
+    position: relative;
+    left: 100px;
+    top: 100px;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+}
+
+9. E uma coisa interessante eh que nos vemos que a caixa move-se, mas o
+elemento fica em cima de todos os outros elementos estaticos. Como o 
+paragrafo eh um elemento estatico, a caixa fica por cima. Vejamos tambem
+que o espaco que ela ocupa de onde ela deveria estar permanece ali,
+sem ser ocupado, o resto dos elementos nao ocupam aquele espaco, eh 
+como se a caixa estivesse ali, so que, visualmente, ela sai daquele
+local que ela estaria ocupando. Por exemplo, vamos colocar mais aqui
+para nos vermos,
+
+.caixa1 {
+    position: relative;
+    left: 300px;
+    top: 300px;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+}
+
+10. Vemos, ao recarregar a pagina, que a caixa saiu bastante, mas o espaco
+fica, os paragrafos nao se juntam, porque ela ainda ocupa aquele espaco
+ali. Vamos deixar 100 pixels aqui mesmo,
+
+.caixa1 {
+    position: relative;
+    left: 100px;
+    top: 100px;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+}
+
+11, E, agora, vamos pegar essa segunda caixa amarela aqui, que esta
+dentro dessa caixa 1 e, quando nos colocamos, aqui, o posicionamento
+relative e nos vamos colocar left 50 pixels e top de 50 pixels. Vejamos
+que, de novo, a caixa move-se a partir de onde a caixa deveria estar,
+Vejamos que, neste momento, a Caixa amarela deveria estar neste local,
+ou seja, no topo a esquerda da Caixa 1,
+
+.caixa2 {
+    position: relative;
+    left: 50px;
+    top: 50px;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: yellow;
+}
+
+, ela deveria estar ao topo e a esquerda da Caixa 1, nao eh onde inicialmente,
+porque, se a gente tirar, aqui, 
+
+    position: relative;
+    left: 50px;
+    top: 50px;
+
+, ou seja,
+
+.caixa2 {
+    width: 150px;
+    height: 150px;
+
+    background-color: yellow;
+}
+
+, nao eh onde estava a caixa2 inicialmente. Porque, se tirarmos isso aqui,
+
+    position: relative;
+    left: 100px;
+    top: 100px;
+
+, ou seja, 
+
+.caixa1 {
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+}
+
+, a caixa 2 deveria estar junto a borda da esquerda da tela, mas, como
+a caixa amarela esta dentro de uma outra caixa que foi posicionada 
+de um lugar diferente, o local que a gente considera que ela deveria 
+estar agora, neste momento, eh aqui, dentro da Caixa1, nao eh na posicao
+inicial, junto a esquerda da borda da tela. 
+
+12. A partir desse ponto que ela deveria estar, agora, quando nos colocamos
+position relative, left e top,
+
+.caixa2 {
+    position: relative;
+    left: 50px;
+    top: 50px;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: yellow;
+}
+
+, ela so vai mover isso aqui, ou seja, vai se mover um pouco a direita
+e para baixo dentro da Caixa 1.
+
+13. E, ainda, nos poderiamos colocar valores negativos se nos quisessemos,
+
+.caixa2 {
+    position: relative;
+    left: -50px;
+    top: -50px;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: yellow;
+}
+
+, se quisermos colocar valor negativo, a caixa2 sai para fora da caixa,
+isso funciona tambem.
+
+14. Entao, esse eh o posicionamento relative, que causa tanta confusao
+para muita gente.
+
+15. Fim da Aula 07.007. Posicionamento Relativo.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/estilos.css"
+    </head>
+    <body>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+        <div class="caixa1">
+            <div class="caixa2">Caixa 2</div>
+
+            Caixa 1
+        </div>
+
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+        <div class="caixa3">
+            <div class="caixa4">Caixa 4</div>
+
+            Caixa 3
+        </div>
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+    </body>
+</html>

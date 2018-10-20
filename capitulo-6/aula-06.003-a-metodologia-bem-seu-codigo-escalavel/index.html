@@ -1,0 +1,133 @@
+<!-- 
+
+	Aula 06.003. A Metodologia BEM: Seu Codigo Escalavel
+
+1. Agora, nos ja sabemos o caos que pode virar o codigo CSS se nao tormarmos cuidado conta dele e usar uma metodologia adequada. 
+
+2. Entao, nesta aula, a gente vai falar sobre uma metodologia para CSS. E existem varias opcoes, a gente tem que escolher uma metodologia que possibilita a gente reaproveitar o codigo, reduzir a complexidade e simplificar a manutencao do codigo tambem.
+
+3. Mesmo em projetos grandes, com varios desenvolvedores, que escrevem em HTML e CSS ao mesmo tempo, a gente tambem precisa evitar a guerra de especificidade, que pode ser um grande problema, tambem evitar a pratica de copiar e colar codigo, principalmente quando a gente tem conceitos similares e a gente copia propriedades de uma classe CSS que a gente definiu, de uma Regra CSS que tenha algumas propriedades, vai la e copia e cola em outra regra, sendo que poderia reaproveitar, porque o conceito eh o mesmo, dependendo da situacao. 
+
+4. A gente tambem precisa de uma metodologia para deixar o codigo auto-documentado. Se a gente tem nomes de classes CSS auto-explicativos, a gente nao precisa de nenhuma documentacao. E, muitas vezes, elas mesmos ja dizem o que sao. 
+
+5. E, tambem, uma metodologia que permita a gente mover o codigo html que representa alguma coisa, por exemplo, a gente quer mover uma caixinha que representa um Banner, uma caixa do Banner, a gente quer mover para um outro lugar da pagina, entao, tem que ser permitido fazer isso, sem ter nenhum problema. Entao, a gente pode mover para um outro lugar da pagina, a gente pode mover para uma outra pagina, ou, ainda, para um outro projeto, de forma que ainda continue funcionando e nao gere nenhum problema no codigo que ja existe.
+
+6. Tambem nao adianta a gente pegar algo, colocar em uma nova pagina, ou em outro projeto, aquilo funcionar, mas gerar erros em outras coisas que nao tem nada a ver com aquilo ali.
+
+7. Entao, a metodologia vai permitir tudo isso que falamos, provavelmente, mais um pouco de coisas. As mais conhecidas sao essas aqui: OOCSS, SMACSS e BEM. Na verdade, existem varias outras, mas essas tres sao as mais populares. Mas a gente vai usar o BEM, acreditamos, ainda, ser mais popular do que todas, mas eh muito simples de usar tambem, nao quer dizer que as outras sao ruins, mas o BEM eh o que a gente vai usar.
+
+8. E, para usar o BEM, nos podemos acessar http://getbem.com, esse eh o site do BEM, mas eh uma metodologia, nao eh uma tecnologia, nao eh nada que nos vamos baixar um arquivo CSS, um arquivo e colocar no nosso projeto, importar, nao existe nada disso, eh so uma metodologia, sao convencoes, entao esse eh o site do BEM, ha, la, um pouco de documentacao, perguntas e respostas, mas nao tem nada para baixar. Mas eh legal acessarmos essa pagina para, depois, conhecer um pouco mais.
+
+9. BEM vem de Block Element Modifier. Entao, com BEM, todos da equipe seguem uma convencao de nomeacao de classes CSS e tambem da estrutura dessas classes. E a estrutura dessas classes CSS sao organizadas em blocos, Block, elementos, Element, e modificadores, Modifier. Entao, essas tres entidades sao chave para o BEM, porque isso, inclusive formou o nome dele.
+
+10. Vamos comecar falando de Block. Nos vemos, aqui, um wireframe, ou seja, um rabisco de como seria uma pagina, um prototipo de uma pagina.
+
+11. Nos conseguimos ver, aqui, por exemplo, uma logomarca, uma caixa de busca, tem algumas abas em cima, do lado direito tem, tambem, uma area de login, login, password e botao. Entao, a gente esta falando de bloco. Bloco eh como se fosse componente. Eh uma entidade que tem o seu proprio significado. Entao, nos queremos dizer o seguinte, quando nos falamos que ele eh um componente, por exemplo, a gente fala que Logo eh um componente, as abas em cima, a gente chama de menu, entao, a gente tem que comecar, agora, a organizar mentalmente, olhar uma pagina e, mentalmente, identificar blocos, ou seja, identificar partes de um layout que podem ser reutilizados, que a gente pode colocar em qualquer outro lugar da pagina, e que a gente pode trabalhar de forma independente com eles, ou seja, que seja algo que nao depende de mais nada. 
+
+12. Por exemplo, aqui, o caso do menu, ele nao depende de mais nada para ele existir. A Logomarca, ela nao depende de mais nada. Se a gente pegar, aqui, essa area de busca, que tem o campo e o botao Search, entao, se a gente entende que isso aqui tudo que esta com azul, se a gente entender que isso aqui eh uma coisa, eh uma parte do nosso layout que tem que funcionar de forma independente, que nao dependa de mais nada do layout, a gente chama isso de um bloco.
+
+13. Ah, mas poderiamos falar que o campo eh uma coisa independente, o botao eh outra coisa independente, ate poderia, mas, neste caso, faz sentido ter o botao e nao ter o campo? Talvez nao, entao, a gente ja organiza isso mentalmente, a gente ja associa, isso aqui eh um bloco. Entao, tudo isso que esta com um circulo eh um bloco, inclusive toda essa area aqui eh um bloco tambem, eh o cabecalho, o bloco do cabecalho. 
+
+14. Entao, a gente comeca a separar dessa forma, na nossa cabeca. Claro, a gente pode desenhar tambem, como esta aqui, separar por bloco. O bloco, entao, nao depende de mais ninguem para existir, separamos blocos, e isso eh o bloco do BEM.
+
+15. Mas, eh logico, a gente vai colocar a mao no codigo depois e vai ficar mais claro para nos. Mas, ja conseguimos, agora, mentalmente, entender o que que sao blocos dentro de um layout. 
+
+16. Agora, o instrutor exibe outra imagem.
+
+17. Quando a gente trabalha dessa forma com blocos, eles podem ser movidos para outros lugares da pagina, ou, ainda, para outro projeto, como ja falamos.
+
+18. E tudo deve continuar funcionando. Entao, por exemplo, a gente tem, aqui, na primeira imagem aqui, uma logomarca do lado esquerdo, e essa area de login, que esta do lado direito. Mas a gente poderia fazer um teste: 'Ah, vamos testar, ver o que os usuarios acham.'. Se a gente inverter isso, por exemplo. Eh muito facil inverter, por que? 
+
+19. Porque essa area de login, esse componente, esse bloco de login, ele eh independente, ele nao depende de mais ninguem para funcionar, ele nao depende dos elementos ancestrais para funcionar. Inclusive, nos poderiamos pegar essa caixa de login e, ate, tirar desse cabecalho aqui. Nos poderiamos, inclusive, ate, tira-lo do cabecalho, que ele continuaria sendo representado da mesma forma, entao, ele continuaria funcionando. 
+
+20. Qualquer elemento que a gente chamou de bloco, em que nos vimos na primeira figura exibida pelo instrutor, qualquer bloco desses a gente pode coloca-lo em qualquer outro lugar da pagina, que ele tem que funcionar, nao pode ter problema: 'Ah, porque tem que estar dentro do cabecalho para funcionar...'. Nao, isso nao pode, porque o bloco tem que ser independente disso, nao precisa depender dos ancestrais, dos pais deles nao precisa.
+
+21. Entao, na Figura 2 sendo exibida pelo instrutor, a gente so mudou de ordem, colocamos o Logo do lado direito e a caixa de login do lado esquerdo. Isso eh tao simples como tirar o codigo de um lugar e colocar em outro lugar, tira o codigo do Logo daqui e coloca la, so isso, nao tem que ficar mexendo em CSS, muito simples.
+
+22. Entao, esse conceito de bloco ajuda muito isso, a reutilizacao do codigo e varias outras coisas. 
+
+23. Agora, o instrutor exibe a Figura 3.
+
+24. Inclusive, o bloco, que pode ser, o mesmo bloco pode existir varias vezes em uma mesma pagina. Entao, acontece muitas vezes a gente ter um bloco, por exemplo, esse aqui ter um bloco com uma imagem, um titulo e um texto, poderia ser um artigo, por exemplo. A gente quer repetir isso varias vezes, a gente pode fazer, simplesmente, vai repetindo-o, que vai funcionar tambem.
+
+25. Entao, a gente pode reutilizar dessa forma, tambem. 
+
+26. E, agora, a gente vai falar do Elemento, a parte 'E' da palavra BEM.
+
+27. O instrutor exibe a Figura 4.
+
+28. E eh o seguinte. Lembremos do bloco que a gente tinha do Menu, que estava la em cima do cabecalho, na Figura 1, aquela imagem anterior que nos foi mostrada pelo instrutor. Entao, a gente tem o menu, nesta figura, destacado, esta imagem aqui esta com o Menu separado, destacado aqui.
+
+29. Um bloco, que eh o que nos estamos vendo aqui, o bloco Menu, ele pode ter varios elementos dentro dele. Entao, o elemento eh uma parte do bloco. So que esse elemento sozinho nao tem nenhum significado, ele nao funciona sozinho, ele depende do bloco para existir.
+
+30. Vejamos, cada aba, dentro do bloco de Menu, depende do bloco para existir. Uma abinha dessas sem o bloco nao tem significado nenhum. Entao, cada abinha dessas aqui eh um elemento desse grande bloco de Menu.
+
+31. Voltemos para a Figura 2, onde sao exibidos dois cabecalhos. Temos, entao, no primeiro cabecalho, o bloco de login, a direita, essa area de login eh um bloco, entao, nos poderiamos falar que esse bloco eh o bloco chamado login. E, nesse bloco login, nos temos o campo de login, que eh um elemento de campo de login. Embaixo, temos o elemento campo de senha. Embaixo, temos o elemento botao de login. Entao, eh assim que funciona o elemento, eh uma parte do bloco, mas, ele, sozinho, nao funciona. O bloco sem o elemento tudo bem, se nos tivermos um bloco que nao tem elemento, nao tem problema nenhum, mas o elemento sem bloco funciona. Mas, geralmente, os blocos tem elemento, claro, pode ser que nao tenha, mas, geralmente, muitas vezes tem.
+
+32. Okay, agora a gente ja sabe o que que eh bloco na teoria e ja sabemos o que eh elemento na teoria tambem. Logico que a gente vai, depois, ver isso no codigo.
+
+33. E o ultimo tipo de entidade para formar o BEM, palavra completa, eh o Modifier, o modificador.
+
+34. Agora, o instrutor exibe a Figura 5.
+
+35. Entao, vejamos, a gente tem, nessa figura, um menu superior que eh exibido como abas. Esse eh o padrao, por exemplo, nesse bloco, pois esse eh um bloco, o padrao dele eh exibir como abas. Mas como nos falamos, a gente pode pegar um bloco e coloca-lo em qualquer lugar da pagina e ele deve funcionar.
+
+36. Entao, a gente colocou aqui embaixo. Okay, ele poderia funcionar aqui embaixo, mas por que que, aqui embaixo, ele esta como botao e nao esta como aba, esta como botao?
+
+37. Porque, aqui, a gente pode usar um modificador. A gente usou, na verdade um modificador, neste caso aqui ficticio. E um modificador eh uma marcacao no bloco, ou seja, uma flag que a gente da no bloco, uma marcacao que a gente da para esse bloco, ou ate para o elemento, pode ser para o elemento tambem, mas, neste caso aqui, vamos dizer que foi para o bloco.
+
+38. Entao, a marcacao eh para mudar a aparencia, o estado ou o comportamento do bloco ou do elemento.
+
+39. Por exemplo, entao, esse menu poderia ser exibido como abas, como eh o padrao, mas poderia tambem ter um modificador, como tem aqui embaixo, que diz que, em determinado local, como aqui no rodape, ele deve ser exibido, entao, como botoes.
+
+40. Ele eh um bloco, por exemplo, vamos supor que esse bloco se chame Menu, la em cima, Menu, o nome dele eh Menu. Mas, aqui embaixo, o bloco, o seu nome eh Menu, com o modificador, o nome passa a ser Menu__botoes, ou seja, eh um menu de botoes. Entao, eh um modificador, ele altera alguma coisa, um comportamento, um estado ou a aparencia de algo que ja existe.
+
+41. Mas, tambem, o modificador, sozinho, ele precisa do bloco e ele precisa de um elemento para ele existir tambem. 
+
+42. Agora, o instrutor exibe a Figura 6, que exibe os 3 planos da versao final do prototipo final do projeto do curso.
+
+43. Entao, vamos pegar aqui um exemplo do nosso projeto do curso. A gente vai trabalhar com esse projeto do curso e vai usar o BEM para ele.
+
+44. O que nos falarmos aqui nao quer dizer que vai ser os nomes que vao ser ditos, mas eh so uma analise de uma area, na verdade, nao da pagina completa, mas da area de planos, cada caixinha de plano.
+
+45. Nos conseguimos, mentalmente, agora, nao pensando no resto, pensando nas caixinhas, conseguimos pensar o que que eh bloco, o que que nao eh, o que que eh elemento, o que achamos?
+
+46. Conseguimos pensar em alguma coisa? 
+
+47. Entao, vamos ver uma coisa aqui. Na ideia do instrutor, que esta destacando a caixinha da esquerda, isso aqui eh um plano, isso, na verdade, eh um bloco e nos podemos chama-lo de plano.
+
+48. Claro, o nome que quisermos dar, mas eh logico que, geralmente, eh um nome que diz o significado disso, que eh um plano.
+
+49. Entao, esse destaque em laranja eh um bloco. Nao so ele, mas todas essas outras caixas sao um bloco. Lembremos que o instrutor falou que os blocos podem ser repetidos em uma mesma pagina. Eh o que acntece aqui. A gente tem um bloco, plano, e a gente repete-o mais duas vezes, alem da primeira, ou seja, tres vezes a gente coloca-o. Esse, entao, eh o bloco.
+
+50. E o que que sao os elementos dentro de um bloco plano? Quais sao os elementos?
+
+51. Bom, a gente pode pensar o seguinte. Esssa primeira parte, 'Autonomo' eh um elemento, nos chamamos esse elemento de de cabecalho. O segundo elemento eh o preco, 'R$59/mes', a terceira parte eh o elemento caracteristicas, 'Ate 2 usuarios 500MB de armazenamento Lancamentos ilimitados Acesso seguro Sem fidelidade'. E a quarta parte nos chamamos de elemento rodape, que contem o botao Assinar.
+
+52. Entao, a gente tem um bloco com quatro elementos. O botao, a gente pode considerar esse botao como um bloco tambem. Acreditamos que, nesse caso aqui, eh melhor. Ou seja, o botao eh um bloco, eh um componente, ou seja, o botao eh um componente reutilizavel e independente, que pode ser usado em qualquer outro lugar da pagina, porque o bloco eh isso, pode ser usado em qualquer lugar da pagina, tanto eh que a gente esta usando ele aqui no Login, no alto a direita da tela, eh o mesmo botao usado no login, 
+
+53. Se a gente falasse que o botao Assinar eh um elemento do plano, o proprio botao eh um elemento do plano, a gente nao conseguiria reaproveita-lo em outro lugar da pagina.
+
+54. Entao, neste caso aqui, entendemos, e isso, eh logico, nos podemos entender de uma forma diferente, mas, o importante eh pensar e planejar isso, e separar. Mas, entendemos aqui que o botao fica dentro de um elemento rodape do plano. Ou seja, nos podemos nao ter um botao aqui dentro do elemento rodape do plano, nos podemos ter outra coisa, nos podemos ter um link, nos podemos ter uma imagem, mas nos podemos ter um botao tambem, que eh um outro componente. 
+
+55. Ou seja, blocos podem ficar dentro de blocos, blocos podem ficar dentro de elementos, so nao pode o bloco depender de outro para funcionar, um bloco nao depende de outro, ou seja, o botao nao depende do plano para funcionar, o plano nao depende do botao para funcionar, eles sao independentes, mas nos podemos colocar um dentro do outro.
+
+56. Entao, nos estamos componentizando os nossos elementos visuais aqui na tela, a gente esta pensando mentalmente isso e, logico, depois a gente coloca isso no codigo.
+
+57. Entao, dessa forma, a gente consegue reaproveitar essas coisas, os nossos blocos em outros lugares, entao, fica muito mais facil.
+
+58. A caixa do meio, como ja dissemos, tambem eh um plano, essa segunda caixa, como a terceira tambem eh um plano. Mas, se nos repararmos bem, essa segunda caixa tem um rotulozinho, 'Mais Popular', em vermelho, ou seja, eh diferente das outras caixas, o resto eh tudo igual, mas ela tem um detalhezinho diferente. 
+
+59. Quando nos temos um detalhezinho diferente, pode ser a aparencia, o comportamento, alguma coisa assim, o que que a gente faz?
+
+60. O que que a gente usa? A gente ja falou de Bloco, a gente ja falou de Elemento, neste exemplo, e o que que esta faltando? 
+
+61. Isso mesmo, o Modificador. A gente pode dizer que ele tem um Modificador popular, por exemplo, eh um Plano__popular. Entao, esse plano eh um plano com o Modificador Plano__popular. Entao, quando a gente fala que ele tem um Modificador, nos estamos modificando alguma coisa nele. E, ai, ele vai, automaticamente, adicionar esse Rotulo 'Mais Popular'. Entao, fica bem flexivel. Nos podemos ter um plano que nao eh popular e, se nos quisermos que ele seja popular, eh so colocar o Modificador Plano__popular e ele ja, automaticamente, coloca esse Rotulo aqui, 'Mais Popular'.
+
+62. Nao estamos dizendo que vamos fazer dessa forma, na hora de colocar o nosso codigo, pode ser que a gente pense em outra coisa, mas eh uma ideia, eh uma ideia que funcionaria muito bem usando BEM.
+
+63. Essa eh a teoria, entao, da metodologia BEM e as proximas aulas a gente comeca a fazer isso na pratica, ver alguns exemplos e tambem implementar no nosso projeto do curso.
+
+64. Fim da Aula 06.003. A Metodologia BEM: Seu Codigo Escalavel.
+
+-->

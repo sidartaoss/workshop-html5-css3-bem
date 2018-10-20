@@ -1,0 +1,219 @@
+<!--
+	Aula 03.12. Adicionando Bordas
+
+1. Nesta aula, a gente vai estudar sobre bordas. Entao, nos temos um documento HTML, muito simples, com os principais elementos que a gente vai usar, que eh o elemento de ancora, um link, claro, esse link nao vai para lugar nenhum, por isso, quando temos um link que nao queremos que ele leve o usuario para lugar nenhum, nos colocamos o jogo-da-velha e ele fica na mesma pagina. 
+
+2. E tambem nos temos o elemento de paragrafo, <p>.
+
+3. Nada de mais, nao renderiza nada de mais.
+
+4. No arquivo CSS, nos temos, para o seletor body, o tamanho da fonte, font-size, como 32px, ou seja, estamos aumentando o tamanho padrao de fonte do navegador.
+
+5. No arquivo CSS, nos vamos adicionar uma regra CSS, com seletor a, para colocar uma borda. A gente sabe que o primeiro elemento, ancora <a>, eh uma caixa, assim como o segundo elemento, paragrafo, <p>. Dessa forma, nos queremos colocar uma borda em torno da ancora AlgaWorks.
+
+6. Para a gente colocar uma borda, a gente tem varias propriedades para ir definindo algumas caracteristicas. Entao, vamos comecar com a primeira, que eh border-width, que eh a largura da borda,
+
+a {
+	border-width: thin;
+	border-color: red;
+	border-style: solid;
+}
+
+, entao, nos vamos colocar aqui qual que eh a largura da borda, que eh thin, ou seja, fina. 
+
+6. A proxima propriedade eh border-color, ou seja, que a cor dela eh red, vermelho.
+
+7. E border-style, nos vamos colocar um estilo para essa borda. Nos vamos definir, por enquanto, o estilo solid, que eh um estilo solido, entao nos vamos ver o que que eh isso, vamos recarregar a pagina, e da para ver que a borda esta bem fina, em vermelho, e solida.
+
+8. Vamos, agora, aumentar a espessura da borda. Ao inves de definir como fina, vamos definir como grossa, ou seja, thick.
+
+a {
+	border-width: thick;
+	border-color: red;
+	border-style: solid;
+}
+
+9. Entao, ao recarregar a pagina, a borda ficou mais grossa. Tambem a gente poderia colocar uma espessura media, ou seja, medium. Ao recarregar a pagina, a espessura da borda ficou um pouco mais fina. 
+
+a {
+	border-width: medium;
+	border-color: red;
+	border-style: solid;
+}
+
+10. Vamos voltar para definir a borda como grossa. O que que eh essa propriedade border-style? Nos podemos colocar, por exemplo, ao inves de solid, nos podemos colocar, por exemplo, dashed, em que a borda fica pontilhada.
+
+a {
+	border-width: thick;
+	border-color: red;
+	border-style: dashed;
+}
+
+11. Na verdade, dashed significa tracejado. A propriedade dotted eh que eh pontilhado,
+
+a {
+	border-width: thick;
+	border-color: red;
+	border-style: dotted;
+}
+
+12. A gente nao precisa especificar propriedade por propriedade da forma que a gente fez. Existe uma propriedade que eh um shorthand, eh um atalho, para fazer isso tudo na mesma propriedade, que eh border, dois pontos, espaco e vamos colocando as propriedades. Primeiro, nos vamos colocar a espessura da borda, que eh thick. Em seguida, blue, que eh a cor da borda, e solid, que eh o estilo da borda.
+
+a {
+	border: thick blue solid;
+}
+
+13. Ao recarregar a pagina, vimos que foi aplicado o CSS definido com a nova propriedade border, no elemento de ancora.
+
+14. Se quisermos especificar nao a borda contornando toda a caixa, mas apenas uma borda, por exemplo, a borda da esquerda, a borda da direita, a borda superior ou a borda inferior, se quisermos especificar apenas uma, nos podemos tambem. Nos temos a propriedade border-bottom, ou seja, nos vamos alterar a borda inferior e vamos colocar 5 pixels, ao inves de especificar as palavras-chaves para definir que eh a borda eh fina, que eh grossa, que ela eh media, ao inves disso, nos podemos definir em pixels, entao, vamos definir 5 pixels para a largura da borda inferior. Em seguida, vamos definir que eh pontilhada, dotted, e vamos definir uma cor, #0f0.
+ 
+ a {
+	border: thick blue solid;
+	border-bottom: 5px dotted #0f0;
+ }
+
+, ou seja, colocamos pontilhado em verde apenas na parte inferior.
+
+15. Entao, a gente substitui a borda inferior. Vamos colocar, aqui, agora, border-right com 5px, dotted e a mesma cor. Entao, definimos a borda do lado direito,
+
+ a {
+	border: thick blue solid;
+	border-bottom: 5px dotted #0f0;
+	border-right: 5px dotted #0f0;
+ }
+
+ 16. Entao, nos vemos que podemos especificar as bordas especificas, nao eh preciso ser sempre a caixa inteira. Inclusive, nos podemos retirar a definicao da propriedade border, border: thick blue solid;,
+
+a {
+	border-bottom: 5px dotted #0f0;
+	border-right: 5px dotted #0f0;
+ }
+
+, que permanecera apenas a borda inferior e direita.
+
+17. Nos vamos voltar para ter a definicao da propriedade border,
+
+a {
+	border: thick blue solid;
+	border-bottom: 5px dotted #0f0;
+	border-right: 5px dotted #0f0;
+ }
+
+18. E, agora, nos vamos definir uma outra regra usando o seletor p, que eh o elemento de baixo do elemento de ancora, a. Vamos colocar um background-color, #ccc, ou seja, cinza,
+
+p {
+	background-color: #ccc;
+}
+
+19. Vamos definir, agora, um tamanho, porque o p eh uma caixa com display block, por padrao, entao, nos podemos definir altura e largura,
+
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+}
+
+20. Recarregamos a pagina e vimos que o paragrafo 'HTML' virou uma caixa, um quadrado.
+
+21. Agora, vamos colocar a borda. Vamos colocar uma borda de 5px, solid, black.
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+}
+
+22. Entao, criamos a borda de toda essa caixa. Mas tem uma outra propriedade agora, que a gente vai ver nessa mesma aula, que eh para a gente colocar a borda arredondada. Entao, para colocar a borda arredondada, tem uma propriedade chamada border-radius. E, aqui, a gente coloca uma medida que vai arredondar a borda. Por exemplo, 2 pixels, nao da nem para ver que mudou alguma coisa na borda. Colocando 5 pixels, a gente ve um arredondamento levemente arredondado na extremidade das bordas.
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 5px;
+}
+
+23. Vamos definir, agora, 10 pixels. Ao recarregar a pagina, notamos que esta arredondando mais,
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 10px;
+}
+
+24. Se definirmos 70 pixels, arredonda bem mais. Entao, a propriedade border-radius arredonda as bordas e a cor de fundo vai junto, o conteudo do elemento nao, mas, a cor de fundo sim, segue junto com o arredondamento das bordas.
+
+25. Entao, vamos deixar 20 pixels,
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px;
+}
+
+26. E, se quisermos especificar o arredondamento de forma diferente? Para cada canto, superior esquerdo, superior direito, inferior esquerdo e inferior direito? Pode acontecer, nao eh muito comum, geralmente, a gente arredonda todos os cantos, mas as vezes acontece de a gente precisar arredondar de forma diferente, cada canto de forma diferente. Tem as propriedades border-top-right-radius, ou seja, a borda no topo direito radius, ou seja, a borda do canto superior direito, nos podemos especifica-la com mais pixels, que ela vai arredondar mais,
+
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px;
+	border-top-right-radius: 50px;
+}
+
+27. Ou, ainda, nos podemos usar o shorthand, porque o border radius eh um shorthand para varias propriedades, como border-bottom-right-radius. Ai, vejamos como funciona. Se colocarmos, 20 pixels e, em seguida, 10 pixels, eh arredondado o canto superior esquerdo e o canto inferior direito com 20 pixels e, no canto superior direito e no canto inferior esquerdo com 10 pixels.
+
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px 10px;
+}
+
+28. Mas, se quisermos especificar um a um, comecando pelo canto superior esquerdo, no sentido horario, ele vai seguir esse sentido. Entao, comecamos especificando o canto superior esquerdo, ai vai seguindo no sentido horario para definir os proximos cantos, ou seja, quatro valores. Entao, por exemplo,
+
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px 10px 0px 50px;
+}
+
+29. Okay, especificamos quatro valores. Ao recarregar, verificamos o arredondamento dos cantos da borda. Entao, comecando pelo canto superior esquerdo e seguindo no sentido horario, o arredondamento ficou com 20 pixels, 10px, 0px e 50 pixels.
+
+30. Dessa forma, vemos que, no shorthando border-radius, nos podemos definir um valor so, entao, arredonda todos os cantos igualmente. Para dois valores, vai arredondar, para o primeiro valor, os cantos superior esquerdo e o canto inferior direito e, para o segundo valor, vai arredondar o canto superior direito e o canto inferior esquerdo. E, por ultimo, tambem eh possivel especificar os quatro valores referentes aos quatro cantos da caixa.
+
+31. Entao, eh bom conhecer isso, porque, as vezes, nos queremos deixar alguma coisa mais arredondada, as vezes nao, mas eh bom conhecer. No nosso projeto, que a gente vai comecar ainda, a gente nao comecou o nosso projeto, nos estamos so estudando, por enquanto, a base do HTML e CSS, quando a gente comecar o nosso projeto, a gente vai utilizar border-radius em um elemento, entao nos ja conhecemos agora como funcionam as bordas e arredondamento de bordas.
+
+32. Fim da 	Aula 03.12. Adicionando Bordas.
+
+
+
+
+ -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<a href="#">AlgaWorks</a>
+
+	<p>HTML</p>
+
+</body>
+</html>

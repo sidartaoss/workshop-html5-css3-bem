@@ -1,0 +1,941 @@
+<!-- 
+Aula 02.01. O que eh HTML?
+
+Imaginamos que deva-se estar interessado em entrar no mercado de desenvolvimento web ou, talvez, ate ja faca parte dele, mas quer se aperfeicoar mais em HTML e CSS.
+
+Entao, eh necessario saber que esse mercado de desenvolvimento web eh muito grande. A maioria dos Sistemas, hoje, sao desenvolvidos para a Web. Nao apenas Web Sites estamos falando. Estamos falando tambem de Redes Sociais, E-Commerce, Sistemas Corporativos, Sistemas Comerciais, Portais de Noticias e varios outros tipos de Sistemas. Eh so voce perceber que, quando voce esta trabalhando, se voce trabalha em frente ao computador, geralmente, voce esta acessando algum sistema do seu Navegador.
+
+Entao, hoje, eh muito comum sistemas que, antes, eram desenvolvidos em Desktop, em que era necessario voce instanlar um aplicativo na sua maquina, hoje, ja nao existe tantos aplicativos como antes, muitos, hoje, estao indo para a Web. Eh so voce ver tambem como os aplicativos da propira Google, Google Drive, Google Docs, o Word na Web, tem planilhas para documentos, Slides. Entao, hoje em dia, muita coisa esta sendo levada para a Web. 
+
+E uma pagina Web comum ou um sistemas como esses que falamos, eles dependem de varias tecnologias, como, principalmente, HTML, CSS e JavaScript.
+
+Neste Workshop, nos vamos focar mais em HTML e CSS. 
+
+1. O que eh HTML?
+HTML eh a linguagem que descreve a a estrutura e o conteudo semantico de um documento da Web. A gente vai falar mais sobre o que eh semantico, o que eh semantica, se fala tanto, hoje, em Web semantica, HTML semantico, a gente vai entrar em mais detalhes em uma aula mais para a frente. Mas entenda, entao, que o HTML eh a linguagem que vai descrever a estrutura do documento e o conteudo.
+
+2. Entao, cada pagina que acessamos, quando se acessa um Site, pode-se dizer que aquilo eh um Documento. E o HTML descreve aquela estrutura e o conteudo dele. Agora, nao confunda HTML com uma linguagem de programacao.
+HTML nao eh uma linguagem de programacao. Ela eh considerada uma linguagem de marcacao. O nome, entao, HyperText Markup Language, ou seja, eh uma Linguagem de Marcacao de Hiper-texto, nao eh uma linguagem de Programacao. 
+
+3. No site da AlgaWorks, estamos em uma Pagina HTML. Quando digita-se o endereco, www.algaworks.com, o que estamos vendo eh um Documento que foi descrito por um HTML. Estamos usando o Navegador Chrome para visualizar a Pagina, eh o Navegador que sera utilizado neste Workshop. No Chrome, clica-se com o botao direito e acessa-se a opcao 'Exibir codigo-fonte da pagina'. Ou seja, toda Pagina escrita com HTML eh possivel ver o codigo-fonte, nos podemos ver o codigo-fonte de todas as paginas que acessamos.
+
+4. Estamos visualizando um Documento HTML, onde foi utilizado CSS e JavaScript. Estamos vendo as tags <div>, <body>, etc, so para vermos que se trata de um codigo de marcacao, uma linguagem de marcacao HTML que foi utilizada para desenvolver o Site da AlgaWorks.
+
+5. Da mesma forma, se entrarmos em uma materia do Portal G1, g1.globo.com, se clicarmos com o botao direito, 'Visualizar codigo-fonte da pagina', vermos o codigo HTML tambem da Pagina. 
+
+6. Inclusive, uma das formas de se estudar HTML eh olhar exemplos Sites, outros aplicativos que foram feitos. Pode-se inspecionar o codigo-fonte e aprender um pouco.
+
+7. Isso eh so para entendermos que as Paginas foram feitas em HTML. 
+
+8. E, se estivermos ja, no mercado ha algum tempo, ja devemos ter ouvido falar de HTML5. Talvez, tenha surgido a duvida, o que eh HTML5? Eh diferente de HTML, eh uma nova versao, o que eh? Bem, eh isso mesmo, HTML5 eh a ultima versao do HTML. E essa versao do HTML5 tem novos elementos, atributos, novos comportamentos, entao, eh uma versao, logicamente, melhorada do HTML que, hoje, todos os Navegadores suportam. 
+
+9. Quando eh lancado uma nova versao, os Navegadores tem que comecar a suportar aquela nova versao. Entao, hoje, os Navegadores estao bem compativeis com HTML5. So que ela continua evoluindo e, claro, tem algumas coisas que ainda nao sao suportadas em um Navegador e em outro sim, mas, isso a gente ainda vai discutir mais para a frente tambe. Por enquanto, apenas entendamos que eh uma nova versao realmente do HTML. 
+
+10. Uma das principais melhorias foi sobre a semantica do HTML. Nao que o HTML anterior, o HTML4 nao fosse semantico, tinha elementos semanticos tambem, mas, agora, a gente tem muito mais semantica e a semantica tem a ver com o significado das coisas e a gente vai falar bastante de semantica neste curso, nest Workshop, a gente vai focar bastante nisso tambem.
+
+11. No HTML5 permite descrever mais precisamente o seu conteudo. Nao se descreve o estilo e a formatacao do conteudo no HTML, mas so o proprio conteudo e o seu significado. Entao, quando a gente entrar no codigo, vai ficar mais claro isso. Se descreve o proprio conteudo e o seu significado. Vai se colocar um codigo HTML5, logicamente e vai se dizer o que que aquilo ali significa. Nao vai se descrever que aquilo ali tem a cor azul, eh preto, isso a gente deixa para uma outra tecnologia chamada CSS que a gente vai falar tambem mais a frente neste Curso.
+
+12. Aqui, entao, a ideia eh mostrar de forma bem geral o que que eh o HTML e, claro, quando colocarmos a mao na massa, vai ficar muito mais facil de entender.
+
+13. Entao, HTML5 eh uma nova versao do HTML que traz novos elementos, atributos, novos comportamentos, melhora a semantica, entao nos da a possibilidade de descrever com mais precisao o seu conteudo. E o estilo e a formatacao sao definidos por uma outra tecnologia, chamada CSS. Entao, no codigo HTML, fica so mesmo o conteudo e a estrutura da Pagina. 
+
+14. E o HTML eh um padrao internacional, cuja as especificacoes sao mantidas pelo W3C, World Wide Web Consortium, e pelo WHAT Working Group, WHATWG, Web Hypertext Application Technology Working Group. Sao essas duas entidades que especificam o HTML. Entao, elas especificam o HTML e os Navegadores, eh claro, tem que implementar os seus Navegadores a partir dessas especificacoes do HTML. Quem cria, define e quem melhora as especificacoes do HTML sao essas duas entidades.
+
+15. O que precisamos para comecar?
+A gente ja instalou o Sublime Text, que eh o que a gente vai usar neste Workshop, mas, para trabalhar com HTML, com Paginas Web, o que eh necessario eh simplesmente um Editor de Texto, um Software que consegue salvar arquivos em texto puro. Nao eh necessario nada especial, pode ser, inclusive, o bloco de notas. Com outros Editores de Texto, como o Sublime, onde eh possivel colorir o codigo, isso facilita a leitura do codigo-fonte e eh muito melhor, logicamente. A gente vai usar Sublime Text, justamente, para isso, para ajudar a gente. Mas nao teria necessidade, poderia-se utilizar o bloco de notas, por exemplo.
+
+16. Outra coisa que sera necessaria, tambem, eh de um Navegador, ou Browser, como Chrome, Firefox, Safari, Internet Explorer, esses sao Navegadores. A gente vai utilizar o Chrome, que eh, hoje, o mais usado e tem boas ferramentas para desenvolvimento tambem, para nos ajudar no desenvolvimento.
+
+17. Com relacao ao Dreamweaver, antigamente, ele ficou muito famoso, ferramenta da Adobe. Nao se aconselha utiliza-lo, porque o Dreamweaver vai gerar codigo, nao eh necessario ficar clicando e arrastando para criar paginas web. Geralmente, quando estamos desenvolvendo paginas web, a gente quer um controle muito grande no nosso codigo, entao a gente mesmo escreve o codigo na mao, isso eh totalmente normal, tanto para pessoas iniciantes quanto para pessoas profissionais, que estao no dia-a-dia trabalhando com criacao de paginas, fazem isso na mao. 
+
+18. Se for se perguntar para a globo.com, g1, uol, como que eles desenvolveram o site deles? Eh na mao, eh tudo escrito, codigo escrito na mao, nao tem ferramentas visuais que vai se clicando e arranstando. Entao, nao se recomenda usar uma ferramenta dessa forma, hoje em dia. Nao conhecemos ninguem que use, inclusive, ferramentas tao avancadas que vai se clicar e arrastar, porque vai gerar codigo e vai acabar ficando, uma hora ou outra vai baguncar o seu codigo. 
+
+19. Referencias. Onde consultar para aprender mais? Duvidas sobre algum elemento, alguns atributos, propriedades do HTML, onde tirar essas duvidas? A recomendacao eh procurar nos sites:
+w3.org, que eh o w3c, eh a entidade que especifica o HTML. 
+whatwg.org, tambem vai ter a especificacao, onde eh possivel consultar.
+developer.mozilla.org, que tem varias referencias, varias documentacoes, varios tutoriais sobre HTML. Nao somente sobre HTML, mas sobre CSS, sobre varias outras coisas, JavaScript. Vai ter varios tutoriais.
+
+20. Nao confundir w3c com w3Schools. w3Schools eh apenas um site que usou o nome w3, nao tem afiliacao nenhuma com w3c, nao eh nada oficial. Eh simplesmente um site de referencias e tutoriais. Pode-se ate utiliza-lo, o w3Schools, como referencia. O Developer.Mozilla.Org, tambem conhecido como mdn, mozilla developer network, por exemplo, eh mais completo, tem, inclusive, alguns artigos traduzidos para o portugues, muito mais completo que o w3Schools. Entao, recomenda-se o mdn mesmo, developer.mozilla.org. 
+
+21. Fim da Aula 02.01. O que eh HTML?.
+-->
+
+
+<!-- 
+Aula 02.02. Estutura Basica do Documento
+
+Agora que ja sabemos o que eh o HTML, vamos colocar a mao na massa e criar o primeiro Documento HTML.
+
+1. A primeira coisa que iremos fazer eh criar uma pasta, que chamaremos de estrutura-basica. Nos estamos, entao, no gerenciador de arquivos e vamos criar uma nova pasta, chamada 'estrutura-basica', so para organizarmos o arquivo que iremos criar nesta aula. Dentro dessa pasta, iremos criar o Documento HTML.
+
+2. A gente ja tem o sublime-text instalado, entao, arrastar a pasta para dentro do sublime-text. Ja abre do lado esquerdo um side bar, uma barra lateral com a pasta estrutura-basica. Eh aqui que a gente vai trabalhar esse arquivo HTML. 
+
+3. Clicar com o botao direito na pasta estrutura-basica, dentro do sublime-text, New File... Salvar esse arquivo com o nome de artigo.html. Extensao .HTML. Geralmente, utilizamos essa extensao, eh o padrao, nao eh obrigatorio ser html, mas eh um padrao. Isso ja eh um documento html, so nao tem nada ainda dentro dele. Ele ainda esta vazio, ele vai ser um documento html a partir de agora. Pela extensao, a gente ja entende que eh um documento html, mas nao tem nada ainda dentro dele.
+
+4. O que que eh um documento html? Um documento html eh composto por um conjunto de elementos. Entao, os elementos, esse conjunto de elementos, juntos, eles formam esse documento html. Esses elementos definem a semantica do conteudo. Entao, a gente vai falar um pouquinho de semantica. O que que eh semantica? O significado daquele conteudo.
+
+5. Para comecar, vamos comecando criando o primeiro elemento que a gente tem que ter em qualquer documento html. Esse primeiro elemento eh chamado de html. Eh o proprio nome do html.
+
+6. So que eh o seguinte: como que criamos um elemento dentro de uma pagina html? Nao eh simplesmente escrever html. Nos temos que comecar com o sinal de menor, <, ai sim escrevemos html, sinal de maior, >. Entao, aqui, nos temos uma tag, <html> isso aqui nos chamamos de tag, quando temos um sinal de menor, <, um nome, fecha com o sinal de maior, >, nos chamamos isso de tag, eh uma tag de abertura, entao, estamos abrindo o nosso elemento. Abaixo, vamos digitar: sinal de menor, <, barra, /, ai o sublime-text ja preenche para nos, nao precisou nem digitar, </hmtl>. Isso aqui nos chamamos de tag de abertura, <html>. E isso aqui eh tag de encerramento, tag de fechamento, </html>, do elemento. Entao, abrimos e fechamos as tags e, agora, nos temos o nosso elemento html. Como dissemos, o elemento define o que? A semantica, ou seja, ele define o significado. Todo o elemento tem um significado, entao, tem uma semantica. 
+
+7. E qual que eh o significado desse elemento html, <html>? Ele significa que, aqui, nos estamos iniciando o nosso documento html, <html>, e estamos encerrando o nosso documento html, </html>. Ou seja, eh um elemento que define o nosso documento html. Essa eh a semantica dele, de <html>. Ele nao tem nenhuma caracteristica visual. Vamos salvar o documento e abrir. Abrindo o documento no Windows Explorer, abre o documento no navegador. Nao esta aparecendo nada. Por que? Eh porque eh um documento que nao tem nada ainda, eh um documento html que nao tem conteudo. Por que? Porque o elemento html nao tem nenhuma caracteristica visual. Ele simplesmente tem uma semantica que define que aqui tem um documento html. 
+
+8. Vamos criar, agora, um outro elemento chamado de <body>, vamos criar o corpo do nosso documento. E onde nos criamos o corpo do nosso documento? O corpo do nosso documento eh onde nos vamos colocar o conteudo de verdade, onde nos vamos abrir e ver alguma coisa ao abrir o documento no Browser. Onde iremos colocar o corpo do nosso documento aqui? Antes disso, o que que eh o corpo? O corpo corresponde a body, como se define em ingles, o nome da tag eh <body>. Define-se abrindo e fechando a tag body, <body></body>, ou seja, estamos dizendo que, aqui, nos temos o corpo do documento html. O corpo do html eh onde escrevemos as coisas que desejamos, colocamos imagens, animacoes, videos, o que quisermos dentro do corpo para visualizarmos. Iremos digitar, dentro do corpo, 'Oi pessoal!', e vamos salvar. Vamos voltar no navegador e, para recarregar, apertamos F5. Visualizamos 'Oi pessoal!'. 
+
+9. Deu certo, o navegador entendeu o conteudo que nos escrevemos no corpo do documento. Mas tem uma coisa errada aqui. 
+
+<html>
+</html>
+
+<body>
+Oi pessoal!
+</body>
+
+10. Esta funcionando, mas tem uma coisa errada. Funciona porque os navegadores sao espertos, eles corrigem quando vai ser exibido, mas nao quer dizer que esta correto. O que esta errado aqui eh que o corpo do documento nao pode estar fora do html, da tag <html>. Eh tudo uma semantica. Se <html></html> simboliza que eh o documento html, a nossa pagina html, o corpo dele tem que estar dentro da tag, dentro do elemento html. Entao, vamos tirar <body></body> de fora da tag <html> e mover para dentro da tag <html>,
+<html>
+<body>
+Oi pessoal!
+</body>
+</html>
+
+11. Vamos salvar e verificar no Navegador. Nao muda nada visualmente, mas, agora, ficou correto na semantica, na sintaxe, ficou tudo correto no nosso arquivo html. Mas, nos podemos melhorar ainda um pouquinho.
+
+12. O que que nos podemos melhorar? Estamos vendo que um elemento pode ter outro elemento dentro, criando uma hierarquia. E nao para por ai, um documento html pode ter uma hierarquia muito grande. Aqui, nos estamos vendo que a tag <html> eh a tag pai, <body> eh a tag filha, e nos poderiamos ter coisas dentro da tag <body>. O problema que vemos, aqui, eh que esta muito tumultuado, nos nao conseguimos enxergar de forma clara quem eh pai de quem, quem eh filho de quem, qual que eh a hierarquia de verdade deste documento. Entao, o que que a gente vai fazer?
+
+13. Nos vamos tabular isso aqui. Nos vamos indentar o nosso codigo. Isso eh muito importante. Nao se deve fazer codigo todo tumultuado. O que pode-se fazer eh, dar um tab na frente de <body>, na tag de body, que a tag de body eh jogada para frente,
+<html>
+	<body>
+	Oi pessoal!
+	</body>
+</html>
+
+14. Inclusive, o sublime-text coloca um pontilhado para vermos a indentacao no codigo-fonte.
+
+15. Outra coisa interessante que eh possivel ver no Editor eh que, quando clicamos em uma tag de fechamento, por exemplo, ele sublinha a tag de abertura, e vice-versa. Ou seja, pode-se visualizar de forma muito facil onde abre e onde fecha a tag; o elemento inicia aqui e termina aqui, entao, fica muito facil trabalhar dessa forma.
+
+16. Alem do corpo, do body, estamos falando de estrutura do documento, um outro elemento que eh muito basico, todos os documentos tem, eh o elemento <head>. Ou seja, cabecalho, 
+
+<head>
+</head>
+
+, coloca no mesmo nivel de body, porque ele eh filho de html.
+
+
+17. O que eh o head? O head sao algumas informacoes que a gente coloca de cabecalho que nao sao visuais. Pode colocar o titulo, pode fazer alguma importacao de arquivos CSS, que a gente vai ver ainda neste Workshop, e outras coisas mais que a gente vai ver. Mas, por enquanto, a gente vai fazer apenas o titulo.
+
+18. Que titulo eh esse? Vejamos a Pagina no Browser. A gente esta vendo na aba escrito artigo.html, que eh o nome do arquivo. Mas a gente pode customizar esse titulo aqui, o titulo que aparece na aba. Para isso, a gente usa, dentro de head, eh o filho de head, a tag <title>,
+
+<head>
+	<title></title>
+</head>
+
+19. Vamos colocar, como titulo, AlgaWorks, salvar e vamos ver a Pagina no Navegador. Vemos que o titulo na aba foi alterado para AlgaWorks.
+
+20. Vamos clicar, agora, com o botao direito na Pagina, View Page Source, para vermos que, no Navegador, a gente consegue enxergar exatamente o codigo que a gente desenvolveu. Entao, se voce acessa um site, da AlgaWorks, G1, qualquer outro, UOL, qualquer site que acessemos, se fizermos isso, veremos o codigo que foi desenvolvido. 
+
+21. O Navegador, entao, interpreta esse codigo e, por isso, conseguimos enxerga-lo tambem. O trabalho do Navegador eh ler esse codigo, interpreta-lo e renderiza-lo para nos na tela. Renderizar, ou seja, transforma isso em componentes visuais, em textos, de forma que consigamos, que um usuario que nao conhece html, consiga navegar em uma pagina, que eh o normal, que eh o que todo mundo faz, pois a maioria das pessoas nao sao desenvolvedores web, a maioria das pessoas usa sem conhecer o que eh html.
+
+22. Entao, eh isso que o navegador faz, interpretar isso e renderizar para o Usuario. Entao, nos temos html, head, title, dentro de head, body, e um texto dentro de body. Nos vamos desenvolver a maior parte das coisas dentro da tag body, a maior parte fica dentro de body.
+
+23. As tags, o elementos, podem ter atributos. A tag html pode ter atributo? Pode. body pode ter atributo ate podem, mas nao se usa atributos, nao tem atributos. E o que sao esses atributos? Sao algumas configuracoes que a gente da para esses elementos.
+
+24. Por exemplo, na tag html, a gente pode colocar um atributo chamado 'lang', de linguagem, language, em ingles. Entao, quando colocamos esse lang, colocamos, tambem, um igual, =, entao, estamos falando, o nome do atributo eh lang, igual, =, e, ai, colocamos, entre aspas duplas, o valor desse atributo, entao, lang eh o nome do atributo e entre as aspas duplas eh o valor dele. Entao, que linguagem eh essa, nos vamos colocar 'pt', a linguagem 'pt', que 'pt' eh esse? Portugues. 'pt' de Portugues. 
+
+25. Se colocarmos 'en', estamos definindo ingles. Entao, existe uma convencao de codigos de linguagens que definem 'pt', para Portugues, 'en' para Ingles, e todas as outras.
+
+26. O valor pode ser definido entre aspas duplas, aspas simples ou sem nenhuma aspa,
+
+<html lang='en'>, <html lang="en">, <html lang=en>
+
+27. O padrao eh definir com aspas duplas. Se nao definirmos com aspas, pode haver algum atributo que tenha valores com espaco, e ai teriamos problema, porque o elemento nao entenderia que tudo o que foi digitado eh o valor de lang, por exemplo, <html lang=pt adf adf>.
+
+28. Entao, se definirmos com aspas, <html lang="pt adf adf">, ai sim o elemento vai entender que tudo eh o valor de lang.
+
+29. Obviamente, lang="pt adf adf" esta errado, so estamos mostrando que o valor com espaco nao haveria problema.
+
+30. E o que esse atributo lang do html? Eh para dizer que este documento, a linguagem padrao deste documento eh o portugues, <html lang="pt">. Ah, mas portugues da onde, do Brasil, de Portugal, de qual pais? Nao estamos definindo isso, estamos definindo que o documento eh portugues. Se isso for muito importante, definir de qual pais eh o portugues, entao definimos pt-BR, entao BR eh o codigo para o pais, o Brasil. Tambem tem uma convencao para isso. Entao, se fosse ingles dos Estados Unidos, seria en-US. Entao, pode-se combinar a lingua com o pais tambem. 
+
+31. Neste caso, vamos deixar pt-BR que eh o portugues do Brasil para indicar que eh o portugues falado mesmo, escrito no Brasil. 
+
+32. Nao se vera nenhuma diferenca visual sobre esse lang='pt-BR', isso eh so mesmo uma informacao para dizer que eh um documento em portugues, e pode ser muito util para motores de pesquisa, motores de busca, como o Google, quando o Google vai acessar a nossa pagina, o Google nao enxerga visualmente, o que o Google enxerga eh o que? Eh o codigo-fonte, ele enxerga codigo, entao, se nos temos a informacao que o documento eh uma linguagem pt-BR, o Google nao precisa adivinhar isso, ele ja consegue ler com certeza, porque estamos dizendo para ele. Entao, eh interessante se pudermos definir isso. Se nao puder, talvez o motor de busca consiga identificar a linguagem, mas, se definirmos, eh um pontinho a mais que ganhamos com ele.
+
+33. Entao, nao eh algo visual que eh obrigatorio definir tambem. 
+
+34. Uma coisa muito importante eh que as tags, elas tem que ser fechadas. Entao, abrimos a tag <title>, por exemplo, elas tem que ser fechadas em uma ordem correta. Se abrirmos title, e fecharmos apos </head>, por exemplo, esta errado. A ultima tag que abrimos eh a primeira que temos que fechar. Se abrirmos title, temos que fechar antes de fechar a tag <head>. Ou seja, nao podemos inverter a ordem na hora de abrir e fechar tags.
+
+35. Fim da Aula 02.02. Estutura Basica do Documento.
+
+-->
+<!--1. 
+<html>
+	
+</html>
+
+<body>
+Oi pessoal!
+</body>
+-->
+
+<!--2. 
+<html>
+<body>
+Oi pessoal!
+</body>	
+</html>
+-->
+
+<!--3.
+<html>
+	<body>
+	Oi pessoal!
+	</body>	
+</html>
+-->
+
+<!--4.
+<html>
+	<head>		
+	</head>
+	<body>
+	Oi pessoal!
+	</body>	
+</html>
+-->
+
+<!--5.
+<html>
+	<head>		
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Oi pessoal!
+	</body>	
+</html>
+-->
+
+<!--6.
+<html lang="pt">
+	<head>
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Oi pessoal!
+	</body>	
+</html>
+-->
+
+<!-- 
+Aula 02.03. DOCTYPE e codificacao
+
+Todos os documentos html precisam ter uma declaracao que indica para o Navegador qual que eh a versao do HTML que a gente esta usando. Essa declaracao fica na primeira linha.
+
+1. Ela comeca assim, sinal de menor, <, sinal de exclamacao, !, DOCTYPE, tipo do documento, geralmente a gente escreve em maiusuculo, mas em minusculo tambem funcionaria, e, em seguida, html e fecha, <!DOCTYPE html>. Isso aqui nao eh uma tag html, isso eh apenas uma instrucao para o browser indicando qual que eh o tipo do documento.
+
+2. Ate a versao 4 do html, tinha varias coisas que precisava escrever. Geralmente, a gente copiava e colava, porque ninguem decorava aquilo ali. Ja no HTML5, a partir do html5, ficou muito simples, muito facil, eh simplesmente <!DOCTYPE html>. A gente esta indicando que o nosso documento eh um documento HTML5. Entao, isso eh algo que podemos considerar como obrigatorio. Todos os documentos html que nos criarmos, nos vamos colocar esse <!DOCTYPE html>.
+
+3. Como a gente esta usando html5 neste Workshop, a gente vai sempre definir esse <!DOCTYPE html>.
+
+4. Por que que isso eh importante? Porque, quando o navegador baixa o codigo, quando acessamos uma pagina, o navegador vai baixar o codigo, esse codigo html. Quando o navegador baixa o codigo e ele vai interpretar isso aqui para renderizar na tela, o navegador nao sabe, ate entao, qual que eh a versao do html que escrevemos o nosso codigo. E essa primeira linha vai dizer isso para ele. 
+
+5. Entao, quando o navegador comeca a ler o codigo, ja quando ele chega na primeira linha, ele entende que eh html5, entao ele trabalha, entra no modo de html5. O navegador, entao, vai comecar a interpretar o codigo sabendo que escrevemos o codigo em html5.
+
+6. Se nao definirmos <!DOCTYPE html>, o navegador tem que adivinhar e pode ser que nao fique correta a renderizacao na tela. O indicado eh sempre definirmos, facilitando a vida do navegador, de quem vai consumir o codigo para fazer alguma coisa.
+
+7. Isso nao muda nada em termos visuais na nossa Pagina, mas o navegador sabe que se trata de html5.
+
+8. Uma outra coisa que veremos nesta aula eh a questao dos acentos. Por exemplo, vamos alterar em body para:
+
+<body>
+	Será que é possível?
+</body>
+
+9. 'Será que é possível?' ficou com vários caracteres estranhos. Provavelmente, ja visualizamos isso em algumas paginas na Internet, talvez nao tenhamos entendido o que foi que aconteceu, por que foi digitado tudo errado. Nao aconteceu que foi digitado errado, na verdade, faltou uma configuracao. 
+
+10. O que acontece? Todos os arquivos que a gente escreve no nosso computaodor e salva, eles sao salvos com uma codificacao. Ate no sublime-text mesmo, no menu File / Save with encoding, tem varias codificacoes que a gente poderia salvar com elas. Mas a padrao eh a codificacao UTF-8. Quando a gente clica em Salvar, o padrao eh salvar com UTF-8, que eh a mais usada no mundo todo, funciona para todos os idiomas no mundo, eh a mais usada hoje, recomenda-se que nem se mude isso, que se use a UTF-8. 
+
+11. O que acontece eh que esse arquivo, entao, esta salvo como UTF-8. Mas, quando o navegador abre o arquivo, se formos no menu do navegador, em Menu / Encoding, o navegador esta achando que a codificacao eh Windows-1252, mas nao eh, eh UTF-8. Se clicarmos em UTF-8, sera exibido certinho, 'Será que é possível?', os acentos foram resolvidos.
+
+12. Como a correcao foi feita no navegador, nos precisamos corrigir no codigo-fonte, ou seja, dizer para o navegador qual a codificacao que a gente usou para salvar o nosso arquivo.
+
+13. Entao, essa codificacao eh assim, todo o caracter que a gente salva, que a gente escreve, por exemplo, o 'í', em 'possível', ele eh transformado em binario, entao, para esses 0's e 1's, uma codificacao pode definir como '100' e a outra define como '001', por exemplo, para o mesmo caracter, 'í'. A codificacao eh o que codifica os caracteres em 0's e 1's e, dependendo se escrevermos em uma codificacao e o navegador ler em uma codificacao diferente, isso vai gerar conflito, que eh o que aconteceu.
+
+14. O que a gente precisa fazer, entao? Sabendo que estamos utilizando UTF-8, que eh o padrao do sublime-text e da maioria dos outros editores tambem, eh um padrao mundial, geralmente, utilizar-se UTF-8 mesmo, entao, sabendo disso, dentro da tag head, a gente vai abrir uma tag <meta> Esse elemento <meta> significa uma meta-informacao. A tag meta somente nao define nada, mas a tag <meta> com o atributo 'charset' vai definir qual que eh a codificacao que a gente esta usando na pagina.
+
+15. <meta charset="utf-8">. 
+
+16. O que que eh fechar a tag e o que que eh fechar o elemento? Aqui, em <html lang="pt-BR">, nos abrimos e fechamos a tag html. A tag html nao eh fechada em </html>, ai estamos fechando o elemento <html>. Para fecharmos o elemento <html>, fechamos com </html>. Para fecharmos a tag html, fechamos com >, em <html lang="pt-BR">
+
+17. Entao, na tag meta, vamos definir como valor do atributo charset, "utf-8", que eh o codificador que estamos utilizando, e a gente nao eh obrigado a fechar o elemento <meta>, que seria fechar com </meta>. Eh errado fecharmos dessa forma o elemento <meta>, no html5. Nem todas as tags tem que ser fechadas no html5. Mas poderiamos fechar, tambem, com />, ou seja, <meta charset="utf-8" />, que eh um fechamento de elemento na propria tag de abertura. Ai a tag <meta charset="utf-8" /> vira tag de abertura e fechamento. Como nao eh obrigatorio, vamos deixar sem o fechamento da tag, <meta charset="utf-8">.
+
+18. Ao testar, ou seja, ao visualizar no browser, verificamos que os acentos estao sendo exibidos corretamente. O navegador nao tem que adivinhar mais nada, ele vai automaticamente usar o que nos especificamos para ele. Logicamente, se o usuario for no browser, em encoding, e alterar na mao o encoding, ai eh um problema do usuario, nao tem como fazer nada, o usuario tem essa possibilidade. Mas, automaticamente, o navegador nao vai fazer isso, ele vai sempre seguir o que nos especificarmos no <meta charset>, que, neste caso, eh o utf-8. 
+
+19. Entao, sempre eh muito importante os nossos documentos sempre terem a especificacao do charset como utf-8, considerando que estamos utilizando utf-8, que eh recomendado que seja usado.
+
+20. Fim da Aula 02.03. DOCTYPE e codificacao.
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Será que é possível?
+	</body>	
+</html>
+-->
+
+<!--7.
+<html lang="pt-BR">
+	<head>
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Oi pessoal!
+	</body>	
+</html>
+-->
+
+<!--8.
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Oi pessoal!
+	</body>	
+</html>
+-->
+
+<!--9.
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Será que é possível?
+	</body>	
+</html>
+-->
+
+<!--10.
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<title>AlgaWorks</title>
+	</head>
+	<body>
+	Será que é possível?
+	</body>	
+</html>
+-->
+
+<!-- 
+	Aula 02.04. Primeiras tags: titulos, quebras de linhas e paragrafos
+
+1. Vamos estudar mais algumas tags html nesta aula. Temos alguns pequenos trechos de texto que iremos colar, por exemplo, no titulo,
+
+2. Isso eh so um exemplo de um artigo que foi retirado do nosso blog.
+
+3. Temos um texto dentro do documento, vamos salvar e vamos carregar no Navegador.
+
+4. Vemos que ficou tudo colado, claro, o titulo nao, o titulo aparece no alto da aba da pagina, mas o que foi definido dentro do body ficou tudo colado. Se dermos alguns <enter's> apos o primeiro paragrafo, nao deveria separar as linhas? 
+
+5. Nao. Em documentos html, os <enter's> que sao dados no texto sao ignorados. O maximo que vai virar eh um espaco entre um paragrafo e outro. Se formos ver o codigo-fonte da pagina, esta certinho, com o <enter> que foi definido na pagina html, mas nao eh renderizado dessa forma. 
+
+6. Ai, entao, a gente vai comecar a usar algumas tecnicas para comecar a colocar semantica no nosso documento e, claro, colocando a semantica no nosso documento, automaticamente, o navegador ja comeca a renderizar isso de forma diferente tambem.
+
+7. A primeira coisa que iremos fazer eh definir o titulo do nosso artigo,
+'Como evitar redeploy em projetos Java? Conheça o JRebel.'.
+
+8. Para esse titulo, iremos usar uma tag html chamada <h1>. Eh uma tag chamada de heading. Na verdade, existem 6 delas, de <h1> ate <h6>.
+
+9. Vamos definir, por enquanto, somente <h1>. Colocamos 'Como evitar redeploy em projetos Java? Conheça o JRebel.' entre as tags de abertura e fechamento de <h1>. 'Como evitar redeploy em projetos Java? Conheça o JRebel.' eh o corpo do elemento <h1>. Eh um heading 1, ou seja, eh um titulo com importancia numero 1. Eh um titulo importante, entao, o titulo mais importante da nossa pagina.
+
+10. Mas nao se deve confundir, quando se fala em titulo, com a tag <title>. <h1> eh um heading. Eh um titulo, entao, importante na nossa pagina.
+
+11. Vamos salvar e recarregar a pagina no navegador. Vimos que o titulo ficou bem grande na pagina no navegador. E o resto do texto ficou como estava, tudo colado. Mas o titulo ja ficou bem grande, em negrito, ou seja, algo bem importante mesmo, o navegador ja entendeu isso, por causa da semantica que foi definda.
+
+12. Se colocassemos <h2>, diminui o tamanho da fonte. Por que? Eh um pouco menos importante, eh <h2>. Se colocarmos <h3>, vai diminuindo, ate o <h6>. Entao, de <h1> ate o <h6>, sao titulos que definem, entao, a importancia de um documento. O <h1> eh o mais importante e o <h6> eh o menos importante. 
+
+13. Quer dizer que, se quisermos uma fonte menor, usamos o <h2, h3,...>, eh isso? Nao, nao eh isso. Nao se deve confundir <h1, h2, h3...> com tamanho de fonte. Deve-se entender, primeiramente, pela semantica, pelo significado do elemento. O <h1> eh mais importante, o <h2> eh menos importante que o <h1>, o <h3> eh menos importante ainda que o <h2> e que o <h1>, e assim vai ate o <h6>.
+
+14. Naturalmente, o navegador, quando a gente nao especifica os tamanhos de fonte, ate porque a gente ainda, nesta aula, ainda nao estamos trabalhando com a formatacao dos nossos documentos, a gente esta so colocando conteudo. A gente vai, ainda neste workshop, trabalhar com formatacao de documentos, com CSS. 
+
+15. Aqui, como estams dizendo que o titulo eh muito importante, naturalmente, o navegador, que entende a semantica do html, ele ja coloca uma fonte bem grande em negrito. Quando definimos que eh um pouco menos importante, de novo, naturalmente, o navegador sabe que isso eh menos importante e diminui um pouco mais a fonte. Mas nao quer dizer que teremos que usar sempre essa fonte, sempre esse tamanho, sempre em negrito, nao quer dizer isso. Por isso mesmo, nao deve-se se preocupar com o tamanho de fontes, deve-se preocupar-se com o significado. 
+
+16. A coisa mais importante nesta pagina eh o titulo do artigo. Entao, nao vamos definir <h2> ou <h3>, nos vamos definir <h1>, porque eh o mais importante. 
+
+17. Eh bom fazermos da forma correta, porque, alem do navegador, se bem que pode-se customizar o fonte, os tamanhos de fontes, entao, o navegador ate, talvez, nao teria tanta importancia para isso, mas, principalmente, mecanismos de busca vao entender isso, vao interpretar isso. Um mecanismo de busca nao vai ver cores, nao vai ver tamanho de fontes, etc. Mecanismos de buscas, como o Google vao ler o codigo e vao interpretar. Vao dizer: Nossa, o desenvolvedor desta pagina esta dizendo que isso aqui eh a coisa mais importante da pagina, 'Como evitar redeploy em projetos Java? Conheça o JRebel.', entao, ele vai dar um peso muito grande para isso. E, claro, alem de mecanismos de buscas, eh sempre interessante desenvolvermos uma pagina usando o significado correto das coisas. Nao adiante definirmos aqui, em 'Como evitar redeploy em projetos Java? Conheça o JRebel.', alguma tag que nao represente um titulo muito importante, como <h1>, mesmo que fique visualmente igual, tem como fazermos sem usar <h1> e ficar visualmente igual? Tem, mas nao estamos dando o significado para aquele codigo que estamos definindo. E isso nao eh muito interessante. Eh bom sempre usarmos a semantica do html. 
+
+18. Agora, temos um paaragrafo, 'Será que é possível evitar o redeploy em projetos Java ao alterar ou adicionar classes e arquivos de configurações?'. Vamos, entao, colocar aqui uma tag que significa um paragrafo, a tag <p>, de paragrafo, em ingles, no caso,
+
+<p>Será que é possível evitar o redeploy em projetos Java ao alterar ou adicionar classes e arquivos de configurações?</p>
+
+19. Entao, 'Será que é possível evitar o redeploy em projetos Java ao alterar ou adicionar classes e arquivos de configurações?' fica dentro das tags de abertura <p> e fechamento </p> do elemento <p>.
+
+20. Aqui o sublime-text esta quebrando as linhas. Se desmarcar View / Word Wrap, ai joga tudo na mesma linha. Mas geralmente, o intrutor nao gosta de Word Wrap, mas tambem nao acha interessante trabalhar com uma linha que vai embora ate la no fim. Geralmente, trabalha-se com um numero de colunas fixo, ou seja, um numero de caracteres ate um limite. Tem muitas pessoas que trabalham ate 80 caracteres, embaixo, no lado esquerdo, da para ver, linha 10, coluna 80, entao seria um limite ate uma determinada posicao, onde seria possivel quebrar a linha, ou seja, dar um <enter>. Mas tem gente que trabalha ate 120, ou ate mais. O instrutor gosta de trabalhar, geralmente, ate 120, porque, hoje, os monitores estao maiores, entao, na posicao 120, o instrutor vai dar um <enter>. Dando um <enter>, nao quebra a linha quando eh renderizado pelo navegador.
+
+21. Agora, queremos separar os outros paragrafos. Iremos fazer da mesma forma que o Passo 20 para o proximo paragrafo, utilizando a tag <p>.
+
+22. 'JRebel: a solução' nao eh um paragrafo, eh um subtitulo, ou seja, eh um titulo menos importante do que o titulo principal. Inclusive, em um documento, no escopo geral do documento, pensando-se em um artigo, ele so tem um titulo, o restante sao subtitulos. Para subtitulos, pode-se ter ate repetidos. Para 'JRebel: a solução', vamos definir com <h2>. Pode have, depois, outro <h2>, um outro subtitulo com a mesma importancia que o subtitulo anterior. Mas o titulo principal <h1>, geralmente, nao repete.
+
+23. O proximo paragrafo nos definimos com a tag <p>.
+
+24. Em 'Download', nos vamos definir com <h3>, porque eh um subtitulo para o subtitulo anterior, ou seja, eh subtitulo filho de 'JRebel: a solução', eh um subtitulo de terceiro nivel, de terceira importancia.
+
+25. Para o proximo paragrafo, vamos definir com a tag <p>.
+
+26. Vamos salvar e visualizar no navegador.
+
+27. Agora, ficou o titulo, dois paragrafos, um subtitulo, outro paragrafo, um sub-sub-titulo e um outro paragrafo. Claro, nao eh necessario usar do <h1> ate o <h6>, nem ate o <h3>, pode-se ficar somente no <h1> se nao tiver necessidade de usar <h2>, <h3>, pode-se ficar so ate o <h2> tambem, se for necessario. Geralmente, eh assim. Mas, geralmente, todas as paginas vao ter o <h1>, pois o titulo descreve a nossa pagina. Principalmente, se for uma pagina na Internet, porque, ai, o Navegador vai conseguir, os mecanismos de busca vao conseguir indentificar melhor qual que eh a coisa mais importante daquela pagina atraves do titulo. 
+
+28. Entao, sempre temos que entender como a semantica do <h1> ate o <h6>, como ja falamos bastante, mas, tambem a semantica dos outros elementos. Por exemplo, a tag <p>, qual que eh a semantica dele? Eh um paragrafo. 
+
+29. Poderiamos, no paragrafo 'Com JRebel isso é possível. Você pode trabalhar em projetos Java com muito mais produtividade.', dar uma quebra de linha em 'Com JRebel isso é possível.'. Queremos fazer uma quebra de linha aqui. Poderiamos colocar uma outra tag chamada <br>.
+
+30. Essa tag <br> eh de break, em ingles, de quebra. Entao, nao eh obrigado a fechar tambem. Essa tag <br> quebra a linha. Mas nao eh o <p> que quebra a linha, da forma que a gente fez? Por que que eh o <br> que quebra a linha?
+
+31. Porque o <p> significa um paragrafo. O <br> significa uma quebra, uma quebra de linha. O <br> pode ser usado para quebrar partes de um conteudo, como nesse caso aqui: no mesmo paragrafo, nos quisemos quebrar a parte de um conteudo,
+<p>Com JRebel isso é possível.<br> Você pode trabalhar em projetos Java com muito mais produtividade.</p>
+
+32. Visualizando no navegador, ficou renderizado como:
+Com JRebel isso é possível.
+Você pode trabalhar em projetos Java com muito mais produtividade.
+
+33. Supondo que incluissemos http://www.algaworks.com logo no final do ultimo paragrafo, apos uma tag de quebra de linha, <br>,
+<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+
+, ou seja, eh um paragrafo so, mas so colocamos uma quebra aqui. Entao, a semantica eh diferente da tag de paragrafo, <p>.
+
+
+34. O que que acontece? Muitas pessoas usam <br> para dar espaco a torto e direito. Por exemplo, supondo que queiramos colocar mais espaco acima do sub-titulo 'JRebel: a solução'. Por algum motivo, alguem disse que esta muito junto o sub-titulo do paragrafo anterior e queremos dar mais espaco. O que se faria, nesse caso?
+
+35. Nos sabemos que o <br> quebra linha. Entao, vamos usar o <br>, porque, se ele quebra linha, colocamos 3 <br's> antes do sub-titulo e sera gerado o espaco desejado,
+
+    <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+    método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+<br><br><br>
+    <h2>JRebel: a solução</h2>
+
+Caso desejemos um pouco menos, tiramos um <br>,
+
+    <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+    método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+<br><br>
+    <h2>JRebel: a solução</h2>
+36. Isso eh usado por alguns desenvolvedores web. Antigamente, era muito mais, na verdade. Hoje, ja estao mais conscientes da semantica, nao fazem tanto isso mais, mas ainda se vai encontrar.
+
+37. O ideal seria fazermos com CSS. E ainda nao entramos nesse assunto no Workshop. Nao deve-se usar <br>. <br> deve ser usado para quebrar parte de um conteudo. Nao se pode substituir os paragrafos por <br> ou usar <br> a torto e direito para sair dando espacos.
+
+38. Entao, nesta aula, a gente viu sobre as tags de heading, ou seja, <h1> a <h6>, paragrafo, <p>, que simboliza um paragrafo, e <br>, que eh simplesmente uma quebra de linha, nao precisa de fechamento e tambem o <br> nao tem conteudo, como o paragrafo, <p>, que tem conteudo, as tags de heading, <h1.. h6>, tem conteudo.
+
+39. Essas sao as primeiras tags que a gente usa bastante e, mais importante do que entender como elas se apresentam por padrao no navegador, eh entender o que?
+
+40. Eh entender a semantica dessas tags. Fim da Aula 02.04. Primeiras tags: titulos, quebras de linhas e paragrafos
+-->
+
+<!-- Aula 02.04. Primeiras tags: titulos, quebras de linhas e paragrafos
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Como evitar redeploy em projetos Java?</title>
+</head>
+<body>
+
+	<h1>Como evitar redeploy em projetos Java? Conheça o JRebel</h1>
+	<p>
+		Será que é possível evitar o redeploy em projetos Java ao alterar ou adicionar classes e arquivos de
+		configurações?
+	</p>
+
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+	método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+	<h2>JRebel: a solução</h2>
+
+	<p>Com JRebel isso é possível.<br> Você pode trabalhar em projetos Java com muito mais produtividade.</p>
+
+	<h3>Download</h3>
+
+	<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+</body>
+</html>
+-->
+
+<!-- Aula 02.05. Comentarios 
+
+1. Como que fariamos para escrever um comentario dentro do nosso documento html sem que isso fosse exibido para os usuarios?
+
+2. Por exemplo, queremos dizer que, apos <h1>, eh o inicio do artigo. Eh um comentario apenas, 'Inicio do artigo'. Um comentario que nao faz parte do conteudo do nosso documento. Mas, se colocarmos isso, nos vemos isso exibido na pagina no navegador. 
+
+3. Existe um mecanismo que o html tem para nos adicionarmos comentarios dentro do documento de forma que ele nao seja renderizado no navegador. E eh muito simples, eh so comecarmos abrindo com o sinal de menor, <, exclamacao, !, traco-tracao, --, ou dois hifens. Ai nos escrevemos o que nos queremos de comentario e fechamos com traco-traco, --, e sinal de maior, >. Ao fechar o comentario, nao colocar outro sinal de exclamacao, !, so no inicio. 
+
+4. Vamos colocar outro comentario, definindo o fim do artigo, 'Fim do artigo', no final do documento.
+
+5. Agora, ao carregarmos a pagina novamente, nao vemos mais os comentarios. Entao, esta normal, a pagina eh  a mesma, na verdade. Mas, se clicarmos com o botao direito, View Page Source, os comentarios vao estar la no codigo-fonte.
+
+6. Sao comentarios que sao definidos caso seja necessario lembrar alguma coisa, para deixar alguma coisa que temos que lembrar, ou para outro desenvolvedor ver e entender o que esta sendo feito. Mas, tem-se que tomar o cuidado para nao colocar nada que nao seja informacao sensivel, por exemplo, comentar alguma coisa onde apareca a senha do banco de dados, supondo que, no projeto, haja alguma coisa nesse sentido. Colocar alguma senha, usuario, email. Tudo que for colocado nos comentarios, vai para o navegador e o usuario podera ver. Entao, devemos estar cientes disso. Devem ser colocados somente comentarios que nao tenha nenhum problema de alguem curioso visualizar.
+
+7. Tambem nao eh interessante ficar espalhando comentarios no codigo que nao tragam nenhum valor, comentarios obvios, como esse que nos definimos agora, 'Inicio do artigo' e 'Fim do artigo' eh uma coisa tao obvia que nao precisaria colocar.
+
+8. Mas, se o documento esta muito complicado e se acha que o comentario vai ajudar, entao pode-se colocar esses comentarios html nele.
+
+9. Fim da Aula 02.05. Comentarios 
+
+-->
+<!-- Aula 02.05. Comentarios 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Como evitar redeploy em projetos Java?</title>
+</head>
+<body>
+
+	<h1>Como evitar redeploy em projetos Java? Conheça o JRebel</h1>
+
+	<!-- Inicio do artigo --
+
+	<p>
+		Será que é possível evitar o redeploy em projetos Java ao alterar ou adicionar classes e arquivos de
+		configurações?
+	</p>
+
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+	método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+	<h2>JRebel: a solução</h2>
+
+	<p>Com JRebel isso é possível.<br> Você pode trabalhar em projetos Java com muito mais produtividade.</p>
+
+	<h3>Download</h3>
+
+	<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+
+	<!-- Fim do artigo --
+
+</body>
+</html>
+-->
+
+<!-- Aula 02.06. Enfase, importancia e marcacao
+
+1. Nesta aula, a gente vai estudar tres elementos html, que sao os elementos <em>, <strong>, e <mark>, que sao para enfase, importancia e marcacao.
+
+2. Entao, vamos la. A gente tem aqui o nosso documento que tem um artigo, eh um documento html com um artigo que a gente criou em uma aula anterior, e vamos comecar primeiro pelo elemento que usa a tag <em>.
+
+3. <em> eh para adicionar uma enfase em alguma parte do nosso texto. Entao, por exemplo aqui, vamos pegar uma parte do texto, 'Com JRebel isso é possível.'. Nos queremos adicionar uma enfase so no 'isso é'. Entao, coloca a tag de abertura <em>, o texto 'isso é' e a tag de fechamento </em>.
+
+4. <eh> eh uma tag que a gente esta colocando dentro da tag <p>, estamos colocando uma enfase nela, vejamos que esta dentro do <p>, eh uma tag aninhada dentro do paragrafo, <p>. Mas nao estamos dizendo que isso eh muito mais importante do que o resto. Nao, eh so uma enfase.
+
+5. Daqui um pouco, a gente vai ver o elemento que da mais importancia dentro de um conteudo. <em> nao esta dizendo que as palavras 'isso é' sao mais importantes na frase, so esta dizendo que a gente quer dar uma enfase no 'isso é'. Por exemplo, se lermos a frase 'Com JRebel, isso é possível.', como estamos dando uma enfase no 'isso é', leriamos 'Com JRebel, "isso é" possível.'. Ou seja, estamos dando uma enfase nisso. 
+
+6. Vendo a pagina no navegador, quando usamos o <em>, por padrao, os browsers colocam em italico. Mas nao se deve usar o <em> somente porque se deseja colocar em italico. O <em> nao eh um italico, o <em> eh enfasese, o <em> nao eh italico. Como tem a semantica de a tag <em> ser uma enfase, automaticamente os navegadores vao colocar italico. Mas so lembrando que nao se deve usar as tags para o que quer que apareca, mas sim para o seu significado. O significado de <em> eh uma enfase.
+
+7. A proxima tag que iremos ver eh <strong>. O elemento <strong> eh para a gente dar mais importancia a uma parte do texto, dentro de um conteudo. Entao, 'Você pode trabalhar em projetos Java com muito mais produtividade.', nos queremos dar importancia aqui, nos achamos que a parte mais importante da frase eh 'mais produtividade'. Entao, definimos a tag de abertura <strong>, o texto 'mais produtividade' e a tag de fechamento </strong>. Entao, 'mais produtividade' eh a parte mais importante desse paragrafo. Nesse caso, estamos especificando isso.
+
+8. Olhando a pagina no navegador, automaticamente o navegador coloca em negrito, lembrando, novamente, o <strong> nao quer dizer que eh negrito. O <strong> eh negrito porque eh importante, mas essa a semantica dele simplesmente esta dizendo que ele eh mais importante, nao diz que ele eh negrito.
+
+9. Nao se deve usar <strong>, entao, so porque se quer negrito. Podemos ter negrito com varias outras tags, ate mesmo se quisermos colocar um paragrafo inteiro em negrito, nao eh necessario o strong. Com CSS que veremos depois, da para fazer isso tranquilamente.
+
+10. O <strong> deve ser usado para colocar significado, dizer que 'mais produtividade' eh a parte mais importante, nesse caso, do conteudo, do paragrafo.
+
+11. Isso estamos dizendo para o documento que isso eh muito importante, nesse paragrafo, e tambem, eh logico, para os mecanismos de buscas, para os robozinhos que vao no nosso site para pegar o conteudo e indexar isso para depois, quando formos entrar no Gooble ou o Bing ou qualquer outro mecanismo e formos pesquisar, ele sabe que 'mais produtividade' eh muito importante, entao ele vai dar um peso maior para essa frase. Entao, eh para isso que serve o elemento <strong>
+
+12. Um outro elemento que a gente pode marcar texto eh o <mark>, que serve para dar relevancia em um contexto especifico.
+
+13. Entao, vamos pegar aqui, por exemplo, 'redeploy', no primeiro paragrafo. Vamos definir <mark>redeploy</mark>. Entao, aqui estamos marcando a palavra 'redeploy'. Eh uma marcacao, como se fosse aquelas canetinhas de marcar texto. Entao, foi marcado ali em 'redeploy', em amarelo. Lembrando, novamente, a semantica do <mark> eh para marcar um texto. Entao, automaticamente, o navegador marca isso com amarelo, mas poderia ser qualquer outra coisa. Podemos, depois, alterar isso com CSS. O padrao do navegador vai colocar dessa forma, mas lembrando de novo da semantica, o <mark> esta aqui marcando que essa parte tenha uma relevancia nesse contexto. E, geralmente, vamos usar o <mark>, que nao eh tao usado assim, mas, geralmente, vai-se usar, por exemplo, no resultado de uma pesquisa. Por exemplo, se estamos pesquisando pela palavra 'redeploy' e achamos esse artigo, podemos retornar esse artigo com a marcacao 'redeploy' com <mark>, ou seja, estamos dizendo: 'Estamos marcando o que esta sendo procurado', entao, tem relevancia nesse contexto.
+
+14. Se estamos pesquisando alguma coisa, eh relevante para nos a palavra que estavamos pesquisando. Entao, se usa o <mark>.
+
+15. Entao, esses tres elementos, cada um para um uso especifico, sao importantes conhecermos para nao ficar usando de forma incorreta.
+
+16. Fim da Aula 02.06. Enfase, importancia e marcacao.
+
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Como evitar redeploy em projetos Java?</title>
+</head>
+<body>
+
+	<h1>Como evitar redeploy em projetos Java? Conheça o JRebel</h1>
+
+	<!-- Inicio do artigo --
+
+	<p>
+		Será que é possível evitar o <mark>redeploy</mark> em projetos Java ao alterar ou adicionar classes e arquivos de
+		configurações?
+	</p>
+
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+	método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+	<h2>JRebel: a solução</h2>
+
+	<p>Com JRebel <em>isso é</em> possível.<br> Você pode trabalhar em projetos Java com muito <strong>mais produtividade</strong>.</p>
+
+	<h3>Download</h3>
+
+	<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+
+	<!-- Fim do artigo --
+
+</body>
+</html>
+-->
+
+<!-- 
+	Aula 02.07. Imagens
+
+1. Nesta aula, a gente vai usar um elemento que representa imagem dentro do documento html. Entao, a gente tem o artigo e queremos colocar uma imagem, a imagem jrebel.png que fizemos o download, no documento.
+
+2. Como que fazemos? Tem uma tag <img>, fechamos a tag, nao eh necessario fechar o elemento, ou seja, nao eh necessario definir como <img/>, podemos apenas fechar a tag <img> e, dentro da tag <img>, nos usamos o atributo src, de 'source', fonte, origem, em ingles. Qual que eh a origem dessa imagem, onde esta essa imagem? No caso, colocamos a imagem dentro da mesma pasta que colocamos o artigo.html, ou seja, esta no mesmo nivel, esta dentro da mesma pasta.
+
+3. Entao, nao eh necessario especificar nenhum caminho, vamos colocar so 'jrebel.png', que eh o nome da imagem, exatamente o nome da imagem que nos temos. Salvamos, carregamos novamente a pagina e esta aqui a imagem, entao, usando o elemento <img>.
+
+4. Se tivessemos essa imagem hospedada em um outro site, em algum outro lugar, a gente precisaria colocar a url completa dentro de src. Por exemplo, se estivesse em 'http://www.algaworks.com/imagens/jrebel.png', logicamente, nao existe essa url, mas supondo que ela estivesse la, hospedada em um lugar fora precisaria colocar o caminho completo.
+
+5. Mas, quando estamos na mesma pasta, ou ate em sub-pastas dentro da mesma aplicacao, dentro do mesmo projeto, nao precisamos colocar o caminho completo, precisamos apenas colocar o caminho relativo, ou seja, definindo o nome do arquivo quer dizer que o caminho eh o caminho da propria pasta onde esta o arquivo html.
+
+6. Entao, quando o navegador le o codigo, se olharmos em View Page Sorce, esta ali o arquivo .png. Quando o navegador baixa o codigo, ele vai baixar o arquivo .png logo em seguida. Entao, a primeira coisa que o navegador faz eh baixar codigo html e, ai, ele vai baixando e lendo e, quando ele chega na tag de <img>, ele ve que tem uma imagem para ser carregada, quem desenvolveu essa pagina, gostaria que mostrasse uma imagem nesse ponto. Ai, automaticamente, o navegador vai buscar essa imagem e baixa-la em paralelo as outras coisas que ele esta fazendo. Ele continua lendo o codigo html, mas continua baixando varios outros arquivos e vai buscar essa imagem e vai renderiza-la na pagina. 
+
+7. Vamos criar uma nova pasta dentro da pasta estrutura-basica, chamada img e vamos arrastar o jrebel.png para dentro da pasta img.
+
+8. Agora, ao recarregar a pagina, nao tem imagem. Vemos que aparece como uma imagem quebrada, nao existe a imagem, talvez ja tenhamos visto isso na Internet, quando entramos em um site e esta um simbolo como esse, quer dizer que a imagem nao existe, talvez ate existisse, mas deixou de existir, deu algum erro na hora de busca-la. E, realmente, nao existe, porque a gente mudou de pastas.
+
+9. O que que a gente teria que fazer aqui? Colocar o caminho de onde ela esta, img/jrebel.png, para o navegador buscar certinho onde esta a imagem.
+
+10. Tem mais alguns atributos para o elemento <img>, que eh o atributo width, onde definiremos a largura, esse eh, traduzindo para portugues, a largura. Vamos definir 200, 200 pixels. Quando colocamos a largura de 200 pixels, ja automaticamente diminui a largura, mas a altura nos nao especificamos. Como nao especificamos a altura, o navegador, automaticamente, vai colocar proporcional, ou seja, diminui a altura tambem, mas proporcional. Se nos especificarmos a altura, com o atributo height, de 200 pixels, a imagem fica quadrada e a gente desconfigura a imagem, a gente deixa-a achatada, nao eh o correto, nao eh o ideal, fica feio, nao eh profissional.
+
+11. O ideal eh a gente saber exatamente qual que eh a proporcao da imagem e usar aqui, no elemento <img>, a altura e largura.
+
+12. Neste caso, a imagem tem extamente 768 pixels por 403 pixels. Se especificarmos, certinho, a imagem volta ao normal.
+
+13. Vejamos que, se nao for especificado nada, o navegador tambem mostra no tamanho original. Mas, o que aconteceria se essa imagem nao existisse?
+
+14. Vamos renomear jrebel.png para jrebel222.png, so para vermos que essa imagem nao existe, mas, agora, vai aparecer aquela imagem quebrada, so que com altura e largura especificados. 
+
+15. Quando definimos a imagem e altura e a imagem nao existe, mesmo assim a imagem que nao existe, o espaco da imagem ocupa todo aquele espaco que a gente especificou. 
+
+16. Isso pode ser bom, porque nao vai quebrar o nosso layout, nao vai deixar as coisas diferentes do que foi imaginado.
+
+17. Se a imagem nao foi carregada por algum motivo, tudo bem, o resto nao eh afetado, nao se vai ter uma imagem quebrada pequena, sendo que estavamos esperando que a imagem iria ocupar mais espaco. Entao, isso pode ser bom definir o tamanho da imagem certinho.
+
+18. Outro atributo que eh muito usado, muito importante eh o atributo alt. E, para o valor do atributo alt, colocamos uma descricao dessa imagem, 'JRebel'. Se a pagina for acessada por algum tipo de navegador especial, por exemplo, navegadores em texto, talvez nunca tenhamos acessado usando navegadores em texto, mas existem navegadores em texto, que nao sao visuais, que nao mostram imagens, como estamos acostumados, existem esses navegadores. Ou, entao, se essa imagem nao puder ser carregada por algum motivo, alguma falha de conexao, ou a imagem nao existir, ao inves de aparecer somente aquela imagem quebrada, quando a gente coloca o alt, vai aparecer na imagem quebrada tambem 'JRebel'. 
+
+19. Esses navegadores de texto aos quais falamos, se o nosso usuario estiver usando algum navegador de texto, que nao possa exibir imagens, justamente porque o navegador eh de texto, ele vai mostrar o que esta escrito no alt, 'JRebel', neste caso. Logicamente, como nao tem como mostrar a imagem, o navegador tem que mostrar alguma coisa que, no caso, vai ser o alt. 
+
+20. Entao, eh importante fazer isso. Fora, eh claro, leitores de tela, quem tem deficiencia visual que usa leitores de tela, nao conseguem enxergar uma imagem, entao, o que estiver no alt eh o que ele vai escutar por esses aplicativos de leitura de tela. Entao, eh importante colocar o alt e, tambem, nao menos importante, mas os motores de busca tambem. O Google, ao ler uma pagina, o Google nao sabe o que que eh o conteudo de uma imagem. Para ele saber o que que eh o conteudo de uma imagem, ele vai olhar o alt. 
+
+21. Entao, isso acaba melhorando tambem a otimizacao para mecanismos de buscas, onde se identifica exatamente o que que eh essa imagem. 
+
+22. Mas, quando essa imagem existe, deixa de aparecer o texto do alt e, simplesmente, mostra a imagem, sem enxergarmos o que esta escrito no alt.
+
+23. Quais imagens que podemos usar no atributo src? Cada navegador pode suportar tipos de imagens diferentes. Aqui, nos usamos .png. Mas o html nao define os formatos de imagens que sao suportados. Entao, a gente pode usar alguns tipos. Mas, os mais comuns, que todos os navegadores suportam, sao .png, que eh o que a gente usou, .jpg, .svg. Entao, geralmente, vamos ficar nesses formatos. .gif tambem, ja foi muito mais utilizado antigamente .gif tambem. Todos os browsers suportam esses formatos.
+
+24. Entao, esses formatos podem ser utilizados dentro do atributo src. E, claro, o elemento <img> pode ser colocado dentro de outros elementos. Pode ser colocado dentro do <p>. Esse elemento pode ser colocado em varios lugares da pagina.
+
+25. Fim da Aula 02.07. Imagens.
+-->
+<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Como evitar redeploy em projetos Java?</title>
+</head>
+<body>
+
+	<h1>Como evitar redeploy em projetos Java? Conheça o JRebel</h1>
+
+	<img src='img/jrebel.png' width="768" height="403">
+	<!-- <img src='img/jrebel222.png' width="768" height="403" alt="JRebel"> --
+
+	<!-- Inicio do artigo --
+
+	<p>
+		Será que é possível evitar o <mark>redeploy</mark> em projetos Java ao alterar ou adicionar classes e arquivos de
+		configurações?
+		<!-- <img src='img/jrebel.png' width="768" height="403"> --
+	</p>
+
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+	método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+	<h2>JRebel: a solução</h2>
+
+	<p>Com JRebel <em>isso é</em> possível.<br> Você pode trabalhar em projetos Java com muito <strong>mais produtividade</strong>.</p>
+
+	<h3>Download</h3>
+
+	<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+
+	<!-- Fim do artigo --
+
+</body>
+</html>
+-->
+
+<!-- 
+Aula 02.08. Ancoras (links)
+
+1. O elemento de ancora define um hyperlink para uma outra pagina na web, ou ainda para uma localizacao dentro da mesma pagina.
+
+2. Esse elemento de ancora eh representado pela tag <a>, simplesmente a letra a. Entao, queremos colocar na palavra JRebel. Imagina-se que saibamos o que eh o link, pois usamos a Internet no dia-a-dia, quando clicamos naquele link para acessar uma outra pagina, para acessar um outro site, ele direciona para la. Entao, eh isso que a gente vai fazer. 
+
+3. Ao clicar na palavra 'JRebel', que esta no titulo, queremos direcionar o usuario para um outro site. Entao, vamos abrir a tag <a> antes de 'JRebel' no titulo e, entao, fechamos o elemento, </a>.
+
+4. E vamos colocar um atributo chamado href, e, dentro desse atributo href, vamos colocar qual que eh o nome da pagina, ou o endereco que queremos direcionar o usuario. Vamos colocar http://www.algaworks.com, ou seja, coloca o endereco completo para direcionar o usuario para a pagina da algaworks quando clicar na palavra JRebel. 
+
+5. O endereco definido em href nao precisa ser apenas http, pode-se usar outros protocolos tambem, se quiser usar um ftp, para enviar e-mail, nos vamos ver daqui a pouco como que a gente usa o protocolo de email.
+
+6. Entao, vamos recarregar a pagina e vemos que ja aparece, entao, sublinhado a palavra 'JRebel', indicando que eh o link. Quando clica, vai para a pagina da AlgaWorks.
+
+7. Entao, o nosso primeiro link esta feito. Vimos que o link abre na mesma pagina. Se quisermos em uma nova aba, tem como fazer isso colocando um atributo target, e, no valor, nos colocamos _blank, isso eh padronizado esse nome. Vamos recarregar a pagina, quando clicamos em 'JRebel', abre em uma nova pagina. Se clicarmos de novo, abre uma nova pagina de novo, sempre vai abrir em uma nova aba quando clicarmos no link, porque definimos o _blank.
+
+8. E se quisermos colocar o link em uma imagem? Na imagem que colocamos, ao clicar, nao acontece nada. Queremos colocar um link nela.
+
+9. Definimos o elemento <a> como pai do elemento <img> e definimos o href como http://www.algaworks.com.
+	<a href="http://www.algaworks.com">
+		<img src='img/jrebel.png' width="768" height="403">
+	</a>
+
+10. Recarregamos a pagina e pronto, a imagem virou um link tambem. A gente nao esta ainda discutindo a parte de estilizacao da pagina. Entao, nao se deve preocupar-se com a cor do link, que gostaria de mudar, querer tirar o sublinhado embaixo do link, etc, ainda nao eh a hora, ainda nao entramos nessa parte de estilizacao das paginas. Entao, vamos somente focar na funcionalidade do link mesmo, de se clicar e ser direcionado para outro lugar.
+
+11. Vamos, agora, colocar um outro link na palavra contato. Ja deixamos uma pagina pronta, contato.html. Vamos colocar, agora, o link para a pagina contato.html,
+<a href="contato.html">contato</a>
+Nesse caso, nao eh necessario especificar a url completa, com protocolo e tudo mais, simplesmente, especificamos o nome do arquivo, pois esta na mesma pasta, contato.html. Se essa pagina, contato.html, estivesse em uma outra pasta, aqui dentro da pasta estrutura-basica, nos colocariamos: pasta/contato.html. Mas, como esta no mesmo lugar, simplesmente coloca-se contato.html. 
+
+12. Ao recarregar a pagina, ja aparece o link na palavra 'contato'. Quando clicamos no link, direciona para a pagina de Contato. 
+
+13. Agora, nessa pagina de Contato, queremos colocar um link no e-mail contato@algaworks.com. Em contato.html, vamos definir <a href="">contato@algaworks.com</a>. Mas um link para onde? Nao eh uma pagina, nos queremos enviar um e-mail.
+
+14. Podemos utilizar um protocolo com prefixo chamado 'mailto', ou seja, 'envia o e-mail para', dois pontos, :, e, em seguida, colocamos o endereco do e-mail, contato@algaworks.com, <a href="mailto:contato@algaworks.com">contato@algaworks.com</a>. Salvamos e recarregamos a pagina. Ao recarregar a pagina, renderizou o link e, quando clicamos no link, vai abrir o aplicativo de e-mail, ou seja, ja abre o aplicativo para so digitarmos o assunto e a mensagem e ja enviarmos.
+
+15. Entao, os proprios navegadores ja abrem o aplicativo de e-mail padrao que temos. 
+
+16. Essa parte de links eh muito simples. Ainda tem o envio de um link enviando para uma outra localizacao da pagina, mas isso a gente vai fazendo durante o workshop, que a gente vai precisar disso. Nao iremos fazer aqui, porque este exemplo nao teria muito a ver para mostrar isso, mas, mais para a frente, isso sera visto, mas eh muito simples, criar links para direcionarmos o usuario que esta em uma pagina para uma outra pagina, ou para um outro website.
+
+17. Fim da Aula 02.08. Ancoras (links).
+-->
+<!--
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Como evitar redeploy em projetos Java?</title>
+</head>
+<body>
+
+	<h1>Como evitar redeploy em projetos Java? Conheça o <a href="http://www.algaworks.com" target="_blank">JRebel</a></h1>
+
+	<a href="http://www.algaworks.com">
+		<img src='img/jrebel.png' width="768" height="403">
+	</a>
+	<!-- <img src='img/jrebel222.png' width="768" height="403" alt="JRebel"> --
+
+	<!-- Inicio do artigo --
+
+	<p>
+		Será que é possível evitar o <mark>redeploy</mark> em projetos Java ao alterar ou adicionar classes e arquivos de
+		configurações?
+		<!-- <img src='img/jrebel.png' width="768" height="403"> --
+	</p>
+
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+	método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+	<h2>JRebel: a solução</h2>
+
+	<p>Com JRebel <em>isso é</em> possível.<br> Você pode trabalhar em projetos Java com muito <strong>mais produtividade</strong>.</p>
+
+	<h3>Download</h3>
+
+	<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+
+	<p>
+		Gostou do artig? Entre em <a href="contato.html">contato</a>.
+	</p>
+
+	<!-- Fim do artigo --
+
+</body>
+</html>
+-->
+
+
+<!-- 
+
+Aula 02.09. Elementos estruturais
+
+1. Quando comecamos a trabalhar com paginas maiores, comecamos a precisar separar o conteudo dessas paginas em sessoes.
+
+2. E, entao, vamos simular aqui, nessa pagina, nesse artigo, para a gente separar aqui em algumas sessoes. Por exemplo, vamos pensar aqui, aqui nos temos um artigo, dentro da tag <body>. Vamos supor que queiramos colocar um cabecalho para esse artigo, um cabecalho para a pagina, nao para o artigo, mas para a pagina, tipo a logomarca da nossa empresa, alguma coisa assim. Nao vamos entrar nesses detalhes ja, colocar a logomarca, a imagem, ainda a gente nao vai colocar isso. A gente vai fazer isso mais para a frente no projeto que a gente vai realmente desenvolver nesse workshop, que nao eh este aqui, este aqui eh o inicio ainda do workshop, a gente vai desenvolver um pequeno projeto mais bonito.
+
+3. Mas vamos la. Queremos colocar uma logomarca. Onde colocariamos? Poderiamos usar um elemento chamado <div>,
+<div>
+	
+</div>
+Entao, um div eh um container. Eh um container generico e nao representa nada em especifico. Estamos mostrando uma forma que a gente ainda vai mudar, nao eh que vai ficar assim, mas, hoje, ja tem formas melhores para a gente fazer, dependendo da situacao, como esta aqui, teria. Mas, vamos la.
+
+4. Nos colocamos um <div> e, dentro do <div>, vamos colocar um elemento <p>, com o texto 'Blog do Joao'. Aqui, poderia colocar, ao inves do elemento de paragrafo, uma imagem com uma logomarca, alguma coisa assim, ou seja, estamos dividindo em sessoes a nossa pagina. Esta <div> representa uma sessao, que eh a sessao do cabecalho da pagina.
+
+5. Se recarregarmos a pagina, claro, esta feio, porque a gente nao esta ainda, neste momento do Workshop, trabalhando com os estilos da pagina, mas so para entendermos a organizacao do nosso codigo html.
+
+6. Mas, quem for ler isso, sabe que eh uma sessao de cabecalho? Talvez, se tiver uma logomarca, ou o nome do blog, pode ate entender ou nao. Motores de busca, provavelmente, nao vao entender o que que eh isso. Ferramentas de assistencia para quem tem alguma deficiencia visual, alguma coisa assim que precisa leitores de tela que precisam entender tambem, nao vao entender o que que eh isso:
+<div>
+	<p>Blog do João</p>
+</div>
+
+7. Okay, por enquanto fica assim. Vamos definir, aqui, so uma propriedade chamada 'id', embora a gente nao va precisar disso aqui agora, essa propriedade id eh para identificarmos, 'cabecalho', so para ficar identificado, para a gente nao esquecer.
+
+8. Entao, vamos dividir em outra sessao agora. A proxima sessao vai ser o proprio artigo. Vamos definir acima de <h1>, com uma tag de abertura de <div> e vamos fechar com uma tag de fechamento </div> apos o ultimo paragrafo do artigo. Vamos colocar um id tambem para nao esquecermos, artigo.
+
+9. Visualmente, nao muda nada, ao recarregar a pagina, verificamos que nao muda nada, a gente esta so dividindo em sessoes.
+
+10. Embora nao estejamos visualizando isso, a gente esta so mexendo no codigo, poderiam essas sessoes que estamos separando aqui, ter um reflexo visual, poderiam. Como? Quando entrarmos para estudar CSS, que eh o que a gente usa para dar os estilos para os elementos da nossa pagina, poderia a gente falar aqui: 'Este cabecalho tem fundo preto do inicio ao fim, ele preenche toda a largura da tela com fundo preto, uma largura de 50 pixels, a gente poderia fazer isso. Falar que a sessao do artigo tem uma cor de fonte de cinza escuro, com uma cor de fundo amarelo bem claro, a gente poderia. A gente nao esta chegando nesse ponto ainda deste workshop, mas so para entendermos que essa separacao de sessoes acaba ajudando nisso tambem, alem, claro, de facilitar a leitura do codigo, nao so por nos, mas tambem maquinas, por robos.
+
+11. Depois que a gente dividiu o artigo, vamos, dentro do artigo, dividir em sub-sessoes. Dentro do artigo, vamos definir um outro <div>, com id 'cabecalho-artigo'. A imagem nos vamos colocar dentro de 'cabecalho-artigo', vamos entender que a imagem faz parte do cabecalho-artigo.
+
+12. Entao, um artigo tem um cabecalho, 'cabecalho-artigo'.
+
+13. Supondo que, neste artigo, queiramos colocar uma barra lateral, que poderia ficar do lado direito, mas nao vai ficar por enquanto, porque nao estamos, ainda, trabalhando com a formatacao da pagina, mas eh uma barra em que queremos colocar para anuncios.
+
+14. Geralmente, alguns blogs acabam monetizando isso, entao, vamos colocar alguns anuncios. Vamos definir, entao, logo apos a div, ou seja, sessao, do artigo, uma div, ou seja, sessao, para a barra lateral para anuncios, ou seja,
+<div id="barra-lateral">
+</div>
+
+15. Vamos definir, dentro da sessao de 'barra-lateral', um elemento de paragrafo, <p>, com o texto, 'Anúncios da página'. Ao recarregar a pagina, foi para baixo na pagina, mas poderia nao estar embaixo, poderia estar do lado direito, mas isso eh somente a formatacao da pagina, o codigo eh o mesmo, ou seja, eh so a formatacao da pagina que mudaria, mas ainda nao entramos nessa parte.
+
+16. E vamos definir mais uma coisa. Vamos colocar um rodape nessa pagina. Nos temos o cabecalho, entao vamos definir tambem um rodape, de 'Todos os direitos reservados', algo assim. Entao, vamos definir outro div, com id 'rodape', e, dentro, um elemento de paragro, com o texto, 'Todos os direitos reservados',
+<div>
+	<p>Todos os direitos reservados</p>
+</div>
+
+17. Ao recarregar a pagina, vemos, como ultimo paragrafo, 'Todos os direitos reservados'.
+
+18. Entao, vemos que a estrutura da nossa pagina, agora, a gente fez uma estrutura separando com algumas sessoes. Entao, nos temos a sessao do 'cabecalho', do 'artigo', temos uma sub-sessao, 'cabecalh-artigo', temos a sessao 'barra-lateral' para os anuncios e a sessao 'rodape'.
+
+19. Entao, eh assim que a gente fazia ate quando nao existia o html5. Com o html5, surgiram varios outros elementos, que permitem descrever a estrutura de um documento, separando em sessoes. Esses elementos sao mais semanticos, entao, eles dao um significado especial para o conteudo que a gente esta colocando no nosso documento.
+
+20. E, comecando, de cima para baixo, no div cabecalho, a gente pode substituir isso aqui por um novo elemento chamado header.
+
+21. O proprio nome header, em ingles, diz que eh um cabecalho. Entao, eh um cabecalho. Caso precisemos de um id, eh so definir. Dependendo do caso, podemos definir tambem.
+<header id="cabecalho">
+</header>
+
+22. So que o header eh entendido pelos desenvolvedores, pelos motores de busca, pelos robos que vao ler, por softwares de leitura de tela, entao o header eh header, ou seja, tem um significado, eh um cabecalho de verdade. Entao, estamos dando a semantica para os nossos elementos.
+
+23. Na div 'artigo', vamos definir o elemento <article>. Um artigo representa o que? Um artigo. Mas, vejamos, ele nao representa apenas um artigo de blog, quando estamos falando de artigo, ele representa um artigo, um objeto. Pode ser um artigo um post de blog? Pode, pode ser uma noticia, pode ser um item de conteudo qualquer. A gente vai, inclusive, ver, neste workshop, nos vamos usar esse elemento para algo que nao eh um artigo de um blog, veremos mais para frente, quando comecarmos a desenvolver o projeto do workshop.
+
+24. Entao, devemos entender que o artigo eh um objeto que nao quer dizer que eh so uma noticia, um post.
+
+25. O nosso artigo tem um cabecalho, 'cabecalho-artigo', entao, vamos colocar o que? Vamos definir o elemento header,
+<article>
+	<header></header>
+</article>
+
+26. O artigo tambem pode conter um cabecalho. O artigo, geralmente, tem os titulos, com as tags <h1..h6>, geralmente, ele eh identificado por um titulo. Para o nosso artigo, o titulo eh: '<h1>Como evitar redeploy em projetos Java? Conheça o JRebel</h1>', que esta dentro do cabecalho. O <h1> identifica qual que eh o artigo.
+
+27. Para o div de 'barra-lateral', nos vamos usar um elemento, uma tag chamada <aside>. Entao, isso eh considerado como algo separado do conteudo principal, ou seja, isso nao faz parte do conteudo principal dessa pagina, eh separado. Eh aqui que pode-se usar para colocar uma side-bar, ou seja, uma barra lateral, pode-se usar para anuncios, para links relacionados ao conteudo, ou seja, nao faz parte do conteudo, mas eh relacionado aquele conteudo. Entao, algo relacionado a pagina, mas nao faz parte do que eh principal, pode-se colocar dentro do elemento <aside>.
+
+28. E, no rodape, que a gente tinha antecipado antes, define-se o elemento <footer>. Entao, esse eh o rodape da pagina. O artigo tambem poderia ter um rodape. Podemos definir, por exemplo, um autor, qual foi o autor que escreveu, a biografia dele, algo assim, poderia colocar no footer, por exemplo, dentro do artigo.
+<footer>
+</footer>
+
+29. Mas, quando colocamos dentro do body, estamos falando que eh o rodape da pagina do documento. Entao, geralmente, um documento tem um rodape e definimos ao final da pagina. 
+
+30. Entao, esses foram os elementos que a gente usou aqui na pagina. Se a gente recarregar a pagina, notamos que o navegador diminuiu o tamanho da fonte do titulo. Mas, para a gente, isso nao importa muito nao, porque a gente vai, depois, estilizar as nossas paginas. O importante eh entender a semantica, entendermos que <h1> eh o titulo principal do artigo, temos a definicao do header da pagina, o header do artigo, tem a definicao da barra lateral que a gente colocou, que eh relacionado ao conteudo principal, e temos, tambem, o rodape.
+
+31. Depois, quando a gente for trabalhar com CSS, a gente pode formatar do jeito que a gente quiser, o tamanho de fonte que a gente quiser, cores, qualquer forma a gente pode fazer isso. 
+
+32. Onde que descobrimos a semantica desses elementos e, ate, tem outros tambem que a gente nao usou aqui, como, por exemplo, o elemento <nav>, o elemento <section>, o elemento <main>, tem alguns outros que a gente nao usou neste documento, mas podemos verificar em http://developer.mozilla.org. Eh so procurar nesse site MDN, que eh uma fonte para pesquisar sobre html e outras tecnologias muito boa. Por exemplo, o elemento article, procuramos a definicao e, no site MDN, tem a documentacao. Algumas paginas do site MDN nao estao em portugues, mas eh bem tranquilo para entendermos. Eh possivel procurar, tambem, direto na URL, https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section, que vai aparecer a documentacao do elemento <section>.
+
+33. Entao, eh dessa forma que descobrimos quando estamos estudando, ate na hora de usar, as vezes, ficamos um pouco com duvida se isso estaria correto ou nao, as vezes existe tambem muita discussao sobre isso, pode-se ver em alguns foruns, algumas pessoas entendendo de uma forma ou outra, por exemplo, o elemento <h1>, dentro do artigo, tem gente que pode achar que teria que comecar sempre com h2 e o h1 sempre ser, talvez, o titulo da pagina, em 'Blog do João' e <h2> para o titulo do artigo, 'Como evitar redeploy em projetos Java? Conheça o JRebel'.
+
+34. Tem gente que fala que nao pode repetir, que pode repetir, entao, essas coisas sempre tem discussoes. Nao quer dizer que uma pessoa eh certa, a outra nao esta certa, entao. Claro, em alguns casos, existe o que eh certo e o que eh errado, mas, em alguns casos, ainda, esta em discussao, nao tem um consenso ainda, para algumas situacoes.
+
+35. Fim da Aula 02.09. Elementos estruturais.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Como evitar redeploy em projetos Java?</title>
+</head>
+<body>
+	
+	<!--div id="cabecalho">
+		<p>Blog do João</p>
+	</div-->
+	<header id="cabecalho">
+		<p>Blog do João</p>
+	</header>
+
+	<!--div id="artigo"-->
+	<article>
+		<!-- div id="cabecalho-artigo" -->
+		<header>
+			<h1>
+				Como evitar redeploy em projetos Java? Conheça o <a href="http://www.algaworks.com" target="_blank">JRebel</a>
+			</h1>	
+			<a href="http://www.algaworks.com">
+				<img src='img/jrebel.png' width="768" height="403">
+			</a>			
+		<!--/div -->	
+		</header>
+
+		<!-- <img src='img/jrebel222.png' width="768" height="403" alt="JRebel"> --
+
+		<!-- Inicio do artigo -->
+
+		<p>
+			Será que é possível evitar o <mark>redeploy</mark> em projetos Java ao alterar ou adicionar classes e arquivos de
+			configurações?
+			<!-- <img src='img/jrebel.png' width="768" height="403"> -->
+		</p>
+
+		<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo 
+		método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+		<h2>JRebel: a solução</h2>
+
+		<p>Com JRebel <em>isso é</em> possível.<br> Você pode trabalhar em projetos Java com muito <strong>mais produtividade</strong>.</p>
+
+		<h3>Download</h3>
+
+		<p>Para fazer download, acesse a página do JRebel e faça o seu cadastro.<br>http://www.algaworks.com</p>
+
+		<p>
+			Gostou do artig? Entre em <a href="contato.html">contato</a>.
+		</p>
+
+		<!-- Fim do artigo -->
+	<!-- /div -->
+	</article>	
+	<!--div id="barra-lateral"-->
+	<aside>
+		<p>Anúncios da página</p>
+	</aside>
+	<!--/div -->	
+	<!--div id="rodape"-->
+	<footer>
+		<p>
+			Todos os direitos reservados.
+		</p>
+	</footer>
+	<!--/div-->
+
+</body>
+</html>

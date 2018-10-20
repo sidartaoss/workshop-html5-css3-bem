@@ -1,0 +1,147 @@
+<!-- 
+	Aula 04.010. Reset CSS e Normalize.css
+
+1. Nos sabemos que, quando adicionamos um elemento no nosso HTML, o navegador tem um estilo padrao que ele aplica para esse elemento. Por exemplo, quando a gente coloca um elemento h1, o proprio navegador ja vai aplicar um estilo, vai colocar uma margem superior, margem inferior, tamanho da fonte, negrito.
+
+2. Tem varios outros elementos HTML que tambem ja trazem estilos padrao, que o proprio navegador adiciona.
+
+3. Acontece que nao existe uma consistencia de todos os navegadores em relacao a esses estilos. Pode acontecer de ter um navegador que estilize de uma forma e outro navegador que estilize de uma outra forma diferente e isso pode ser um problema para o nosso layout, nao se tem consistencia, nem uma padronizacao disso.
+
+4. Entao, existe algo muito conhecido quando a gente esta desenvolvendo paginas html que sao os famosos Reset's CSS, que nada mais sao que um conjunto de regras CSS com o objetivo de remover todos os estilos do navegador.
+
+5. Entao, por exemplo, tem um bem conhecido que nos podemos acessar pela URL bit.ly/resetcss.
+
+6. Esse eh um bem conhecido e nos podemos, simplesmente, selecionar todo o codigo, copiar e colar em um arquivo CSS. 
+
+7. Vemos que, nesse arquivo, tem varias classes, varios seletores que removem a margem, removem padding, removem a borda. Entao, esse Reset CSS, em especifico, vai limpar todos os estilos possiveis do padrao do navegador, vai zerar tudo isso.
+
+8. Entao, o conteudo do site https://meyerweb.com/eric/tools/css/reset/reset.css foi salvo no arquivo css/reset.css.
+
+9. O arquivo reset.css ainda nao foi importado na nossa pagina html. Geralmente, se coloca em um arquivo separado, nao se mistura com o codigo CSS nos arquivos do Projeto.
+
+10. Vamos colocar, agora, um h1 so para a gente fazer um teste aqui. Vamos chamar de MyPilas,
+
+<h1>MyPilas</h1>
+
+11. Ao recarregar a pagina, vemos que esta ali, em negrito, com uma fonte maior, tem margem superior e inferior, mas nao estamos usando, ainda essas regras CSS que acabamos de ver no arquivo reset.css.
+
+12. Vamos importar,
+
+<link rel="stylesheet" href="css/reset.css">
+
+
+13. Entao, agora, a gente acabou de importar as regras CSS de reset.css. Vamos recarregar a pagina e vemos que o h1 que a gente colocou nao deixa de ser o h1, a semantica, esta tudo certinho.
+
+14. Porem, ao inspecionar o elemento, na Guia Styles, no Chrome DevTools, vemos que o reset.css zerou a margem, zerou o padding, a borda, font-size, varias coisas.
+
+15. Entao, esse arquivo reset.css serve para isso, para zerarmos tudo que for possivel, ja que existe inconsistencia entre os navegadores. A ideia eh o seguinte: ja que existe inconsistencia, zera tudo e quem for escrever a pagina, define o que quiser.
+
+16. Entao, nesse caso, nos se quisermos definir um tamanho de fonte maior, podemos definir um tamanho de fonte maior, nao tem problema, nos podemos definir, se quiser um tamanho de fonte maior, se quiser em negrito, se quiser com margem. 
+
+<h1 styel="font-size: 32px; font-weight: bold; margin: 20px 0;">MyPilas</h1>
+
+
+17. Nos podemos tambem definir a nossa margem, so que nos sabemos o que nos estamos fazendo e, quando nos definimos isso, entao, todos os navegadores vao respeitar, logicamente. A ideia de limpar tudo, zerar tudo, eh para nao ter inconsistencia: um navegador tem, o outro navegador nao tem, ai nos desenvolvemos tudo em um e, na hora de ver em outro, uma margem esta diferente, uma fonte esta diferente, alguma coisa assim.
+
+18. Entao, limpamos tudo e zeramos tudo.
+
+19. Esse eh um arquivo CSS de reset bastante conhecido, com pouco codigo, muito simples, porque a ideia eh muito simples tambem, zerar tudo.
+
+20. Agora, existe uma outra alternativa a esses Reset's CSS, que eh o Normalize.css. Entao, vamos acessar: http://bit/ly/normalizecss, onde chegamos na pagina: http://necolas.github.io/normalize.css. Eh uma alternativa para o CSS Reset, que tem, como objetivo, padronizar os estilos dos elementos. Quando falamos padronizar, nao significa remover, zerar todas as margens, os paddings, colocar tudo zerado como Reset CSS. Significa padronizar, entao, ele vai criar um padrao para trabalharmos em cima dele. Nao vamos ficar dependendo do padrao de cada navegador, nos vamos depender do padrao do Normalize.
+
+
+21. Entao, clicamos no botao para Download, podemos selecionar todo o codigo e copiar para o arquivo css/normalize.css.
+
+22. Entao, eh muito mais codigo, porque ele esta padronizando, ele tem documentacao tambem, entao o codigo eh maior mesmo, mas nao eh tao complicado se nos quisermos le-lo.
+
+23. E, agora, vamos importar o arquivo css/normalize.css,
+
+<link rel="stylesheet" href="css/normalize.css"
+
+24. Entao, ao recarregar a pagina, vemos que o CSS colocou uma fonte pre-definida, podemos ver que o h1 nao eh zerado, o h1 tem negrito, o h1 tem um tamanho de fonte, tem margem, porem nos podemos contar que isso aqui vai ser renderizado em todos os navegadores, porque o CSS ja preve isso, a ideia dele eh padronizar mesmo. 
+
+25. O ideal para nos comecarmos a usar um Reset CSS, e nao precisa ser o que foi mostrado nesta aula, pode ser um outro, existem varias alternativas. Aquele que foi mostrado nesta aula eh um bem conhecido, mas existem varios. 
+
+26. O ideal eh nos comecarmos a usar isso no inicio do nosso projeto. Porque, depois que nos detemos o Projeto ja pronto, se adicionamos essas Regras CSS, nos podemos ter dor de cabeca, as vezes nos estavamos usando um padrao do navegador de margem e, de repente, nos usamos um Reset CSS que vai limpar as margens todas. Entao, nos vamos comecar a ter que ajustar o nosso codigo.
+
+27. Entao, o quanto antes comecarmos a usar, melhor. No projeto do nosso workshop, a gente vai usar o Normalize CSS. A gente poderia, tambem, nao usar, nao eh obrigado a usar, mas a gente vai usar o Normalize CSS, porque, simplesmente porque a gente vai, em uma aula mais a seguir, a gente vai usar umas classes CSS de um framework chamado Bootstrap e o Bootstrap usa o Normalize, entao, a gente ja esta prevendo isso e ja vamos usa-lo aqui, agora. 
+
+28. Quando chegar la, vamos explicar melhor tambem que ele ja tem o Normalize CSS e a gente vai retirar esse arquivo normalize.css daqui do arquivo html.
+
+29. Mais uma coisa muito importante, antes de terminarmos esta aula, que eh muito importante, eh sempre colocarmos a importacao aqui do arquivo CSS antes dos nossos proprios arquivos CSS, nao deve-se inverter essa orderm, porque a base eh o arquivo Normalize CSS e o que vem depois pode sobrescrever essa base. Entao, se nos invertermos, o Normalize CSS pode sobrescrever coisas que nos definimos no nossos estilos. Isso eh o efeito cascata do CSS, Se nos, dependendo do seletor que usarmos, por exemplo, h1, em Normalize CSS tirando a margem e, no nosso arquivo CSS, h1 colocando a margem, o CSS vai respeitar o que foi colocado depois,
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/estilos.css">
+
+30. Neste projeto do workshop, claro, deve-se usar o Normalize CSS, nao deve-se usar outro, porque pode ficar complicado, porque, como dissemos, a gente vai utilizar uma outra coisa que utiliza o Normalize CSS.
+
+31. Fim da Aula 04.010. Reset CSS e Normalize.css.
+
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPillas</title>
+	<!-- link rel="stylesheet" href="css/reset.css"-->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<h1 style="font-size: 32px; font-weight: bold; margin: 20px 0">MyPilas</h1>
+
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+	<div id="planos">
+		<div class="container">
+			<article>
+				<h2>Autônomo</h2>
+				<div>R$59/mês</div>
+				<ul>
+					<li>Até <strong>2 usuários</strong></li>
+					<li><strong>500MB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Micro</h2>
+				<div>R$89/mês</div>
+				<ul>
+					<li>Até <strong>5 usuários</strong></li>
+					<li><strong>1GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article style="margin-right: 0;">
+				<h2>Pequena</h2>
+				<div>R$99/mês</div>
+				<ul>
+					<li>Até <strong>10 usuários</strong></li>
+					<li><strong>5GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+		</div>
+	</div>
+</body>
+</html>

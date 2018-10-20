@@ -1,0 +1,426 @@
+<!-- 
+  Aula 07.013. Adicionando o Menu para Telas Pequenas.
+
+1. Agora, a gente vai implementar o menu lateral, aqui do lado esquerdo,
+que vai servir para depois gente, quando estivermos em uma tela pequena,
+usarmos esse botao aqui de chaveamento para exibir ou nao esse menu 
+da esquerda.
+
+2. Mas, por enquanto, a gente vai implementar ele sempre aparecendo, 
+a gente nao vai ainda implementar esse chaveamento, vamos deixar isso
+para uma outra aula.
+
+3. Vamos fazer, entao, esse menu lateral, ou seja, o menu para telas
+pequenas. Em uma tela grande, vai ficar com tres links e um botao, nao
+eh o foco ainda, o foco eh colocar um menu a esquerda, o menu lateral.
+
+4. Entao, vamos la. Aqui, debaixo desse botao, dentro do elemento 
+navegacao__menu, nos vamos colocar um elemento ul, e vamos colocar o 
+nome de classe, esse aqui vai ser um bloco separado, o instrutor achou
+melhor deixar como um bloco separado. Caso entendamos isso como 
+navegacao__lista-menu, alguma coisa assim, tambem nao tem problema,
+mas nos vamos entende-lo como um menu separado, ou seja, um bloco 
+separado, 
+
+          <div class="navegacao__menu">
+            <button class="botao-chaveador"></button>
+
+            <ul class="menu">
+              <li></li>
+            </ul>
+          </div>
+
+5. E, aqui, nos vamos colocar alguns elementos li's. E, aqui, nos vamos
+colocar alguns itens do nosso menu. 
+
+          <div class="navegacao__menu">
+            <button class="botao-chaveador"></button>
+
+            <ul class="menu">
+              <li class="menu__item">
+                <a href="#">Como funciona</a>
+              </li>
+              <li class="menu__item">
+                <a href="#planos">Planos e preços</a>
+              </li>
+              <li class="menu__item">
+                <a href="#">Contato</a>
+              </li>
+              <li class="menu__item">
+                <a href="#" class="botao  botao--login">Login</a>
+              </li>              
+            </ul>
+          </div>
+
+6. Pronto, o codigo do menu esta aqui, a gente tem varios links, Como
+funciona, Planos e precos, Contato, e tem um botao aqui tambem de login.
+
+7. Entao, aqui, logicamente, a gente nao vai fazer a pagina Como funciona,
+entao, colocamos um jogo da velha, nao vai poder levar para lugar nenhum,
+Planos e precos nos colocamos jogo da velha e planos para levar para
+essa ancora de planos, quando a gente coloca um id com o nome de planos,
+ele ancora, joga a gente para a area de planos, para a secao de planos,
+Contato nao colocamso nada e, aqui, por fim, nos colocamos um botao
+Login. So que esse botao-login, esse modificador nao existe ainda, a 
+gente vai ter que cria-lo.
+
+8. Vejamos que nos colocamos, tambem, o nome de classe menu__item,
+esse aqui eh o elemento, ou seja, eh o elemento do bloco, menu__item.
+Vamos ver o que que acontece quando recarregamos a pagina.
+
+9. Ficou bem feio, uma lista com os pontinhos, o botao esta aqui, no 
+final da lista, mas a gente vai ajustando agora pelo CSS.
+
+10. Vamos aqui nos componentes.css. E a gente vai criar o nosso bloco
+de MENU,
+
+/*=====================*\
+  MENU
+\*=====================*/
+.menu {
+
+}
+
+11. Nos vamos, primeiramente, tirar esse list-style e colocar none,
+
+.menu {
+  list-style: none;
+}
+
+12. Nos vamos tambem tirar a margem, vamos colocar 0 de margem, e vamos
+colocar uma fonte de 1.4 rem, que seria o equivalente a 14 pixels, o
+padrao,
+
+.menu {
+  margin: 0;
+
+  font-size: 1.4rem;
+
+  list-style: none;
+}
+
+, vamos recarregar a pagina. 
+
+13. Okay, legal ja tiramos aqueles pontinhos.
+
+14. Agora, vamos colocar mais coisas no bloco .menu. Nos vamos, ja posicionar
+isso aqui com position fixed, com top 0, ou seja, vamos posicionar na 
+posicao 0, na parte supeior, left 0, entao, vai ficar la na esquerda,
+bottom 0, vai ficar la embaixo tambem,
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  margin: 0;
+
+  font-size: 1.4rem;
+
+  list-style: none;
+}
+
+15. Entao, estamos posicionando no 0 do topo, 0 da parte inferior, 
+e tambem 0 a esquerda. Ai, nos vamos colocar, aqui, agora, uma
+largura de 200 pixels, vamos colocar uma cor de fundo ja, background-color
+#fbfbfb, um cinza,
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 200px;
+  margin: 0;
+
+  font-size: 1.4rem;      /** 14 px **/
+
+  background-color: #fbfbfb;
+
+  list-style: none;
+}
+
+, e, ao recarregarmos a pagina, vemos que o menu ja ficou fixo do lado
+esquerdo.
+
+16. Entao, vemos que esta rolando a pagina e o menu ficou fixo. Era
+isso que queriamos fazer, com poistion fixed, a gente faz isso aqui,
+colocamos uma cor de fundo.
+
+17. Vamos colocar, aqui, agora, uma borda a direita, de 1 pixel, solida
+e um cinza um pouquinho mais escuro,
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 200px;
+  margin: 0;
+  border-right: 1px solid #eee;
+
+  font-size: 1.4rem;      /** 14 px **/
+
+  background-color: #fbfbfb;
+
+  list-style: none;
+}
+  
+18. O que mais que podemos colocar? Vejamos, bem, entao, vamos colocar, agora, o menu__item,
+
+.menu__item {
+  
+}
+
+, com display block, line-height de 3, entao, o tamanho da fonte, o tamanho da altura da linha eh 3 vezes o tamanho da fonte, 
+
+.menu__item {
+  display: block;
+
+  line-height: 3;  
+}
+
+19. O problema, aqui, com o botao, eh que ele esta com line-height, pegando o line-height que a gente colocou no menu__item, porque, como o menu__item, o botao esta dentro do menu__item, ele herda o line-height, da mesma forma que o font-family, o font-size tambem sao herdados pelos filhos, o line-height tambem, entao, o que a gente pode fazer eh ir la na classe do botao e adicionar aqui a propriedade line-height, com o valor normal,
+
+.botao {
+  display: inline-block;
+  padding: 0.8em 1.2em;
+
+  background-color: #bbb;
+  color: #fff;
+
+  line-height: normal;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+, para ele nao herdar, para ele especificar que o line-height eh normal, nao tem que herdar de nada. Entao, vejamos ao recarregarmos a pagina.
+
+20. Okay, pegou certinho, conforme os outros botoes da pagina.
+
+21. Outra coisa eh que o botao tem que ser verde, ele esta pegando, ali, o padrao, a gente nao tem ainda esse modificador botao--login, entao, vamos criar esse modificador,
+
+.botao--login {
+  
+}
+
+, aqui na classe modificador .botao--assinar, nos vamos so copiar e colocar,
+aqui, tambem o modificador .botao--login, entao, a gente vai usar as mesmas
+propriedades, tanto para o modificador --assinar, quanto para o modificador
+botao--login,
+
+.botao--assinar, .botao--login {
+    background-color: #127d00;
+}
+
+
+22. Em seguida, vamos alterar tambem as pseudo-classes :hover e :focus,
+
+.botao--assinar:hover, .botao-assinar:focus,
+.botao--login:hover, .botao-login:focus {
+    background-color: #0e6400;
+}
+
+, ou seja, quando o mouse esta em cima ou esta no foco e vamos recarregar a pagina para vermos como ficou.
+
+23. Pronto, esta verde. Mas o botao esta muito colado com esse link, que fica acima, ou seja, com o link Contato. Nos vamos colocar, entao, aqui no arquivo html, um modificador em menu__item, menu__item--botao, para a gente saber que esse eh um item de menu onde a gente nao vai colocar link, a gente vai colocar um botao, so para a gente saber disso, 
+
+<li class="menu__item  menu__item--botao">
+  <a href="#" class="botao  botao--login">Login</a>
+</li>
+
+, porque, sabendo disso, nos damos mais um espaco, damos margem ali,
+
+.menu__item--botao {
+  
+}
+
+, .menu__item--botao, ou seja, o modificador, com margin-top de 20 pixels, 
+
+.menu__item--botao {
+  margin-top: 20px; 
+}
+
+, e vamos recarregar a pagina. Pronto, deu um espacinho a mais.
+
+24. Aqui, no menu, esta meio estranho esse espacamento do lado esquerdo e em cima, entao, nos vamos colocar, no bloco menu, um padding de 20 pixels, 
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 200px;
+  margin: 0;
+  padding: 20px;
+  border-right: 1px solid #eee;
+
+  font-size: 1.4rem;      /** 14 px **/
+
+  background-color: #fbfbfb;
+
+  list-style: none;
+}
+
+, e vamos recarregar a pagina.
+
+25. Pronto, achamos que ficou legal assim e nos terminamos o nosso menu lateral, claro que ele ainda nao esta sendo chaveado, esse menu lateral vai ser exibido quando a tela estiver pequena, e a gente clicar no botao de 3 barras que eh exibida no canto superior direito, que ainda nao esta funcionando. Quando a tela estive grande, esse menu lateral nao vai ter nenhuma possibilidade de ele aparecer, ai, a gente ja vai colocar, quando a tela estiver grande, o correto vai ser o menu aqui do lado superior direito.
+
+26. Fim da Aula 07.013. Adicionando o Menu para Telas Pequenas.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        
+        <nav class="navegacao">
+          <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+          
+          <div class="navegacao__menu">
+            <!--Botão-->
+            <button class="botao-chaveador"></button>
+            
+            <ul class="menu">
+              <li class="menu__item">
+                <a href="#">Como funciona</a>
+              </li>
+              <li class="menu__item">
+                <a href="#planos">Planos e preços</a>
+              </li>
+              <li class="menu__item">
+                <a href="#">Contato</a>
+              </li>
+              <li class="menu__item  menu__item--botao">
+                <a href="#" class="botao  botao--login">Login</a>
+              </li>
+            </ul>            
+          </div>
+
+        </nav>
+
+      </div>
+    </header>
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <div class="chamada__acao">
+            <a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-depoimento">
+
+      <div class="container">
+
+        <div class="depoimento">
+
+          <blockquote>
+            Eu tinha perdido totalmente o controle da minha empresa.
+            Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+          </blockquote>
+
+          <div class="depoimento__autor">
+            <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="João da Silva">
+            <p>João da Silva</p>
+          </div>         
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <!--div class="col-sm-4" style="margin-bottom: 40px"-->
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+            <article class="plano plano--mais-popular">              
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4  ultima-coluna">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="layout-rodape">
+      <div class="container">
+        &copy; MyPilas. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </body>
+</html>

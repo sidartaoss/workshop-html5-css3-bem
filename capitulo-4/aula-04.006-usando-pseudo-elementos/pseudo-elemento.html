@@ -1,0 +1,121 @@
+<!-- 
+	Aula 04.006. Usando pseudo-elementos.
+
+1. Nesta aula, nos vamos estudar sobre os pseudo-elementos, que sao um tipo de seletor que aplica estilos em certos pedacos do documento.
+
+2. Entao, vamos usar, como exemplo, o codigo de uma aula anterior em que a gente usou o float para colocar em duas colunas e colocamos, aqui, um rodape. 
+
+3. Entao, usaremos esse codigo. Ja temos, aqui, o html e o css que a gente desenvolveu na aula anterior em que fizemos esse exemplo. 
+
+4. Vamos comecar aqui com o primeiro paragrafo. Imaginemos que queremos colocar a primeira letra de cada paragrafo com uma fonte bem maior do que o texto. Logicamente, nos poderiamos colocar essa letra dentro de um elemento html. Colocar, por exemplo, um elemento <span>, que eh um pedaco de texto e, dentro, colocariamos uma classe CSS,
+
+<p class="coluna1"><span>J</span class="classeCSS">á imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+
+5. Poderiamos fazer assim, mas nao existe necessidade de fazermos isso, porque existe o que chamamos de pseudo-elemento, que consegue selecionar a primeira letra do paragrafo sem a gente alterar o elemento html.
+
+6. Podemos definir, no arquivo CSS, com o seletor filho direto p de article e definimos duas vezes dois pontos. Quando nos definimos duas vezes dois pontos, nos estamos dizendo que nos queremos usar um pseudo-elemento. Esses dois pontos surgiram a partir do CSS3, entao, com uma vez dois pontos tambem deve funcionar, mas ja vamos usar na versao atualizada, no CSS3. Entao, duas vezes dois pontos e a gente coloca first-letter, ou seja, primeira letra. O pseudo-elemento, neste caso, entao, eh 'first-letter'.
+
+
+7. E dentro, entao, da Regra CSS, a gente pode definir font-size como 60 pixels. Vamos definir bem maior que o padrao, que eh 32 pixels,
+
+article > p::first-letter {
+	font-size: 60px;
+}
+
+8. Vamos colocar a cor vermelha tambem, so para destacar mais,
+
+article > p::first-letter {
+	font-size: 60px;
+	color: red;
+}
+
+9. Vamos recarregar a pagina e a primeira letra dos paragrafos esta maior e em vermelho.
+
+10. Entao, isso eh so para fazermos uma introducao ao que eh o pseudo-elemento. Mas o que a gente vai usar mesmo eh o pseudo-elemento after, mas tambem existe o pseudo-elemento before, entao, vamos ver o que que sao esses pseudo-elementos que estamos falando.
+
+11. Vamos pegar o titulo, h1, que eh o titulo do artigo e vamos colocar, aqui, duas vezes dois pontos, before,
+
+h1::before {
+	
+}
+
+12. Quando a gente coloca esse pseudo-elemento before, a gente consegue adicionar alguma coisa antes do conteudo do elemento, nesse caso, do titulo.
+
+13. Entao, vamos colocar nessa Regra CSS uma propriedade chamada content, que receba um valor texto, por exemplo, "Título: "
+
+h1::before {
+	content: "Título: "
+}
+
+
+14. Ao recarregarmos a pagina, vemos que o titulo eh: 'Ja imaginou?', mas o navegador adicionou um texto antes: 'Título: '. O h1 tem o conteudo 'Ja imaginou?', mas, quando a gente coloca o pseudo-elemento before, o navegador adiciona um conteudo a mais antes do elemento.
+
+15. Nos poderiamos, tambem, adicionar, aqui, o pseudo-elemento after e, na Regra CSS, colocar, aqui, content: " - Artigo",
+
+h1::after {
+	content: " - Artigo"
+}
+
+16. Recarregamos a pagina e vemos que adicionou o conteudo ' - Artigo' depois do conteudo do elemento h1, 'Ja imaginou?'.
+
+17. Ou seja, o pseudo-elemento after eh para adicionar conteudo depois do elemento e o pseudo-elemento before eh para adicionar conteudo antes do elemento. Entao, o texto nao muda, mas a gente adicionou conteudos antes e depois.
+
+18. Pode parecer besteira, porque nos falamos assim, 'Ah, mas se quisessemos adicionar isso, ja adicionariamos no h1. Qual que eh a vantagem de fazer isso?'
+
+19. Nesse caso aqui, realmente, pode nao ter vantegem, mas, em alguns momentos, a gente pode querer fazer alguma coisa que nao estava no conteudo, a gente nao quer que fique no conteudo.
+
+20. E a gente vai ter um caso assim no nosso projeto do curso. Entao, nos vamos chegar em um caso mais pratico em relacao a isso tambem.
+
+21. Mas, por enquanto, queremos entender o funcionamento, como funciona.
+
+22. Tem um caso, agora, que eh um caso pratico, nao eh so um exemplo que daria para desenvolver de uma outra forma. Na verdade, daria, mas fica mais interessante da forma que iremos falar agora.
+
+23. Lembrando do clearfix, onde a gente fez isso em uma aula anterior, se removermos o clearfix, 'Todos os direitos reservados' sobe e o container, a cor amarela sobe la para cima tambem.
+
+24. Entao, por isso, nos criamos o clearfix e colocamos aqui no footer, ou, ainda, a gente tinha aquela opcao de colocar aqui um div antes da tag article de fechamento.
+
+25. Tem uma forma de resolver isso com o pseudo-elemento after. Vamos, ate, apagar a classe clearfix do arquivo estilos.css, pois a gente nao vai usa-la mais.
+
+26. A gente vai resolver da seguinte forma. A gente vai pegar o artigo e falar que, depois dele, ou seja, depois da tag de fechamento do elemento article, nos queremos adicionar um conteudo. So que esse conteudo eh vazio,
+
+article::after {
+	content: "";
+}
+
+27. Poderia adicionar o conteudo 'teste', por exemplo, mas nao, nos vamos adicionar o conteudo vazio. E vamos definir, tambem, que nos queremos que ele faca um display: block, ou seja, queremos que seja entendido como um bloco o display, nos ja vimos isso em aulas anteriores, se nos nao fizermos isso, nao vai funcionar. E vamos falar que nos queremos clear: both,
+
+article::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+, ou seja, ao inves de usar o clearfix, a gente define o clear: both, dentro do article::after. Quando a gente recarrega a pagina, gracas ao pseudo-elemento after que a gente colocou com o conteudo vazio, em bloco, limpando o float, funcionou. Ou seja, assim que terminou o artigo, ele disse: 'Adicione o conteudo vazio e esse conteudo vazio tem uma propriedade clear:both, ou seja, nos queremos que limpe o float.'
+
+28. E, ai, automaticamente, o rodape cai no lugar que a gente queria. Entao, eh uma possibilidade fazer dessa forma, ao inves de usar o clearfix. Fica um codigo html mais interessante, fica mais bonito do que com clearfix.
+
+29. Entao, agora que ja conhecemos o que eh pseudo-elemento, esses sao os principais, existem alguns outros, mas esses sao os principais, ja da para gente fazer algumas coisas no nosso Projeto do Curso tambem. 
+
+Fim da Aula 04.006. Usando pseudo-elementos.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/estilos.css">
+	<title></title>
+</head>
+<body>
+	<article>
+		<h1>Já imaginou?</h1>
+		<p class="coluna1">Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+		<p class="coluna2">Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+	</article>
+	<!--footer class="clearfix"-->
+	<footer>
+		Todos os direitos reservados.
+	</footer>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!-- 
+    Aula 03.07. Seletores de Filhos Diretos
+
+1. Vamos estudar, agora, os seletores de filhos diretos. A gente tem, aqui, um HTML muito
+simples, que eh um artigo, a tag <article> aqui, elemento, com um titulo e dois paragrafos.
+
+2. E nos colocamos aqui, uma classe CSS que chamamos de 'importante', no primeiro paragrafo,
+e no elemento <strong>, que fica dentro do segundo paragrafo.
+
+3. Ai, no arquivo estilos.css, nos temos o seletor descendente, o qual ja estudamos,
+artigo, espaco, ponto, importante,
+article .importante {
+    color: red;
+}
+
+4. Ou seja, todos os elementos que tiverem a classe CSS 'importante', que sao descendentes de
+artigo, estao em vermelho.
+
+5. O que que quer dizer isso? No segundo paragrafo, <strong class="importante">, esse 
+importante eh descendente de artigo?
+
+6. Sim, importante esta definido em <strong>, que esta mais abaixo de <article>, entao eh
+descendente sim.
+
+7. Da mesma forma no primeiro paragrafo, que eh descendente tambem de <article>. Isso nos 
+ja sabemos, fica vermelho o primeiro paragrafo e, tambem, o strong, no segundo paragrafo,
+que a gente marcou como importante, que eh descendente de artigo.
+
+8. Ate ai tudo bem, nos ja tinhamos visto isso em uma outra aula. Agora, a gente comeca a 
+falar de seletores de filhos diretos.
+
+9. Se, ao inves de colocar so um espaco entre article e .importante, em estilos.css,
+colocamos um sinal de maior, nos estamos dizendo que nos queremos selecionar nao os 
+descendentes que sao 'importantes', mas nos queremos selecionar os filhos diretos de
+artigo, que sao importantes,
+article > .importante {
+    color: red;
+}
+
+10. Qual que eh a diferenca? A diferenca eh que descendente, por exemplo, o elemento
+<strong class="importante">, marcado com a classe importante, esse elemento eh descendente
+de artigo, mas ele eh um filho direto de artigo?
+
+11. Nao eh. Ele nao eh filho direto, porque, nesse caso, quem eh o filho direto de artigo
+eh o paragrafo. Entao, o elemento <strong> eh um neto, nao esta em um nivel em que podemos
+chamar de filho, ele eh descendente, mas ele nao eh um filho direto.
+
+12. Filho direto de artigo quem eh? Eh o <h1>, eh o <p> do primeiro paragrafo e eh o 
+<p> do segundo paragrafo.
+
+13. Mas olha so. Nos falamos que nos queremos uma classe 'importante' que seja filho direto
+de artigo. Quem eh esse elemento? Eh o <p> do primeiro paragrafo, que tem a classe
+'importante', ele sim eh filho direto de artigo. Entao, so ele, so esse <p> vai receber os
+estilos que nos definimos no arquivo estilos.css,
+article > .importante {
+    color: red;
+}
+
+14. Entao, vamos recarregar a pagina, o segundo <p> de paragrafo voltou para preto e ficou so
+o primeiro paragrafo em vermelho.
+
+15. Entao, eh bem simples filho direto. Mas vamos fazer mais alguns testes.
+
+16. Agora, vamos definir mais uma coisa, strong, em estilos.css.
+article > .importante > strong {
+    color: red;
+}
+
+17. Para nos vermos que nos podemos usar o Seletor de Filho Direto mais de uma vez, o simbolo
+de maior indica isso. Estamos falando, aqui,
+article > .importante > strong {
+    color: red;
+}
+, que um artigo tem que ter um filho direto com 'importante' que tem que ter um filho 
+direto com strong.
+
+18. Entao, vejamos. Antes, estava o primeiro paragrafo em vermelho. A partir do momento em
+que falamos que nos queremos elementos strong que sejam filhos de elementos 'importantes',
+que sejam filhos de artigo, o CSS vai ser aplicado somente ao primeiro paragrafo,
+<p class="importante"> Estamos no mercado <strong>desde 2014</strong>.</p>
+, somente no elemento <strong>, somente 'desde 2014' vai ficar em vermelho.
+
+19. Vamos recarregar a pagina. Verificamos que so ficou em vermelho 'desde 2014', no 
+primeiro paragrafo.
+
+20. Nos estamos dizendo, agora, que nos queremos artigo, que tem um filho direto 
+'importante', que tem um filho direto que seja o elemento <strong>. Entao, pegou somente
+a parte 'desde 2014'.
+
+21. Mais um exemplo. Nos podemos tambem misturar os tipos de seletores. Se nos estamos 
+usando seletor de filho direto, como estamos fazendo aqui, nos nao precisamos usar sempre
+o Seletor de Filho Direto, nos podemos misturar.
+
+22. Por exemplo, nos podemos usar o Seletor Descendente,
+article .importante > strong {
+    color: red;
+}
+, em que estamos dizendo que nos queremos elementos que tenham a classe 'importante' que sejam
+descendentes de artigo, nao estamos especificando que tenha que ser filho direto, sao apenas
+descendentes. Entao, nesse caso, o CSS seria aplicado ao primeiro e ao segundo paragrafos, em:
+article .importante
+
+23. Porque estamos dizendo que so queremos descendente, nao precisa ser filho direto.
+Mas, depois, nos, ainda, especificamos que tenha um filho direto strong. Ai, o segundo 
+paragrafo ja sai, porque o segundo paragrafo nao tem uma classe 'importante' com filho 
+direto strong, a classe 'importante' ja eh o proprio <strong>, entao nao tem um filho
+direto. Entao, so entra o CSS do primeiro paragrafo, Ou seja, um artigo que tem um descendente 'importante', 
+mas que tem um filho direto <strong>. No primeio paragrafo, <strong> eh um filho direto de
+'importante'. 
+
+24. Ou seja, nao mudou visualmente para a gente, mas a gente deixou mais especifico o nosso
+seletor, deixamos-no muito mais especifico o nosso seletor. Entao, so para entendermos 
+Seletor de Filho Direto e que a gente pode usa-lo em conjunto outro Seletor Descendente.
+
+25. Fim da Aula 03.07. Seletores de Filhos Diretos.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>Sobre nós</title>
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <article>
+            <h1>Sobre a empresa</h1>
+
+            <p class="importante">Estamos no mercado <strong>desde 2014</strong>.</p>
+
+            <p>
+                Nossa missão é <strong class="importante">transformar</strong> a vida de 
+                milhares de alunos
+            </p>
+        </article>
+    </body>
+</html>

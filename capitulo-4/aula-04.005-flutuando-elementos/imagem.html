@@ -1,0 +1,72 @@
+<!-- 
+
+	Aula 04.05. Flutuando Elementos
+
+1. Nesta aula, nos vamos aprender sobre a propriedade float, que eh para a gente colocar elementos flutuando na pagina.
+
+2. A propriedade float define que um elemento deve ser colocado na esquerda ou direita do container. Vamos ver mais sobre isso aqui no codigo. 
+
+3. Nos temos, aqui, uma arquivo imagem.html, que esta renderizando uma imagem ao carregarmos a pagina no navegador. Estamos simulando um artigo, na verdade, nos temos, aqui, alguns paragrafos, ate repetindo o texto, isso nao importa, mas o foco aqui eh nessa imagem e nos textos que a gente quer colocar no entorno da imagem.
+
+4. Isso eh muito comum em sites de noticias, a gente tem uma imagem e o texto comecar do lado da imagem. Quando a imagem termina, entao o texto vai para a esquerda.
+
+5. Entao, como que a gente faria isso neste caso aqui, com html e com CSS?
+
+6. Aqui, nos nao vamos precisa alterar nada neste documento html, eh muito simples, nao tem nenhuma novidade aqui, eh uma imagem e alguns paragrafos e nos temos um arquivo imagem.css. Por enquanto, a unica coisa que tem, nesse arquivo, eh para aumentar o tamanho da fonte,
+
+body {
+	font-size: 26px;
+}
+
+7. Mas, nos queremos colocar essa imagem a esquerda do texto, nos queremos que o texto fique a direita da imagem. 
+
+8. Entao, nos podemos usar, aqui, o seletor img, para pegar a imagem e essa regra CSS, aqui na declaracao, nos vamos definir a propriedade float, com o valor left,
+
+img {
+	float: left;
+}
+
+, nos estamos dizendo que nos queremos que essa imagem fique flutuando a esquerda, left. 
+
+9. Vamos recarregar a pagina e pronto, a gente tem uma imagem com flutuando a esquerda e o texto a direita.
+
+10. Claro que o texto esta muito colado na imagem e a gente pode dar uma margem, aqui, na imagem, a gente pode colocar um margin-right de 20 pixels. Vamos ver se fica bom.
+
+11. Ao recarregar a pagina, vemos que ficou melhor o espacamento.
+
+12. Entao, agora, nos estamos com a imagem com um espacinho a mais. 
+
+13. Legal, a gente pode, agora, colocar essa imagem a direita tambem. So para nos vermos, ante de colocarmos a direita, se formos diminuindo o tamanho da pagina, o texto vai se reorganizando em torno da imagem.
+
+14. E nos podemos colocar o float como right,
+
+img {
+	float: right;
+}
+
+, que a gente coloca a imagem a direita do texto. E mesma coisa o texto vai se organizando em torno da imagem.
+
+15. Muito simples. O float eh simples, na verdade, mas ele tem algumas coisas que a gente precisa conhecer. Por isso, temos mais um exemplo aqui. Nao vamos ficar somente nesse exemplo, este exemplo foi bem basico mesmo. Mas ja conhecemos a propriedade float, podemos colocar left, right.
+
+16. Vamos, agora, para o segundo exemplo. Ver colunas.html.
+
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8"> 
+	<link rel="stylesheet" href="css/imagem.css">
+</head>
+<body>
+
+	<img src="imagens/duvidas.jpg">
+
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+	<p>Em Maio de 2015, no envento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation</p>
+	<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+	<p>Em Maio de 2015, no envento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation</p>
+
+
+</body>
+</html>

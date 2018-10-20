@@ -1,0 +1,205 @@
+<!-- 
+	Aula 05.005. Layout Fixo e Fluido
+
+1. Agora vamos falar de layout fixo e layout fluido. Este aqui eh nosso projeto do curso 
+no estado atual e, se a gente tentar diminuir aqui largura da nossa tela, veja o que 
+acontece. 
+
+2. A gente vai diminuindo ate um certo ponto e vai ficando tudo bem e, de repente, comeca 
+a cortar a parte do conteudo. E, ai, gera scroll aqui na horizontal.
+
+3. Entao, esta claro que um layout como esse nao ficaria muito legal em um dispositivo com 
+uma tela menor, porque, como nos ja vimos, um dispositivo com um navegador mobile vai 
+deixar tudo mais longe, ele vai dar um zoom out, deixar tudo mais longe, bem pequenininho, 
+nao ficaria a melhor experiencia para o usuario.
+
+4. Isso aqui eh o que a gente chama de layout fixo. Ou seja, esta tudo bem fixo, usando, 
+inclusive, pixels que a gente usa aqui, para deixar tudo muito fixo. A gente coloca aqui, 
+por exemplo, que o tamanho do div container, aqui, eh 1200 pixels, a gente coloca fixo, a 
+gente coloca varias coisas fixas aqui, o tamanho das caixas, tambem, sao fixas, 370 pixels, 
+eh o tamanho dessas caixas dos planos, ou seja, eh um layout fixo.
+
+5. E um layout fixo pode ser bom so quando nos sabemos mais ou menos o tamanho da tela do 
+dispositivo do usuario. Por exemplo, se nos formos desenvolver um sistema somente para 
+Desktop, entao, talvez, nao teria problema ter um layout fixo. Mas, hoje em dia, se formos 
+fazer um Web Site, eh bom que esse Web Site se adeque bem em outros tipos de telas. 
+
+6. Entao, o layout fixo, com certeza, nao vai ser uma boa saida. Ai, uma evolucao disso, 
+para a gente conseguir comecar a melhorar, eh o layout fluido. E como funciona?
+
+7. Entao, vamos abrir o codigo CSS do noss projeto e vamos mudar algumas medidas. Para a 
+gente trabalhar com layot fluido, a gente nao pode trabalhar mais com pixels, a gente 
+precisa trabalhar com uma medida relativa, no caso, a gente vai usar o percentual, porque 
+o percentual eh relativo a largura do viewport.
+
+8. Entao, se nos colocamos, aqui, por exemplo, no artigo, se colocarmos 30%, ao inves de 
+colocar 370 pixels para a largura, nos colocarmos 30% da largura, se nos recarregarmos a 
+pagina, deu uma pequena diminuida no tamanho da largura das caixas, porque nos colocamos 
+uma medida percentual,
+
+article {
+	padding: 10px;
+	border: 1px solid #95a4a5;
+	width: 30%;
+	float: left;
+	margin-right: 30px;
+}
+
+9. Mas, se nos formos diminuindo a tela, o layout ainda parece que esta fixo. O que acontece? 
+Na verdade, esta 30% de quem? Do pai, a gente ja estudou, inclusive, essa unidade de 
+medida percentual e nos lembramos que, quando a gente coloca o percentual na largura, eh 
+referente ao container dele. E, inspecionando o container com o Chrome DevTools, vemos que, 
+como cada caixa de plano, ou seja, artigo, esta dentro dessa div container e esse container 
+tem uma medida fixa em pixels, entao eh 30% de 1200 pixels, entao, ou seja, embora nos 
+tenhamos colocado, aqui, no artigo, uma medida em percentual, vai acabar que ele nunca vai 
+mudar o tamanho, porque ele esta relativo a uma outra medida que esta fixa, que eh o pixel.
+
+10. Entao, nos vamos mudar aqui tambem no container, para a gente fazer esse teste. Vamos 
+colocar aqui 100%, vamos deixar assim, depois a gente pode ate mudar, talvez, nao sabemos
+ainda, vamos deixar 100% por enquanto,
+
+.container {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+}
+
+11. Okay, vamos recarregar a pagina com 100%.
+
+12. Percebemos que aumentou um pouquinho as caixas, tem um espaco a mais a direita do
+ultimo plano, depois a gente arruma, mas vamos ver uma coisa: se nos diminuirmos agora o
+tamanho da largura da tela, vejamos que as caixas tambem estao diminuindo junto.
+
+13. Isso aqui eh o que a gente chama, entao, de layout fluido, ou seja, esta fluindo aqui.
+A medida que vamos diminuindo o tamanho da tela, vai tambem diminuindo o tamanho dos 
+elementos, entao, ja comeca a ficar mais facil de a gente trabalhar com sistemas que vao 
+funcionar em telas com tamanhos diferentes.
+
+14. Aqui, vamos so dar uma ajustada nos espacamentos, que ficou, aqui, um espaco a mais a
+direita do ultimo plano. Eh porque a gente esta usando aqui, no plano, no seletor article,
+a gente esta usando o margin-right de 30 pixels, fixo ainda,
+
+article {
+	padding: 10px;
+	border: 1px solid #95a4a5;
+	width: 30%;
+	float: left;
+	margin-right: 30px;
+}
+
+15. Entao, vamos colocar 5 pixels, por que? Como a gente tem tres 
+artigos, Autonomo, Micro e Pequena, como a gente tem tres deles, 3 
+vezes 30 pixels de largura, da 90, ou seja, 90%, mais 5%, da 95%, mais 
+5%, da 100%. Por que? Porque entre o primeiro e o segundo plano nos temos
+uma margem direita de 5% e entre o segundo plano e o terceiro, nos 
+temos outra margem direita de 5%.
+
+16. Entao, nos temos 30% de largura para o primeiro plano, mais 5% de 
+espacamento entre o primeiro plano e o segundo plano, mais 30% de 
+largura para o segundo plano, mais 5% de espacamento entre o segundo 
+plano e o terceiro plano, mais 30% de largura para o terceiro plano,
+vai dar um total de 100%,
+
+article {
+	padding: 10px;
+	border: 1px solid #95a4a5;
+	width: 30%;
+	float: left;
+	margin-right: 5%;
+}
+
+17. O espacinho do lado direito do ultimo plano e o espacinho do lado
+esquerdo do primeiro plano eh o padding que a gente deu no container,
+o container tem um padding-left e um padding-right de 15 pixels. E nos
+vamos deixar isso em pixels, nao tem problema, neste caso, como eh 
+um espacinho so, nos nao vemos tanto problema ficar em pixels.
+
+18. Pelo menos, agora, vejamos o que acontece quando nos diminuimos o
+tamanho da tela. Esta legal, porque as caixas diminuem de acordo com
+o tamanho da tela. Logicamente, se o usuario tem uma resolucao muito
+grande, a resolucao do instrutor nao eh muito grande, mas se nos 
+colocarmos essa pagina em um monitor ou em uma TV, com uma resolucao
+muito grande, nos vamos perceber que essas caixas vao ficar, talvez,
+ate exageradas de tao grande, porque elas vao ficar, praticamente,
+com 100% do tamanho da tela, tirando esse padding de 15 pixels do lado
+direito e esquerdo da tela, com a div container, eh 100% da largura 
+da tela.
+
+19. Mas, isso aqui ja eh um layout fluido. Claro que, se a gente for 
+diminuindo mais e mais aqui, nos comecamos a perceber que nao fica
+tao legal ate, comeca a sair da area, o texto comeca a sair da area,
+porque nao cabe mais, nao consegue quebrar o texto e tambem nao cabe
+mais, entao ele sai, o que ja comeca a nao ser legal. 
+
+20. Mas, ai, para resolver isso, a gente tem que entrar no assunto de
+layout responsivo, media queries, e isso a gente ja deixa para uma outra
+aula.
+
+
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPilas</title>
+	<!-- link rel="stylesheet" href="css/reset.css"-->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+	<div id="planos">
+		<div class="container">
+			<article>
+				<h2>Autônomo</h2>
+				<div>R$59/mês</div>
+				<ul>
+					<li>Até <strong>2 usuários</strong></li>
+					<li><strong>500MB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Micro</h2>
+				<div>R$89/mês</div>
+				<ul>
+					<li>Até <strong>5 usuários</strong></li>
+					<li><strong>1GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article style="margin-right: 0;">
+				<h2>Pequena</h2>
+				<div>R$99/mês</div>
+				<ul>
+					<li>Até <strong>10 usuários</strong></li>
+					<li><strong>5GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+		</div>
+	</div>
+</body>
+</html>

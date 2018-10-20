@@ -1,0 +1,266 @@
+<!-- 
+	Aula 05.006. Layout Responsivo e Media Queries.
+
+1. O layout da nossa pagina esta fluido, ou seja, a gente pode ir 
+diminuindo aqui a largura da pagina, e os elementos estao fluindo
+automaticamente, mudando as suas larguras dos elementos, como essas
+caixas dos planos.
+
+2. Mas, quando a gente tem uma tela muito pequena, tem um problema de
+faltar espaco. Entao, o layout fluido flui, mas ele nao se adequa 
+ao tamanho de tela.
+
+3. O ideal, aqui, eh que a gente usasse um layout responsivo, onde a 
+gente pudesse adequar esses planos aqui.
+
+4. Neste caso, nos vemos que a melhor forma eh quando a gente estiver
+diminuindo a tela e, em um determinado ponto, a gente nao colocar um
+plano do lado do outro, porque fica inviavel. O ideal, aqui, eh, quando
+a gente for diminuindo a tela, a gente adaptar de forma que os planos
+fiquem empilhados, ou seja, um em cima do outro. Entao, comeca Autonomo,
+depois, embaixo, Micro, embaixo, Pequena.
+
+5. Entao, a gente tem que adaptar isso. E, para fazer isso, a gente entra
+no assunto de: Layout Responsivo. Ele continua sendo fluido, continua
+usando os percentuais, mas a gente vai, agora, trabalhar com layout 
+responsivo. Entao, a gente pode adequar, que tipo de adequacao a gente
+pode fazer? 
+
+6. A gente pode mudar de posicionamento, a gente pode ocultar ou exibir
+algum elemento, esses tipos de coisas a gente consegue fazer.
+
+7. E, para isso, a gente vai estudar um assunto, uma funcionalidade
+do CSS3, chamada Media Queries.
+
+8. Entao, vamos la. Aqui, estamos com o codigo CSS do projeto. O 
+seletor container esta com largura de 100%,
+
+.container {
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+	margin: 0 auto;
+}
+
+, isso a gente ja tinha feito na aula passada, o width esta 100%,
+o artigo esta com width de 30% para cada plano. Okay, esta fluido.
+
+9. Mas, a gente quer faze-lo, entao, responsivo.
+
+10. Para isso, entao, nos vamos colocar, aqui, um codigo com Media
+Queries. Nos colocamos, aqui, @media, abre parenteses, e vamos abrir
+um bloco aqui, com chaves,
+
+@media () {
+
+}
+
+, dentro do parenteses, nos colocamos uma expressao. E essa expressao
+nos podemos colocar, por exemplo, a propriedade min-width, que eh a 
+largura minima, ou seja, essa expressao aqui, quando ela for verdadeira,
+as Regras CSS que estiverem aqui dentro, elas vao ser aplicadas,
+
+@media (min-width: ) {
+
+}
+
+, se ela for falsa, essas regras nao vao ser aplicadas. Entao, isso aqui
+eh, simplesmente, Media Query.
+
+11. Por exemplo, se nos definirmos o seguinte, a partir de 800 pixels,
+aplique as regras que estao definidas dentro deste bloco,
+
+@media (min-width: 800px) {
+
+}
+
+, entao, olha so. O que acontece eh, quando nos carregamos a nossa 
+pagina, todas as regras CSS vao ser aplicadas, com excecao da 
+Media Query. 
+
+12. Essa Media Query so vai ser aplicada se essa expressao for 
+verdadeira: min-width: 800px.
+
+13. E, dentro da Media Query, nos nao vamos colocar diretamente as 
+propriedades, como, por exemplo, float: left. Por que? Porque: em 
+qual elemento que vai aplicar isso? Nao tem como, nos temos que colocar
+o seletor tambem,
+
+@media (min-width: 800px) {
+	float: left;
+}
+
+14. Entao, vamos colocar aqui o seletor:
+
+@media (min-width: 800px) {
+	article {
+
+	}
+}
+
+, entao, sendo min-width: 800px verdadeiro, aplique essas propriedades
+que estamos definindo agora no seletor article.
+
+15. Antes de escrever as Regras CSS, vamos fazer o seguinte, vamos
+remover as propriedades width, float e margin-right do seletor
+article,
+
+article {
+	padding: 10px;
+	border: 1px solid #95a4a5;
+}
+
+16. Como assim? Nos removemos, salvamos o arquivo html e vamos recarregar
+a pagina.
+
+17. Esta vendo que ficou um embaixo do outro? O que que nos tiramos aqui? Nos tiramos a largura, nos tiramos o float para parar de flutuar e tiramos a margem. Entao, se nos tiramos isso, fica um em cima do outro, nao esta flutuando mais. Se nos diminuirmos a tela aqui, olha que interessane, se nos diminuimos a tela, eh exatamente a forma que a gente quer mostrar em um dispositivo com uma tela menor, um em cima do outro, ficou bonitinho, quadradinho bem bonitinho. Claro que poderia, ainda, colocar aqui uma margem entre uma caixa e outra, nao vamos entrar nesses detalhes nesta aula, mas entendemos que ficou legal em uma tela pequena.
+
+18. Mas, em uma tela grande, ja ficou exagerado, ficou muito grande, ai, a gente teria que colocar um do lado do outro. Isso aqui que nos acabamos de fazer eh uma tecnica que a gente chama de mobile first, pense primeiro na experiencia do usuario em um dispositivo movel, um dispositivo com uma tela pequena. Entao, com uma tela pequena, fica excelente, fica muito bom, a gente pensou, entao, mobile first.
+
+19. Agora, vamos adaptar isso usando Web Design Responsivo, vamos adaptar isso para quando a tela vai crescendo. Entao, a tela vai aumentando, ate que ponto a gente quer mudar? Por exemplo, daqui do dispositivo movel, quando a tela esta bem diminuida, ate 800 pixels, por exemplo. A partir de 800 pixels, a gente comeca a colocar os planos lado a lado, que eh o que a gente vai fazer no codigo CSS,
+
+@media (min-width: 800px) {
+	article {
+
+	}
+}
+
+20. A gente colocou que a largura minima (min-width) do nosso viewport eh de 800 pixels, quando a gente tiver uma tela que tiver uma largura a partir de 800 pixels, aplica essas regras. E quais regras a gente vai aplicar? 
+
+21. Exatamente o que nos tiramos do article,
+
+@media (min-width: 800px) {
+	article {
+		width: 30%;
+		float: left;
+		margin-right: 5%;
+	}
+}
+
+, ou seja, a partir de 800 pixels, a largura comeca a ser 30%, float left, com margem de 5%. Ao recarregar, os planos aparecem lado a lado quando a tela esta maior. Se nos diminuirmos a tela, vai chegar o momento que a tela vai ficar abaixo de 800 pixels e vai empilhar os planos um abaixo do outro. Ao aumentar a tela, a partir de 800 pixels, vai colocar os planos um do lado do outro.
+
+22. Essas Media Queries, nao precisa ter so uma, pode ter mais, pode ter, por exemplo, outra de 400 pixels,
+
+@media (min-width: 400px) {
+
+}
+
+, a partir de 400 pixels, vai aplicar essas regras definidas aqui,
+
+@media (min-width: 400px) {
+	background-color: yellow;
+}
+
+, entao, a partir de 400 pixels, a cor de fundo fica amarelo. Vamos ver? Ao recarregar a pagina, ao diminuirmos a tela, nao mudou para amarelo, por que? Porque nos nao conseguimos diminuir a tela para menos de 400 pixels. Devemos fazer o que, entao? Devemos aumentar um pouquinho a largura minima,
+
+@media (min-width: 600px) {
+	background-color: yellow;
+}
+
+, porque, com 400 pixels, nos nao conseguimos diminuir a tela para menos de 400 pixels. 
+
+23. Ao recarregar a pagina, entao, como nos colocamos que, a partir de 600 pixels, a cor de fundo do artigo deve ser amarelo, o nosso viewport tem uma largura abaixo de 600 pixels, quando diminuimos o tamanho da largura da tela o maximo possivel. Entao, nos vamos aumentando, aumentando, aumentando a tela e, em determinado ponto, nos passamos de 600 pixels. Quando nos falamos que passamos de 600 pixels, nos podemos falar o seguinte, nos estamos atingindo um breakpoint, cada uma dessas expressoes de Media Queries nos chamamos de breakpoints. Entao, nos temos um breakpoint de 600 pixels e um breakpoint de 800 pixels, ou seja, um ponto de parada. Entao, ao chegarmos no breakpoint de 600 pixels, aplica-se as regras que nos temos no bloco da Media Query de 600 pixels,
+
+@media (min-width: 600px) {
+	background-color: yellow;
+}
+
+23. A partir do momento que vai aumentando, aumentando e chegou no breakpoint de 800 pixels, aplica as regras que temos definidas que vao colocar as caixas lado a lado. E vejamos que a cor amarelo, a cor de fundo continua, ou seja, o bloco da Media Query de 800 pixels nao anula o bloco da Media Query de 600 pixels, vai colocando em cascata.
+
+24. Entao, vejamos que o que nos fizemos aqui eh Web Design Responsivo.
+
+25. Agora, vamos testar com o Chrome DevTools simulando com o navegador movel, para dispositivos moveis. Vejamos que, no iPhone, que ficou, ainda, bem pequenininho. Por que?
+
+26. A gente esta usando layout responsivo, por que que as caixas ficaram pequenas assim? Porque faltou, exatamente, o que a gente ja estudou, aqui, no html,
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+, isso a gente ja viu em uma aula anterior. Entao, agora que a gente colocou no viewport, o navegador para viewport nao vai mais tentar simular o tamanho de viewport, nao vai colocar esse zoom out, colocar mais de longe, ele vai fazer tudo certinho para a gente e, ao recarregar a pagina, agora, quando a gente abrir em um celular, por exemplo, a pagina, ja vai abrir em um tamanho legal, ja vai abrir entendendo que a resolucao, por exemplo, que a gente esta usando, no iPhone, eh de 375 pixels e vai aplicar apenas a Regra CSS de article,
+
+article {
+	padding: 10px;
+	border: 1px solid #95a4a5;
+}
+
+, as nossas Media Queries nao vao ser aplicadas, porque nos estamos com 375 pixels no iPhone. Se a gente usar algum dispositivo que tenha a partir de 600 pixels, ai a gente consegue visualizar alguma diferenca.
+
+27. Vamos pegar um iPad. O iPad tem 768 pixels de largura. Como tem 768 pixels de largura, fica entre a regra de Media Query de 600 pixels e a regra de Media Query de 800 pixels, ou seja, aplica somente a Regra de Media Query de 600 pixels, a Regra de Media Query de 800 pixels nao aplica.
+
+28. Entao, ficou amarelo, mas ainda ficou empilhado um plano em cima do outro. Se nos pegarmos algo um pouco maior, vamos rotacionar aqui, temos um botao a direita na paleta de ferramentas do Chrome DevTools que rotaciona o dispositivo do modo Retrato para o modo Paisagem. Ao clicar no modo Paisagem, ou seja, nos viramos o nosso iPad, os planos sao desempilhados, aparecendo um ao lado do outro.
+
+29. Entao, no modo Paisagem, nos temos 1024 pixels de largura. Como nos temos 1024 pixels de largura, entra na regra de Media Query de 600 pixels, mas tambem vai entrar na regra de Media Query de 800 pixels. Entao, no iPad, funciona legal tambem.
+
+30. Entao, eh assim que funciona e eh logico que, em um Desktop, continua funcionando normalmente, porque tambem as regras foram aplicadas de Media Queries. Entao, eh assim que funciona, quando a gente desenvolve layouts responsivos, a gente simplesmente usa esse recurso do CSS3 de Media Queries para aplicar regras quando a gente quer colocar algum recurso a mais ou mudar alguma propriedade. 
+
+31. E, alem do min-width, tem o max-width. A gente pode falar assim, com min-width, ao inves de a partir de 600 pixels, com max-width, no maximo ate 600 pixels, nos podemos inverter isso tambem. Como a gente esta trabalhando, aqui, com mobile first, aplica todas as regras de article e, a partir de 600 pixels para cima, aplica uma regra e, a partir de 800 pixels para cima, aplica outra regra, entao, o min-width eh o mais adequado para este caso, mas nao tem nenhum problema se quiser usar o max-width. Eh logico que a regra muda, se alterarmos de min-width para max-width, estamos colocando outra logica, nos invertemos, na verdade, a logica, nesse caso.
+
+32. Mas, neste caso, o correto mesmo seria o min-width. Tem outras propriedades que nos podemos colocar nessa expressao da Media Query, mas a que a gente mais usa mesmo eh a propriedade de largura da tela.
+
+33. Fim da 	Aula 05.006. Layout Responsivo e Media Queries.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MyPilas</title>
+	<!-- link rel="stylesheet" href="css/reset.css"-->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+	<div id="planos">
+		<div class="container">
+			<article>
+				<h2>Autônomo</h2>
+				<div>R$59/mês</div>
+				<ul>
+					<li>Até <strong>2 usuários</strong></li>
+					<li><strong>500MB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Micro</h2>
+				<div>R$89/mês</div>
+				<ul>
+					<li>Até <strong>5 usuários</strong></li>
+					<li><strong>1GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article style="margin-right: 0;">
+				<h2>Pequena</h2>
+				<div>R$99/mês</div>
+				<ul>
+					<li>Até <strong>10 usuários</strong></li>
+					<li><strong>5GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+		</div>
+	</div>
+</body>
+</html>

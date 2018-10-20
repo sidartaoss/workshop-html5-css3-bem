@@ -1,0 +1,191 @@
+<!-- 
+	Aula 03.08. Cores
+
+1. Existem diferentes maneiras para especificar cores em CSS. A gente ate ja esta especificando algumas cores nas nossas ultimas aulas, algo bem basico.
+
+2. Mas, nesta aula, a gente vai ver um pouco mais sobre cores, as formas de especificar cores.
+
+3. As cores podem ser usadas em textos, que eh o que a gente esta mais fazendo ate agora, a gente vai especificar cores de outras formas tambem, em outros elementos, nao so em textos.
+
+4. Pode-se especificar, tambem, cores de fundo, de borda, de varias outras coisas. Entao, aqui, neste exemplo, nos criamos uma pagina html muito simples com varios elementos div, e nos colocamos um nome de classe CSS que chamamos de caixa 1, 2, 3, 4, 5 e, dentro de cada um, tem um h1 escrito AlgaWorks.
+
+5. Aqui, eh so um exemplo mesmo, nao tem problema, como eh um exemplo, ficar repetindo h1 varias vezes no documento, porque eh so um exemplo.
+
+6. Um div, para nos lembrarmos, eh um container de generico, entao, a gente vai chamar isso de caixa, um container generico.
+
+7. Okay, vamos la. Queremos colocar cores. Ao carregar a pagina, verificamos que estamos sem cores nos titulos e nao tem nem cor de fundo, a gente vai ver sobre cores de fundo agora.
+
+8. Primeiramente, vamos comecar pela caixa1. Nos queremos especificar cores para essa classe caixa1. Entao, vamos especificar aqui, caixa1, que eh a classe CSS, nos criamos o nosso seletor, comecamos a nossa declaracao e vamos colocar, em seguida, as nossas propriedades. Tem uma propriedade para colocar cor de fundo, que ela eh chamada de background-color, que vamos especificar como azul,
+.caixa1 {
+	background-color: blue;
+	color: white;
+}
+
+9. Entao, aqui, a gente esta usando cores pelo nome. Entao, o CSS especifica uma lista de cores pelo nome. E color, na cor do texto, vamos colocar 'white'.
+
+10. Esses nomes de cores sao padronizados, nao se pode colocar um nome qualquer, senao, vai ficar invalido. Se colocarmos, por exemplo, 'amarelo', a cor amarela, a cor da fonte, ao carregar a pagina, vai ficar preto, o CSS nao entendeu, entao, a cor da fonte vai ficar preto. Entao, nao tem jeito, sao cores especificadas que, se entrarmos na especificacao do CSS, nos vamos encontrar essa lista. 
+
+11. Mas, recomendamos que nao se use essas cores nomeadas, a gente vai ver outras formas, por isso que nem vamos mostrar essa lista de cores, mas recomenda-se que se use outras formas de especificar cores.
+
+12. Vamos para a caixa2. Lembrando que nos temos varias caixas aqui iguais, so muda o nome da classe CSS, Vamos para a caixa2 para vermos mais uma forma de fazer.
+
+13. Na caixa2, vamos colocar tambem background-color. Mas, aqui, nos vamos usar uma forma de definir cores usando RGB. Se ainda nao sabemos o que eh RGB, eh a mistura de cores Red, Green e Blue. Entao, o RGB eh uma forma de nos definirmos cores misturando essas tres cores.
+
+14. Primeiramente, nos colocamos rgb, abre/fecha parenteses, rgb() e nos passamos parametros, argumentos aqui. Nos passamos tres cores para o RGB. Primeiro, eh o Red, 'r' de red, vermelho, 'g' de green, verde, 'b' de blue, azul.
+
+15. A primeira coisa eh o vermelho. Vamos definir 255. O que eh esse 255? 255 eh o maximo, o numero maximo. Nos queremos o maximo de vermelho e nao queremos nada de verde, e nao queremos nada de azul.
+
+.caixa2 {
+	background-color: rgb(255, 0, 0);
+}
+
+16. Se misturarmos essas tres cores com muito vermelho, nada de verde e nada de azul, qual que eh a cor disso?
+
+17. Eh vermelho. Ao recarregar a pagina, verificamos que a cor de fundo ficou vermelho para a segunda caixa, caixa2.
+
+18. Em seguida, vamos definir color: rgb(), e se nao colocarmos nada como parametro,
+color: rgb(0, 0, 0), o que acontece se nao colocarmos nenhuma cor? Nao colocamos vermelho, verde e azul, ou seja, eh uma falta de cores. Isso quer dizer que vai ser renderizado a cor 'preta', que eh uma falta de cores, se nao colocamos nada, esta no escuro, esta preto.
+
+19. O numero passado como parametro na funcao rgb vai de 0 ate 255, para qualquer um dos parametros: red, green blue. Entao, temos uma infinidade de possibilidades de mistura de cores. Se definirmos, por exemplo,
+
+.caixa2 {
+	background-color: rgb(255, 200, 0);
+}
+
+, ao recarregar a pagina, ja fica um pouco mais amarelado. Entao, estamos misturando muito vermelho com bastante de verde. Se definirmos o maximo de verde, vai ficar amarelo.
+
+20 Se colocarmos tudo em vermelho, nada em verde e colocarmos bastante em azul, o que vai acontecer?
+.caixa2 {
+	background-color: rgb(255, 0, 150);
+}
+, vai ficar rosado.
+
+21. Se colocarmos o total de azul, junto com vermelho, ai fica ainda mais rosado,
+
+.caixa2 {
+	background-color: rgb(255, 0, 255);
+}
+
+22. Entao, eh necessario conhecer mistura de cores? Nao, nao eh preciso. Tem formas de nao ser necessario saber isso e, mesmo assim, definirmos a cor desejada.
+
+23. Vamos para a proxima maneira de definirmos cores, a caixa3. Na verdade, antes de irmos para a proxima maneira, vamos so fazer mais um exemplo,
+
+.caixa3 {
+	background-color: rgb(255, 200, 0);
+}
+
+, vai ficar amarelado. Se colocarmos color: rgb(255, 255, 255), ou seja, o maximo de todas as cores, como vai ficar? Vai ficar branco,
+
+.caixa3 {
+	background-color: rgb(255, 200, 0);
+	color: rgb(255, 255, 255);
+}
+
+24. E, agora, vamos ver uma outra forma de definir cores na caixa4, que eh por hexadecimal,
+.caixa4 {
+	background-color: 
+}
+
+, hexadecimal eh um sistema de numeracao, que representa numeros, usando 16 simbolos. Nao eh o objetivo aqui explicar o que eh hexadecimal, so eh necessario saber o que eh. Entao, a gente esta acostumado a trabalharmos com o sistema decimal, que sao os numeros de 0 a 9, entao, esse eh o sistema decimal.
+
+25. Mas, quando a gente trabalha com computadores, tem outras representacoes tambem, uma delas eh o sistema hexadecimal, que temm 16 simbolos. Esses 16 simbolos vao do 0 ao 9, 0-9, 0123456789, e tambem tem o ABCDEF, 0123456789ABCDEF, ou seja, sao 16 simbolos para representar numeros.
+
+26. Entao, isso eh o hexadecimal. Ai nos acessamos a URL http://bit.ly/dec2hex, que eh uma ferramenta online para converter, um conversor. Nos preenchemos com um numero decimal e a ferramenta converte para hexadecimal.
+
+27. Por exemplo, 255, qual que eh a representacao de 255 em hexadecimal? FF, 25 eh representado por FF. Vamos pegar um numero qualquer, 182. Eh o B6 em hexadecimal. Entao, se quisermos representar o numero 182 em hexadecimal, eh o B6. Entao, a gente pode usar essa tabela para converter de decimal para hexadecimal.
+
+28. Mas por que estamos falando que tem que ser convertido de decimal para hexadecimal? A outra forma de definirmos cores, usando hexadecimal, funciona da seguinte maneira. Coloca-se o jogo-da-velha, #, e, agora, a gente vai definir a cor tambem usando RGB, mas sem usar a funcao rgb(), nos vamos definir diretamente em hexadecimal. E funciona assim: os dois primeiros caracteres definem o numero da cor vermelho, red, os outros dois eh a cor verde, green, e os outros dois eh blue, 
+
+#XX XX XX,
+
+29. Vamos pegar, entao, a cor 255, em hexadecimal, eh FF. Entao, a gente tem o vermelho, que eh 255, ou seja, no maximo de vermelho. Em seguida, para verde, 200 em decimal, que, convertendo, fica C8. As letras podem ser em maiusculo ou em minusculo. E, para azul, 0, em hexadecimal, preenchemos com dois zeros, porque sempre definimos 6 caracteres. Ou seja, para 255, em hexadecimal fica FF, para 200, fica C8 em hexadecimal e o zero representado em hexadecimal.
+
+.caixa4 {
+	background-color: #FFC800
+}
+
+30. Ao recarregarmos a pagina, verificamos que a cor de fundo eh a mesma que caixa3, so mudamos para hexadecimal em caixa4.
+
+31. Vamos, em caixa4, agora, inverter: colocar 00 para verde e C8 para azul, #FF00C8. Estamos dizendo que nao vamos ter verde, mas vamos ter bastante azul. E, ai, o que acontece eh que fica mais rosado, rosa escuro.
+
+32. Vamos, em seguida, colocar a cor do texto, color: #dd, em decimal, dd eh 221. Entao, bastante vermelho, nao eh o maximo, mas eh bastante vermelho, ff para verde, ou seja, o maximo de verde e nada de azul, ou seja, 00,
+
+.caixa {
+	background-color: #ff00c8;
+	color: #ddff00;
+}
+, ou seja, tem bastante vermelho, o maximo de verde e nada de azul. Entao, estamos misturando muito verde com bastante vermelho, que deu um verde-limao ao recarregarmos a pagina.
+
+33. Vamos pegar, agora, caixa5. Talvez estejamos nos perguntando, vamos ter que ficar testando isso ate acharmos a cor? Acontece, as vezes, de decorarmos algumas cores que sao as mais utilizadas, mas nao eh necessario ficar preocupado, tem formas de, depois, facilitar isso.
+
+34. Vamos definir, entao, background-color como #ddff00. O que eh essa cor? Eh o verde limao. Mas existe, no CSS, uma forma de abreviarmo isso, #ddff00. Como se repete o 'd' em 'dd', o 'f' em 'ff', e o '0' em '00', nos podemos abreviar como #df0, tres caracteres somente. Isso nao eh muito importante, isso eh so para sabermos que vao ter codigos por ai que estarao usando somente tres caracteres hexadecimais, pode-se pensar como?, se a definicao diz que deve-se especificar 6 caracteres hexadecimais? Se tiver, entao, tres caracteres hexadecimais, eh porque esta abreviando,
+
+.caixa5 {
+	background-color: #df0;
+	color: 
+}
+
+35. Entao, a cor, ao recarregar a pagina, eh a mesma, nao muda, em relacao a #ddff00. Vamos definir, tambe, color. Nos queremos a cor preta. A cor preta eh a falta de cor, eh a falta de vermelho, verde e azul, entao, a falta de vermelho eh 00, em hexadecimal, nao tem verde, 00, e nao tem azul, 00, entao, 6 numeros 0's, eh a cor preta, #000000.
+
+.caixa5 {
+	background-color: #df0;
+	color: #000000;
+}
+
+36. Na verdade, a gente nao ve diferenca porque ja estava preto, eh o padrao do navegador. Se colocarmos #ffffff, eh 255, 255, 255, eh branco.
+
+.caixa5 {
+	background-color: #df0;
+	color: #ffffff;
+}
+
+37. Mas vamos voltar para o preto. Nos podemos abreviar? Sim, podemos, definindo 3 zeros, #000, da na mesma, eh o preto ainda. A gente pode abreviar ou nao as cores mais especificas.
+
+38. Existe uma forma mais facil de descobrirmos as cores sem termos que ficar testando? Uma forma eh, se tivermos uma ferramenta de edicao de imagens, com certeza ela vai ter uma paleta de cores, onde nos clicamos vamos selecionando a cor que desejamos e, por exemplo, Photoshop tem isso, nos vamos ter algum lugar que vai nos mostrar qual que eh a cor em RGB, hexadecimal e outras formas tambem.
+
+39. Entao, eh muito facil, nos vamos la, escolhemos a cor que desejamos, copiamos e colamos aqui no CSS. Eh uma forma, mas, se nao tivermos essas ferramentas, se nao conhecemos nada disso de ferramentas de edicao de imagens, nao tem problema tambem. 
+
+40. Na URL http://bit.ly/as-cores, nos vamos para uma ferramenta de cores. Se, caso o site, algum dia, saia do ar, nao tem problema, tem um monte na Internet, se pesquisarmos no Google, cores web, cores hexadecimal, nos vamos achar um monte de ferramentas. Essa URL eh so uma ferramenta qualquer que tem uma forma de nos escolhermos cores. Por exemplo, nos queremos um vermelho. Entao, nos vamos na paleta de cores do site e escolhemos um tom de vermelho. Entao, nos podemos ir variando, ao clicar no botao Lighten Schema ou Darken Schema, para clarear ou escurecer. Da mesma forma com verde ou azul. Ai, nos copiamos o valor hexadecimal e colocamos no arquivo CSS,
+
+.caixa5 {
+	background-color: #66FF33;
+	color: #000
+}
+
+41. Ao recarregar a pagina, a cor de fundo ficou verde claro. Entao, eh uma forma de usarmos uma ferramenta para nao termos que ficar testando com hexadecimal. Nos vamos direto ao ponto e escolhemos a cor que desejamos. Entao, tem formas muito faceis e ferramentas para isso. 
+
+42. Existem outras formas de trabalharmos com cores, mas a forma com hexadecimal eh a mais usada hoje em dia.
+
+
+
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8">
+		<title>Sobre nós</title>
+		<link rel="stylesheet" href="css/estilos.css">
+	</head>
+	<body>
+		<div class="caixa1">
+			<h1>AlgaWorks</h1>
+		</div>
+
+		<div class="caixa2">
+			<h1>AlgaWorks</h1>
+		</div>
+
+		<div class="caixa3">
+			<h1>AlgaWorks</h1>
+		</div>
+
+		<div class="caixa4">
+			<h1>AlgaWorks</h1>
+		</div>
+
+		<div class="caixa5">
+			<h1>AlgaWorks</h1>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,156 @@
+<!-- 
+
+	Aula 04.05. Flutuando Elementos
+
+17. Aqui eh o seguinte. A gente tem um elemento article, que eh um artigo. Esse elemento article, no CSS dele, no arquivo colunas.css, nos colocamos para ele ficar com uma cor de fundo verde,
+
+article {
+	backgrund-color: #0f0;
+}
+
+, entao, esse verde vai do inicio do elemento h1 ate embaixo, no final do segundo paragrafo. Claro, obviamente, a cor cinza esta tampando o verde, mas o verde vai ate o finalzinho do container, entao, todo esse texto esta dentro dele, dentro do artigo.
+
+18. O h1 esta aqui, em 'Ja imaginou?' e esses dois paragrafos, que estao com fundo cinza, coluna1 e coluna2, estao aqui,
+
+.coluna1, .coluna2 {
+	background-color: #ccc;
+}
+
+19. Nos temos tambem uma regra footer, a qual nao estamos usando ainda, daqui um pouco nos chegamos nela.
+
+20. Entao, por enquanto, nos estamos usando os seletores article e coluna1, coluna2, para fazer essa pagina html.
+
+21. Agora eh o seguinte, nos queremos colocar essa coluna1, que nos chamamos de coluna1, esse texto do primeiro paragrafo nos chamamos de coluna1, o segundo paragrafo nos chamamos de coluna2, nos queremos coloca-los lado a lado, em duas colunas, tambem muito comum em noticias, sites de noticias, ou em um jornal impresso, tambem, isso eh muito comum. As vezes, nos queremos fazer isso e, mesmo que nao queiramos fazer isso, eh importante conhecer o float, porque nos podemos querer colocar caixas lado a lado, que nos ate vamos fazer isso, em uma aula seguinte, no nosso projeto do curso.
+
+22. Entao, vamos la, nos queremos colocar, entao, duas colunas lado a lado. Entao, nos vamos criar uma regra CSS com o seletor coluna1, colocando float como left,
+
+.coluna1 {
+	float: left;
+}
+
+23. E colocamos, tambem, o seletor coluna2 como float, com o valor right,
+
+.coluna2 {
+	float: right;
+}
+
+24. Vamos recarregar a pagina e ver o que aconteceu.
+
+25. Por enquanto, nao aconteceu nada, porque a gente precisa especificar um tamanho para o primeiro paragrafo e para o segundo paragrafo.
+
+26. Uma coisa que nos podemos perceber eh que o verde, que eh o artigo, ele ja terminou la em cima, ele nao veio ate o final do segundo paragrafo, parece estranho, mas eh como o float funciona.
+
+27. Quando a gente especifica que um elemento esta flutuando, o elemento eh retirado do fluxo normal do documento html. Entao, mesmo que esses dois paragrafos estejam dentro da area verde, que eh o artigo, ela nao enxerga isso, porque o elemento saiu do fluxo normal, entao a altura do article terminou antes, embora, no documento, a gente pode ver, inspecionando o segundo paragrafo aqui, que o segundo paragrafo, <p>, continua dentro do artigo, mas a altura do artigo termina antes, porque o <p> saiu do fluxo normal.
+
+28. Mas daqui um pouquinho a gente ve mais sobre isso, vamos, aqui, colocar uma largura de 50% em coluna1, coluna2,
+
+.coluna1 {
+	float: left;
+	width: 50%;
+}
+
+.coluna2 {
+	float: right;
+	width: 50%;
+}
+
+, ao recarregar a pagina, vemos que o navegador vai dividiu certinho, colocou, entao, 50% de largura para cada coluna.
+
+29. Na verdade, vamos colocar 48% para coluna1, coluna2, para deixar um pouco mais de espaco ja que ficou muito colado os paragrafos,
+
+.coluna1 {
+	float: left;
+	width: 48%;
+}
+
+.coluna2 {
+	float: right;
+	width: 48%;
+}
+
+30. O que fizemos aqui, nos sabemos que, da esquerda ate a direita da tela, eh 100%, entao, colocamos 48% no primeiro paragrafo e 48% no segundo paragrafo e os 4% que sobraram ficaram no meio dos dois paragrafos, entao a gente vai diminuindo o tamanho da pagina e o espaco no meio dos dois paragrafos vai diminuindo tambem, proporcionalmente.
+
+31. Entao, nos colocamos uma coluna um do lado da outra. Maravilha, nos conseguimos colocar uma coluna uma do lado da outra.
+
+32. Mas, ai, vamos, agora, colocar um rodape embaixo. Nos vamos, em colunas.html, adicioinar o elemento footer depois do elemento article, com o texto 'Todos os direitos reservados.'
+
+<article>
+</article>
+<footer>
+	Todos os direitos reservados.
+</footer>
+
+33. Salvamos. Vamos remover a definicao de float no arquivo colunas.css para os seletores coluna1 e coluna2 para vermos, ao recarregar a pagina, que o rodape fica certinho embaixo da pagina.
+
+34. Agora, vamos voltar com o float para os seletores coluna1 e coluna2 e vamos recarregar a pagina e ver o que acontece.
+
+.coluna1 {
+	float: left;
+	width: 48%;
+}
+
+.coluna2 {
+	float: right;
+	width: 48%;
+}
+
+35. Esse amarelo, a cor de fundo amarelo eh do rodape, mas olhemos onde esta comecando, assim que terminou o artigo, o verde, ja comecou o footer, se estendeu ate embaixo, onde colocou o texto, 'Todos os direitos reservados'. O que aconteceu?
+
+36. O que acontece eh que, quando nos colocamos um elemento float, o proximo elemento vai seguindo esse direcionamento tambem, entao, o que a gente precisa fazer eh definir: daqui para baixo, nao siga essa orientacao de flutuar, dos floats. Entao, daqui para baixo, limpa isso, limpa esse estado de float. Eh o que aconteceu aqui e a gente pode fazer isso.
+
+37. E, para fazer isso, a gente vai colocar aqui uma nova regra de CSS, a qual nos chamaremos de clearfix, poderia ser qualquer outro nome, mas estamos colocando esse nome porque, geralmente, se pegarmos algum codigo pronto, geralmente nos vamos ver algo assim, clearfix ou clear, nos veremos algo assim. Eh so nos colocarmos a propriedade clear, com o valor 'both', que o navegador vai limpar essa orientacao que a gente deu para ele flutuar, tanto da esquerda quanto da direita,
+
+.clearfix {
+	clear: both;
+}
+
+38. E, ai, nos queremos que, a partir de antes de terminar o artigo, nos queremos limpar o float. Nos podemos colocar um div aqui, vazio, com uma classe clearfix, que vai dar um clear: both;
+
+<article>
+	<h1></h1>
+	<p></p>
+	<p></p>
+	<div class="clearfix"></div>
+</article>
+
+39. Entao, nos recarregamos a pagina e pronto. Agora, nos percebemos, inclusive, que o verde veio ate embaixo, ate o limite do segundo paragrafo e o rodape, porque, como a gente limpou logo depois do segundo paragrafo, a gente fez o clear no float, o article consegue, agora, calcular a altura dele certinho, porque o clear esta dentro do artigo. Se colocasse fora do artigo, o footer fica, ainda, certo, nao fica quase junto e embaixo do segundo paragrafo, mas a altura do artigo continua em la em cima, o artigo nao desce ate embaixo.
+
+40. Entao, se a gente quiser, inclusive, que a altura do artigo fique ate embaixo e consiga chegar ate embaixo, depois dos paragrafos e antes do rodape, ai a gente coloca o clearfix dentro do artigo.
+
+41. Esse clearfix, esse div clearfix, em alguns casos, pode nao ser muito interessante, porque ele nao eh semantico. A gente esta colocando, simplesmente, algo aqui para resolver um problema que o CSS que a gente colocou gerou. Ele nao eh semantico, ele nao representa nada no documento.
+
+42. Entao, sempre que for possivel, se nao tiver jeito, tudo bem, as vezes a gente acaba sacrificando um pouquinho a semantica para resolver alguma coisa, mas, se tiver como, deve-se tentar nao usar um div vazio assim.
+
+43. Poderia-se colocar, por exemplo, no footer, um clearfix. Ao recarregar a pagina, vemos que funcionou. Claro que a cor verde ainda nao chegou ate embaixo, depois dos dois paragrafos, mas essas cores de fundo, na verdade, nos so colocamos como referencia para nos, nao ficaria assim na pagina real, o artigo nao teria uma cor de fundo.
+
+44. Mas funcionou, o posicionamento dos paragrafos funcionou do jeito que a gente queria, entao, eh uma possibilidade, entao, colocar o clearfix no footer, porque o footer representa o rodape e, aqui, a gente so esta usando um codigo clearfix para poder limpar o float.
+
+45. Eh isso. Tem, ainda, uma outra possibilidade para a gente fazer, ao inves do clearfix, mas a gente deixa isso para o proximo video.
+
+46. Fim da Aula 04.05. Flutuando Elementos.
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8"> 
+	<link rel="stylesheet" href="css/colunas.css">
+</head>
+<body>
+
+	<article>
+		<h1>Já imaginou?</h1>
+
+		<p class="coluna1">Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+		<p class="coluna2">Em Maio de 2015, no envento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation</p>
+
+		<!--div class="clearfix"></div-->
+	</article>
+	<footer class="clearfix">
+		Todos os direitos reservados.
+	</footer>
+</body>
+</html> 

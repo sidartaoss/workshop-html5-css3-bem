@@ -1,0 +1,406 @@
+<!-- 
+	Aula 04.04. Adicionando os Planos
+
+1. Nesta aula, nos vamos trabalhar com essa parte dos planos da pagina inicial do MyPilas. Entao, aqui, a gente tem o screenshot do prototipo de como vai ficar o resultado final que a gente esta desenvolvendo, mas a gente vai trabalhar, agora, na parte dos planos.
+
+2. Nesta aula, a gente nao vai conseguir, ainda conclui-la. Algumas coisas a gente vai fazer, ainda, ao longo do Workshop, por questoes didaticas mesmo.
+
+3. E outra coisa. Essa ordem que a gente esta desenvolvendo, a gente comecou com o cabecalho, agora, a gente esta voltando, vindo para os planos, na parte final da pagina, nao eh a ordem, necessariamente, que deveriamos seguir, se estivessemos desenvolvendo essa pagina. Entao, estamos fazendo nessa ordem, simplesmente por questoes didaticas, porque o que nos ja aprendemos eh suficiente para fazermos essas caixinhas, ainda nao com o botao, a gente nao viu algumas coisinhas, esse 'Mais Popular' ainda a gente nao viu, entao a gente nao vai fazer ainda, entao, algumas coisinhas, a gente vai deixando para depois.
+
+4. So para ficarmos tranquilos, por questoes didaticas que nos estamos mostrando nessa sequencia. Um pouco o cabecalho, um pouco o final da pagina e, ai, a gente vai concluindo a pagina.
+
+5. Entao, vamos para o codigo. Aqui, nos temos o codigo ja com o cabecalho, que nos desenvolvemos em uma aula anterior. Entao, vamos fazer, agora, uma caixinha, que sao os planos, vamos fazer uma caixa dessas.
+
+6. Nos vamos colocar, aqui, no arquivo html, uma tag para representar um plano. Entao, poderiamos colocar aqui um div, que eh um elemento generico para representar o nosso plano e colocar uma classe plano, por exemplo. Poderia fazer isso? 
+
+7. Sim. Mas, neste caso, fica interessante a gente colocar a tag article, porque o plano a gente pode dizer que o plano eh um artigo, lembrando que artigo nao quer dizer que eh um artigo de blog, uma noticia, nao. Pode ser um objeto. Entao, cada plano nos podemos dize que eh um artigo, nao tem problema nenhum, fica semantico.
+
+8. Claro, a gente pode colocar uma classe tambem,
+<article class="plano">	 
+</article>
+
+, pode tambem. Mas vamos deixar sem, por enquanto.
+
+9. A gente vai, mais para frente, falar com relacao as boas praticas do codigo, e a gente volta nisso aqui. Por enquanto, nos so colocamos um elemento article e um article representa um plano. E, agora, nos colocarmos um elemento h2, para colocarmos o titulo do plano. Entao, no caso, o titulo do plano eh Autonomo.
+
+<article>
+	<h2>Autonomo</h2>
+</article>
+
+10. Nao iremos colocar h1 aqui, porque, senao, ficaria cada artigo com o seu h1. Nao teria problema, isso eh que vemos muito as pessoas discutirem, se eh correto usar varios h1's ou nao. Antigamente, nao era, antigamente, o h1 tinha que ser apenas um na pagina, h1 tinha que ter apenas uma ocorrencia na pagina e, dai para frente, nao teria repetir h2, h3, ate o h6. 
+
+11. Hoje em dia, nos ja vemos falar muito que pode, pode sim repetir o h1, porque ele esta contextualizado, entao, ele eh o elemento principal do artigo. Mas, nos preferimos, ainda, colocar, neste caso, o h2, porque ele nao eh o titulo principal da pagina, o titulo principal da pagina vai ser 'As finanças da sua empresa em ordem'.
+
+12. Mas, se colocarmos h1, na vemos como errado tambem, porque ele esta contextualizado em um artigo, no plano.
+
+13. Depois que nos colocamos o titulo, vamos coloca o preco. O preco nos vamos colocar em um div.
+
+<div>
+	R$59/mês
+</div>
+
+14. Nos vamos colocando assim no HTML, depois a gente estiliza tudo, fica mais facil.
+
+15. Em seguida, vamos colocar uma lista de caracteristicas do Plano, 'Ate 2 usuarios'; '500MB de armazenamento'; Lancamentos ilimitados, etc. Eh uma lista de caracteristicas e nos ja estudamos sobre listas.
+
+16. Isso eh uma lista ordenada ou nao ordenada? Acreditamos que, neste caso, pode ser uma lista nao-ordenada, porque a ordem aqui nao vai fazer muita diferenca. Eh so nos imaginarmos: se nos misturassemos a ordem entre esses elementos, faria alguma diferenca?
+
+17. Achamos que nao. Claro, visualmente, preferimos deixar nessa ordem, mas nao faria diferenca. O usuario entenderia da mesma forma.
+
+18. Entao, vamos colocar aqui, Unordered List, <ul>,
+
+<article>
+	<h2>Autonomo</h2>
+	<div>
+		R$59/mes
+	</div>
+	<ul>
+		<li></li>
+	</ul>
+</article>
+
+, e, dentro de <ul>, nos colocamos os itens, por exemplo, 'Ate 2 usuarios' e, ai, '2 usuarios' tem uma importancia maior, entao colocamos o elemento <strong>,
+
+<li>Ate <strong>2 usuarios</strong></li>
+
+19. Automaticamente, quando a gente coloca strong, por padrao, ele ja fica em negrito. Mas nos nao estamos pensando em negrito, nos estamos pensando em importancia. O negrito eh so uma consequencia do elemento <strong>.
+
+20. '500MB de armazenamento', 'Lancamentos ilimitados', 'Acesso Seguro' e 'Sem fidelidade'.
+
+21. E tem a parte com botao. Botao a gente nao tem ainda, vai ser uma aula so para fazer botao. Entao, a gente nao tem ele ainda, vamos deixar so aqui uma aula so para botao.
+
+22. Vamos adicionar o elemento <footer>, que eh o rodape. Ai nos podemos pensar, 'Mas o rodape nao eh o rodape da pagina'? 
+
+23. Nao. Nos podemos ter um footer em um article, ou seja, eh um rodape do nosso Plano.
+
+24. Esse rodape do Plano nos vamos colocar como botao que, por enquanto, nao vamos definir como botao, vamos definir como um link. Vamos, ate, direcionar para uma pagina, assine.html, que, ainda nao existe, mas a gente vai cria-la ainda mais para frente, que eh para o usuario assinar esse Plano.
+
+25. Entao, vamos dar uma olhada como esta ficando? Ao recarregar a pagina, ficou: o titulo do Plano, o Preco, a Lista de itens nao-ordenados e vai ter o botao Assinar. Entao, todas as informacoes estao definidas e o nosso html esta certinho.
+
+26. Agora, a gente vai, entao, para o arquivo estilos.css. E a gente comeca a definir as Regras CSS.
+
+27. Vamos, entao, primeiramente, definir o seletor article, que eh o nosso Plano. Ele tem uma borda cinza, 
+
+article {
+	border: 1px solid #95a4a5;
+}
+
+, nos sabemos que a cor tem a numeracao porque estamos olhando em outro lugar, nao eh necessario decorar essa numeracao, mas eh a cor que nos sabemos que teremos que usar.
+
+28. Okay, colocamos a borda. Nos vemos que a largura da caixa do article esta ocupando 100% da tela, mas nao tem problema, nos vamos definir um tamanho na caixa. Vamos definir um tamanho de largura de 370 pixels.
+
+article {
+	border: 1px solid #95a4a5;
+	width: 370px;
+}
+
+29. Okay, ao recarregarmos a pagina, vemos que diminuiu o tamanho da caixa. Depois, nos vamos colocar uma caixa ao lado da outra.
+
+30. Vamos deixar assim com 370 pixels porque, assim, achamos que vai dar certo. Posteriormente, vamos ver porque achamos que vai dar certo.
+
+31. Vamos colocar, aqui, um padding tambem, pois o texto esta muito colado na borda esquerda da caixa. Vamos definir um padding de 10 pixels, para os quatro lados da caixa,
+article {
+	border: 1px solid #95a4a5;
+	width: 370px;
+	padding: 10px;
+}
+
+32. Ao recarregar a pagina, vemos que deu uma distanciada.
+
+33. Vamos, agora, definir o estilo do titulo do plano, ou seja, 'Autonomo'. O titulo do plano tem cor de fundo cinza e cor branca para a fonte.
+
+34. Para selecionar o titulo do Plano, pegamos o article e o filho direto h2 de article, entao, com o seletor de filho direto, nos pegamos o h2, que eh o titulo do artigo e definimos background-color, que tem a mesma cor da borda, #95a4a5. A cor da fonte nos definimos como #fff, ou seja, branca.
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+}
+
+, mas nos precisamos preencher ate em cima da caixa, ou seja, ate a borda superior da caixa, com cinza para ficar certinho, conforme a versao final do Prototipo do nosso Projeto.
+
+35. Primeiramente, vamos alinhar o texto,
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+}
+
+36. O que mais podemos fazer? Vamos colocar um line-height de 2.5. Se definimos line-height de 2.5, isso significa que queremos 2 e meio vezes o tamanho da fonte de altura para a caixa. E, tambem, ja
+fica centralizado automaticamente o titulo.
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+	line-height: 2.5;
+}
+
+37. Vamos tirar a margem?,
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+	line-height: 2.5;
+	margin: 0;
+}
+
+, com margem zero, a caixa do titulo ainda nao ficou colado nas bordas do artigo. Mas porque ainda nao ficou colado? Porque nos temos que colar a borda com o fundo do titulo.
+
+38. O que acontece eh que o nosso article tem um padding de 10 pixels, entao, o que nos estamos vendo ao recarregar a pagina, o espaco entre a borda do artigo e a caixa do titulo eh o padding do artigo. O que que a gente pode fazer, entao?
+
+39. Nos podemos especificar uma margem de -11 pixels, ja que podemos colocar margem negativa. Com margem negativa de 11 pixels, junta a borda do artigo com a borda da caixa do titulo,
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+	line-height: 2.5;
+	margin: -11px;
+}
+
+40. Entao, juntou la com a borda do artigo. Mas, ai, criou um problema, como colocamos negativo, -11 pixels, em cima, embaixo, esquerda e direita, entao, o valor 'R$59/mes' ficou em cima do cinza, nao ficou certo.
+
+41. Entao, na margem inferior, margin-bottom, vamos colocar 0, porque a gente tira, nao deixa -11, deixamos como zero,
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+	line-height: 2.5;
+	margin: -11px;
+	margin-bottom: 0;
+}
+
+42. Ao recarregar a pagina, vemos que ficou coladinho, mas nao ficou em cima, depois a gente resolve isso, da mais espaco nele. 
+
+43. Pelo menos, ate aqui, esta quase como a versao final do Prototipo do Projeto.
+
+44. Vamos definir, agora, a fonte normal, ou seja, font-weight: normal, porque o padrao do h2 eh negrito,
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+	line-height: 2.5;
+	margin: -11px;
+	margin-bottom: 0;
+	font-weight: normal;
+}
+
+45. Ao recarregar a pagina, vemos que ficou mais parecido. E vamos colocar tambem o font-size de 28 pixels,
+
+article > h2 {
+	background-color: #95a4a5;
+	color: #fff;
+	text-align: center;
+	line-height: 2.5;
+	margin: -11px;
+	margin-bottom: 0;
+	font-weight: normal;
+	font-size: 28px;
+}
+
+46. Agora, ficou bem parecido com a versao final do Prototipo do Projeto.
+
+47. Vamos pegar o preco, agora, 'R$59/mes'. O preco esta em um div. Entao, podemos definir como seletor de filho direto de article,
+
+article > div {
+	
+}
+
+, mas nao achamos muito legal, porque o div eh um elemento generico. Se fizermos isso, estamos falando que todos os divs filhos de artigo vao ter esse estilos que vamos especificar agora. Mas nos vamos fazer assim, porque, depois, a gente vai ver uma parte de melhores praticas e vai rever isso aqui.
+
+48. Entao, nos vamos pegar aqui o div, que eh o preco. O que nos temos que fazer nele? Nos temos que aumentar o seu tamanho, centralizar, dar um espacinho para cima e para baixo. Entao, vamos comecando com centralizacao do texto,
+
+article > div {
+	text-align: center;
+}
+
+49. Ao recarregar a pagina, vemos que centralizou o preco. Vamos definir, aqui, um tamanho de fonte de 28 pixels,
+
+article > div {
+	text-align: center;
+	font-size: 28px;
+}
+
+50. E vamos definir uma margem de 20 pixels e 0, ou seja, 20 pixels em cima e embaixo e 0 pixels do lado esquerdo e direito do div,
+
+article > div {
+	text-align: center;
+	font-size: 28px;
+	margin: 20px 0;
+}
+
+, ao recarregar a pagina, vemos que ficou bem parecido com a versao final do Prototipo do Projeto.
+
+51. Agora, nos temos a lista de caracteristicas do Plano. Vemos que, na versao final do Prototipo do Projeto, a lista esta centralizada, sem as bolinhas. Entao, o que nos fazemos aqui?
+
+52. Definimos o seletor ul como filho direto de article,
+
+article > ul {
+	
+}
+
+, ou seja, selecionamos ul, que eh o elemento que nos criamos para a lista, dentro do artigo, definimos list-style como none,
+
+article > ul {
+	list-style: none;
+}
+
+, a gente ja estudou isso em uma outra aula anterior, a gente tira, entao, o estilo da lista, os bullets, ou seja, as bolinhas. Se recarregarmos a pagina, agora, vemos que a lista esta sem as bolinhas, mas ainda continua com padding, ou seja, entre as bolinhas e os elementos <li>, continua um espacamento interno, que deve ser removido para que os elementos <li> sejam movidos para a esquerda.
+
+53. Entao, para tirarmos o padding, ou seja, o espacamento interno da esquerda que separava as bolinhas dos elementos <li>, definimos padding como 0,
+
+article > ul {
+	list-style: none;
+	padding: 0;
+}	
+
+54. O que mais podemos fazer aqui?
+
+55. A margem deve ser definida como 20 pixels e 0, ou seja, 20 pixels em cima e embaixo e 0 pixels na esquerda e na direita,
+
+article > ul {
+	list-style: none;
+	padding: 0;
+	margin: 20px 0;
+}
+
+, ao recarregar a pagina, vemos que, colocando a margem com 20 pixels, nao aumentou nada o espacamento da lista em relacao ao preco. E, como o preco tambem tem uma margem, as margens sao sobrepostas, elas sao compartilhadas. Entao, se o preco tem uma margem de 20 pixels para baixo e a lista tem uma margem de 20 pixels para cima, elas sao sobrepostas uma em cima da outra. Eh assim que funciona, mas, ai, eh maravilha, porque ficou certinho, 20 pixels em relacao ao preco e 20 pixels em relacao ao botao Assinar.
+
+56. Agora, vamos pegar outro seletor, li, seletor filho direto de ul, filho direto de article,
+
+article > ul > li {
+	
+}
+
+, ou seja, vamos pegar os itens que estao naquela lista e vamos definir para alinhar os textos de forma centralizada,
+
+article > ul > li {
+	text-align: center;
+}
+
+
+57. Entao, ao recarregar a pagina, vemos que ficou parecido com a versao final do Prototipo do Projeto.
+
+58. Quanto aos detalhes, se tiver algum detalhe, a gente vai mexendo depois, mas ficou parecido, ja esta bom por enquanto. 
+
+59. Vamos, agora, definir o rodape do nosso Plano, o seletor footer, filho direto de article e vamos so definir para centralizar o texto,
+
+article > footer {
+	text-align: center;
+}
+
+60. Ao recarregar a pagina, vemos que centralizou o texto do botao com sucesso. Quando tiver o botao, vai ficar centralizado tambem.
+
+61. Agora que nos temos a caixa do Plano pronta, vamos dar uma organizada para depois colocarmos as outras duas caixas. A caixa do Plano esta colada ao lado esquerdo da tela e no cabecalho, mas, conforme a versao final do Prototipo do Projeto, eh necessario aumentar o espaco entre a caixa e os lados superior, inferior e esquerdo.
+
+62. Se formos reparar no layout final do Prototipo do Projeto, sempre ha um espaco entre os componentes para o layout nao ficar uma coisa grudada, parecendo que esta sufocando o layout. Entao, sempre tem um espaco fixo separando todos os elementos do layout.
+
+63. Nos nao vamos criar esse espaco no artigo, elemento article. Nos vamos criar um elemento div, acima de article e abaixo de article, porque nao achamos que isso seja responsabilidade do artigo, achamos que isso eh uma responsabilidade da estrutura do layout, entao, nos estamos estruturando o layout e artigo eh simplesmente um elemento ali, um Plano eh simplesmente um elemento e nos podemos coloca-lo em qualquer lugar. Agora, o espacamento aqui, entre os elementos do layout, nos achamos que deve-se colocar como responsabilidade de outro elemento, nesse caso, nos definimos um div aqui.
+
+64. Nos vamos dar um id para esse div, nomeando-o de planos,
+
+<div id="planos">
+	<article>
+	</article>
+</div>
+
+, e, no arquivo estilos.css, nos podemos definir o padding,
+
+#planos {
+	padding: 80px 0;
+}
+
+, ou seja, 80 pixels do lado superior e inferior e 0 pixels para o lado direito, esquerdo.
+
+65. Ao recarregar a pagina, vemos que deu padding em cima e embaixo. Embaixo nao notamos, porque nao tem nenhum elemento embaixo para delimitar. E por que que ficou colado ainda do lado esquerdo?
+
+66. A gente tem que dar um padding tambem do lado esquerdo?
+
+67. Nao, na verdade, o que a gente tem que fazer eh usar o container. Lembremos que, em outra aula, nos criamos um div com a classe 'container'. Entao, dentro do div planos, nos colocamos outro div container,
+
+<div id="planos">
+	<div class="container">
+		<article>
+		</article
+	</div>
+</div>
+
+, porque o 'container' eh o que vai determinar aqui uma largura fixa de 1200 pixels e centralizar na pagina.
+
+68. Ao recarregar a pagina, vemos que ficou centralizado. Entao, a medida que nos vamos diminuindo o tamanho da pagina, diminui o espaco que sobra do lado esquerdo e do lado direito. 
+
+69. Mas, esta certinho assim entao. Bem, ficou bem parecido com a versao final do Prototipo do Projeto. Nos nao temos o botao ainda, mas ficou bem parecido. Agora, vamos criar as outras duas caixas.
+
+70. E vai ser muito rapido, nos vamos so, na verdade, copiar e colar os artigos, aqui, na pagina html, mudando somente as informacoes. A segunda caixa vai ser Micro, com preco de R$89/mes. A terceira caixa vai ser Pequena, com preco de R$99/mes. O Micro tem ate 5 usuarios, 1GB de armazenamento e a Pequena tem ate 10 usuarios e 5GB de armazenamento.
+
+71. Ao recarregar a pagina, vemos as tres caixas: Autonomo, Micro e Pequena. Mas por que as caixas nao ficaram um do lado da outra? 
+
+72. Isso nos vamos ver em uma outra aula, nao eh ainda o objetivo desta aula. O objetivo, aqui, foi criar as caixinhas dos Planos.
+
+73. Fim da Aula Adicionando os Planos.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPillas</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+	<div id="planos">
+		<div class="container">
+			<article>
+				<h2>Autônomo</h2>
+				<div>R$59/mês</div>
+				<ul>
+					<li>Até <strong>2 usuários</strong></li>
+					<li><strong>500MB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Micro</h2>
+				<div>R$89/mês</div>
+				<ul>
+					<li>Até <strong>5 usuários</strong></li>
+					<li><strong>1GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Pequena</h2>
+				<div>R$99/mês</div>
+				<ul>
+					<li>Até <strong>10 usuários</strong></li>
+					<li><strong>5GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html">Assinar</a>
+				</footer>
+			</article>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+
+/**1.
+p {
+    font-size: 200%;
+}
+*/
+/**2.
+p {
+    font-size: 100%;
+}
+*/
+/**3.
+.caixa {
+    font-size: 200%;
+}
+*/
+/**4.
+.container {
+    font-size: 200%;
+}
+*/
+/**5.
+p {
+    font-size: 200%;
+}
+*/
+/**6.
+p {
+	font-size: 187.5%;
+}
+*/
+/**7.
+html {
+	font-size: 10px;
+}
+*/
+* {
+    box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+/**10.
+.caixa {
+	width: 50%;
+	padding: 10%;
+	font-size: 200%;
+	background-color: #ccc;
+	border: 5px solid black;
+}
+/*
+/**9.
+p {
+	font-size: 300%;
+}
+*/
+p {
+	font-size: 150%;
+}
+/**8.
+h1 {
+	font-size: 500%;
+}
+*/
+h1 {
+	font-size: 250%;
+}
+
+.caixa {
+    width: 50%;
+    padding: 10%;
+    margin-top: 10%;
+    font-size: 200%;
+    background-color: #ccc;
+    border: 5px solid black;
+}

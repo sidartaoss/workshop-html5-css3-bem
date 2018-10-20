@@ -1,0 +1,366 @@
+<!-- 
+  Aula 07.012. Adicionando o Bloco de Navegacao.
+
+1. Nesta aula, a gente vai melhorar a estrutura desse cabecalho, na verdade,
+dentro do cabecalho, a gente vai criar um bloco chamado barra-de-navegacao,
+e a gente vai colocar tambem um botaozinho do lado direito no cabecalho, que 
+ainda nao vai funcionar, mas um botao para chavear o menu, que ainda a
+gente nao tem tambem. 
+
+2. Entao, quando a gente estiver diminuindo a tela assim, a gente vai 
+colocar um botaozinho parecido com o botao do Chrome de tres barras,
+que eh um botaozinho para chavear o menu, que vai aparecer ainda, em 
+uma aula futura, a gente vai criar o menu que vai aparecer aqui na sidebar,
+do lado esquerdo, quando a tela estiver pequena e, quando a tela estiver
+grande, ai nao vai ter esse botaozinho e vai ter um menu aqui.
+
+3. Como vemos na versao final do prototipo mostrada pelo instrutor,
+nos temos um menu ao lado direito do cabecalho com tres links e um 
+botao, mas quando a tela esta grande, quando a tela estiver pequena,
+ele some.
+
+4. A gente vai comecar, entao, a fazer isso agora. Vamos, entao, no html.
+Dentro do div container, dentro do elemento header, a gente vai colocar um 
+elemento nav, 
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <nav>
+          <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+        </nav>
+      </div>
+    </header>
+
+e, por falar nisso, o instrutor acha que tem ja uma classe selecionando
+esse img, que nos podemos ate ja tirar, vejamos em layout.css, vamos 
+remover a classe:
+
+.layout-cabecalho img {
+  margin-top: 12px;
+}
+
+, se precisar, depois a gente coloca de novo, vamos remover essa classe,
+entao. Vamos tirar, porque, agora, se tiver que resolver alguma coisa,
+o proprio nav ja resolve. Vamos recarregar a pagina.
+
+5. Vemos que a figura do cabecalho subiu para o topo da pagina.
+
+6.
+
+7. O nav eh um elemento do tipo de navegacao, ele eh proprio para quando
+a gente tem alguma navegacao no nosso site, entao, a gente vai usa-lo,
+e vamos colocar, aqui, class=navegacao,
+
+        <nav class="navegacao">
+          <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+        </nav>
+
+8. Ai, nos temos a imagem e, em seguida, nos vamos ter um div que nos
+vamos chamar de navegacao__menu, ou seja, eh um elemento da nossa
+navegacao,
+
+        <nav class="navegacao">
+          <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+          <div class="navegacao__menu">
+          </div>
+        </nav>
+
+9. E, aqui dentro, a gente vai colocar, por enquanto, vamos colocar 
+assim, escrevemos Botao,
+
+          <div class="navegacao__menu">
+            Botão
+          </div>
+
+
+10. E, agora, vamos criar o nosso bloco NAVEGACAO,
+
+/*=====================*\
+  NAVEGACAO
+\*=====================*/
+.navegacao {
+
+}
+
+11. Nesse bloco navegacao, nos nao temos nenhum estilo para ele ainda,
+achamos que, talvez, nem vai ter, mas, para o elemento do bloco, o menu,
+a gente vai colocar simplesmente float: right,
+
+.navegacao {
+
+}
+
+.navegacao__menu {
+  float: right;
+}
+
+, para a gente flutua-lo a direita. Ao recarregarmos a pagina, vemos
+que esta flutuando a direita do cabecalho.
+
+12. Eh exatamente isso que a gente quer. Agora, a gente vai colocar um
+botaozinho aqui, no lugar do div navegacao__menu.
+
+13. E, para isso, nos vamos colocar, aqui, no div navegacao__menu, um 
+button, com a classe botao-chaveador,
+
+          <div class="navegacao__menu">
+            <button class="botao-chaveador"></button>
+          </div>
+
+14. Esse botao, botao-chaveador, eh um bloco. Entao, nos vamos especificar
+aqui, na classe componentes.css, que ele eh um bloco,
+
+/*=====================*\
+  BOTAO-CHAVEADOR
+\*=====================*/
+.botao-chaveador {
+  
+}
+
+, so que ele nao tem elementos, ele eh um bloco sem elementos, ele eh
+so um botao. Nao estamos usando o mesmo bloco do BOTAO, porque ele eh
+diferente, ele nao eh um botao normal, eh um botao diferente, entao,
+vamos colocar aqui que ele tem um background-image, ou seja, uma imagem
+de fundo, ai nos colocamos, aqui, url(), e, dentro da funcao url(),
+entre aspas aqui, nos colocamos a imagem, entao, nos vamos colocar aqui
+"../imagens/", nos colocamos ../ para voltar um diretorio, porque
+a gente esta dentro do diretorio CSS, entao ele volta um diretorio,
+entra dentro de imagens e nos ja temos uma imagem dentro desse diretorio
+que chamamos de bars.png, que sao as 3 barrinhas, 
+
+.botao-chaveador {
+  background-image: url("../imagens/bars.png");
+}
+
+15. Se nos recarregarmos a pagina, ainda nao esta legal, o botaozinho
+esta bem feinho ali, bem pequenininho, mas a gente vai dando forma
+para ele.
+
+16. Vamos colocar, aqui, a largura de 24 pixels, altura de 24 pixels 
+tambem, vamos recarregar a pagina, vemos que ja aumentou, mas esta ainda
+feio.
+
+17. Alem das barrinhas, tem uma cor cinza, entao, vamos colocar, aqui,
+antes, background: none, para a gente tirar o fundo. Ao recarregarmos a 
+pagina, vemos que ja ficou branquinho. 
+
+.botao-chaveador {
+  width: 24px;
+  height: 24px;
+
+  background: none;
+  background-image: url("../imagens/bars.png");
+}
+
+18. Mas ele esta com uma borda, vamos, entao, tirar essa borda, com
+border: 0,
+
+.botao-chaveador {
+  width: 24px;
+  height: 24px;
+  border: 0;
+
+  background: none;
+  background-image: url("../imagens/bars.png");
+}
+
+, vemos, ao recarregarmos a pagina, que saiu a borda e ficou apenas as
+barrinhas.
+
+19. Que mais que a gente pode fazer aqui? Quando nos colocamos o foco
+em cima do botao, estamos dando tab e dando foco em cima do botao, fica
+com essa borda azul, isso eh do proprio navegador, que coloca isso, 
+nos podemos remover isso usando uma propriedade chamada outline, com o 
+valor none,
+
+.botao-chaveador {
+  width: 24px;
+  height: 24px;
+  border: 0;
+
+  background: none;
+  background-image: url("../imagens/bars.png");
+
+  outline: none;
+}
+
+20. Ao recarregarmos, ao dar o foco no botao, nos nao vemos mais aquela
+bordinha que o navegador coloca.
+
+21. O que mais que a gente precisa fazer? Aqui, o alinhamento, a gente
+ve que ele esta bem em cima, a logomarca tambem foi la para cima, a gente
+ve que ele esta bem no topo, a gente pode colocar no layout.css, alem do 
+height, a gente coloca o line-height de 60 pixels, porque, ai, como a 
+altura da linha vai ser o mesmo tamanho da altura do header, o mesmo
+tamanho do elemento, ai ele vai ficar centralizado na vertical,
+
+.layout-cabecalho {
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+, entao, ao recarregarmos a pagina, vemos que ficou certinho. Diminuimos,
+tambem, o tamanho da tela e vemos que ficou certinho.
+
+22. O que a gente precisa fazer, aqui, agora, eh, quando a tela estiver
+pequena, mostra o botao de barrinhas, mas, quando a tela estiver grande,
+as barrinhas devem sumir.
+
+23. Entao, a gente vai colocar aqui, em componentes.css, uma Media
+Query, com min-width e o valor de 992 pixels, entao, a partir de 992 pixels,
+ou seja, Desktops com telas maiores, nos colocamos, aqui, .botao-chaveador,
+
+@media(min-width: 992px) {
+  .botao-chaveador {
+    display: none;
+  }
+}
+
+, nos dizemos, aqui, entao, que nao queremos exibir essas barrinhas
+quando a tela for grande. Entao, vamos recarregar a pagina.
+
+24. Quando nos vamos diminuindo a tela, comeca a exibir o botao, quando
+maximizamos a tela, some o botao de barrinhas. Claro, ainda nao esta
+fazendo nada esse botao, mas, nas proximas aulas, a gente comeca a 
+implementa-lo para exibir o menu quando a tela estiver menor.
+
+25. Fim da Aula 07.012. Adicionando o Bloco de Navegacao.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        
+        <nav class="navegacao">
+          <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+          
+          <div class="navegacao__menu">
+            <!--Botão-->
+            <button class="botao-chaveador"></button>
+          </div>
+
+        </nav>
+
+      </div>
+    </header>
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <div class="chamada__acao">
+            <a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-depoimento">
+
+      <div class="container">
+
+        <div class="depoimento">
+
+          <blockquote>
+            Eu tinha perdido totalmente o controle da minha empresa.
+            Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+          </blockquote>
+
+          <div class="depoimento__autor">
+            <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="João da Silva">
+            <p>João da Silva</p>
+          </div>         
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <!--div class="col-sm-4" style="margin-bottom: 40px"-->
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+            <article class="plano plano--mais-popular">              
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4  ultima-coluna">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="layout-rodape">
+      <div class="container">
+        &copy; MyPilas. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </body>
+</html>

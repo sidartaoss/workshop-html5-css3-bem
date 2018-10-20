@@ -1,0 +1,128 @@
+<!-- 
+	Aula 04.008. Criando um Botao
+
+1. Neste video, a gente vai desenvolver a Regra CSS para colocar o botao verde, que aparece na versao final do Prototipo do Projeto, o botao Assinar.
+
+2. Nos podemos ver que a nossa pagina esta com essas caixas de planos apenas com um link. Entao, vamos fazer esse botao.
+
+3. E temos, ja, o codigo do estilo CSS com o que a gente ja desenvolveu nas aulas anteriores. Vamos, aqui, colocar uma nova classe CSS. E nos vamos chama-la de botao,
+
+.botao {
+	
+}
+
+4. Essa classe CSS que a gente esta criando nova aqui, botao, a gente vai aplicar no link. Entao, nesse link, a gente vai colocar class="botao".
+
+<footer>
+	<a href="assine.html" class="botao">Assinar</a>
+</footer>
+
+5. Entao, o proprio link vai ter essa aparencia de um botao.
+
+6. Na Regra CSS da classe botao, nos vamos colocar, primeiramente, a propriedade display como inline-block, para ele se comportar inline, mas ser um block, entao, a gente ja viu sobre inline-block. Vamos colocar, tambem, um background-color com a cor #127d00, que eh a cor verde. Vamos recarregar a pagina, para vermos,
+
+.botao {
+	display: inline-block;
+	background-color: #127d00;
+
+}
+
+7. Ao recarregar a pagina, quase nao da para ver, mas esta la, eh o verde. Esta com a cor azul, tem que colocar a cor do texto branco, 	
+
+.botao {
+	display: inline-block;
+	background-color: #127d00;
+	color: #fff;
+}
+
+8. Nos vamos dar um padding, tambem, porque nos temos um espaco interno, vendo a versao final do Prototipo do Projeto, entre o texto e a borda, temos um espaco interno aqui, para dar essa cara de botao. Entao, vamos colocar aqui padding, na parte superior e inferior, colocamos 12 pixels, esquerda e direita vamos colocar 16 pixels, um pouco mais. Isso sao coisas que podemos ir testando. Aqui, vamos ja colocar um valor que vai dar certinho, conforme a versao final do Prototipo do Projeto.
+
+.botao {
+	display: inline-block;
+	background-color: #127d00;
+	color: #fff;
+	padding: 12px 16px;
+
+}
+
+9. Esta com esse sublinhado, ainda, porque eh um link. Entao, a gente pode tira-lo, essa decoracao, que eh a propriedade text-decoration, a gente coloca none,
+
+.botao {
+	display: inline-block;
+	background-color: #127d00;
+	color: #fff;
+	padding: 12px 16px;
+	text-decoration: none;
+
+}
+
+, e ele tira essa decoracao. Ao recarregar a pagina, vemos que foi removido o sublinado em 'Assinar'.
+
+10. Agora, a gente pode colocar essa classe botao nos outros links tambem.
+
+11. Ao recarregar a pagina, vemos, agora, que temos botoes nas nossas caixas que representam os planos.
+
+12. Fim da Aula 04.008. Criando um Botao.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPillas</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+	<div id="planos">
+		<div class="container">
+			<article>
+				<h2>Autônomo</h2>
+				<div>R$59/mês</div>
+				<ul>
+					<li>Até <strong>2 usuários</strong></li>
+					<li><strong>500MB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Micro</h2>
+				<div>R$89/mês</div>
+				<ul>
+					<li>Até <strong>5 usuários</strong></li>
+					<li><strong>1GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+			<article style="margin-right: 0;">
+				<h2>Pequena</h2>
+				<div>R$99/mês</div>
+				<ul>
+					<li>Até <strong>10 usuários</strong></li>
+					<li><strong>5GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html" class="botao">Assinar</a>
+				</footer>
+			</article>
+		</div>
+	</div>
+</body>
+</html>

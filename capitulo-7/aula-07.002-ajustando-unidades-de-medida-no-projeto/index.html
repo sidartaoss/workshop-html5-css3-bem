@@ -1,0 +1,457 @@
+<!-- 
+  Aula 07.002. Ajustando Unidades de Medida no Projeto
+
+1. Nesta aula, a gente vai alterar o nosso projeto para usar algumas medidas relativas, como 'em' e 'rem'. 
+
+2, Mas, antes disso, vamos so fazer um teste. Aqui, nos temos a pagina que a gente desenvolveu no projeto do nosso curso e, se nos acessarmos as propriedades, as configuracoes do Chrome e alterarmos o Tamanho de fonte de Media para, por exemplo, Muito pequena, vemos que o nosso site nao muda, ele permanece fixo. 
+
+3. Isso eh uma decisao que nos temos que tomar, se nos vamos seguir isso aqui ou nao, tem muitos que nos podemos ver, muitos frameworks CSS que nao estao nem ai com isso aqui, eles, simplesmente, colocam uma fonte fixa.
+
+4. Mas, se pudermos, principalmente, em Web Sites, eh interessante respeitar isso aqui, porque, se o Usuario alterou a Configuracao, eh porque ele precisa, talvez, de uma fonte maior para enxergar melhor, ou algo assim.
+
+5. Entao, o nosso site nao esta respeitando as configuracoes do Chrome de Tamanho de fonte, porque a gente esta usando tamanhos de fontes fixas, a gente nao esta usando tamanhos de fontes relativos, e a gente vai alterar isso agora.
+
+6. Entao, aqui no projeto, vamos comecar pelo componentes.css, vamos comecar pelo bloco PLANO,
+
+/*=====================*\
+  PLANO
+\*=====================*/
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+}
+
+.plano__cabecalho {
+  margin: -10px;
+  margin-bottom: 0;
+
+  background-color: #95a4a5;
+  color: #fff;
+
+  text-align: center;
+  line-height: 2.5;
+  font-weight: normal;
+  font-size: 28px;
+}
+
+.plano__preco {
+  margin: 20px 0;
+
+  text-align: center;
+  font-size: 28px;
+}
+
+.plano__caracteristicas {
+  padding: 0;
+  margin: 20px 0;
+
+  list-style: none;
+}
+
+.plano__caracteristicas > li {
+  text-align: center;
+}
+
+.plano__rodape {
+  text-align: center;
+}
+
+, onde a gente tem fonte aqui? No plano__cabecalho, a gente tem fonte, 28 pixels,
+
+.plano__cabecalho {
+  margin: -10px;
+  margin-bottom: 0;
+
+  background-color: #95a4a5;
+  color: #fff;
+
+  text-align: center;
+  line-height: 2.5;
+  font-weight: normal;
+  font-size: 28px;
+}
+
+ 7. A gente, entao, poderia colocar, aqui, a gente sabe que a fonte normal, a fonte padrao do navegador eh 16 pixels, entao, a gente poderia usar, aqui, qual medida? A gente poderia usar, aqui, a medida 'em', poderia usar 'rem'. Se a gente usar a medida 'em' aqui, a gente vai estar falando que ela eh relativa ao pai, e o pai eh quem? O pai eh plano. E o plano eh relativo a quem? Depende de onde ele esta vindo, plano eh relativo a div col-sm-4, que eh relativo a div row, que eh relativo a div container, etc., ou seja, daria trabalho para a gente, porque, pode acontecer de, de repente, a gente alterar o tamanho de fonte, por exemplo, de layout-planos e sair alterando coisas demais para dentro do article plano, ficaria complicado de gerenciar, se a gente usa o 'em', porque eh um relacionado ao outro e o outro pode estar relacionado ao outro, entao, mudaria bastante.
+
+8. Preferimos colocar, nesse caso, o tamanho de fonte do cabecalho relativo ao plano, mas contextualizar isso, a gente falar que o plano, a classe plano, ela gerencia o tamanho de fonte desse bloco, desse componente. Entao, vamos colocar, aqui, um font-size, dizendo que o tamanho da fonte padrao, nesse caso, eh 14 pixels,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 14px;
+}
+
+9. So para nos vermos uma coisa, se colocarmos, aqui, 10 pixels,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 10px;
+}
+
+, ao recarregarmos a pagina, diminui o tamanho de fonte para a descricao dos planos, para o resto, nos planos, nao. Isso eh, ate, um problema que poderia acontecer, tirando esse font-size, porque, quando nos nao temos um font-size no plano, de onde esta vindo esse tamanho de fonte desses elementos li, filhos de plano__caracteristicas? Se formos ver, plano__caracteristicas nao tem font-size, a gente vai colocar, mas, por enquanto, ele nao tem font-size. De onde esta vindo, entao, o font-size desses elementos li? 
+
+10. Se nos formos inspecionar um item de li, nos vamos achar que o font-size veio herdado do body, que tem 14 pixels. Entao, se, de repente, a gente alterar, aqui no body, em base.css, nos alterarmos para 10 pixels, por exemplo,
+
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+
+, ai altera aqui no elemento li tambem, mas o resto fica tudo desproporcional.
+
+11. Entao, neste caso, preferimos fazer o seguinte, nos vamos definir o font-size padrao para o bloco plano como 14 pixels,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 14px;
+}
+
+, entao, agora, o padrao eh 14 pixels para os elementos li, dentro do bloco plano. Mesmo nos alterando na base.css, o font-size de body para 10 pixels, nao eh alterado o tamanho de fonte dos elementos li do bloco plano, conforme conferimos ao recarregar a pagina, nos nao perdemos o controle disso.
+
+12. Nos contextualizamos, aqui, definimos que quem gerencia a fonte, eh a partir daqui da definicao do plano,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 14px;
+}
+
+, porque, como plano__caracteristica nao esta especificando nenhuma fonte, plano__caracteristica vai herdar da classe plano, porque as fontes sao passadas para os filhos, enquanto ninguem substitui, como em plano__cabecalho e em plano__preco, a fonte eh herdada do pai.
+
+13. Definido isso, agora, nos queremos definir o tamanho de fonte de plano__cabecalho com o dobro de plano, ou seja, 28 pixels. Para definir o dobro, nos definimos 2em e, em plano__preco, a mesma coisa, 2em, porque nos queremos dobrar o tamanho de fonte que esta definido em plano, que eh 14 pixels,
+
+.plano__cabecalho {
+  margin: -10px;
+  margin-bottom: 0;
+
+  background-color: #95a4a5;
+  color: #fff;
+
+  text-align: center;
+  line-height: 2.5;
+  font-weight: normal;
+  font-size: 2em;
+}
+
+.plano__preco {
+  margin: 20px 0;
+
+  text-align: center;
+  font-size: 2em;
+}
+
+14. plano__caracteristicas nos podemos especificar tambem, vamos colocar font-size de 1em. Nos nao precisariamos especificar, porque ele herda de plano, mas podemos especificar para deixar explicito isso no codigo,
+
+.plano__caracteristicas {
+  padding: 0;
+  margin: 20px 0;
+
+  font-size: 1em;
+
+  list-style: none;
+}
+
+15. Depois que nos fizemos isso, tudo certo, mas, ainda nao esta funcionando se nos alterarmos o Tamanho de fonte nas configuracoes do Chrome, porque nos estamos usando um tamanho de fonte fixo na classe bloco. Para nao usar uma fonte fixa, nos vamos colocar, aqui, qual que o tamanho de fonte padrao do navegador? 16 pixels. Entao, nos vamos pegar a calculadora e vamos calcular 14 / 16, que da 0.875. Entao, nos vamos colocar, em font-size, 0.875rem, ou seja, em relacao a fonte raiz, a fonte root.
+Isso vai ser calculado em 14 pixels, mas vai ser relativo, vamos calcular 14 pixels quando o tamanho de fonte padrao for 16 pixels,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 0.875rem;
+}
+
+16. Recarregamos a pagina e o tamanho de fonte de toda a pagina diminuiu. Qual que foi o problema aqui? Vamos inspecionar para vermos o que que aconteceu.
+
+17. Vamos ver um item li para vermos o tamanho de fonte desse elemento. O tamanho esta em 8.75 pixels. De onde o navegador tirou isso? Na verdade, a conta deve estar errada. Antes disso, vamos ver qual que eh o tamanho de fonte raiz, ou seja, vamos inspecionar o elemento html. Ah, o tamanho da fonte do elemento raiz, ou seja, de html, esta com 10 pixels fixo. Se o tamanho da fonte esta com 10 pixels fixo, quem esta alterando isso, inclusive, eh aquele bootstrap-grid.min.css, que a gente ja baixou, que eh o Grid CSS, mas ele fixa a fonte em 10 pixels.
+
+18. Entao, uma coisa que a gente vai fazer aqui, no arquivo base.css, eh substituir, aqui, o tamanho da fonte do documento html, com 16 pixels, 
+
+html {
+  font-size: 16px;
+}
+
+vamos fixar isso aqui, nao queremos usar aquela fonte fixa de 10 pixels, entao, vamos colocar 16 pixels aqui, agora, vai dar certo.
+
+19. Recarregamos a pagina e o tamanho de fonte da pagina aumentou, deu certo, voltou ao normal.
+
+20. Mas, ainda, esta com fonte fixa, a gente deixou relativo no bloco PLANO, porem, a gente deixou fixo ainda em base.css. Entao, o que nos vamos fazer, podemos colocar, aqui, 100%,
+
+html {
+  font-size: 100%;
+}
+
+21. E, ao recarregarmos a pagina, continua funcionando. O que eh 100%? Eh 100% do tamanho da fonte padrao do navegador.
+
+22. Ao inspecionar, entao, a gente ve que nos substituimos aquele estilo que estava fixando a fonte em 10 pixels, a gente colocou 100%, entao, o navegador pegou o tamanho de 16 pixels, que eh o padrao do navegador.
+
+23. Se a gente alterar, agora, aqui, nas Configuracoes do Chrome, o Tamanho de fonte, agora, o tamanho da nossa pagina do projeto vai aumentando ou diminuindo junto, os textos todos vao aumentando junto.
+
+24. Entao, fica bem legal quando a gente define assim. Mas, ai, tem uma questao, quando a gente coloca, se a gente usa 100% no font-size de html, nao tem problema nenhum, mas vai acontecer muito de a gente ter contas bem quebradas assim, como 0.875. Se, por exemplo, em plano__cabecalho, se quisessemos definir 30 pixels, teriamos que fazer a conta, seria 30 / 14, ou seja, 2.1428em. 
+
+25. Entao, aontece, nao tem problema nenhum a gente ter que colocar as nossas contas bem quebradinhas assim, mas tem uma tecnica bem legal, que eh o seguinte, ao inves de definirmos, aqui,
+
+html {
+  font-size: 100%;
+}
+
+, que a fonte padrao do documento eh de 100%, que, para o padrao do navegador, significa um tamanho de fonte de 16 pixels, nos fazemos uma continha: 'Nao, eu quero
+especificar que o padrao eh 10 pixels', nao 10 pixels fixo, mas, na configuracao padrao, seria 10 pixels, na configuracao diferente, eh relativo. Por exemplo, so para ficar mais facil: 10 / 16, eh igual a 0.625, vezes 100, entao, fizemos uma continha aqui, regra de tres, para descobrir quantos por cento 10 eh de 16, 62.5%. Entao, colocamos 62.5%,
+
+html {
+  font-size: 62.5%;
+}
+
+26. Quando fazemos isso, o tamanho, agora, a fonte padrao do navegador eh 10 pixels. Vamos recarregar a pagina e inspecionar a raiz do documento, ou seja, html, para vermos o tamanho de fonte padrao do documento, agora. 
+
+27. Vemos que o valor computado do tamanho da fonte eh, realmente, 10 pixels. Mas nao eh 10 pixels fixo, nos colocamos em percentual, se alterarmos o Tamanho de fonte nas Configuracoes do Chrome, a pagina aumenta ou diminui o Tamanho de fonte, a questao eh que, agora, a gente mudou a referencia, a referencia, que era 16 pixels, por padrao, agora, se tornou 10 pixels, por padrao, na font-size media, para a font-size grande, pequena, ai, vai mudando.
+
+28. Mas, o interessante disso tudo eh que, agora, por exemplo, antes, para pegarmos 14 pixels da raiz, tinha que fazer essa conta,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 0.875rem;    /** 14px (tamanho de fonte desejado) / 16px (tamanho de fonte padrao do navegador) **/
+}
+
+, na calculadora, era dificil.
+
+29. Agora, eh facil. Nos queremos pegar, aqui, 14 pixels, ou seja, 1.4rem,
+
+ .plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 1.4rem;
+}
+
+, simplesmente, eh muito simples, nos vemos aqui,
+
+font-size: 1.4rem;
+
+e ja sabemos que eh 14 pixels,
+
+30. Por acaso, se a gente estivesse usando rem aqui, em plano__cabecalho,
+
+  font-size: 2em;
+
+, mas a gente quer 28 pixels, ficaria:
+
+  font-size: 2.8rem;
+
+
+, entao, ficaria bem simples se quisessemos usar o rem aqui, nao tem problema nenhum.
+
+31. Em plano__preco, se nos quisessemos 28 pixels em font-size,
+
+  font-size: 2em;
+
+, ficaria font-size: 2.8rem. Ou, se quisesse 30 pixels, ficaria 3rem. Entao, fica muito mais facil as contas.
+
+32. Mas, no caso, a gente vai usar 'rem' somente no bloco, ou seja, em plano. Para os elementos, a gente vai usar em, que, ai, os elementos ficam sempre relativos ao proprio pai, ou seja, a classe plano.
+
+33. Entao, para as classes de elementos, ou seja, plano__cabecalho, plano__preco, o font-size permanece 2em, ou seja, 28 pixels, porque as classes de elementos sao sempre relativas ao proprio pai, ou seja, plano.
+
+34. Recarregamos a pagina. Beleza, ficou certinho, do jeito que estava antes, mas, agora, o tamanho de fonte eh relativo. Se alteramos, nas configuracoes do Chrome, para Tamanho de fonte maior ou menor, a pagina aumenta ou diminui o tamanho de fonte tambem. Entao, a gente conseguiu deixar bem relativo as fontes.
+
+35. Aqui, em base.css, ao inves de colocarmos 14 pixels no font-size do body, 
+
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+}
+
+nos queremos colocar relativo ao documento, ao html. O que nos fazemos?
+
+36. Definimos 1.4rem,
+
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+
+}
+
+, bem simples, a conta fica bem simples. Nao somos obrigados a colocarmos assim,
+
+html {
+  font-size: 62.5%;
+}
+
+, se quisermos deixar o padrao de 16 pixels, que eh o padrao do navegador, ou deixar
+somente como 100%, nao tem problema. Nos deixamos assim, com font-size: 62.5%, simplesmente para facilitar no calculo das contas. Mas fica igual, vai funcionar do mesmo jeito, so para deixar mais simples as contas, nao precisa ficar usando calculadora para todos os codigos.
+
+37. Temos, agora, no bloco de PLANO, a questao da margem, que esta em pixels, nas classes de elementos, que sao plano__preco, plano__caracteristicas, que eh o espacamento, em cada plano, entre os itens.
+
+38. E, ai, cabe a nos decidirmos se eh relevante aumentar essas margens de acordo com o tamanho da fonte. Sim ou nao? Se for relevante, tudo bem, eh so nos usarmos alguma coisa, ai tem que fazer a conta, porque seria 20 pixels, referente a 14 pixels, que eh o tamanho de fonte do bloco pai. Fica 20 / 14, que eh igual a 1,428571428571429. Quando da um numero grande assim, nos podemos pegar todo o numero ou, pelo menos, quatro casas decimais depois do ponto. Fica, por exemplo, para plano__caracteristicas,
+
+.plano__caracteristicas {
+  padding: 0;
+  margin: 1.4285em 0;
+
+  font-size: 1em;
+
+  list-style: none;
+}
+
+39. Nos podemos fazer isso caso nos acharmos que eh relevante, porque, ai, a medida que nos alterarmos nas configuracoes do Chrome para o Tamanho de fonte, ai, aumenta tambem o espacamento entre os itens dentro do plano.
+
+40. Entao, nos vamos deixar o tamanho da margin como fixo, com 20 pixels, porque nao tem tanta necessidade assim de alterar essa margem de acordo com o tamanho da fonte, neste caso especifico.
+
+41. E, no botao, no componente do botao, nobloco do BOTAO, a gente esta sem fonte, porque a fonte do botao eh a fonte de onde ele esta, por exemplo, o botao Assinar esta dentro do bloco de plano, entao, ele vai usar o tamanho de fonte padrao do plano. Por exemplo, se nos alteramos o tamanho da fonte do plano para 2rem, a fonte do botao aumenta tambem. Entao, o botao eh totalmente dependente do contexto dele, o tamanho de fonte. 
+
+42. Mas, nao tem fonte, mas nos podemos colocar tambem, nao tem problema colocar font-size 1em, no caso, nao eh 1rem,
+
+.botao {
+  display: inline-block;
+  padding: 12px 16px;
+
+  background-color: #bbb;
+  color: #fff;
+
+  font-size: 1em;
+  text-decoration: none;
+}
+
+, se nos colocamos 1rem, ao recarregarmos a pagina, ficou bem pequenininho, porque o rem, que eh a raiz, esta com 10 pixels, entao, nao eh rem, eh 'em', eh o pai, sempre olha o pai. O botao fica assim, ele sempre olha o tamanho de fonte do pai. Nao precisaria disso, mas vamos colocar so para deixar explicito. 
+
+43. E o padding, aqui, esta fixo, mas se tiver um fonte muito grande, o padding continua fixo tambem, como vemos ao recarregar a pagina,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 2.4rem;
+}
+
+44. Neste caso, vamos deixar o padding relativo. Achamos que deixar o padding relativo vai ficar mais interessante. Vamos definir como 0.8em e 1.2em,
+
+.botao {
+  display: inline-block;
+  padding: 0.8em 1.2em;
+
+  background-color: #bbb;
+  color: #fff;
+
+  font-size: 1em;
+  text-decoration: none;
+}
+
+, poderia fazer as contas, geralmente, eh bom fazer as contas, para ver quantos pixels vai dar isso aqui, mas so para nos vermos que, neste caso, com a fonte maior, aumentou o espacamento interno, ou seja, o padding.
+
+45. Vamos voltar para 1.4rem,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+
+  font-size: 1.4rem;
+}
+
+, so para nos vermos, vai diminuir o padding, ao recarregarmos a pagina, ou seja, o padding vai junto com o tamanho da fonte, ou seja, quando o tamanho de fonte eh grande, o padding eh grande, quando o tamanho de fonte eh pequeno, o padding tambem eh pequeno. Entao, ficou relativo.
+
+46. Entao, eh logico que, nos proximos blocos, a gente vai continuar a usar essas unidades tambem. A gente usa pixels para alguns casos, percentual, eh muito importante, nos ja vimos, principalmente para design responsivo, 'em' e 'rem' sao muito bons para a gente colocar, principalmente, em fontes, a gente pode colocar tambem em outras propriedades tambem.
+
+47. E a gente esta usando essa pratica aqui de sempre um bloco definir o tamanho de fonte padrao, usando rem, que eh baseado no tamanho de fonte definido em base.css, para o elemento raiz, ou seja, para html. E os elementos do bloco sempre usam em, entao, eles sempre sao relativos ao bloco. Logico, se tiver um elemento dentro de um elemento, por exemplo, li dentro de ul, se a gente usa em, li eh sempre relativo a ul, li nao eh relativo ao plano, se a gente usar o em. Mas fica bem legal, porque, agora, a gente tem mais controle sobre os tamanhos de fonte, a gente nao fica perdido se usarmos somente 'em', da aquela dor de cabeca tambem.
+
+48. Fim da Aula 07.002. Ajustando Unidades de Medida no Projeto.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>            
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

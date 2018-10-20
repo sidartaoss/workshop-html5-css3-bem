@@ -1,0 +1,18 @@
+Aula 01.02. Apresentando o Projeto
+
+Neste video, iremos mostrar o Projeto que iremos desenvolver neste Curso.
+
+1. Este eh o Projeto do MyPilas. MyPilas eh um Projeto ficticio de uma empresa que tem um Software de Gestao para pequenas empresas, um Software de Financas para pequenas empresas. Eh um site simples, mas muito elegante, muito bonito, onde a gente vai anunciar que tem um Software para vender.
+
+2. E, aqui, como se pode ver, temos a Logomarca, tem o Menu com Login, Planos, Contato e tudo o mais. Tem uma chamada, 'As financas da sua empresa em orderm', tem um botao de Acao, 'Conheca os planos', ou seja: 'As financas da sua empresa em ordem', entao, estamos fazendo uma chamada aqui bem forte, com um botao de Acao.
+
+3. Temos, abaixo, um depoimento, com uma foto de quem deu o depoimento. Claro, isso aqui eh tudo ficticio.
+
+4. Em seguida, abaixo, temos caixas referentes aos planos. Temos alguns planos para o Usuario que acessou esta Pagina conseguir contratar esse Software. Entao, nos temos os Planos Autonomo, Micro e Pequena, sendo que o mais popular eh o Plano Micro. Tem, tambem, as caracteristicas de cada plano. E, quando o Usuario clicar no Botao Assinar, ele vai para uma Pagina que tem um Formulario, onde ele pode preencher o Formulario, a Razao social da Empresa, o CNPJ e tudo o mais, Email, Senha e um Botao Assinar.
+
+5. Eh isso. Sao essas duas Paginas. Pode-se achar que eh pouca coisa, mas podemos garantir que tem muita coisa aqui. Porque nao eh somente isso, a Pagina eh responsiva, ou seja, em uma tela pequena, ela se ajusta, os Planos ficam empilhados, um em cima do outro, o menu fica, agora, alternavel, atraves de um botaozinho. E o Formulario tambem eh responsivo, ou seja, pode-se acessar tanto do Celular, do Tablet ou, ainda de um Notebook, de um Computador com uma Tela gigante ou, ainda, de uma TV. Pode-se acessar de qualquer lugar que o Sistema vai responder ao tamanho da Tela. 
+
+6. E tudo isso sera desenvolvido usando boas praticas, usando a metodologia BEM, usando HTML5, CSS3. Entao, tem bastante coisa para a gente ver nas proximas horas de Curso.
+
+
+

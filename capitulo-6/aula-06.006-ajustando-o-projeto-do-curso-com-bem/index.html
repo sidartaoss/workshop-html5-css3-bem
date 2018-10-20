@@ -1,0 +1,882 @@
+<!-- 
+  Aula 06.006. Ajustando o Projeto do Curso com BEM
+
+1. Nesta aula, a gente vai alterar o nosso projeto do curso para usar
+a metodologia BEM.
+
+2. Entao, ate agora, a gente ja desenvolveu isso aqui que nos estamos
+vendo no projeto do nosso curso, que eh a pagina carregada.
+
+3. Vamos, entao, para o codigo e comecar a colocar a mao na massa 
+para melhorar as convencoes de nomenclatura, componentizar as nossas
+coisas aqui.
+
+4. A primeira coisa que iremos fazer eh separar aqui os estilos em
+arquivos CSS. Nos nao vamos separar cada bloco, cada componente em 
+um arquivo CSS, porque nao eh o foco deste curso, mas nos vamos separar
+por contextos.
+
+5. Por exemplo, nos vamos criar aqui um arquivo e vamos salva-lo como
+layout.css.
+
+6. Vamos criar um outro chamado de componentes.css.
+
+7. E vamos criar mais um arquivo chamado de base.css. 
+
+8. Isso aqui eh uma organizacao que nos estamos criando, mas nos podemos
+criar da forma que acharmos melhor. 
+
+9. Estamos fazendo assim, porque, o que que a gente vai colocar nesse
+arquivo base?
+
+10. Nesse arquivo base, nos vamos pegar essas Regras CSS que 
+nao sao componentes, nao sao blocos, sao simplesmente configuracoes, 
+regras CSS basicas,
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+, por exemplo, quando nos alteramos alguma coisa no body ou um seletor 
+universal, como esse aqui,
+
+* {
+  box-sizing: border-box;
+}
+
+, entao, sao coisas basicas mesmo.
+
+11. Inclusive, nos vamos ate excluir o seletor universal, porque o normalize.css, 
+que ja vem dentro do Bootstrap, que a gente colocou na pasta css, 
+ele ja tem esse seletor universal, que altera o box-sizing para 
+border-box, entao, nem vamos precisar disso.
+
+12. Vamos deixar, na verdade, so o body, por enquanto. Esse eh o nosso
+estilo base. 
+
+13. Aqui nos componentes, em componentes.css, nos vamos colocar os 
+blocos. Nos poderiamos, ate, chama-lo de blocos, algo assim, mas vamos
+chamar de componentes mesmo, onde nos vamos colocar todos os blocos, ou
+seja, todos os componentes do nosso projeto.
+
+14. Em layout.css, vamos tambem colocar blocos, mas vamos colocar blocos
+relacionados ao layout, nos vamos ver o que que eh isso.
+
+15. Vamos faze-lo aqui, agora. Aqui no arquivo html, a gente ve que
+a gente tem uma tag header que eh o cabecalho, esse cabecalho aqui, com
+o logo MyPilas, ele nao tem cor de fundo e tem uma bordinha, eh onde a 
+gente coloca a logomarca por enquanto, vai ter um menu depois tambem.
+
+16. Este cabecalho esta estilizado, vamos ver no estilo CSS, aqui,
+exatamente aqui,
+
+header {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+header img {
+  margin-top: 12px;
+}
+
+, vamos tira-lo do arquivo estilos.css, porque entendemos que ele faz
+parte do layout.
+
+17. Ele eh um bloco, nos podemos falar que isso aqui em um bloco, mas
+como ele faz parte do layout, que eh a organizacao dos elementos que 
+a gente vai colocando, ou seja, uma coisa mais externa, que esta 
+organizando os nossos blocos, eh so uma questao de layout mesmo, nos
+vamos deixar dentro de layout.css.
+
+18. Outra Regra CSS que nos vamos colocar dentro de layout.css eh esse
+planos aqui,
+
+#planos {
+  padding: 80px 0;
+}
+
+#planos::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+, esse planos eh uma area que a gente nem esta vendo aqui, mas estamos
+vendo que tem um padding aqui de 80 pixels. Vamos colocar uma cor de 
+fundo so para vermos o que que eh,
+
+#planos {
+  padding: 80px 0;
+  background-color: #ccc;
+}
+
+, ao recarregar a pagina, como nos estamos alterando os arquivos 
+layout.css, componentes.css, o html ainda nao importou esses arquivos,
+por isso que ele deu uma mexida aqui, ele tirou o estilo do heade,
+mas tudo bem.
+
+19. So para nos vermos, aqui, o que que eh o planos. O planos eh essa
+area cinza aqui, ou seja, nos entendemos isso tambem como um elemento
+de layout, que esta so para agrupar algumas coisas, para organizar iss
+na tela, entao, nos vamos jogar para dentro do arquivo layout.
+
+20. De novo, nos nao precisariamos fazer isso, nos podemos fazer 
+diferente, nos podemos colocar tudo dentro de um arquivo CSS ou 
+podemos separar cada bloco em um arquivo CSS separado, especifico mesmo,
+ou seja, nos teriamos 20, 50, 100 arquivos CSS, e isso nao eh um
+problema. 
+
+21. Eh ruim nos importarmos aqui, no arquivo html, todos os arquivos
+CSS, ainda mais se estiver na internet, pode deixar a nossa pagina
+mais lenta, um pouco mais lenta, porque sao varias requisicoes que 
+vai ficar fazendo ali no servidor para baixar esses arquivos, entao,
+nao eh muito interessante, o ideal eh que tenha menos arquivos CSS.
+
+22. Mas se nos tivermos varios arquivos CSS, eh interessante ter varios
+arquivos CSS, mas importar arquivos nao eh bom.
+
+23. Existem algumas ferramentas que nos podemos fazer isso, nos desenvolvemos
+com varios arquivos CSS, tudo separado e, na hora de colocar em Producao,
+ele junta tudo. 
+
+24. Mas, como ja dissemos, nao eh o foco aqui, neste curso.
+
+25. Entao, vamos ir separando meio termo, separar so um pouquinho, 
+separar por contexto. 
+
+26. Ja fizemos para layout, a gente ja fez a base, agora, a gente vai
+fazer por componentes.
+
+27. Para os componentes, vai ficar o restante do arquivo estilos.css.
+Claro que a gente nao esta usando BEM ainda, estamos so organizando
+por enquanto, ate que nao vai ser tao dificil organizar, porque a gente
+ja foi desenvolvendo de uma forma que nao estava tao ruim assim, tem
+coisa para melhorar, mas nao estava o verdadeiro caos ainda, estava
+bem no inicio do projeto, nao estava no verdadeiro caos, entao, vai
+ser bem facil.
+
+28. O arquivo estilos.css, entao, ficou vazio. Vamos apaga-lo, ja que
+ele esta vazio, nao vamos usa-lo mais.
+
+29. Aqui no index.html, vamos importar, aqui, layout.css, componentes.css,
+e a base.css,
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+
+30. Entao, agora, deve voltar tudo normal, vamos recarregar a pagina 
+e vemos que esta tudo normal como antes das alteracoes.
+
+31. Mas, agora, nos temos que usar o BEM. Vamos comecar pelas classes
+CSS do layout. Aqui no elemento header, nao esta legal, porque a gente
+tem um header e esta colocando um seletor aqui pela tag.
+
+32. Para usarmos BEM, a gente tem que fazer por classe CSS e nao por Tag.
+Um header, se a gente faz, aqui, por Tag, a gente poderia ter um problema 
+de, la na frente, por exemplo, aqui no plano, a gente inventa de ter um
+header, porque o header nos podemos ter um header de um artigo tambem,
+
+<article>
+  <header>
+    ...
+  </header>
+</article>
+
+, um header nao eh unica para a pagina, nos podemos ter um header para um
+artigo, um header para um outro elemento, entao, vamos supor que nos 
+definimos que vai ter um header para esse plano, que eh o article
+de Autonomo,
+
+<article>
+  <header>
+    <h2>Autonomo</h2>
+  </header>
+</article>
+
+ai seria um problema, porque, agora, ele ia misturar tudo,
+porque o seletor foi definido pela Tag.
+
+33. Entao, o ideal eh que a gente nao coloque o seletor pela Tag, para usar
+BEM, eh assim que funciona, nao eh pela Tag.
+
+34. Ai nos podemos pensar, 'Ah, mas ai nao eh semantico.'. Eh semantico sim,
+o html continua semantico, a gente vai deixar aqui o header, so que a
+gente vai colocar tambem uma classe. Nao deixa de ser semantico, vamos
+colocar uma classe CSS.
+
+35. So a gente nao vai selecionar pela Tag. E a classe CSS a gente poderia
+colocar o nome de cabecalho, mas nos vamos criar um padraozinho aqui e 
+definir como layout-cabecalho. 
+
+36. Isso nao eh definido pelo BEM, prefixar com layout, nao tem nada 
+disso, ate existe, na convencao da metodologia do SMACS, eles colocam,
+como sugestao, nao eh obrigado, a colocar um l-cabecalho, por exemplo,
+quer dizer l de layout. Entao, outras metodologias ate sugerem isso,
+entao, estamos pegando ideias de outras metodologias. Isso eh interessante
+quando comecamos a estudar varias metodologias, nos podemos comecar a 
+misturar um pouquinho, desde que todo mundo use essa mesma regra.
+
+37. Mas, aqui, como eh do arquivo CSS layout.css, vamos definir assim
+so para termos certeza, para a gente olhar aqui, bater o olho e saber,
+'Ah, aqui eh um bloco? Eh, mas eh um bloco de layout, so para organizar
+o layout'.
+
+38. Mas, de novo, nao eh obrigatorio definir assim, layout-cabecalho.
+
+39. Ai, em layout.css, nos vamos colocar, agora, .layout-cabecalho, ao
+inves do seletor por Tag header,
+
+.layout-cabecalho {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+e abaixo tambem, vamos substituir header img por layout-cabecalho img,
+
+.layout-cabecalho img {
+  margin-top: 12px;
+}
+
+40. Esse img, nos ainda vamos deixar esse seletor dessa forma, selecionando
+a imagem que esta dentro da classe .layout-cabecalho, com BEM, isso nao
+eh tao recomendado fazer isso, mas, por enquanto, vamos deixar, ate a 
+gente resolver essa parte interna do layout, depois, a gente vai melhora-la,
+por enquanto, nos deixamos assim.
+
+41. Okay, vamos recarregar a pagina e ver se nao mudou nada. Okay,
+esta certinho ainda.
+
+42. Entao, agora, se nos tivessemos um header em algum outro lugar,
+ja nao teria mais problema, porque nos ja estamos selecionando pela
+classe CSS.
+
+43. Aqui nesse div planos, nos estamos pegando pelo ID. Nos estamos 
+aplicando os estilos usando um seletor pelo ID. Como a gente quer usar
+BEM, nao eh recomendado usar pelo ID. O ID tem uma especificidade com
+peso muito grande e eh so um que pode ter na pagina e, quando a gente 
+usar BEM, mesmo que saibamos que so pode ter um na pagina, por exemplo,
+o que que eh planos aqui? Eh a area que foi exibida anteriormente em
+cinza, nos sabemos que so vai ter um na pagina, nao vai ter mais, mas
+a gente esta usando BEM, a gente tem que pensar sempre que pode ser que
+a gente queira duplicar isso, um bloco pode ser duplicado na pagina,
+se, por algum motivo, a gente quiser. E, se a gente coloca o ID, selecionando
+pelo ID, ID nao repete em pagina, ID so pode ser um elemento, so pode 
+ter um ID que nao foi usado ainda, eh o correto. Entao, nao vamos colocar ID,
+podemos deixar o ID, vamos precisar do ID para outra coisa? Okay, nao
+tem problema, deixamos o ID, so que devemos selecionar, la na nossa 
+Regra CSS, por outra coisa, devemos selecionar pela classe, entao, 
+vamos colocar, aqui, layout-planos,
+
+    <div id="planos" class="layout-planos">
+    </div>
+
+44. Entao, se a gente for usar o ID para outra coisa, agora a gente nao
+esta usando ainda, mas, depois, pode ser que a gente use, entao, vamos
+ate deixar o ID="planos", para nos vermos que nao tem problema deixa-lo
+definido no html. Mas, na hora de selecionar a classe, definimos 
+layout-planos no arquivo CSS,
+
+.layout-planos {
+  padding: 80px 0;
+}
+
+45. Isso aqui a gente nao vai precisar mais,
+
+#planos::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+, isso aqui era para dar um clear no float que a gente tinha colocado,
+mas, agora, a gente nao esta usando mais, porque, antes, lembremos que
+essas caixas aqui a gente tinha colocado o float delas, a gente mesmo,
+mas, depois que a gente comecou a usar o sistema de Grid do Bootstrap,
+a gente nao esta precisando mais fazer esse clear.
+
+46. Entao, vamos apagar do arquivo layout.css e vamos recarregar a pagina
+para conferirmos se esta funcionando.
+
+47. Okay, esta tudo funcionando, nao muda nada.
+
+48. Esse, por enquanto, eh o nosso arquivo com os blocos de layout,
+
+.layout-cabecalho {
+  height: 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+.layout-cabecalho img {
+  margin-top: 12px;
+}
+
+.layout-planos {
+  padding: 80px 0;
+}
+
+49. Por enquanto, so isso. Agora que a gente ja organizou isso, vamos
+criar os blocos de planos aqui no arquivo html. Aqui, a gente definiu
+que isso aqui eh um plano,
+
+            <article>
+              <h2>Autônomo</h2>
+              <div>R$59/mês</div>
+              <ul>
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer>
+                <a href="assine.html" class="botao">Assinar</a>
+              </footer>
+            </article>
+
+50. O que que a gente vai fazer aqui? Ao inves de selecionar pela Tag,
+porque, vejamos, se a gente seleciona pela Tag aqui e, de repente, a 
+gente esta em outro lugar da pagina ou do nosso Projeto e quer representar
+uma outra coisa usando a Tag article, a gente nao vai conseguir, porque,
+se a gente representar uma outra coisa com a Tag article, vai entrar
+em conflito com tudo isso aqui que esta definido em componentes.css. A gente
+teria que especificar um nome de classe e eh o que a gente vai fazer,
+agora.
+
+51. Aqui, nos vamos colocar o nome de classe plano. Esse nome de classe
+plano eh o nome de que? Do nosso bloco,
+
+<article class="plano">
+</article>
+
+52. Ai, aqui, o que que eh isso aqui?, esse h2 dentro de plano? Esse aqui
+eh um elemento do bloco. BEM eh Bloco, Elemento, Modificador. Esse aqui
+eh um elemento,
+
+<article>
+  <h2>Autônomo</h2>
+</article>
+
+, ou seja, eh uma parte do bloco, eh um cabecalho, eh um titulo do bloco.
+Entao, nos vamos colocar, aqui, plano__cabecalho, poderia colocar titulo,
+ou alguma coisa assim que representa o que que ele eh,
+
+<article>
+  <h2 class="bloco__cabecalho">Autonomo</h2>
+</article>
+
+53. Aqui, nos vamos definir que eh o elemento preco, ou seja, plano__preco,
+
+<div class="plano__preco">R$59/mes</div>
+
+54. Abaixo, nos temos o plano__caracteristicas,
+
+<ul class="plano__caracteristicas">
+  <li></li>
+</ul>
+
+55. Para o li, nos podemos definir uma classe ou nao. Na verdade, tudo
+nos podemos pensar, 'Precisamos colocar plano__cabecalho ou selecionamos
+pela Tag?'. Geralmente, como ja dissemos em aula anterior, eh bom sempre
+colocar o nome da classe, mas, ai, nos temos que pensars bem.
+
+56. No caso do li aqui, nos poderiamos colocar tambem, 
+
+<li class="plano__caracteristica"></li>
+
+, mas nos nao vamos definir nao. Nos vamos entender que, se todo li
+que esta dentro de ul, que esta dentro do plano__caracteristicas, no caso,
+todo li que esta dentro do plano__caracteristicas, vai ser o item dessas
+caracteristicas, nao vamos especificar para nao deixar exageradamente 
+burocratico, mas eh tudo uma questao de bom senso.
+
+57. Aqui, no footer do artigo, nos vamos definir o elemento plano__rodape,
+
+<footer class="plano__rodape">
+</footer>
+
+, ou seja, eh o rodape do plano.
+
+58. Agora, nos vamos alterar no arquivo CSS componentes.css, para plano,
+ao inves do seletor article,
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+}
+
+.plano > .plano__cabecalho {
+  background-color: #95a4a5;
+  color: #fff;
+  text-align: center;
+  line-height: 2.5;
+  margin: -10px;
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 28px;
+}
+
+, nao eh h2 mais, nos definimos que eh plano__cabecalho. Seria isso?
+
+59. Funcionaria, mas tem necessidade? Qual a necessidade de usarmos, aqui,
+um seletor descendente ou de filho direto, como estamos usando aqui?
+
+60. Vai funcionar porque nos estamos selecionando plano__cabecalho, que
+eh filho de plano.
+
+61. Mas, vejamos, o proprio nome do elemento ja diz de qual bloco ele eh,
+entao, nao tem necessidade de especificar o bloco, porque nos nunca vamos
+usar esse nome de classe em outro lugar, nos nunca vamos usar esse nome 
+de classe plano__cabecalho fora do bloco plano, nao faz sentido. Entao,
+para que que nos vamos selecionar?
+
+62. Ah, mas teria algum problema se selecionasse? O problema eh que nos
+aumentamos a especificidade aqui, aumentamos o peso,
+
+.plano > .plano__cabecalho {
+}
+
+, entao, nos podemos ter, depois, alguma guerra de especificidade mais 
+para frente, entao, o ideal eh nao fazer assim. E uma outra coisa, que
+nao vemos como um grande problema, mas isso tende a ser mais lento,
+quando o browser vai aplicar os estilos CSS, isso tende a ser mais lento,
+do que isso aqui,
+
+.plano__cabecalho {
+}
+
+, porque a forma como o navegador aplica os estilos eh analisando o 
+seletor da direita para a esquerda, entao, ele analisa daqui,
+.plano__cabecalho, ai, ele vai procurar, ele vai subindo a hierarquia 
+para procurar o pai, se nao tiver o sinal >, fica pior ainda, porque
+ele sobe no pai. Um exemplo, ele achou o filho, que tem a classe
+.plano__cabecalho, ai, ele vai subindo a hierarquia para procurar o 
+pai ate o pai ser .plano, so que, dependendo de onde estiver na 
+hierarquia, ou se nao estiver, ele ja rodou e ja esta consumindo 
+processamento. 
+
+63. Mas isso eh uma coisa que, provavelmente, eh tao irrelevante que,
+a nao ser projeto gigante mesmo, com muita coisa na mesma tela, mas 
+nao eh tao relevante assim.
+
+64. O principal motivo que nao vemos necessidade de fazer isso aqui eh,
+primeiro, esta complicando, o ideal eh simplificar e, segundo, o peso
+na especificidade, como nos ja sabemos.
+
+65. Continuando aqui, para o elemento preco, a mesma coisa, nao vamos
+definir .plano .plano__preco, somente vamos definir .plano__preco,
+
+.plano__preco {
+  text-align: center;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+66. O plano__caracteristicas, a mesma coisa, nao vamos definir
+.plano .plano__caracteristicas, somente vamos definir .plano__caracteristicas,
+
+.plano__caracteristicas {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+67. Para as caracteristicas li, nos decidimos, como dissemos, tem que ir
+pelo bom senso, nos decidimos que todo li que esta dentro de plano__caracteristicas,
+eh um item das caracteristicas, lembrando que, quando nos fazemos isso,
+nos estamos, agora, forcando quem for escrever esse plano__caracteristicas,
+nos estamos forcando a ter li dentro,
+
+.plano__caracteristicas > li {
+  text-align: center;
+}
+
+Nao podemos falar, 'Ah, nao vai ser li mais, vai ser o elemento 
+paragrafo, <p>, por algum motivo, queremos usar <p>.'. Nao, ai, eh o 
+preco que nos estamos pagando por nao querer colocar uma classe aqui 
+em li para deixar mais burocratico,
+
+<li class="plano__taltaltal">TalTal</li>
+
+68. Mas, neste caso, nos aceitamos pagar esse preco, vamos deixar assim,
+so para mostrarmos que eh flexivel, nao eh que eh 100% certo, 100% errado,
+tambem tem a questao de bom senso.
+
+69. E, aqui, .plano__rodape, 
+
+.plano__rodape {
+  text-align: center;
+}
+
+70. Vejamos, entao, como ficou bem simples, inclusive, eh muito mais
+legivel, muito mais facil nos lermos isso, porque esta escrito, 
+esta documentado.
+
+71. Falando em documentacao, eh legal, sempre recomenda-se colocar um 
+comentario para falar qual que eh esse bloco. No arquivo componentes.css,
+vamos adicionar o comentario para o bloco plano
+
+/*=====================*\
+  PLANO
+\*=====================*/
+
+e para o bloco botao,
+
+/*=====================*\
+  BOTAO
+\*=====================*/
+
+72. Recomenda-se, tambem, nao misturar o conteudo de um bloco com o 
+conteudo CSS de outro bloco, senao, nos vamos nos perder no codigo, ai,
+nao tem milagre, se perde mesmo.
+
+73. Outra coisa, sempre deve-se colocar os elementos depois do bloco,
+para ficar organizado tambem. Os modificadores devem ser posicionados
+depois, por exemplo, tem um modificador para o bloco plano, deve-se 
+definir, entao, o modificador depois do bloco plano,
+
+.plano {
+}
+
+.plano--modificador {
+}
+
+, ate porque, entao, entra a questao de, como eles tem a mesma especificidade,
+eh o seletor por classe, o que vence eh o que foi declarado depois,
+entao, se tivermos um padding, no seletor modificador, ou seja, nos 
+estamos usando a classe plano e a classe plano--modificador, eh a 
+ultima classe a ser definida, ou seja, plano--modificador, que vai 
+vencer, na briga da especificidade, porque foi declarado depois, 
+
+.plano {
+  padding: 10px;
+  border: 1px solid #95a4a5;
+}
+
+.plano--modificador {
+  padding: 1px;
+}
+
+74. Como eles tem o mesmo peso, entao, deve-se sempre deixar especificado 
+depois, para evitar problemas de especificidade e para ficar mais 
+organizado tambem.
+
+75. Tem gente que alinha todos os elementos abaixo do bloco para frente,
+para ficar mais visivel que esses elementos sao os elementos filhos.
+
+76. Agora, vamos ver se esta funcionando ainda, vamos recarregar a 
+pagina.
+
+77. Parou de funcionar os artigos Micro e Pequena. Parou por que? Porque
+os artigos Micro e Pequena estao da forma antiga ainda, esta tudo do 
+jeito anterior, tem que alterar, entao,
+
+<article class="plano">
+  <h2 class="plano__cabecalho">Micro</h2>
+  <div class="plano__preco"></div>
+  <ul class="plano__caracteristicas"></ul>
+  ...
+  <footer class="plano__rodape"></footer>
+</article>
+
+<article class="plano">
+  <h2 class="plano__cabecalho">Pequena</h2>
+  <div class="plano__preco"></div>
+  <ul class="plano__caracteristicas">
+  ...
+  <footer class="plano__rodape"></footer>
+</article>
+
+78. Agora, recarregamos a pagina e voltou a funcionar. Diminuimos e 
+aumentamos a tela e verificamos que a tela esta fluida, voltou ao
+normal.
+
+79. E vamos ver, aqui, nessa caixa do nosso plano de Autonomo, por exemplo,
+que, no bloco de rodape, continua a ter um link, o rodape eh um rodape,
+a gente coloca o que a gente quiser nesse rodape. Isso quer dizer o que?
+Que essa classe botao, dentro do elemento de ancora, eh o que? 
+
+80. Exatamente, ela eh um bloco. A classe botao representa um bloco.
+
+81. Sendo um bloco, nos sabemos que um botao nos podemos, entao, usa-lo
+em qualquer outro lugar. Aqui, ele esta, do jeito que a gente fez antes,
+ja esta bem estilo bloco mesmo,
+
+.botao {
+  display: inline-block;
+  background-color: #127d00;
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+
+, ate nao precisaria alterar nada. O que nos vamos alterar, aqui, na 
+verdade, eh para a gente criar um modificador. Nos vamos colocar, aqui,
+que a cor padrao dele eh #bbb,
+
+.botao {
+  background-color: #bbb;
+}
+
+, e, a cor, quando a gente passa o mouse por cima, eh #aaa,
+
+.botao:hover, .botao:focus {
+  background-color: #aaa;
+}
+
+82. Entao, ao recarregar a pagina, o botao ficou cinza. Temos que tirar
+essa sublinado e colocar a cor branca no link primeiro, corrigir isso 
+aqui, quando passamos o mouse por cima do botao, 'Assinar' fica com
+cor escura e com a linha de link,
+
+.botao:hover, .botao:focus {
+  background-color: #aaa;
+  text-decoration: none;
+  color: #fff
+}
+
+83. Ao recarregar a pagina, vemos que ficou Okay, o botao 'Assinar' ficou
+sem a linha de link e sem cor escura ao passar o mouse por cima.
+
+84. O que que a gente vai fazer, aqui, agora? Por que que estamos 
+colocando esse botao cinza?
+
+85. Porque, se nos formos especificarmos que eh um botao, 
+sem modificador, nos vamos especificar um botao bem padrao mesmo,
+que eh o cinza. 
+
+86. Agora, se nos quisermos um botao diferente, ai nos vamos criar
+um modificador, 
+
+.botao--assinar {
+
+}
+
+, nao pelo texto 'Assinar', poderia ser outro texto, mas ele representa 
+o botao Assinar. A desvantagem de definir 'assinar' eh que esse modificador
+eh bem especifico para quando o botao eh 'Assinar'. A vantagem eh que
+todos os botoes Assinar, o dia que nos quisermos alterar, todos os botoes
+Assinar de verde para laranja, porque nos descobrimos que o laranja 
+converte mais, vende mais, nos alteramos o botao para laranja e nao interferimos
+mais nada no sistema. Tem a vantagem e desvantagem, vamos definir como
+botao--assinar.
+
+87. 
+
+.botao--assinar {
+  background-color: #127d00;
+}
+
+, aquela cor que a gente estava usando antes. E botao Assinar quando
+a gente passa o mouse em cima e recebe o foco,
+
+.botao--assinar:hover, .botao--assinar:focus {
+  background-color: #0e6400;
+}
+
+, vai receber a cor #0e6400;
+
+88. Entao, nos continuamos com cinza. Mas, quando nos vamos aqui no 
+arquivo html e especificamos que nos queremos um botao assinar, ou 
+seja, definimos um modificador no botao, o botao fica verde,
+
+<footer class="plano__rodape">
+  <a href="assine.html" class="botao botao--assinar">Assinar</a>
+</footer>
+
+89. Ao recarregar a pagina, vemos que funcionou, o botao ficou verde.
+Os outros continuam cinza, porque nos nao colocamos o modificador. Vamos
+colocar tambem o modificador nos outros botoes Assinar.
+
+90. Recarregamos a pagina e vemos que funcionou. Pronto, voltamos ao 
+que estava antes, porem, com o codigo muito mais organizado.
+
+91. E, se a gente quiser, por exemplo, pegar o nosso bloco plano para o artigo Pequena e colocar
+em outro lugar, vamos tentar coloca-lo depois do elemento header,
+
+<header>
+  ...
+</header>
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+, ao recarregarmos a pagina, vemos que esta funcionando. Nos podemos
+coloca-lo, inclusive, em uma outra pagina, 
+
+92. Artigo eh so a Tag, mas poderia ser um div, poderia ser qualquer
+coisa, ate o footer, agora, poderia ser um div,
+
+            <div class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <div class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </div>
+            </div>
+
+, ao recarregarmos a pagina, vemos que nao muda nada.
+
+93. Entao, o plano, agora, esta independente, a gente pode coloca-lo
+em qualquer pagina, muda-lo para qualquer lugar, inclusive, ele esta
+fluido, ele esta ocupando 100% do container dele, do pai dele, o que
+tiver de espaco ele vai ocupar, na largura. A gente pode pega-lo e 
+coloca-lo em um outro projeto, se nos quisermos, e so nos copiramos
+o codigo aqui e levar, junto, toda a secao de PLANO do arquivo CSS,
+componentes.css. Nos nao precisamos olhar o resto do CSS, porque nos
+sabemos que o que nos precisamos eh isso. Claro, se tiver o botao, 
+tem que levar a secao de BOTAO tambem. 
+
+94. Mas vejamos como eh mais simples de fazer a manutencao disso, 
+reutilizacao. Se alguem falar assim, 'Ah, queria mudar uma caracteristica
+do plano ou queria mudar uma coisa, cor, borda, do plano', nos, entao,
+sabemos que teremos que alterar na SECAO especificada do bloco no 
+arquivo CSS, nada mais. E tudo o que nos mexermos na SECAO especificada
+do bloco, nos sabemos que nao vai afetar mais nada na nossa pagina, porque
+ele esta muito isolado, ele esta independente de qualquer outra coisa,
+esse codigo esta muito isolado. Entao, isso eh toda a maravilha, a 
+beleza de usar uma metodologia, como o BEM.
+
+95. Fim da Aula 06.006. Ajustando o Projeto do Curso com BEM.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>
+
+            <!--article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article-->
+            <div class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <div class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </div>
+            </div>            
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!-- 
+    Aula 05.004. Meta Tag Viewport
+
+1. Para trabalharmos com Web Design Responsivo, a gente precisa conhecer o que que eh
+Viewport.
+
+2. E Viewport eh a area visivel da pagina para o Usuario. Entao, quando a gente esta, por 
+exemplo, em um Web Site como esse aqui, www.oracle.com/technetwork/java/index.html,
+toda essa area util onde aparece o Web Site eh o que a gente chama de Viewport. E o Viewport
+varia de acordo com o dispositivo. Tem dispositivos com telas grandes, muito grandes. 
+Tem dispositivos com telas muito pequenas, entao, o viewport, o tamanho dele varia bastante.
+
+3. A gente pode simular o acesso a um Web Site como esse em um dispositivo movel pelo 
+proprio Chrome. Ele tem uma ferramenta que simula isso. Entao, no botao do lado direito de
+3 barras, tem a opcao Mais ferramentas - Ferramentas do desenvolvedor. E, no Chrome DevTools, 
+deixa nos passarmos o painel do Developer Tools do Chrome que esta aqui embaixo para colocarmos
+do lado direito, que vai ficar melhor de visualizar. Entao, nos clicamos nos tres pontinhos
+do lado direito superior do painel e clico em Dock to right, que fica do lado direito e 
+fica melhor para visualizarmos.
+
+4. Ai, entao, nos vamos clicar no botao Toggle device toolbar. E, aqui, a gente esta simulando
+o acesso a esse Web Site pelo iPhone 6. Tem alguns outros dispositivos para escolher e, nos
+tambem podemos colocar a resolucao que nos desejarmos. Entao, vemos que, para o iPhone 6, 
+a resolucao dele eh de 375 de largura e 667 pixels de altura. 
+
+5. E nos vemos que o Web Site que a gente tinha entrado apareceu dentro do dispositivo, mas
+ficou muito pequeno, fica dificil usar um site desses. Entao, o Usuario teria que dar
+zoom no conteudo para poder visualizar esse conteudo, clicando duas vezes, nos podemos 
+simular o zoom.
+
+6. Entao, teria que fazer isso aqui, teria que dar zoom e teria que ficar fazendo scroll
+na horizontal e tambem na vertical para poder enxergar alguma coisa e navegar.
+
+7. Nao eh nada facil para o Usuario isso aqui, nao eh a melhor experiencia para ele, entao,
+esse nao eh um site responsivo, esse Web Site foi feito para Desktops, para telas grandes
+e o que acontece eh que os navegadores mobile, como esse aqui que a gente esta simulando
+com iPhone, eles simulam uma largura que eles nao possuem, porque ele tem uma largura so de
+375 pixels, esse site ocupa muito mais, mas ele simula uma largura para fazer caber o site
+no viewport.
+
+8. Entao, ele faz um zoom out, eh o que a gente chama de zoom out, o zoom in seria quando a 
+gente da o zoom, nos estamos fechando mais a imagem, neste caso aqui, ele esta abrindo mais
+a imagem, entao ele da o zoom out, ele deixa tudo pequenininho, com um zoom bem de longe,
+para poder caber dentro de uma tela que eh muito pequena.
+
+9. Por que? Porque esses dispositivos, os navegadores para dispositivos mobile, eles 
+pressupoem que o site foi desenvolvido para desktop, porque, antigamente, tudo era 
+desenvolvido para desktop, depois que veio os dispositivos moveis. Entao, ele ja 
+pressupoe isso. Mas, como nos podemos ver, eh uma alternativa, eh algo que ele aplica para
+poder ajudar o usuario de alguma forma, mas nao fica perfeito.
+
+10. Para ficar bom, o desenvolvedor ja tem que pensar nisso, o desenvolvedor ja tem que 
+desenvolver um Web Site ja com o pensamento desse Web Site ser responsivo. 
+
+11. E, para isso, a gente tem que conhecer uma meta tag chamada viewport, que permite 
+controlar a largura da tela que o navegador deve considerar.
+
+12. Vamos para o codigo para fazermos um exemplo. Neste codigo html, a gente tem uma caixa,
+como nos podemos ver aqui. E essa caixa esta estilizada com uma largura e altura de 300 
+pixels e com a cor de fundo vermelho.
+
+13. Entao, se a gente carregar aqui a pagina, nos podemos ver que tem uma caixa vermelha.
+
+14. E outra coisa que nos colocamos nesse codigo eh um JavaScript. Nao eh foco deste curso
+falar muito de JavaScript, na verdade, nao eh foco deste curso Javascript, entao, nao vamos
+explicar exatamente o que que ele esta fazendo aqui, mas, no geral, o que que isso esta
+fazendo? 
+
+15. Ele esta imprimindo na pagina a resolucao do nosso viewport.
+
+16. Entao, o nosso viewport eh toda essa area util, essa area branca aqui, onde o conteudo
+do Web Site pode ser colocado. E a gente ve aqui que ele tem 1218 pixels de largura por 927
+pixels de altura. 
+
+17. Realmente, a resolucao do monitor eh de 1280, mas a altura eh de 1024 pixels. Aqui fica um 
+pouco menos na altura porque tem a barra de endereco, tem as abas das paginas html, tem um 
+menu inferior do sistema operacional, entao, esta normal, eh assim mesmo.
+
+18. O que que acontece? Se a gente pegar esta pagina html e executa-la em um navegador 
+de um dispositivo movel, como esse exemplo aqui que eh uma simulacao, a gente ve que o nosso
+quadrado vermelho ficou bem pequenininho. O que acontece eh que os navegadores simulam 
+a largura do viewport, de forma que ele faz um zoom out, ou seja, ele deixa as coisas mais
+distantes, porque ele pressupoe que as paginas sao desenvolvidas para Desktop.
+
+19. Pressupondo isso, ele tem que deixar as coisas mais distantes, para caber tudo. Entao,
+neste caso, ele acha que a gente desenvolveu essa pagina para Desktop, por isso ele fez isso.
+
+20. Se nos formos ver, a gente tem uma regua aqui que vai ate 375 pixels, que eh a resolucao
+do iPhone 6, que estamos usando aqui, tem varios dispositivos que poderia colocar aqui, 
+estamos usando o iPhone, que tem 375 pixels de largura. 
+
+21. Mas a nossa div caixa, ela tem quantos pixels de largura? Essa caixa tem 300 pixels de 
+largura. Por que, entao, que ela nao chegou os 300 pixels, que esta marcando na regua do
+DevTools?
+
+22. Nao chegou, justamente, pelo que falamos. Porque o navegador esta simulando, esta deixando
+as coisas mais longe, entao, ele colocou cento e poucos pixels realmente de largura para a
+div caixa.
+
+23. Se a gente for ver aqui, tambem, aquele Javascript que nos colocamos para imprimir a resolucao do viewport, nos vemos que a largura esta 980, ou seja, de onde ele tirou esse numero? Ele inventou esse numero? O algoritmo dele descobriu esse numero, ele aumentou a resolucao entre aspas, ele simulou uma resolucao de 980 de largura, ele simulou isso para poder caber as coisas.
+
+24. Entao, quando a gente vai desenvolver um Web Site responsivo, que a gente sabe que a gente vai fazer um Web Site responsivo de verdade, a gente precisa dizer para o navegador qual que eh a largura do viewport que a gente quer usar, senao ele vai tentar descobrir e fazer como esse aqui que estamos vendo com o simulador de iPhone 6 do Chrome DevTools.
+
+25. E, para isso, no codigo, tem uma tag que a gente coloca dentro do elemento <head>, uma tag <meta>, ou seja, uma meta-informacao da pagina, e vamos colocar aqui a propriedade name, vamos chamar de viewport, e outra propriedade content nos colocamos que a largura do viewport eh igual a largura do nosso dispositivo,
+
+<head>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+26. Entao, agora, se nos falamos que a largura do viewport eh igual a largura do dispositivo, no caso do iPhone 6, que tem 375 pixels de largura, ele nao vai tentar simular com esses 980 pixels de largura.
+
+27. Outra coisa que a gente geralmente coloca quando esta desenvolvendo sistemas responsivos eh a propriedade, separado por virgula, initial-scale igual a 1. Isso aqui diz que a gente quer que a escala inicial seja de 100%, ou seja, a gente nao quer que carregue o site com zoom, com as coisas maiores, a gente nao quer isso. Por que? Porque a gente sabe que, com um smartphone, por exemplo, o usuario pode usar os dedos e dar zoom, tirar zoom, pode fazer tudo isso. A gente so esta dizendo que, quando a pagina carregar, a gente ja quer que ela seja carregada com 100% de escala, sem zoom.
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+28. E, se a gente colocar aqui 2, a gente quer que comece com 200% de zoom,
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=2">
+</head>
+
+29. Entao, a gente coloca sem zoom. Para desenvolvermos sistemas responsivos, a gente sempre vai definir dessa forma,
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+, a largura, initial-scale, tem outras propriedades tambem, mas, geralmente, eh isso aqui mesmo, nos vamos colocar o viewport com a largura igual a largura do dispositivo e o initial scale 1.
+
+30. Agora, se a gente recarregar esta pagina, a gente ve que a caixa vermelha aumentou. Se nos verificarmos aqui, a resolucao do viewport, 375 por 667, eh exatamente, agora, a resolucao do dispositivo que esta sendo simulado pelo Chrome DevTools, neste caso, um iPhone 6. Ele nao simulou nada, nao colocou aqueles numeros malucos (980 por 1743).
+
+31. Outra coisa que nos podemos notar eh que a caixa encerrou exatamente nos 300 pixels de largura, de altura tambem, ou seja, agora, realmente, os 375 pixels do dispositivo sao reais, no caso, quando a gente for desenvolver. Entao, quando a gente coloca 300 pixels, vai ser realmente 300 pixels aqui no simulador do Chrome DevTools para o iPhone 6.
+
+32. Entao assim, sempre que nos formos desenvolver um sistema responsivo, nos temos que dizer isso para o navegador, porque, ai, ele sabe que ele pode renderizar dessa forma, porque nos, como autores da pagina, vamos tomar todos os cuidados fazer funcionar em dispositivos com telas menores tambem.
+
+33. E o acesso a ao desktop, a esse mesmo codigo que a gente colocou, com o meta viewport, nao muda nada, justamente porque, quando a gente coloca que a largura eh igual a largura do dispositivo, nao muda nada, a largura dele eh 1536 pixels, continua sendo. Entao, o que muda mesmo eh para o dispositivo movel.
+
+34. Entao, agora que nos sabemos sobre o viewport, a gente ja pode continuar as nossas aulas, com certeza iremos usar o viewport nas nossas paginas do projeto deste curso tambem.
+
+35. Fim da Aula 05.004. Meta Tag Viewport.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="caixa"> 
+        <h1>Economize tempo com redeploy</h1>
+
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse
+            necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou 
+            anotação do seu framwork preferido?
+        </p>
+    </div>
+
+    <script>
+        document.write("<h1>" + window.innerWidth + "x" + window.innerHeight + "</h1>");
+    </script>
+
+</body>
+</html>

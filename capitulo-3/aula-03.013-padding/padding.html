@@ -1,0 +1,145 @@
+<!-- 
+
+Aula 03.13. Espacamento interno (padding)
+
+1. Nesta aula, nos vamos aprender sobre a propriedade padding. E, para isso, nos temos aqui 
+um exemplo muito simples, com um paragrafo e um texto qualquer aqui dentro desse paragrafo.
+
+2. E, no arquivo CSS, nos aumentamos a fonte padrao e tambem criamos uma regra aqui com o 
+seletor do paragrafo apenas para a gente criar esse quadrado aqui com um fundo, com uma 
+borda, para a gente poder estudar sobre o padding.
+
+3. Entao, esse texto esta justificado, o alinhamento dele esta justificado, para ficar mais
+facil de a gente enxergar, colocamos aqui um tamanho fixo de 500 pixels para a largura e a 
+borda e cor de fundo,
+
+p {
+    text-align: justify;
+    width: 500px;
+    border: 3px solid red;
+    background-color: yellow;
+}
+
+4. Ate aqui, nenhuma novidade. Entao, agora, a gente vai comecar a estudar sobre a 
+propriedade padding. E para que que serve essa propriedade padding?
+
+5. Vejamos o seguinte. Nos temos aqui o texto que esta bem coladinho na borda, bem colado
+na borda esquerda, superior, e assim por diante.
+
+6. Se a gente quiser adicionar um espacamento interno nessa caixa, que eh o paragrafo,
+a caixa eh o paragrafo e o texto dentro da caixa. Se a gente quiser adicionar um espacamento
+para deixar o texto mais separado das bordas, a gente pode usar, entao, a propriedade
+padding. E, aqui, nos colocamos qual que eh a medida que nos queremos nesse espacamento
+interno. Por exemplo, vamos colocar aqui 20 pixels.
+
+p {
+    text-align: justify;
+    width: 500px;
+    border: 3px solid red;
+    background-color: yellow;
+
+    padding: 20px;
+}
+
+7. Vamos recarregar a pagina e vemos que o espacamento interno ficou maior, entao, eh 20
+pixels no superior, a esquerda, do lado direito e do lado inferior, tudo 20 pixels a gente
+definiu o padding.
+
+8. Entao, o que que eh o padding?
+
+9. Eh muito simples, eh o espacamento interno do nosso elemento. E nos poderiamos, ainda,
+especificar aqui, por exemplo, 20 pixels, espaco, 50 pixels. Entao, essa propriedade 
+padding eh um shorthand, eh um atalho, porque a gente tem outras propriedades especificas.
+
+10. Entao, quando a gente colocar 20 pixels e 50 pixels, o Navegador da o padding 
+em cima de 20 pixels, embaixo de 20 pixels, do lado esquerdo de 50 pixels, do lado direito
+de 50 pixels. 
+
+11. Entao, quer dizer que, quando a gente especifica apenas um valor,
+
+p {
+    padding: 20px;
+}
+
+, o navegador pega esse valor e coloca o padding em cima, embaixo, do lado esquerdo e do lado
+direito, em todos os lados.
+
+12. Quando a gente coloca dois valores, a gente esta especificando que em cima e embaixo eh
+20 pixels, esquerdo e direito eh 50 pixels, funciona dessa forma,
+
+p {
+    padding: 20px 50px;
+}
+
+13. Como dissemos, esse padding eh um shorthand, entao, eh um atalho para a gente nao precisar
+estar especificando padding-left, padding-right, etc. Se quisermos sobrescrever aqui o
+padding-left, para definir que o padding-left eh 200 pixels, ou seja, o espacamento interior
+da esquerda eh 200 pixels, o resto nao, o restante fica no padrao, como ja definido,
+
+p {
+    padding: 20px 50px;
+    padding-left: 200px;
+}
+
+13. Entao, ao recarregar a pagina, vemos que aumentou o espaciamento interno esquerdo, 
+porque nos definimos como 200 pixels. Em cima e embaixo, continua 20 pixels e, do lado
+direito, eh 50 pixels. Ou seja, 20 pixels em cima e embaixo, 50 pixels do lado direito, 50
+pixels do lado esquerdo, mas, do lado esquerdo, a gente sobrescreveu, falou que eh de 200
+pixels.
+
+14, Entao, a gente tem as outras propriedades tambem se a gente quisesse especificar uma a uma,
+a gente poderia, poderia ficar especificando um a um,
+
+p {
+    padding-left; 200px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 20px; 
+}
+
+15. Mas, tem o shorthand que a gente especifica tudo de uma vez so e, ainda, a gente podendo
+sobrescrever, especificando a propriedade mais especifica, nesse caso, padding-left,
+
+p {
+    padding; 20px 50px;
+    padding-left: 200px;
+}
+
+16. Entao, eh isso, o padding eh para adicionar um espacamento. Vejamos um detalhe, a 
+largura da nossa caixa de eh de 500 pixels, nos vamos ate tirar o padding para nos vermos.
+A largura da caixa eh 500 pixels,
+
+p {
+    text-align: justify;
+    width: 500px;
+    border: 3px solid red;
+    background-color: yellow;
+}
+
+17. Mas, quando nos adicionamos o padding, a largura aumenta. Na verdade, a largura
+continua com 500 pixels, a largura dessa caixa, mas o padding fez ela aumentar, ela tem
+500 pixels, mas o padding esta aumentando-a. Eh a forma de calculo que o navegador usa,
+que eh o padrao, mas tem como a gente mudar isso, a gente vai ver isso em uma outra aula,
+a gente vai entender melhor como isso funciona e como mudar isso, mas so devemos entender
+que, por padrao, quando especificamos um tamanho de uma caixa, por exemplo, como essa,
+e adicionamos o padding, o padding vai somar aquilo que nos ja especificamos.Ele nao fica 
+dentro daquilo que nos especificamos, ele soma com aquilo.
+
+18. Fim da Aula 03.13. Espacamento interno (padding).
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário
+            ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação 
+            do seu framework preferido?
+        </p>
+
+    </body>
+</html>

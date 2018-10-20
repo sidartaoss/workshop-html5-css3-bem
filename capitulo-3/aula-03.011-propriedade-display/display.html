@@ -1,0 +1,212 @@
+<!-- 
+	Aula 03.11. Entendendo a propriedade display
+
+1. Nesta aula, a gente vai estudar sobre a propriedade display. E, para isso, nos temos um exemplo aqui de um html com 2 links e, nesses links, nos colocamos classes CSS com os nomes especificos e tem mais 4 paragrafos aqui com algumas classes CSS tambem.
+
+2. E nos ja deixamos pronto o um trecho de CSS somente para colocarmos algumas cores, nesses elementos, de link, <a>, de paragrafo, <p>, e tambem para aumentar a fonte padrao do documento para 32px, para ficar melhor de visualizar.
+
+3. Entao, o documento eh esse aqui, com os dois links e os quatro paragrafos. E, ai, nos podemos estar nos perguntando, 'Por que que o link apareceu dessa forma e os paragrafos diferente, ocupando todo o espaco, toda a largura?', ou seja, foi definido a mesma propriedade background-color tanto para as classes de link como para as classes de paragrafos.
+
+4. Os dois links ficam lado a lado, mas os paragrafos ficam um debaixo do outro. E a cor de fundo que nos colocamos no CSS, onde foi colocado cor de fundo para todos os elementos e a cor de fundo, para os paragrafos, vai ate o final da largura da tela.
+
+5. Entao, acontece o seguinte, todos os elementos que a gente coloca no HTML sao caixas.
+
+6. Eh o que nos estamos vendo aqui. Eles sao caixas. O link eh uma caixa, o paragrafo eh uma caixa, etc. Mas a diferenca eh que algumas desses elementos sao do tipo de display, do tipo de exibicao, funcionam como tipo de exibicao in-line, ou seja, tem linha, e outros em bloco. Eh o caso, por exemplo, do link, que eh a tag a, funciona como em-linha, in-line. Entao, quando eh in-line, o elemento ocupa so o espaco que precisa, o espaco do texto que precisa e acabou. Entao, eh uma caixa que vai ocupar somente aquele espaco do texto.
+
+7. Quando eh em bloco, ele ja ocupa o espaco disponivel na horizontal, ele ocupa todo o espaco disponivel e tem mais algumas coisas tambem. Por exemplo, para os elementos em bloco, a gente pode definir altura, largura especificos, se a gente quiser, eles podem ter espacamento interno e margem, que eh coisa que a gente vai ver ainda mais para a frente em outra aula, mas eles podem ter isso tambem.
+
+8. Ja o elemento in-line, a gente nao consegue especificar largura, altura, mas consegue especificar espacamento interno e margem lateral. A gente vai ver algumas coisas em testes que a gente vai fazer ainda nesta aula e outras coisas com margem e espacamento a gente vai ver em uma outra aula mais adiante.	
+
+9. Entao, a tag a, o padrao eh inline. Se a gente inspecionar o segundo link, Cursos Online, usando o Chrome, a gente consegue inspecionar a tag <a>, nos vamos na margem lateral direita, na Guia Computed e nos vemos que o display eh inline. Entao, o padrao dele eh esse, display inline. 
+
+10. Ja a tag <p>, do paragrafo, vemos na Guia lateral direita, em Styles, o padrao ate ja vem definido aqui, o padrao do user agent, ou seja, do navegador, o padrao eh block, ou seja,
+
+p {
+	display: block
+}
+
+11. Na Guia Computed, tambem vai aparecer que o valor padrao eh block. Ou seja, quando o valor do display eh block, a caixa do elemento ocupa toda a largura da tela e, quando eh inline, a caixa ocupa somente a largura do elemento e os elementos ficam lado a lado.
+
+12. Entao, alguns elementos usam um tipo por padrao e outros elementos usam o outro tipo por padrao. E, para saber, se quisermos saber, mas como que vamos saber, simplesmente definimos a tag no documento html e definimos uma cor de fundo. Dessa forma, nos vamos ver, se ocupar toda a largura da tela, eh porque eh block. 
+
+13. Por exemplo, o elemento div. No primeiro paragrafo, ao inves do elemento de paragrafo, <p>, vamos definir o elemento div.
+
+14. Ao recarregar a pagina, vemos que o elemento div esta ocupando toda a largura da tela, ou seja, ele ainda eh block, ele ocupa todo o espaco da tela, nos conseguimos ate definir a altura, daqui a pouco iremos ver isso, mas, se estivermos nos perguntando, mas por que que o div colou em cima, tirou o espaco de cima entre os links e o div?
+
+15. O espaco entre o div e o paragrafo ja eh a margem. Como estamos trabalhando com paragrafos, o paragrafo, por padrao, ja tem uma margem, o div nao, por isso que o div colou no elemento de cima de link, <a>.
+
+16. Mas, sobre margem, a gente vai falar sobre isso em uma outra aula, nao eh agora ainda. Vamos voltar agora, entao, de <div> para o <p>, para continuarmos os nossos testes.
+
+17. Entao, agora, nos vamos escrever alguns codigos CSS no arquivo estios.css. Vamos comecar adiconando .nome-empresa, o nome da nossa classe, seguido de virgula, espaco, .segmento-empresa,
+
+.nome-empresa, .segmento-empresa {
+	
+}
+
+, entao, esses dois seletores para selecionar esses dois links do documento html. A gente pode especificar, embora .nome-empresa e .segmento-empresa sejam inline, em-linha, a gente pode especificar um tipo de display diferente, a gente quer coloca-los em bloco, a gente pode forcar isso.
+
+18. Mas, antes disso, vamos so fazer um teste aqui, para nos vermos,
+
+.nome-empresa, .segmento-empresa {
+	height: 100px;
+	width: 300px;
+}
+
+, altura 100 pixels e a largura de 300 pixels.
+
+19. Entao, nos estamos tentando colocar uma altura e uma largura no .nome-empresa e no .segmento-empresa, que sao as classes para os dois elementos de link, <a>.
+
+20. Ao recarregar a pagina, vemos que nao tem efeito nenhum, nao funciona, porque, como ja dissemos, o elemento ocupa o que precisa, ele nao vai permitir adiconar largura nem altura. 
+
+21. Agora, se nos especificarmos que os elementos tem a propriedade display como block, eh uma propriedade nova que nos estamos vendo, entao, nos estamos alterando o display dele, que era inline, o padrao estava como display: inline, nao estava escrito, mas era o padrao dele para o elemento <a>, que tem o padrao inline, mas nos estamos especificando o display como bloco.
+
+22. Quando nos especificamos bloco, ao recarregar a pagina, nos vemos que conseguimos colocar altura e largura.
+
+23. Mas nos percebemos que ficou um debaixo do outro, nao ficou um do lado do outro, porque o display block, que eh como o paragrafo eh tambem, sempre fica um debaixo do outro, eles nao ficam lado a lado, como o display inline. O display inline, sim, fica lado a lado. O display inline permite colocar lado a lado, mas nao permite colocar altura e largura. Para o display block, os elementos nao ficam lado a lado, mas permite colocar largura e altura. 
+
+24. Entao, vamos continuar aqui. Se nos nao colocassemos nem altura nem largura,
+
+.nome-empresa, .segmento-empresa {
+	display: block;
+}
+
+, ai os elementos de link, <a>, ficariam um debaixo do outro, ocupando toda a largura da tela, igual ao paragrafo, a unica diferenca que vamos ver eh que os paragrafos tem a margem entre um paragrafo e outro, que eh a questao de margem, a qual nos falaremos em outra aula.
+
+25. Entao, vamos voltar para a forma como estava,
+.nome-empresa, .segmento-empresa {
+	display: block;
+	height: 100px;
+	width: 300px;
+}
+
+, e vamos continuar. O proximo teste eh para as classes .curso-html, .curso-css.
+
+.curso-html, .curso-css {
+	
+}
+
+, que eh colocar seletores para os dois primeiros paragrafos, o verde e o amarelo. Nos vamos colocar, aqui, que essas classes tem display inline,
+
+.curso-html, .curso-css {
+	display: inline;
+}
+
+26. O que que vai acontecer? 
+
+27. Ao recarregar a pagina, os paragrafos ficam um do lado do outro e a caixa se limita a cada um dos dos elementos apenas, nao mais ocupa toda a largura da tela. Alem disso, a margem entre o paragrafo e o elemento de cima, o link, foi removida, porque o display inline nao permite altura, largura e margem superior, permite apenas o espacamento interno e a margem lateral. Nos iremos falar sobre margem e espacamento em outra aula.
+
+28. Mas, quer dizer que, se definirmos altura e largura, juntamente com display inline, vai acontecer o que? Nada, ao recarregar a pagina, verificamos que nao acontece nada, os elementos continuam ali ocupando somente o espaco do texto,
+.curso-html, .curso-css {
+	display: inline;
+	height: 100px;
+	width: 300px;
+}
+
+
+29. Se nos tirarmos o display inline, ai sim, vai definir certinho, na tela, a altura e largura dos paragrafos, porque o display padrao do <p>, eh bloco,
+.curso-html, .curso-css {
+	height: 100px;
+	width: 300px;	
+}
+
+
+30. Mas nos vamos deixar o inline aqui, para ficar mais esse exemplo aqui.
+.curso-html, .curso-css {
+	display: inline;
+	height: 100px;
+	width: 300px;	
+}
+
+31. O proximo exemplo, nos vamos colocar a definicao para as classes .curso-java, .curso-bootstrap, que sao os outros dois paragrafos finais. So para conferirmos, eles estao um em cima do outro,
+
+.curso-java, .curso-bootstrap {
+	 
+}
+
+32. E, aqui, nos vamos definir a altura 100px e a largura 300px, vamos ver como fica. Okay, verificamos que as caixas ficaram como esperado do jeito que nos especificamos.
+.curso-java, .curso-bootstrap {
+	height: 100px;
+	width: 300px;	 
+}
+
+33. Mas nos gostariamos que ficassem lado a lado. E agora? Para ficar lado a lado, definimos inline,
+.curso-java, .curso-bootstrap {
+	display: inline;
+	height: 100px;
+	width: 300px;	 
+}
+
+34. Okay, ficaram lado a lado e, inclusive, ficaram ao lado do segundo paragrafo, porque definimos as classes do primeiro e segundo paragrafo tambem como inline. Entao, vai ficando lado a lado.
+
+35. Mas nos nao queremos que os dois ultimos paragrafos fiquem lado a lado com um espaco entre o penultimo e o ultimo paragrafo.
+
+36. A questao, eh, quando a gente usa inline, os elementos vao ficar com esse espaco entre um elemento e outro.
+
+37. Mas, antes de vermos essa questao do espaco entre os elementos, vamos ver outra coisa. Nos queremos que os elementos fiquem lado a lado, mas nos queremos que esses ultimos dois elementos, esses dois ultimos paragrafos usem a altura e a largura que nos especificamos.
+
+38. Tem jeito?
+
+39. Com inline, nao. O que a gente pode fazer eh colocar inline-block. 
+
+40. Essa propriedade define o elemento como bloco e se comporta como se fosse inline. Ela vai funcionar como bloco, mas se comporta como inline,
+.curso-java, .curso-bootstrap {
+	display: inline-block;
+	height: 100px;
+	width: 300px;	 
+}
+
+41. Entao, a gente consegue colocar altura e largura, margem, essas coisas todas, mas elas funcionam como inline, entao nos vimos que ficou lado a lado, porque, se nao fosse inline, seria bloco e nao ficaria lado a lado.
+
+42. Mas, com inline-block, os elementos ficam lado a lado e a gente consegue, ainda, especificar os tamanhos, tudo certinho.
+
+43. Mas o espaco, voltando ao problema do espaco, eh uma caracteristica. Quando a gente usa inline-block, fica com esse espacinho entre os elementos. De onde vem esse espaco?
+
+44. Esse espaco eh porque uma tag, entre um elemento e outro, ha uma quebra de linha ou um espaco. Entao, na renderizacao, o navegador vai colocar o espaco entre um elemento e outro. No caso, vai ser so um. Outros espacos, quebras de linha, etc., o navegador nao entende como varias quebras de linha, da mesma forma que o navegador nao entende varios espacos como varios espacos na hora de renderizar, o navegador entende como so um espaco.
+
+45. Agora, se colocarmos os elementos juntinhos, 
+	<p class="curso-java">Java</p><p class="curso-bootstrap">Bootstrap</p>
+
+, ai junta os elementos, ou seja, fica sem espaco entre os elementos. Eh uma coisa que podemos achar ruim, achar estranho, porque tem que colocar os elementos juntos, mas eh o funcionamento do inline-block, que eh assim. 
+
+46. Quer dizer que, se quisermos colocar coisas lado a lado, nos vamos ter que usar o inline-block e nao queremos espaco, por exemplo, tem que usar o inline-block e colocar juntinho assim? Eh, tem que ser assim.
+
+47. Mas existem outras formas, a gente vai ver depois. Mas, com inline-block, eh dessa forma mesmo.
+
+48. Agora, nos vamos pegar outro exemplo, vamos pegar o link do Cursos Online.
+
+49. Supondo que queiramos ocultar essa caixa do Cursos Online, nao estamos falando de excluir o elemento, estamos falando de ocultar mesmo. Nos podemos colocar uma propriedade inline no elemento html mesmo, ao inves de definir no arquivo estilos.css, que eh a propriedade display: none;,
+
+<a href="#" class="segmento-empresa" style="display: none;">Cursos Online</a>
+
+, onde falamos que nao queremos que exiba nada, nao exiba esse elemento na hora de renderizar. Entao, display: none oculta o elemento na hora de renderizar, ele continua existindo, na arvore, na hierarquia de elementos do documento html, ele continua existindo, mas, na hora de renderizar, o navegador ve que a gente pediu para nao mostar, entao, o navegador nao mostra para a gente, o usuario.
+
+50. Entao, agora, ja conhecemos como funciona a propriedade display, sabemos como identificar quando um elemento tem, por padrao, display inline, ou display block, e tambem sabemos como usar o block e o inline e o inline-block.
+
+51. Fim da Aula 03.11. Entendendo a propriedade display.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+ 
+	<a href="#" class="nome-empresa">AlgaWorks</a>
+	<!--a href="#" class="segmento-empresa">Cursos Online</a-->
+	<a href="#" class="segmento-empresa" style="display: none;">Cursos Online</a>
+
+	<p class="curso-html">HTML</p>
+	<!-- div class="curso-html">HTML</div -->
+
+	<p class="curso-css">CSS</p>
+
+	<!--p class="curso-java">Java</p>
+	<p class="curso-bootstrap">Bootstrap</p-->
+	<p class="curso-java">Java</p><p class="curso-bootstrap">Bootstrap</p>
+
+</body>
+</html>

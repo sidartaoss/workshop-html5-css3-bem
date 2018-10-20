@@ -1,0 +1,172 @@
+body {
+	font-size: 32px;
+}
+
+/**1. 
+a { 
+	border-width: thin;
+	border-color: red;
+	border-style: solid;
+}
+*/
+
+/**2. 
+a { 
+	border-width: thick;
+	border-color: red;
+	border-style: solid;
+}
+*/
+
+/**3.
+a { 
+	border-width: medium;
+	border-color: red;
+	border-style: solid;
+}
+*/
+
+/**4.
+a { 
+	border-width: thick;
+	border-color: red;
+	border-style: solid;
+}
+*/
+
+/**5.
+a { 
+	border-width: thick;
+	border-color: red;
+	border-style: dashed;
+}
+*/
+/**6.
+a { 
+	border-width: thick;
+	border-color: red;
+	border-style: dotted;
+}
+*/
+/**7.
+a { 
+	border: thick blue solid; 
+}
+*/
+
+/**8.
+a { 
+	border: thick blue solid; 
+	border-bottom: 5px dotted #0f0;
+}
+*/
+
+/**9.
+a {
+	border: thick blue solid; 
+	border-bottom: 5px dotted #0f0;
+	border-right: 5px dotted #0f0;
+}
+*/
+
+a {
+	border-bottom: 5px dotted #0f0;
+	border-right: 5px dotted #0f0;
+ }
+
+/**10.
+p {
+ 	background-color: #ccc;
+ }
+*/
+
+/**11.
+p {
+ 	background-color: #ccc;
+ 	height: 300px;
+ 	width: 300px;
+
+ 	border: 5px solid black;
+ }
+ */
+
+/**12.
+ p {
+ 	background-color: #ccc;
+ 	height: 300px;
+ 	width: 300px;
+
+ 	border: 5px solid black;
+ 	border-radius: 2px;
+ }
+*/
+
+/**13.
+ p {
+ 	background-color: #ccc;
+ 	height: 300px;
+ 	width: 300px;
+
+ 	border: 5px solid black;
+ 	border-radius: 5px;
+ }
+ */
+/**14.
+ p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 10px;
+}
+*/
+/**15.
+ p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 70px;
+}
+*/
+/**16.
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px;
+}
+*/
+/**17.
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px;
+	border-top-right-radius: 50px;
+}
+*/
+/*18.
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px 10px;
+}
+*/
+p {
+	background-color: #ccc;
+	height: 300px;
+	width: 300px;
+
+	border: 5px solid black;
+	border-radius: 20px 10px 0px 50px;
+}

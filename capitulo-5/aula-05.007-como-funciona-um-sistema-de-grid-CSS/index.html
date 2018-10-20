@@ -1,0 +1,75 @@
+<!-- 
+
+	Aula 05.007. Como Funciona um Sistema de Grid CSS
+
+1. O sistema de Grid CSS eh uma tecnica para a criacao da estrutura de layouts. Ele permite que o conteudo seja empilhado verticalmente ou colocado tambem na horizontal. Mas ele faz isso de uma forma muito consistente e facil de gerenciar. E tem alguns beneficios, como, por exemplo, produtividade e a facilidade para criar sistemas responsivos. 
+
+2. A gente, nas proximas aulas, vai colocar a mao no codigo para usar o sistema de Grid do Bootstrap. O Bootstrap eh um framework CSS que tem varias coisas, como, por exemplo, botoes, tabelas de dados, tem varios componentes. A gente nao vai usar. Este curso nao eh focado em Bootstrap. 
+
+3. Mas o Bootstrap tem um modulo muito especifico que eh chamado de Grid CSS. Entao, a gente vai usar esse modulo do Bootstrap, apenas ele, para a gente usar o sistema de Grid dele.
+
+4. Entao, nos vamos criar uma pagina responsiva usando Sistema de Grid do Bootstrap. O sistema de Grid eh dividido em colunas. O Bootstrap, por padrao, divide em 12 colunas, mas poderia ser mais tambem, isso nos podemos configurar. Geralmente, 12 colunas eh o suficiente. Entao, pensemos o seguinte, nos temos, na nossa viewport, na nossa area util, nos dividimos essa area util em 12 colunas.
+
+5. Se contarmos na tela que esta sendo exibida pelo instrutor, essas areas em cinza mais escuro, a gente tem exatamente 12 colunas. Entao, cada area dessas a gente chama de Coluna.
+
+6. Esse espacinho entre uma coluna e outra que esta sendo exibido na tela do instrutor a gente chama de Gutter. Na verdade, eh um padding entre uma coluna e outra. Em portugues, a traducao seria como se fosse canal, mas vamos chamar de Gutter, em ingles mesmo, que eh o mais comum a gente falar no dia-a-dia.
+
+7. Entao, a gente tem a Coluna e esse espacamento entre as Colunas. E, ai, a gente pode, tendo essas colunas, a gente pode escolher qual colocar, quando a gente vai colocar um conteudo. Por exemplo, nos vamos colcar uma imagem, nos decidimos quantas colunas nos queremos que essa imagem ocupe. Entao, vamos supor que nos queremos que ela ocupe quatro colunas. Entao, ela vai ocupar a primeira da esquerda, a segunda da esquerda para a direita, a terceira e a quarta da esquerda para a direita.
+
+8. A partir da quinta coluna esta disponivel, a gente pode colocar um outro elemento. Entao, vamos ver como isso funciona.
+
+9. Por exemplo, nos queremos colocar uma logomarca na nossa pagina. E essa logomarca nos queremos colocar com tres colunas. Entao, nos colocamos-na ali nas tres colunas, comecando da esquerda para a direita, no topo da pagina. Ai, nos queremos colocar um menu, um menu do lado da logomarca. E esse menu nos queremos que preencha as colunas restantes, ou seja, da quarta coluna ate a coluna 12, no topo da pagina.
+
+10. Entao, como sao doze colunas e nos ja usamos tres, nos colocamos esse menu na quarta coluna e definimos que ele vai usar 9 colunas. Quando nos falamos que ele vai usar 9 colunas, automaticamente, ele ja usa as 9 colunas restantes ate o final. E, ai, nos chamamos isso de linha. Essa parte que nos colocamos aqui, ou seja, logomarca mais o menu, embora nao tenhamos colocado, aqui, nada visual, isso aqui eh uma linha, podemos chamar isso aqui de linha.
+
+11. Ai, na proxima linha, nos queremos definir um banner e queremos definir que ele vai usar quatro colunas. Na verdade, nos queremos tres banners, em uma unica linha, em uma tela Desktop, por exemplo, queremos 3 banners em uma unica linha. Como sao 12 colunas, 12 dividido por 3 da 4, entao, o nosso primeiro banner vai usar 4 colunas, o segundo Banner usa mais 4 colunas e o terceiro Banner mais 4 colunas.
+
+12. Vejamos que todo o conteudo preenchendo algumas colunas, depois, vamos colocar um outro conteudo preenchendo outras colunas, sempre vai dar esse espacinho do Gutter, entao sempre vai existir, para nao ficar os conteudos colados.
+
+13. Ai, o proximo conteudo nos vamos colocar um rodape e, para o rodape, nos queremos que fique preenchendo todas as 12 colunas.
+
+14. Entao, imaginemos que essa aqui seja uma pagina que nos criamos usando o sistema de Grid e o nome Grid vem justamente porque isso se parece com um Grid, ou seja, varias colunas e, tambem, tem varias linhas, que nao esta representado no grafico aqui, na tela do instrutor, mas da para sabermos que sao 3 linhas, com 12 colunas. Neste caso, 3 linhas. Na verdade, as linhas a gente faz quantas a gente precisar, a gente pode ter varias. Colunas nao, colunas a gente pode ter sempre um tamanho fixo para cada pagina, no caso, o padrao eh 12.
+
+15. Isso aqui, entao, eh uma pagina para Desktop. E se a gente quisesse exibir essa pagina em uma tela menor, por exemplo, talvez, um tablet, uma resolucao menor, como ficaria?
+
+16. Vamos ver. A tela sendo exibida pelo instrutor mudou para uma tela menor.
+
+17. Eh logico que nao eh magica, isso aqui a gente teria que configurar. O que a gente poderia configurar eh o seguinte. Em uma tela menor, como nos podemos ver, as colunas continuam com o mesmo numero, nunca muda isso, continua 12 colunas.
+
+18. Mas, como as tres colunas, por exemplo, da logomarca, para caber 3 colunas em uma tela menor, elas vao ter que encurtar, a largura de cada coluna vai ter que encurtar, entao a logomarca vai ficar menor, o menu vai ficar menor. Vejamos a diferenca de telas novamente, a tela anterior tinha um tamanho maior na largura do que a que esta sendo mostrada neste momento pelo instrutor.
+
+19. Vemos que diminui. Isso eh uma coisa. Outra coisa eh que, em uma tela menor, talvez esses tres Banners um do lado do outro nao ficaria legal, eles ficariam muito espremidos. E, ai, a gente pode configurar e dizer que o Banner 1 e o Banner 2 vao dividir o espaco da largura. Entao nos definimos que o Banner 1 vai usar 6 colunas, o Banner 2 vai usar 6 colunas, mas o Banner 3, neste tamanho de tela, o Banner 3 usa 12 colunas. 
+
+20. Entao, vejamos que fica dinamico. Nos definimos que, em uma tela grande, cada Banner vai usar 4 colunas, mas, em uma tela media, como essa aqui sendo apresentada pelo instrutor, o Banner 1 e o Banner 2 vao usar 4 colunas, mas o Banner 3 vai usar 12 colunas. 
+
+21. Como dissemos, a gente estava falando de linhas, para a tela media sendo exibida pelo instrutor, esse Logo e Menu eh uma linha, Banner 1 e Banner 2 e Banner 3 continuam sendo uma linha, a gente vai ver isso no codigo e vai ficar bem facil de entender isso, mas Banner 1, 2 e 3 continuam sendo uma linha apenas, so a disposicao dos Banners eh que muda, mas, conceitualmente, ainda continua sendo uma linha.
+
+22. E o rodape continua nas 12 colunas.
+
+23. A Logomarca e o Menu tambem nao mudaram nada, em termos de disposicao, elas ficam, ainda, ocupando a mesma quantidade de colunas.
+
+24. Ai, a gente vai ver essa pagina em um dispositivo com uma tela menor ainda, por exemplo, um smartphone, pode ser um iPhone, pode ser um Android, por exemplo, com uma resolucao menor.
+
+25. Nao vai ficar legal a Logomarca do lado do Menu? Pode ser que nao, pode ser que sim. Vamos supor, neste caso, que nao fique legal a Logomarca do lado do Menu, talvez fique muito espremido.
+
+26. O Banner 1, Banner 2 tambem vao ficar muito esprimidos. O que que a gente pode fazer? Vamos empilhar tudo, colocar um em cima do outro. 
+
+27. Entao, vejamos, as 12 colunas, a tela exibida pelo instrutor diminui ainda mais, mas as 12 colunas continuam la, se contarmos, sao 12 colunas ainda, mas a largura de cada coluna diminuiu. Como a largura dessas colunas diminuiram, se a gente coloca as coisas um do lado do outro, como, por exemplo, Banner 1, Banner 2, Banner 3, um do lado do outro, ficaria muito colado. Claro, isso eh algo que pode ser que nao, dependendo do projeto, se avalia que nao, esta bom assim, esta legal. Mas, neste caso, supondo que ficaria muito colado, a gente nao quer, a gente acha que precisa exibir de uma disposicao diferente.	
+
+28. Okay, a gente empilha isso aqui, a gente diz que, em uma tela pequena, a Logomarca vai usar 12 colunas, antes ela usava 3, na tela media. Mas, na tela pequena, ela vai usar 12. Na tela media, o Menu usava 9 colunas, na tela pequena, ele vai usar 12 colunas.
+
+29. Na tela media, o Banner 1 usava 6 colunas, mas, agora, na tela menor, ele vai usar 12 colunas. O Banner 2 tambem vai usar 12 colunas, o Banner 3 tambem vai usar 12 colunas e o Rodape continua com 12 colunas.
+
+30. Entao, esta eh a teoria sobre como funciona o Sistema de Grid. Nos dividimos a nossa tela ou nos podemos usar, nos estamos falando aqui de usar o sistema de Grid no viewport, ou seja, na area util da pagina, mas nos podemos usar um sistema de Grid so de um pedaco da pagina tambem, funciona tambem.
+
+31. Mas, seguindo este exemplo, aqui, entao, nos dividimos a nossa area da tela em 12 colunas, colocamos um espaco entre uma coluna e outra, que eh o Gutter, e todo o conteudo que nos quisermos  colocar dentro desse sistema de Grid, nos definimos quantas colunas esse nosso conteudo vai ocupar. Entao, vai ocupando aquelas colunas, o proximo conteudo, dali para a frente, ele vai ocupando dali para a frente.
+
+32. Eh sempre importante fazer as contas corretas, porque, se essa Logomarca ocupa 3 colunas, esse Menu poderia ocupar de 1 ate 9 colunas, nao mais do que isso, porque, senao, ficaria errado, passaria da conta das 12 colunas. 
+
+33. Entao, sempre temos que fazer as contas para termos certinho as 12 colunas. Pode faltar, mas nao pode passar, senao fica errado.
+
+34. Entao, agora que a gente ja sabe a teoria, vamos colocar a mao no codigo.
+
+35. Fim da Aula 05.007. Como Funciona um Sistema de Grid CSS.
+
+-->

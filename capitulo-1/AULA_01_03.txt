@@ -1,0 +1,16 @@
+Aula 01.03. Preparando o Ambiente de Desenvolvimento
+
+1. Para acompanhar este Curso, vamos precisar apenas de duas Ferramentas. Uma eh o Navegador e sugere-se usar o Chrome, pois o Instrutor usara esse Navegador durante todo o Curso.
+
+2. Outra coisa eh que sera utilizado um Editor de Texto. Eh possivel utilizar-se qualquer editor. Sera utilizado, neste Curso, o Sublime Text, em www.sublimetext.com e fazer o download desse Editor de Texto.
+
+3. Eh um editor muito utilizado para programacao, muito avancado, com varias funcionalidades. Bem simples de usar, mas com varias funcionalidades. Eh gratuito para avalidacao, mas nunca ira travar para usar, so vai ficar colocando algumas mensagens, lembrando para comprar, mas nao vai nunca travar para usar.
+
+4. Feito isso, o Chrome instalado e o Sublime Text instalado, deve-se criar uma pasta no Gerenciador de Arquivos para o Projeto.
+
+5. No Sublime Text, durante o Curso, sera utilizado o tema Eiffel, com fundo branco. Pode-se arrastar a pasta do projeto para dentro do Sublime Text. Quando solta, abre-se uma aba, um Side Bar, uma Area do lado esquerdo com a estrutura do Projeto. So tem a pasta, mas pode-se criar um Arquivo clicando com o botao direito, New File..., Salvando e Nomeando o Arquivo, o Arquivo ira aparecer dentro da Pasta no Sublime, no lado esquerdo. Dentro do Sublime, tem um Gerenciador de Arquivos para ir usando e vai-se codificar tudo dentro do Sublime e o Sublime vai colorindo o codigo.
+
+  
+
+
+

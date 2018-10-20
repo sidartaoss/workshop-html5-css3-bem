@@ -1,0 +1,291 @@
+/** 
+    Aula 03.04. Seletores de tipo, classe e ID
+
+2. Em Regras CSS, a gente tem o que a gente chama de seletor. h1, por exemplo, eh um 
+seletor, em que a gente esta selecionando os elementos do tipo h1, elementos do tipo p,
+do tipo strong, etc.
+
+3. Acontece que a gente pode, alem desse seletor, que a gente chama de seletor de 'tipo', ou
+seletor de elemento ou seletor de tags, sao alguns nomes que a gente da para o seletor, a
+gente tem outros tipos de seletores, que eh o seletor de classe e o seletor por ID.
+
+4. Agora, vamos apagar o que foi definido na aula anterior e vamos comecar do zero 
+novamente.
+
+5. O nosso arquivo empresa.html esta bem simples, imortando o arquivo externo estilos.css.
+Vamos recarregar a pagina para conferirmos o CSS, que deve estar zerado.
+
+6. Vamos comecar, primeiramente, pelo seletor de ID.
+
+7. Ver empresa.html.
+
+12. O que nos podemos fazer agora eh especificar que, no nosso seletor aqui, nos temos um
+tipo h1, ai nos colocamos o jogo-da-velha, #, e titulo. Esse aqui eh o nosso seletor, nos
+falamos que nos queremos um h1 que tenha um identificador chamado titulo. Entao, nos usamos
+sempre o jogo-da-velha, #, e colocamos o nome do ID. E abrimos a declaracao com chaves,
+colocando as propriedades/valores dentro, nesse caso, color: blue;
+
+13. Recarregamos a pagina e esta azul o titulo.
+
+14. Entao, nos temos o h1, no arquivo empresa.html, que tem o id="titulo" e, em estilos.css,
+nos definimos que o h1, de id titulo, vai ficar azul.
+
+15. Agora, vamos definir como:
+
+p#titulo {
+    color: blue;
+}
+. Ao recarregar a pagina, claro, nao vai pegar nada, porque nao existe, em empresa.html,
+um paragrafo com id igual a titulo.
+
+16. O h1 existe, entao, o titulo fica azul. O p, com id titulo, como nao existe, nao fica
+azul.
+
+17. Ver empresa.html.
+
+21. Entao, quando identificamos, ou seja, definimos o seletor pelo ID, fica definido
+a formatacao so mesmo daquele elemento que estamos identificando. 
+
+22. Ja conseguimos selecionar exatamente o elemento que queremos formatar.
+
+23. Mas, nao eh necessario colocar a tag h1, pode-se colocar simplesmente como: jogo-da-velha
+e o nome do identificador,
+#titulo {
+    color: blue;
+}
+
+24. Mas, se definirmos aqui o h1 e o identificador for definido no paragrafo, por exemplo,
+ai a formatacao nao vai pegar, porque esta sendo definida somente para o elemento h1.
+
+25. Nesse caso,
+#titulo {
+    color: blue;
+}
+, nos dizemos, nesse seletor, que a unica coisa que nos queremos pegar eh um elemento que 
+seja identificado com o nome de 'titulo', nao importando de qual tag ele seja, simplesmente
+deve ter o id="titulo", pode ser no p, no h1, pode ser em qualquer elemento html, que o CSS 
+vai selecionar esse elemento e aplicar o estilo.
+
+26. Mas, o identificador titulo eh no elemento <h1> que nos vamos deixar, porque eh o titulo
+da nossa pagina.
+
+27. Uma outra forma de a gente escrever o seletor eh usando o que a gente chama de Classe CSS.
+
+28. Ver empresa.html.
+
+32. Aqui, definimos a tag p, pois nos queremos limitar pela tag, p, e, ai nos vamos colocar
+um ponto, ., e, em seguida, vermelho,
+
+p.vermelho 
+
+, abre a declaracao, com chaves,
+
+p.vermelho {
+
+}
+
+, e adiciona a propriedade color, com o valor red,
+
+p.vermelho {
+    color: red;
+}
+
+33. Ou seja, elementos de paragrafo p, que tenham a classe, o ponto, entao, simboliza que 
+trata-se de uma classe. Da mesma forma que nos temos o jogo-da-velha para identificador, 
+o ponto identifica uma classe.
+
+34. Entao, a classe vermelho, na tag p, esta definindo que nos queremos que o paragrafo
+fique vermelho.
+
+35. Recarregamos a pagina e o primeiro paragrafo aparece em vermelho.
+
+36. E, se definirmos o atributo class no elemento <h1>, em empresa.html, vai funcionar?
+
+37. Nao, porque o .vermelho esta so no seletor p, nao esta definido para o seletor h1.
+
+38. Nao funciona porque especificamos que queremos a classe vermelho apenas na tag p.
+
+39. Mas, nos podemos tirar o seletor p, dessa forma:
+.vermelho {
+    color: red;    
+}
+, que, entao, vai funcionar. Recarregamos a pagina e o titulo ficou vermelho.
+
+40. Geralmente, a gente nao fica especificando tanto assim, colocando a tag e o nome da 
+classe. O legal de colocar assim, so o nome da classe, eh que nos ficamos livre, na pagina
+html, para usarmos em qualquer lugar, nao ficamos restritos.
+
+41. Uma coisa que eh importante dizer. Nos definimos vermelho de proposito. Nao eh legal
+definirmos no arquivo html detalhes da apresentacao, de como deve ser apresentado, 
+renderizado na tela.
+
+42. Por exemplo, nos definimos o nome da classe como vermelho,
+<p class="vermelho">Estamos no mercado desde 2014.</p>
+
+43. Okay, eh vermelho mesmo. Mas, imagina se, daqui a pouco, nos quisermos mudar para 
+azul,
+.vermelho {
+    coloer: blue;
+}
+
+44. No entanto, o nome da classe ficou vermelho. Entao, nos vamos ter que sair mudando um
+monte de coisas no codigo. Nao eh interessante definir dessa forma. O nome da classe deve
+ser semantico. O nome da classe CSS tambem pode ser semantico. O que quer dizer isso?
+
+45. Dar um nome que signifique algo. Nesse caso aqui, vamos chamar de 'destaque'. Entao, nos
+sabemos que 'destaque', hoje, eh azul. Se, um dia, a gente mudar o destaque para vermelho,
+nao tem que mexer em nada o arquivo html. No arquivo html, 'destaque' continua sendo 'destaque'.
+
+46. O significado de 'destaque' eh o mesmo. Nos, simplesmente, estamos dizendo, agora, que o
+destaque nao eh mais azul.
+
+47. Entao, vejamos que nos definimos um significado para a classe do paragrafo, 'destaque',
+nao especificou como ele vai aparecer. O nome da classe nao diz como ele vai aparecer,
+so diz o que ele eh, ele eh um 'destaque'. 
+
+48. Vamos definir, agora, o p.missao, definindo a fonte como Arial.
+p.missao {
+    font-family: Arial;
+}
+.
+
+49. Agora, vamos definir a classe para o segundo paragrafo como 'missao',
+<p class="missao">
+...
+</p>
+
+50. Agora, ao recarregar a pagina, mudou a fonte.
+
+51. Mais uma coisa. Nos podemos, dentro de um mesmo atributo class, nos podemos especificar
+mais de uma classe CSS, nao precisa ficar somente em uma.
+
+52. Nos podemos especificar aqui, por exemplo, que, alem de 'missao', o segundo paragrafo 
+tambem eh um 'destaque',
+<p class="missao destaque">
+...
+</p>
+
+53. Entao, nos damos um espaco, pode ser dois, pode ser um espaco, 'missao', espaco, 'destaque'.
+Entao, nos estamos dizendo que esse paragrafo eh uma missao e eh um destaque. O que vai 
+acontecer aqui? O HTML vai pegar as propriedades da classe destaque e aplicar e tambem as
+propriedades da classe missao e aplicar no mesmo elemento.
+
+54. Ao recarregar a pagina, percebemos que esta com a fone Arial e esta destacado tambem
+com a cor vermelha.
+
+56. E, no paragrafo de cima, esta somente destacado com a cor vermelha, com a fonte padrao,
+Times New Roman. 
+
+57. Entao, eh isso. Nos podemos ter, entao, seletores por Tipo,
+h1 {
+    font-family; Verdana;
+} 
+
+58. Nesse caso, vai pegar a fonte do tipo Verdana e a vai pegar tambem a cor azul, porque
+definimos o ID titulo para h1. Inclusive, em empresa.html, nos podemos definir tambem a classe
+e o ID ao mesmo tempo, o HTML vai usar os dois. Claro que eh necessario tomar cuidado para
+nao haver conflito, se nos temos uma coisa aplicando duas propriedades ao mesmo tempo, porque
+podem estar definidas no mesmo elemento. Esses tipos de conflitos sao chamados de
+especificidade.
+<h1 id="titulo" class="">
+...
+</h1>
+
+59. Entao, nos temos um seletor de Tipo:
+h1 {
+    font-family: Verdana;
+}
+
+e um seletor por ID:
+#titulo {
+    color: blue;
+}
+
+aplicando no memso elemento que, nesse caso, eh o titulo, <h1>, em empresa.html.
+
+E temos, tambem o seletor por classe CSS,
+.destaque {
+    color: red;
+}
+
+p.missao {
+    font-family: Arial;
+}
+, lembrando que a gente pode misturar e colocar um Tipo, seguido de ponto, ., e o nome da 
+classe.
+
+60. Ou poderia definir tambem Tipo, jogo-da-velha, #, e o nome do identificador, ID,
+h1#titulo {
+    color: blue;
+}
+
+61. Essas sao, entao, algumas das formas de a gente escrever seletores.
+
+62. Fim da Aula 03.04. Seletores de tipo, classe e ID.
+
+*/
+/**
+h1 {
+    color: blue;
+}
+
+p {
+    color: red;
+    font-family: Arial;
+}
+
+strong {
+    color: green;
+}
+*/
+
+/**
+h1#titulo {
+    color: blue;
+}
+*/
+
+/**
+p#titulo {
+    color: blue;
+}
+*/
+
+/**
+p {
+    color: blue;
+}
+*/
+
+
+#titulo {
+    color: blue;
+}
+
+/**
+p.vermelho {
+    color: red;
+}
+*/
+/**
+.vermelho {
+    color: red;
+}
+*/
+/**
+.destaque {
+    color: blue;
+}
+*/
+h1 {
+    font-family: Verdana;
+}
+
+.destaque {
+    color: red;
+}
+
+p.missao {
+    font-family: Arial;
+}
+

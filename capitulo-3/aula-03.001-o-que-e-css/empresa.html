@@ -1,0 +1,39 @@
+<!-- 
+Aula 03.01. O que eh CSS.
+
+1. A partir de agora, a gente vai falar de CSS, ou Cascading Style Sheets, ou, ainda, em portugues, a traducao seria Folhas de Estilo em Cascata.
+
+2. E o que que eh isso? O que que eh CSS? Eh uma linguagem de estilos usada para definir a apresentacao, a formatacao de um documento html.
+
+3. Entao, com CSS a gente da todos os estilos para formatar documentos html. Ou seja, colocar cores, posicionamentos, tamanhos, etc.
+
+4. A gente vai usar, neste workshop, CSS3, que eh o que tem de mais evoluido em CSS, eh a ultima versao. Entao, vamos fazer um exemplo aqui, nos temos, na verdade, um html muito simples, empresa.html, que tem um <h1> e dois paragrafos dentro do body. Nao tem nenhum segredo esse html. Ele eh renderizado dessa forma, okay? E vamos comecar com CSS. 
+
+5. Esta aula vai ser muito simples. Vamos comecar so com CSS, depois a gente vai evoluindo mais.
+
+6. Neste primeiro paragrafo, 'Estamos no mercado desde 2014', nos queremos coloca-lo de uma cor diferente. Vejamos que ele esta preto, nao vamos mudar a fonte nesta aula ainda, deixa para as proximas, so queremos mudar a cor dele. Ele esta preto porque eh o padrao, os navegadores, geralmente, no padrao das cores, eh o preto mesmo.
+
+7. Entao, para mudar a cor, como que fazemos? No <p>, damos um espaco e colocamos um atributo style. Esse atributo style eh onde colocamos uma propriedade e um valor que vai definir uma formatacao para esse elemento do paragrafo. Essa forma de definir a formatacao que a gente esta usando, usando o atributo style, a gente chama de um estilo in-line, ou seja, eh um estilo no proprio elemento, a gente ja define o estilo. A gente vai ver outros depois em outras aulas, mas, por enquanto, eh esse aqui que a gente vai fazer. Existe uma propriedade chamada 'color'. Entao, existem ja propriedades pre-definidas que a gente precisa conhecer, uma delas eh a color e a gente pode especificar que essa propriedade color vai receber um valor. Para ela receber esse valor, a gente coloca dois pontos, color:, e qual o valor que a gente quer? Vamos colocar aqui que a gente quer esse paragrafo vermelho, entao, definimos red. Salvamos. E de onde tiramos esse red? Essa aqui eh uma palavra-chave, ja eh pre-definido, algumas cores ja sao pre-definidas. E a gente vai deixar para falar de cores em uma outra aula tambem, para falar de como funcionam as cores no CSS, deixamos para uma outra aula, mas, por enquanto, vamos com o basico aqui, uma cor vermelha eh o estilo deste paragrafo.
+
+8. Entao, recarregamos a pagina, e vemos que o paragrafo 'Estamos no mercado desde 2014' ficou em vermelho. Entao, isso a gente ja esta usando CSS na nossa pagina, muito simples. Poderiamos, tambem, colocar a cor em outros elementos, por exemplo, no h1, queremos colocar uma cor azul,
+<h1 style="color: blue">
+
+9. Ficou la, ao recarregar a pagina, o titulo 'Sobre a empresa' ficou azul. 
+
+10. Comecamos a usar CSS in-line, com uma propriedade color, entao, esta bem tranquilo. Esta aula foi so para nos comecarmos, caso ainda nao conhecessemos CSS, comecarmos a entender o que que eh o CSS. Eh, basicamente, isso, para nos formatarmos os nossos documentos html. So que ele eh muito poderoso, hoje em dia, ele eh muito poderoso. O que nos estamos vendo eh uma coisa muito basica. A gente vai comecar a falar mais sobre CSS durante o Workshop.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sobre nós</title>
+</head>
+<body>
+	<h1 style="color: blue">Sobre a empresa</h1>
+	
+	<p style="color: red">Estamos no mercado desde 2014.</p>
+
+	<p>Nossa missão é transformar a vida de milhares de alunos.</p>
+</body>
+</html>

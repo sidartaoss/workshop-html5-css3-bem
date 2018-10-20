@@ -1,0 +1,157 @@
+<!-- 
+	Aula 04-007. Configurando os Planos Lado a Lado com Float
+
+1. Voltando ao projeto do nosso curso, agora, a gente vai colocar essas caixinhas dos planos lado a lado, para ficar bem parecido com a versao final do Prototipo do Projeto.
+
+2. E, para isso, nos vamos usar o que?
+
+3. Nos vamos usar o float. 
+
+4. Nos vamos usar a propriedade float. Entao, ja estamos com o projeto aberto aqui e nos vamos, em estilos.css, nos vamos colocar na Regra CSS article, lembrando que cada plano eh um artigo, a gente criou esse codigo passo a passo em uma aula anterior, entao, cada artigo eh um plano. Nos vamos colocar aqui, na Regra CSS article, a propriedade float, com o valor left, ou seja, nos queremos que cada plano, que sao tres, fique flutuando a esquerda.
+
+article {
+	border: 1px solid #95a4a5;
+	width: 370px;
+	padding: 10px;
+	float: left;
+}
+
+5. Quando nos definimos para cada elemento article flutuar a esquerda, eles vao empilhando. O que nos queremos dizer com isso? O Autonomo vai ficar a esquerda, ai o Micro vai ficar a esquerda tambem, mas, como o Autonomo esta ocupando espaco, ele fica depois de Autonomo, e assim por diante.
+
+6. Ao recarregar a pagina, vemos que todos ficaram um do lado do outro, so que ficou muito coladinho, ficou sem nenhuma margem entre uma caixa e outra. Por isso, nos vamos colocar uma margem de 30 pixels,
+
+article {
+	border: 1px solid #95a4a5;
+	width: 370px;
+	padding: 10px;
+	float: left;
+	margin: 30px;
+}
+
+7. Se nos somarmos, o nosso container tem 1200 pixels. Vamos inspecionar para verificarmos, botao direito na pagina / Inspecionar. Vamos tirar o float: left do seletor article, para vermos melhor o container, porque os planos estao flutuando,
+
+article {
+	border: 1px solid #95a4a5;
+	width: 370px;
+	padding: 10px;
+	margin: 30px;
+}
+
+8. Esse container tem 1200 pixels, so que ele tem 15 pixels de padding do lado esquerdo e direito, ou seja, 30 pixels so de espacamento interno, entao, 1200 pixels menos 30 pixels, 1170 pixels. Entao, o nosso container tem de espaco util para a gente 1170 pixels.
+
+9. Nos temos, cada plano, com largura de 370 pixels. Entao, vamos fazer uma conta aqui. 370 * 3 = 1110. Entao, tem ainda mais 60 pixels. Se a gente adicionar uma margem de 30 pixels mais 30 pixels, da 1170 pixels. Entao, 370 * 3 eh igual a 1110 pixels. Nos temos 1170 pixels de espaco. A gente sabe que somar uma caixa com outra mais a outra vai dar 1110 pixels. Entao, sobra 60 pixels. Esses 60 pixels nos vamos dividir, 30 pixels entre a primeira e a segunda caixa e 30 pixels entre a segunda e a terceira caixa.
+
+10. Do lado esquerdo da primeira caixa e do lado direito da ultima caixa nos nao vamos colocar nada.
+
+11. O que nos vamos fazer eh colocar uma margin-right na primeira caixa, ou seja, margem da direita com 30 pixels e, na segunda caixa, margem da direita com 30 pixels. Somando tudo, nao pode passar de 1170 pixels,
+
+article {
+	border: 1px solid #95a4a5;
+	width: 370px;
+	padding: 10px;
+	float: left;
+	margin-right: 30px;
+}
+
+12. Se nos especificamos dessa forma, entao, estamos colocando a margem right do primeiro article, do segundo article e do terceiro article, entao vai passar de 1170 pixels.
+
+13. Se passar, o que acontecer?
+
+14. A ultima caixa quebra para baixo, porque nao cabe dentro do container de 1170 pixels. O que que nos temos que fazer, entao? 
+
+15. Nos temos que tirar a margin-right da ultima caixa. Para tirar o margin-right da ultima caixa, o que fazemos?
+
+16. Faremos, por enquanto, algo fixo. No arquivo html, vamos definir um estilo inline no ultimo artigo,
+
+<article style="margin-right: 0">
+</article>
+
+17. Entao, nos tiramos a margem da direita apenas do ultimo plano.
+
+18. Ao recarregarmos a pagina, vemos que coube, certinho. Se insepcionarmos os artigos, vemos a caixa em laranja, correspondente a margem, nas primeiras duas caixas e, na terceira, nao vemos a caixa laranja, porque nao ha margem.
+
+19. Se insepecionarmos o container, nos nao o vemos, porque os elementos dentro dele estao todos flutuando. O container tem tres elementos dentro dele, tres artigos, so que esses tres artigos estao flutuando. Como os tres artigos estao flutuando, a altura dele fica zerada. Ao inspecionarmos o container, vemos 1200 pixels de largura por 0 pixels de altura.
+
+20. E, se tivermos alguma coisa embaixo dos planos, vamos escrever 'teste' aqui, onde vai parar o 'teste'?
+
+21. Vai parar do lado direito do ultimo plano. Por que?
+
+22. Porque a gente colocou flutuando, entao, a gente tem que definir o clear: both. E, para fazer esse clear, nos ja aprendemos em outra aula anterior. 
+
+23. Vamos, entao, definir, para o div planos, um pseudo-elemento after, onde o conteudo dele eh vazio, o display eh block e o clear eh both,
+
+#planos::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+24. Vamos recarregar a pagina e, ai, o teste veio para baixo. O espaco que nos estamos vendo entre o teste e a primeira caixa eh o padding que a gente deu na div plano de 80 pixels, em cima e embaixo. A gente coloca esse espaco para dar uma respirada nas caixas.
+
+25. Entao, quando a gente colocar mais coisas, por exemplo, quando a gente for continuar aqui, a gente vai ter o rodape. Entao, o rodape vai ficar certinho, porque a gente colocou a palavra teste e ficou certo, entao, fez o clear. Realmente, a gente conseguiu fazer o clear com o pseudo-elemento after.
+
+26. Fim da Aula 04-007. Configurando os Planos Lado a Lado com Float.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPillas</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<img src="imagens/logo.png" width="100" height="35" alt="MyPilas">			
+		</div>
+	</header>
+	<div id="planos">
+		<div class="container">
+			<article>
+				<h2>Autônomo</h2>
+				<div>R$59/mês</div>
+				<ul>
+					<li>Até <strong>2 usuários</strong></li>
+					<li><strong>500MB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html">Assinar</a>
+				</footer>
+			</article>
+			<article>
+				<h2>Micro</h2>
+				<div>R$89/mês</div>
+				<ul>
+					<li>Até <strong>5 usuários</strong></li>
+					<li><strong>1GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html">Assinar</a>
+				</footer>
+			</article>
+			<article style="margin-right: 0;">
+				<h2>Pequena</h2>
+				<div>R$99/mês</div>
+				<ul>
+					<li>Até <strong>10 usuários</strong></li>
+					<li><strong>5GB</strong> de armazenamento</li>
+					<li>Lançamentos ilimitados</li>
+					<li>Acesso Seguro</li>
+					<li>Sem fidelidade</li>
+				</ul>
+				<footer>
+					<a href="assine.html">Assinar</a>
+				</footer>
+			</article>
+		</div>
+	</div>
+	teste
+</body>
+</html>

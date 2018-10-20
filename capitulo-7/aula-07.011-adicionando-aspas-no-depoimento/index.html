@@ -1,0 +1,397 @@
+<!-- 
+  Aula 07.011. Adicionando Aspas no Depoimento.
+
+1. Nesta aula, a gente vai adicionar um pseudo-elemento aqui no depoimento para colocar uma aspa bem grande aqui do lado esquerdo, apenas um detalhe aqui nesse bloco de depoimento.
+
+2. Vejamos a imagem da versao final do prototipo do projeto, a gente tem essa aspa bem grande aqui para dar uma ideia de que eh uma citacao, so de um lado tambem, nao vamos colocar o fechamento, eh so um detalhezinho de layout mesmo, entao, a gente vai colocar aqui na nossa pagina, que esta sem.
+
+3. Entao, vamos la no codigo CSS, aqui no componentes.css, ja estamos aqui na secao do bloco de DEPOIMENTO, e vamos, aqui, colocar um seletor .depoimento > blockquote::before
+
+.depoimento > blockquote::before {
+  
+}
+
+, um pseudo-elemento before, e esse pseudo-elemento before nos vamos colocar uma position absolute, 
+
+.depoimento > blockquote::before {
+  position: absolute; 
+}
+
+, e ja vamos, ate, nos antecipar aqui, como nos sabemos que a posicao absoluta usa, como referencia, o primeiro elemento pai que tenha a posicao relativa ou absoluta, no caso, nos vamos colocar aqui, em .depoimento, position: relative,
+
+.depoimento {
+  position: relative;
+  
+  font-size: 2.2rem;
+}
+
+, isso aqui a gente ja sabe, a gente ja estudou em outras aulas. Que mais?
+
+4. Nos vamos colocar, aqui, que a cor eh cinza, o conteudo, por enquanto, nos vamos colocar um conteudo qualquer, so para nos vermos, vamos colocar o jogo da velha, #, logico, nao vai ficar isso, mas so para a gente ver um negocio,
+
+.depoimento > blockquote::before {
+  position: absolute;
+
+  color: #ccc;
+
+  content: "#"; 
+}
+
+, e font-size, o tamanho da fonte, aqui, nos vamos colocar 8em, que eh o equivalente a 176 pixels, se nos pegarmos, aqui, o tamanho 22 pixels, que eh o tamanho de fonte do bloco, .depoimento, e multiplicarmos por 8, da 176 pixels,
+
+.depoimento > blockquote::before {
+  position: absolute;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "#"; 
+}
+
+5. So que esse eh o tamanho, no bloco .depoimento, quando a tela eh pequena, de tablet, celular, 
+
+.depoimento {
+  position: relative;
+
+  font-size: 2.2rem;    /** 22px **/
+}
+
+, quando a tela eh maior, ai aumenta para 2.8em,
+
+@media(min-width: 992px) {
+  .depoimento {
+    padding-left: 15%;
+    padding-right: 15%;
+
+    font-size: 2.8rem;
+  }
+}
+
+, ou seja, 28 pixels, ai, logicamente, o font-size em .depoimento > blockquote::before vai aumentar tambem, ai, ja vai para 224 pixels, que eh o resultado de 28 pixels * 8em.
+
+6. Mas nos vamos deixar, aqui, comentado, o tamanho padrao, nos estamos fazendo o Mobile First, primeiro, a gente olha para telas menores. Vamos, ate, diminuir a tela para vermos como vai ficar, vamos recarregar a pagina.
+
+
+7. Bem, apareceu o jogo da velha, eh logico que nao vai ser isso, nos vamos colocar uma aspa. Okay, como que a gente faz, entao?
+
+8. Antes de posicionar, inclusive, vamos colocar aspa, fica mais facil posicionar. Essa aspa que a gente quer eh uma aspa especifica, entao, o que que a gente vai fazer? A gente vai procurar no Google, digitar list unicode.
+
+9. A gente pode colocar, aqui, nesse content,
+
+.depoimento > blockquote::before {
+  position: absolute;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "#"; 
+}
+
+, uma anotacao unicode. Uma anotacao unicode simboliza algum caracter especial ou um caracter normal mesmo. So para nos vermos aqui, podemos ver no Wikipedia, https://en.wikipedia.org/wiki/List_of_Unicode_characters, tem varios outras referencias, mas eh essa que nos iremos utilizar. Nesse site, vamos em Unicode Symbols, onde vemos os simbolos e, do lado esquerdo, na coluna Code, um codigo, por exemplo, U+2020, entao, nos podemos colocar, em content: contra-barra e 2020, o U nos nao colocamos, ou seja, "\2020"
+
+.depoimento > blockquote::before {
+  position: absolute;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "\2020"; 
+}
+
+
+, no CSS, anotacao unicode, nao tem esse U+, nao precisa, a gente coloca somente a contra-barra e o codigo, 2020.
+
+10. Ao recarregar a pagina, vemos que mudou do jogo da velha para o simbolo de uma cruz. Mas a gente nao quer o simbolo da cruz, a gente quer colocar a aspas duplas esquerda, e o codigo eh U+201C, entao, a gente so vai colocar, aqui, \201C,
+
+.depoimento > blockquote::before {
+  position: absolute;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "\201C"; 
+}
+
+, e, ai, a gente tem essa aspas duplas esquerda bonitinha aqui, quando nos recarregamos a pagina. Mas ela nao esta no lugar certo ainda. A gente ja esta com position absolute, ou seja, posicao absoluta, vamos definir, tambem, left 0, para ela ficar la na esquerda, vamos recarregar a pagina para conferirmos, 
+
+.depoimento > blockquote::before {
+  position: absolute;
+  left: 0;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "\201C"; 
+}
+
+, e, agora, nos temos que subi-la. Nos vamos subir com top e com o valor -62 pixels, porque o instrutor ja testou, mas so para nos vermos aqui, vamos testar com -30 pixels,
+
+.depoimento > blockquote::before {
+  position: absolute;
+  left: 0;
+  top: -30px;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "\201C"; 
+}
+
+, vemos, ao recarregar a pagina, que nao chegou la ainda, entao, agora, nos sabemos que -62 pixels vai chegar la, no lugar certinho, que nos queremos,
+
+.depoimento > blockquote::before {
+  position: absolute;
+  left: 0;
+  top: -62px;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  content: "\201C"; 
+}
+
+11. Recarregamos a pagina e ficou legal, -62 pixels ficou uma 
+maravilha. Agora, quando nos vamos aumentando aqui a tela, de repente, 
+quando nos chegamos no breakpoint onde a fonte aumenta, tudo aumenta, 
+a gente tem o padding tambem que a gente adiciona, lembremos que a 
+gente tem uma Media Query aqui, onde a gente adiciona um padding de 
+15%, ou seja, 
+
+@media(min-width: 992px) {
+  .depoimento {
+    padding-left: 15%;
+    padding-right: 15%;
+
+    font-size: 2.8rem;
+  }
+}
+
+, quando nos chegamos nesse breakpoint em que a gente esta aumentando a tela, 
+muda um pouquinho e a gente precisa reajustar as aspas duplas, porque 
+ficou muito longe do texto.
+
+12. Entao, o que que a gente vai fazer? 
+
+13. O instrutor esta achando que colocou as aspas no lugar errado, porque
+deveria estar mais perto, vamos dar uma olhada no codigo CSS.
+
+14. Na verdade, nos devemos colocar o position relative, ao inves de 
+no bloco .depoimento, devemos colocar no blockquote,
+
+.depoimento > blockquote {
+  position: relative;
+
+  margin: 0;
+  padding: 0 60px;
+
+  text-align: center;
+  font-size: 1em;  
+}
+
+, porque eh a citacao. Aqui, como o blockquote esta aqui, no texto do 
+depoimento, a gente quer que, tem um padding tambem do lado esquerdo e 
+do lado direito, nos queremos que essa aspas duplas fique relativa ao
+blockquote, porque a gente tem, se nos inspecionarmos o texto do
+blockquote, nos queremos, entao, que a aspas fique relativa ao blockquote,
+porque ela estava relativa ao depoimento. Nos gostariamos que ficasse
+relativo ao blockquote, porque, ai, ja resolveria, ficaria muito mais 
+facil para a gente.
+
+15. Recarregamos a pagina e, legal, agora sim, so que, a aspa, aqui,
+esta correto o posicionamento aqui na vertical quando a tela esta menor, 
+mas, quando a gente aumenta um pouco o tamanho da tela, o posicionamento
+da aspa caiu um pouquinho para baixo. Gostariamos que ela ficasse um
+pouquinho mais acima. 
+
+16. Para nao ficar colocando, aqui, Media Query, ou ajustando tambem
+aqui o Pseudo-Elemento before, dentro da Media Query, nos podemos
+aqui, neste caso, como nos sabemos que a diferenca que esta dando aqui
+eh somente porque o tamanho da fonte esta aumentando, mas nos podemos,
+entao, colocar essa propriedade top, ao inves de colocar em pixel, 
+nos podemos colocar em 'em',
+
+.depoimento > blockquote::before {
+  position: absolute;
+  left: 0;
+  /** top: -30px; **/
+  top: -62px;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  /** content: "#"; **/
+  /** content: "\2020"; **/
+  content: "\201C";
+}
+
+17. Entao, vamos fazer uma conta, se nos colocarmos algum valor em 
+'em' para a propriedade top, vai ser referente ao font-size 8em do
+proprio elemento. Quando o proprio elemento tem um font-size, no caso
+do top, ele pega do proprio elemento, nao pega do pai, vai pegar do
+proprio elemento. Entao, a conta que devemos fazer eh 62 pixels / 176
+pixels, que da 0.3522. Entao, nos vamos no valor da propriedade top
+e colocamos -0.35em, poderia colocar 4 digitos, tambem, se quisesse,
+mas so dois digitos decimais ja vai resolver. 
+
+.depoimento > blockquote::before {
+  position: absolute;
+  left: 0;
+  /** top: -30px; **/
+  /** top: -62px; **/
+  top: -0.35em;
+
+  color: #ccc;
+
+  font-size: 8em;   /** 176px **/
+
+  /** content: "#"; **/
+  /** content: "\2020"; **/
+  content: "\201C";
+}
+
+18. Ao recarregarmos a pagina, nos, praticamente, nao vemos diferenca,
+mas, quando a gente aumenta a tela, o posicionamento
+da aspa nao caiu um pouquinho para baixo, a gente nao precisa fazer mais nada,
+porque o proprio tamanho relativo, o tamanho em ja resolveu o nosso 
+problema. Diminuindo a fonte, ao diminuir a tela, o posicionamento
+da aspa nao sobe um pouquinho, aumentando a fonte, ao aumentar o tamanho da tela, a aspa
+continua o posicionamento da aspa sem cair um pouquinho para baixo,
+ou seja, aumenta a fonte, aumenta tambem o top, para o lado negativo,
+logicamente. 
+
+19. Fim da Aula 07.011. Adicionando Aspas no Depoimento.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <div class="chamada__acao">
+            <a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-depoimento">
+
+      <div class="container">
+
+        <div class="depoimento">
+
+          <blockquote>
+            Eu tinha perdido totalmente o controle da minha empresa.
+            Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+          </blockquote>
+
+          <div class="depoimento__autor">
+            <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="João da Silva">
+            <p>João da Silva</p>
+          </div>         
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <!--div class="col-sm-4" style="margin-bottom: 40px"-->
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+            <article class="plano plano--mais-popular">              
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4  ultima-coluna">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="layout-rodape">
+      <div class="container">
+        &copy; MyPilas. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </body>
+</html>

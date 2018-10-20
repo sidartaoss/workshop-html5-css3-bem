@@ -1,0 +1,97 @@
+<!-- 
+    Aula 06.005. Como usar BEM na Pratica - Parte 2
+
+85. Aqui, nos temos uma pagina, importando o mesmo arquivo CSS, exemplo3.css,
+com o bloco cartao-curso.
+
+86. Vamos ver o que acontece, vamos carregar a pagina exemplo3b.html.
+
+87. Vejamos que isso aqui eh um bloco, vamos colocar outro aqui,
+
+<article class="cartao-curso"><a href="#">Java e Orientação a Objetos</a></article>
+<article class="cartao-curso"><a href="#">HTML</a></article>
+
+, e vamos recarregar a pagina. So ficou vermelho, vermelho, nao tem nenhum
+espaco entre os dois. Vamos colocar, aqui, o modificador 
+cartao-curso--mais-vendido,
+
+<article class="cartao-curso cartao-curso--mais-vendido"><a href="#">HTML</a></article>
+
+, ao recarregarmos a pagina, o curso HTML ficou verde.
+
+88. Ou seja, nos temos uma pagina e isso que esta fluido, em que os blocos
+dela, eles estao aqui dentro da pagina. Como nao tem nada delimitando
+o tamanho dos blocos, eles vao ocupar 100%. 
+
+89. Entao, se nos pudermos, sempre devemos colocar os blocos de maneira
+fluida, ou seja, eles devem diminuir ou aumentar conforme aumentamos ou 
+diminuimos o tamanho da tela, porque, dessa forma, eles sempre vao caber 
+onde nos colocarmos. Se nos colocarmos em um espaco pequeno, ele vai 
+se ajustar, se colocarmos em um espaco maior, ele vai se ajustar 
+tambem, entao, coloca-lo fluido eh o ideal. 
+
+90. So para nos vermos, voltando aqui, aqui nos colocamos uns div's
+para organizar o layout e nos temos o cartao-curso, um com 70% e o outro
+com 30% da largura da tela.
+
+91. Ao recarregarmos a pagina, vemos que nos temos os nossos cartoes de curso
+organizados dessa forma, um ao lado do outro, um ocupando 70% da tela e o
+outro cartao ocupando 30% da tela.
+
+92. Se nos colocarmos aqui 50/50%, metade, metade, entao, os cartoes se ajustam
+da mesma forma,
+
+<div style="width: 50%; float: left">
+    <article class="cartao-curso"><a href="#">Java e Orientação a Objetos</a></article>
+</div>
+<div style="width: 50%; float: left">
+    <article class="cartao-curso cartao-curso--mais-vendido"><a href="#">HTML</a></article>
+</div>
+
+93. E, so para nos vermos, este article, que nos estamos usando aqui,
+
+<article class="cartao-curso"><a href="#">Java e Orientação a Objetos</a></article>
+
+, do exemplo3b.html, usa o mesmo arquivo CSS do exemplo3a.html, so que,
+no exemplo3a.html, os article's estao dentro de um outro bloco chamado
+portfolio, que tem um elemento portfolio__item, entao, por isso, nos 
+vemos, aqui, no exemplo3a.html, que os artigos estao em quadradinhos, 
+entao, o padding, quem da, eh o portfolio__item, nao eh mais o curso.
+
+94. Dessa forma, a gente tem, agora, um bloco curso totalmente independente do
+portfolio, totalmente independente de tudo, nos podemos coloca-lo em
+qualquer lugar.
+
+95. Dessa forma, entao, agora, a gente esta componentizando as nossas paginas.
+Vejamos que maravilha que eh isso, a gente pode pegar qualquer bloco aqui,
+a gente pode chamar de componente tambem, qualquer componente e sai 
+colocando nos lugares, o compartilhamento de codigo vai ser muito melhor,
+a equipe nao vai mais ter problemas, nao vai ter mais a guerra de 
+especificidade, pelo menos, nao tanto, vai ser muito melhor quando
+nos comecarmos a enxergar dessa forma e, claro, colocarmos essa 
+metodologia no nosso codigo, nos temos que enxergar e colocar essa
+metodologia no nosso codigo.
+
+96. Fim da Aula 06.005. Como usar BEM na Pratica - Parte 2.
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/exemplo3.css">
+</head>
+<body>
+
+    <div style="width: 70%; float: left">
+        <article class="cartao-curso"><a href="#">Java e Orientação a Objetos</a></article>
+        <!--article class="cartao-curso cartao-curso--mais-vendido"><a href="#">HTML</a></article-->
+    </div>
+    <div style="width: 30%; float: left">
+        <article class="cartao-curso cartao-curso--mais-vendido"><a href="#">HTML</a></article>
+    </div>
+
+</body>
+</html>

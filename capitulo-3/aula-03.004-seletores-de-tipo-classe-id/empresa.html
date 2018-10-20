@@ -1,0 +1,65 @@
+<!-- 
+    Aula 03.04. Seletores de tipo, classe e ID
+
+1. Ver estilos.css.
+
+7.1. Nos podemos, para os elementos do HTML, nos podemos dar um ID para eles. Entao, por 
+exemplo, o <h1>, poderia dar um ID.
+
+8. ID eh um identificador. Entao, definimos id= e um nome para o ID como valor. Nesse caso,
+vamos definir o ID do <h1> como titulo.
+
+9. Quando colocamos um identificador para um elemento, nao deve-se repetir esse identificador
+em outro elemento. Nao vai dar nenhum erro, mas, se definirmos, por exemplo, o paragrafo
+seguinte com o mesmo nome, <p id="titulo">, esta errado, porque um ID tem que ser unico.
+
+10. Entao, nos identificamos um elemento unicamente usando ID="titulo". 
+
+11. Voltar para estilos.css.
+
+18. Se a gente colocasse id="titulo" no primeiro paragrafo, ficaria azul no primeiro 
+paragrafo. Por que? Porque somente quem eh identificado pelo id titulo eh o primeiro 
+paragrafo.
+
+19. Se definisse, em estilos.css, o seletor pelo tipo (ou seletor pelo elemento ou seletor
+pela tag)
+p {
+    color: blue;
+}
+, ai define o estilo para todos os paragrafos da pagina. Os dois paragrafos, entao, ficariam
+azul.
+
+20. Voltar para estilos.css.
+
+29. Entao, a gente colocar, por exemplo, no primeiro paragrafo, o atributo class, o nome 
+de uma classe que vamos dar, entao, vamos chamar de 'vermelho'.
+
+30. No arquivo CSS, estilos.css, a gente define o que? 
+
+31. Ver estilos.css.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Sobre nós</title>
+
+    <link rel="stylesheet" href="css/estilos.css"
+</head>
+<body>
+    <h1 id="titulo">Sobre a empresa</h1>
+
+    <!-- h1>Sobre a empresa</h1 -->
+    <!-- h1 class="vermelho">Sobre a empresa</h1 -->
+
+    <!--p class="vermelho">Estamos no mercado desde 2014.</p-->
+    <p class="destaque">Estamos no mercado desde 2014.</p>
+
+    <!-- p id="titulo">Estamos no mercado desde 2014.</p-->
+
+    <!--p>Nossa missão é <strong>transformar</strong> a vida de milhares de alunos.</p-->
+    <!--p class="missao">Nossa missão é <strong>transformar</strong> a vida de milhares de alunos.</p-->
+    <p class="missao destaque">Nossa missão é <strong>transformar</strong> a vida de milhares de alunos.</p>
+</body>
+</html>

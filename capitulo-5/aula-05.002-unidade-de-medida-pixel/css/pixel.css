@@ -1,0 +1,17 @@
+/**
+html {
+	font-size: 100%;
+}
+
+body {
+	font-size: 10px;
+}
+*/
+
+.caixa {
+	width: 600px;
+	padding: 20px;
+	font-size: 12px;
+	background-color: #ccc;
+	border: 5px solid black;		
+}

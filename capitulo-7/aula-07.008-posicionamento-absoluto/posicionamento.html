@@ -1,0 +1,284 @@
+<!-- 
+
+    Aula 07.008. Posicionamento Absoluto
+
+1. Agora, a gente vai estudar sobre o posicionamento absoluto, ou 
+position absolute.
+
+2. Aqui, a gente tem o mesmo codigo da aula sobre posicionamento relativo,
+a gente vai focar mais na Caixa 4 e Caixa 3 e o codigo html eh o mesmo
+da aula sobre posicionamento relativo.
+
+3. Vamos, entao, para os estilos aqui, no arquivo CSS e vamos colocar
+o posicionamento absoluto.
+
+4. E funciona da seguinte forma, no posicionamento absoluto, vamos 
+colocar nessa caixa4 aqui,
+
+.caixa4 {
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+}
+
+, definimos assim, postion: absolute, e, agora, nos colocamos as propriedades, 
+por exemplo, podemos colocar a propriedade aqui right, com valor 0, 
+e top, com valor de 100 pixels. 
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: 100px;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+}
+
+5. Quando fazemos isso, vejamos, nos estamos olhando a caixa laranja, ao
+recarregar a pagina, a caixa laranja foi la para cima, ou seja, 100 pixels
+de cima para baixo e 0 pixels do lado direito da tela, ou seja, a caixa
+colou do lado direito da tela.
+
+6. Nos podemos ver que, vamos mudar, aqui, para 0, em top, para nos 
+vermos. Vamos recarregar a pagina.
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+}
+
+, a caixa fica por cima, o posicionamento absoluto fica por cima dos 
+conteudos estaticos, da mesma forma que o relativo fica, fica tambem
+por cima. Outra coisa que nos podemos perceber eh que, diferente do
+posicionamento fixo, que a gente ja estudou em uma aula anterior, 
+ele vai junto com o scroll, ele nao fica fixo, a gente posiciona no 
+lugar que nos desejamos, mas ele acompanha o scroll, quer dize, ele 
+fica para tras, quando nos damos o scroll, ele fica para tras.
+
+7. Entao, o posicionamento absoluto posiciona o elemento exatamente
+onde quisermos na pagina e ele fica, neste caso aqui, relativo a que?
+Ao documento. Se colocamos 0, 0, ele ficou relativo ao documento, ou 
+seja, a viewport.
+
+8. Mas, ainda, a gente pode colocar esse elemento que a gente posicionou-o
+de forma absoluta, a gente pode coloca-lo absoluto relativo ao pai, porque,
+aqui, ele ficou relativo ao documento, porque nenhum pai tinha uma propriedade
+position relative. 
+
+9. Se a gente tiver aqui, no caixa3, position relative, nao precisamos
+nem posicionar, se colocarmos position relative em caixa3, o Caixa 3
+vai continuar no mesmo lugar, mas vejamos o que vai acontecer com o 
+Caixa 4,
+
+.caixa3 {
+    position: relative;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: green;
+}
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+}
+
+10. So de colocarmos position relative na classe caixa3, vejamos o que
+acontece com o position absolute da classe caixa4, a Caixa 4 vai para
+dentro da Caixa 3. Por que? Porque, quando a gente usa o position absolute,
+ele eh absoluto relativo ao primeiro elemento pai que tem posicionamento
+relativo. E o primeiro elemento pai que tem posicionamento relativo,
+de acordo com a Caixa 4, eh a Caixa 3. Se nao fosse a Caixa 3, se fosse 
+um outro elemento que, supondo um container por fora da Caixa 3, englobando-os, 
+que fosse o primeiro relativo, seria relativo a ele, ou seja, posicao
+absoluta eh sempre absoluto relativo a alguma coisa, absoluto relativo
+ao primeiro pai que tem o posicionamento relativo, ou, ainda, o 
+posicionamento absoluto, se nos tivermos, por exemplo, em caixa3, 
+position absolute, com right 0, top 0,
+
+.caixa3 {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: green;
+}
+
+11. Vejamos que funciona tambem, a Caixa 4 respeita a posicao do primeiro
+pai, que eh absoluto ou que eh relativo, mas vamos voltar para relativo.
+
+12. Entao, o posicionamento absoluto respeita, identifica o primeiro 
+pai que eh absoluto ou relativo e ele coloca essa sua posicao absoluta,
+mas relativa a ele.  
+
+13. Agora, quando o pai nao eh relativo, nao eh absoluto, onde caixa3
+eh estatico, com nada especificado,
+
+.caixa3 {
+    width: 300px;
+    height: 300px;
+
+    background-color: green;
+}
+
+, entao, no html, o renderizador vai olhar, o caixa3 eh estatico, 
+qual que eh o pai? O pai eh o body, tambem nao tem posicionamento 
+absoluto nem nada, ai vao no html, ai ele, o caixa4 vai fazer relativo 
+ao proprio documento.
+
+14. Entoa, o Caixa 4 volta a ficar la em cima na pagina, quando recarregamos
+a pagina.
+
+15. Entao, nao eh dificil, eh so entender isso, que o absoluto vai
+encontrar o primeiro relativo ou primeiro absoluto para poder posicionar
+ele mesmo, entao, funciona dessa forma.
+
+16. Agora, vamos fazer o seguinte. Vamos colocar, aqui, em caixa4,
+top -100px, e a Caixa 4 sai para fora da Caixa 3,
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: -100px;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+}
+
+, vemos, entao, ao recarregarmos a pagina, que a Caixa 4 pode sair tambem
+para fora da Caixa 3.
+
+17. Vamos colocar -200px,
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: -200px;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+}
+
+, Vejamos que, agora, a Caixa 4 ficou por cima da Caixa 1. Para as 
+Caixas 1 e 2, lembremos que tinhamos colocado posicionamento relativo.
+
+18. Se nos falarmos assim, 'Mas nos queriamos que a Caixa 4 ficasse
+debaixo da Caixa 1', so a parte da Caixa 4 que esta entrando dentro
+da Caixa 1, nos queriamos que a Caixa 1 ficasse por cima, da Caixa 4,
+como que nos fariamos isso?
+
+19. Nos podemos usar a propriedade z-index, que define a ordem que os
+elementos vao ser exibidos.
+
+20. Quando a gente usa posicionamento relativo, absoluto, a gente tem
+essa possibilidade. Quando a gente tem posicionamento estatico, que eh
+o padrao, a gente nao pode usar z-index, mas, quando a gente tem esses
+posicionamentos, o fixo, relativo, absoluto, a gente pode usar o 
+z-index. Entao, o que que a gente vai fazer eh definir a Caixa 4 com
+z-index,
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: -200px;
+    z-index: 1;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+} 
+
+, o z-index nos vamos colocar o numero 1, poderia colocar qualquer 
+outro numero, vamos colocar 100, para ficar diferente,
+
+.caixa4 {
+    position: absolute;
+    right: 0;
+    top: -200px;
+    z-index: 100;
+
+    width: 150px;
+    height: 150px;
+
+    background-color: orange;
+} 
+
+, e quem esta brigando, aqui, eh o Caixa 4 e o Caixa 1, entao nos vamos
+la no Caixa 1, que esta brigando com o Caixa 4, e colocamos o z-index
+com o valor de 99, por exemplo,
+
+.caixa1 {
+    position: relative;
+    left: 100px;
+    top: 100px;
+    z-index: 99;
+
+    width: 300px;
+    height: 300px;
+
+    background-color: red;
+}
+
+, a Caixa 1 continua por baixo, mas, se colocarmos 101, que eh maior do
+que 100, ai a Caixa 1 fica por cima. Entao, o z-index, a gente pode
+usa-lo para isso.
+
+21. Fim da Aula 07.008. Posicionamento Absoluto.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/estilos.css"
+    </head>
+    <body>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+        <div class="caixa1">
+            <div class="caixa2">Caixa 2</div>
+
+            Caixa 1
+        </div>
+
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+        <div class="caixa3">
+            <div class="caixa4">Caixa 4</div>
+
+            Caixa 3
+        </div>
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+        <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+        <p>Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que é evangelista Java EE na Oracle Corporation.</p>
+    </body>
+</html>

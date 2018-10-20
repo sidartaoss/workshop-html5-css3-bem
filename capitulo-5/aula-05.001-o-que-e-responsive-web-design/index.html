@@ -1,0 +1,62 @@
+<!-- 
+	Aula 05.001. O que eh Responsive Web Design?
+
+1. Ja devemos ter ouvido falar em Responsive Web Design, ou, em portugues, Web Design Responsivo.
+
+2. Mas, o que que eh Responsive Web Design?
+
+3. Antes de falar o que que eh um Web Design Responsivo, vamos ver o que que eh um Web Design Nao-Responsivo.
+
+4. Entao, vejamos, nos temos, neste slide, um exemplo de um web site, uma pagina, na verdade, que nao eh responsiva, www.oracle.com/technetwork/java/index.html. Ela funciona muito bem em telas grandes, como, por exemplo, Desktop ou aqui no nosso notekook mesmo, essa pagina foi tirado um print screen da tela do nosso notebook mesmo.
+
+5. Pode-se ver que ela funciona muito bem, tudo muito bonito e organizado. Mas o que acontece quando a gente abre essa pagina em um dispositivo com uma tela menor, por exemplo, um celular? 
+
+6. Vejamos o que acontece: fica tudo bem pequenininho, o conteudo nao se adapta a essa tela, entao, a usabilidade do usuario fica comprometida. Para o usuario usar um Web Site, uma pagina como essa, ele tem que usar o Zoom e fazer Scroll na pagina. Entao, nao eh das melhores praticas de usabilidade, nao fica muito legal para o Usuario usar, embora seja possivel, nao eh muito legal.
+
+7. Esse aqui eh um Web Site Nao-Responsivo, ou seja, ele nao responde aos tamanhos de telas diferentes. E, hoje, a Internet eh unica, a gente tem um Web Site que pode ser acessado por uma TV, por um computador com um monitor gigante, com um Desktop com monitor menor ou, ainda, com um monitor menor ainda, em um celular, um tablet. Entao, ou seja, a Web, hoje, eh unica, ela pode ser acessada por diversos dispositivos. Entao, a gente tem que buscar melhor usabilidade para esses usuarios.
+
+8. Esse aqui eh um outro screenshot do nosso sistema, do MyPilas, que a gente esta desenvolvendo neste Workshop. E essa URL embaixo, www.mypilas.com.br eh so ficticio, no dia de hoje, nao existe, nao sabemos se vai existir um dia. Entao, isso seria como seria apresentado em um Desktop, muito bonito. Se a gente colocar isso em um dispositivo movel, nos vemos que a gente, agora, adaptou o menu.
+
+9. Vamos voltar para o Desktop darmos uma olhada. Vejamos no cabecalho, onde temos o menu: 'Como funciona', 'Planos e preços', 'Contato', 'Login', vemos isso acima no topo a direita. Quando a gente carrega isso em um dispositivo menor, nos vemos que o menu virou tres barrinhas. Entao, a gente poderia, na verdade, ter mudado totalmente esse Web Site. A gente desenvolveu, entao, esse Web Site especifico para o dispositivo movel. 
+
+10. Isso eh tudo ficticio o que nos estamos falando agora, porque isso nao esta no ar. Entao, por muitos anos, varios grandes portais usaram uma tecnica chamada M Dot, ou seja, m.mypilas.com.br. A tecnica M Dot cria uma URL especifica para um dispositivo, por exemplo, mobile. Entao, por isso que tem o M, em M Dot, em portugues, M Ponto. 
+
+11. O que acontece eh que esses grandes portais e alguns sistemas criavam duas URL's, uma URL era a URL padrao, URL normal, acessada por Desktops, telas maiores, que seria, por exemplo, em um exemplo ficticio, www.mypilas.com.br e, quando esse acesso vinha de dispositivos com telas menores, como dispositivos mobile, eles criavam, e ainda existe isso, eles criam uma URL especifica, M Dot, ou seja, M Ponto MyPilas Ponto Com Ponto Br, m.mypilas.com.br renderizava no navegador mobile um sistema especifico. 
+
+12. Entao, estamos vendo aqui, no prototipo mobile, que o menu esta diferente, ele esta do lado esquerdo, ele nao esta mais como a gente via antes, no prototipo Desktop, no topo direito.
+
+13. So que, para fazer isso aqui, no prototipo mobile, o codigo-fonte dessa pagina eh diferente para a versao Desktop, telas maiores, e para a versao mobile, telas menores, a versao do codigo-fonte eh diferente. Entao, nos temos um trabalho a mais de manutencao. E nos tinhamos, entao, duas versoes.
+
+14. Nao estamos dizendo que o nosso sistema do Workshop vai ser desenvolvido dessa forma. So estamos exemplificando que isso existe, eh uma tecnica que o pessoal usava e, hoje, esta usando cada vez menos, porque a gente tem o Web Design responsivo. Entao, uma das tecnicas seria essa.
+
+15. Agora, a tecnica do Responsive Web Design eh diferente. Eh uma abordagem para a criacao de paginas Web que se adapta para diferentes resolucoes de tela com a mesma URL. Entao, nos teriamos www.mypilas.com.br, ou, entao, www.sua-url-unica.com.br. Essa mesma URL seria acessada tanto por mobile, TV's, qualquer dispositivo acessa essa mesma URL. Nos temos uma base de codigo unica, ou seja, o mesmo codigo HTML, CSS, que vai ser baixado e interpretado e renderizado por uma TV eh o mesmo que vai ser usado por um dispositivo como um smartphone. Entao, a base de codigo eh unica e a URL eh unica.
+
+16. E, usando Media Queries, a gente consegue mudar a aparencia dos elementos, localizacao, a exibicao ou nao de elementos. A gente consegue tudo isso usando CSS com um recurso chamado Media Queries, que a gente vai ver, ainda, em outra aula.
+
+17. Por exemplo, a gente esta esta vendo, na tela maior, nessa imagem, que a gente tem tres caixas cinzas, uma do lado da outra. Agora, vejamos o smartphone, esse dispositivo menor, onde estao as caixas cinzas? Elas ficaram empilhadas uma em cima da outra, ou seja, isso eh o Web Design Responsivo, o layout respondeu ao tamanho da tela e empilhou as caixinhas, ao inves de colocar uma do lado da outra, porque a gente sabe que ali tem uma tela menor, nao daria para colocar uma do lado da outra e manter a usabilidade do usuario.
+
+18. Entao, usando o Web Design responsivo, a gente causa uma melhor experiencia para o Usuario. So que, para fazer isso, eh mais dificil, eh mais dificil criar Web Sites responsivos do que Web Sites Nao-Responsivos, porque nos temos que pensar nessas possibilidades, nos temos que testar, entao, com certeza, eh mais dificil.
+
+19. Mas, principalmente, quando se tratando de Web Sites, vale muito a pena, porque, depois, a gente nao tem mais controle, os usuarios estao, cada vez mais, usando smartphones e ate mais do que Desktops e tem TV's. Entao, hoje, eh uma infinidade de tamanhos de telas, de resolucoes e nao tem como a gente ficar so focado em um tipo, tem que ser responsivo mesmo, quando a gente fala de Web Sites.
+
+20. Quando a gente fala de Sistemas Web, sistemas de intranet, sistema para um Call Center, ai eh discutivel, pode ser que seja bom, pode ser que nao, depende da necessidade.
+
+21. Mas Web Sites, hoje, o ideal eh que ja seja responsivo mesmo.
+
+22. A gente vai ver, agora, um exemplo com o projeto do nosso workshop para a gente ver que ele ficou responsivo de verdade.
+
+23. Para nos vermos se uma pagina eh responsiva, basta nos acessarmos-na e diminuirmos o tamanho da tela e nos veremos se ela responde a esse tamanho de nova tela. Entao, essa aqui eh a nossa pagina que nos estamos desenvolvendo durante este curso e nos vemos, no Desktop do instrutor, que esta tudo bonitinho, com os menuzinhos no topo a direita, tudo certo. As caixas de planos estao uma ao lado da outra. 
+
+24. A medida em que vamos diminuindo a tela, vai diminuindo o tamanho e chega um momento que o nosso layout foi pensado para, chegando em um determinado tamanho de tela, ele se readequar. Entao, o que que foi readequado aqui?
+
+25. Os planos ficaram empilhados, um em cima do outro, porque, a partir desse tamanho de tela, ficaria nao muito interessante colocar os planos um do lado do outro, falta espaco para isso. E o menu tambem, para nao ficar muito feio, muito colado com a logomarca, ficou tres barrinhas ao topo do lado direito, que a gente clica e o menu eh exibido do lado esquerdo. Entao, a gente pode diminuir a tela ate o tamanho de tela de um celular, que vai funcionar esse Web Site, os planos ficam empilhados, um em cima do outro, a gente tambem diminui um pouquinho o tamanho de fonte, ao diminuir a tela, para nao ficar muito tumultuado, e o menu fica ali do lado esquerdo.
+
+26. Isso aqui foi desenvolvido, entao, com a tecnica de Web Desing Responsivo. Eh o mesmo codigo-fonte, a gente nao usa a tecnica M Dot, a qual mostramos, aquilo que foi exibido, como foi dito, eh tudo ficticio. Aqui, agora, o que esta sendo mostrado pelo instrutor no seu notebook, ja eh o real. 
+
+27. Eh o mesmo codigo-fonte, nos nao estamos carregando outra URL, eh o mesmo codigo-fonte, e vai funcionar com telas menores, e com telas maiores. 
+
+28. Agora, nos ja sabemos o que que eh Web Design Responsivo.
+
+29. Fim da Aula 05.001. O que eh Responsive Web Design?
+
+-->

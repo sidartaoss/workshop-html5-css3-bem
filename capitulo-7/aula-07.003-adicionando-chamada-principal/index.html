@@ -1,0 +1,548 @@
+<!-- 
+  Aula 07.003. Adicionando Chamada Principal
+
+1. Nesta aula, a gente vai adicionar essa area verde que o instrutor esta exibindo no prototipo final do projeto, na nossa pagina do projeto do curso. Vejamos como que esta agora, nos temos os planos, nos temos o cabecalho, mas nos ainda nao temos essa area verde aqui, uma area de chamada que apresenta o que que eh a pagina. 
+
+2. No caso, aqui, como a gente esta desenvolvendo uma pagina aqui com software, tem que apresentar o que que eh esse software, e um botao de acao, para a pessoa que esta vendo, tomar uma acao. Eh isso que a gente vai fazer agora.
+
+3. Vamos ver o codigo html. E, aqui, entre o cabecalho e a area de planos, nos vamos adicionar, aqui, uma section. Essa section, nos ja vamos ate dar um nome de classe para ela, vamos chamar de layout-chamada. Vamos chamar isso de chamada, layout-chamada. E, aqui dentro, nos colocamos um div de um container, porque, aqui dentro, a gente vai organizar isso da mesma forma que a gente organizou o cabecalho e tambem os planos, a gente tem um container aqui em planos. Entao, da mesma forma, nos colocamos um container aqui em layout-chamada,
+
+    <section class="layout-chamada">
+      <div class="container">
+        
+      </div>
+    </section>
+
+, eh o container fixo, porem responsivo, do Bootstrap, do Sistema de Grid do Bootstrap. 
+
+4. Aqui dentro, nos vamos criar um outro div, e vamos colocar a classe CSS com o nome de chamada, ou seja, section eh um bloco, chamamos de bloco, mas eh um bloco de layout e o div chamada eh outro bloco. O div chamada, entao, teoricamente, tem que sobreviver fora da section de layout-chamada. Na verdade, primeiramente, vamos 
+fazer esse bloco da section, vamos faze-lo sozinho, primeiramente, vamos colocar apenas um texto aqui para a gente ver alguma coisa,
+
+    <section class="layout-chamada">
+      <div class="container">
+        
+        <h1>Teste</h1>
+
+      </div>
+    </section>
+
+5. Vamos, agora, no arquivo CSS, layout.css, e vamos cria-lo aqui,
+
+.layout-chamada {
+  
+}
+
+, vamos colocar um padding de 80 pixels e 0, igual ao de cima. Vamos colocar um background-color, #7ab55c, isso aqui eh um verde, vamos ver como eh que fica, vamos recarregar a pagina.
+
+6. Okay, recarregamos a pagina e foi renderizado uma area verde com 'Teste' dentro. Esta faltando, agora, essa area que o instrutor esta exibindo, que contempla 'As finanças da sua empresa em ordem, Software de gestao simples e prático para pequenos negócios, e o botão Conheça os planos' que eh a propria chamada. A area toda nos chamamos de layout-chamada, e esse conteudo, ou seja, 'As finanças da sua empresa em ordem, Software de gestao simples e prático para pequenos negócios, e o botão Conheça os planos', nos separamos em um outro bloco, que chamamos de chamada. E, logicamente, 'Conheça os planos' eh um botao, que eh um outro bloco.
+
+7. Entao, vamos, agora que a gente ja tem o layout pronto, vamos criar o nosso bloco, vamos apagar <h1>Teste</h1> e vamos reinserir o div chamada, como estavamos fazendo,
+
+    <section class="layout-chamada">
+      <div class="container">
+        
+        <div class="chamada">
+          
+        </div>
+
+      </div>
+    </section>
+
+, ou seja, eh um bloco, pensando em BEM, eh o bloco,
+  
+  <div class="chamada">
+  </div>
+
+e, aqui dentro, vamos colocar o h1 e vamos escrever aqui,
+
+  <div class="chamada">
+    <h1>As finanças da sua empresa em ordem</h1>
+  </div>
+
+, que eh exatamente a mensagem sendo exibida na versao final do prototipo do projeto.
+
+8. Tem uma outra mensagem embaixo, 'Software de gestao simples e prático para pequenos negócios', vamos colocar isso em um paragrafo,
+
+  <div class="chamada">
+    <h1>As finanças da sua empresa em ordem</h1>
+    <p>Software de gestão simples e prático para pequenos negócios</p>
+  </div>
+
+9. E vamos adicionar um div, novamente, com uma classe chamada 'chamada__acao', ou seja, isso aqui eh o que? Isso aqui eh um elemento do bloco chamada,
+
+  <div class="chamada">
+    <h1>As finanças da sua empresa em ordem</h1>
+    <p>Software de gestão simples e prático para pequenos negócios</p>
+    <div class="chamada__acao">
+
+    </div>
+  </div>
+
+, aqui, por enquanto, nos vamos colocar so assim, 'Conheça os planos'. Nao vamos colocar, ainda, o botao.
+
+10. Vamos ver como esta ficando, vamos recarregar a pagina para ver o que esta acontecendo aqui.
+
+11. Bom, esta tudo sem etilo, esta feio. A gente precisa, agora, estilizar o bloco chamada, porque a gente criou, aqui, a estrutura no html, mas, ainda nao tem o estilo CSS.
+
+12. Nos temos, entao, o bloco chamada e o elemento chamada__acao. E o h1 e o p? Nao vamos dar um nome de classe CSS para eles? Podemos, nos podemos definir, vamos definir, em h1, como chamada__titulo e, em p, vamos definir como chamada__subtitulo,
+
+  <div class="chamada">
+    <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+    <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+    <div class="chamada__acao">
+
+    </div>
+  </div>
+
+13. Nos podemos fazer assim, mas, ai, nos temos que decidir se nos queremos colocar um nome de elemento ou se nos queremos selecionar pela tag. O ideal eh nos colocarmos uma classe. Vamos deixar com classe aqui, depois, a gente tira so para ver.
+
+14. Vamos aqui, em componentes.css, e vamos adicionar um componente aqui, embaixo, e vai ser chamado de CHAMADA,
+
+/*=====================*\
+  CHAMADA
+\*=====================*/
+
+15. E, agora, vamos colocar aqui, chamada e vamos definir um tamanho de fonte para esse bloco. Queremos, no padrao, pensando em um padrao de tamanho de fonte de um navegador para um Usuario normal que nao altera as configuracoes, eh de 16 pixels, nos vamos colocar, aqui, entao, que quantifica 16 pixels mesmo,
+
+.chamada {
+  font-size: 1.6rem;
+}
+
+16. Por que que eh 1.6rem? Porque, lembrando que aqui, em base.css, esta com 10 pixels, ou seja, 62.5% de 16 pixels, calculando isso ai, a gente vai chegar em 10 pixels no Tamanho medio, no Tamanho normal.
+
+17. Entao, vamos definir que, em chamada, o tamanho de fonte normal eh 16 pixels. E tambem vamos colocar o alinhamento do texto, nessa chamada, eh centralizado,
+
+.chamada {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+18. Vamos ver como eh que fica, ou seja, vamos recarregar a pagina, vamos ver o que que acontece.
+
+19. Centralizou e o tamanho de fonte ficou em 16 pixels.
+
+20. Agora, a gente vai definir chamada__titulo, que eh o h1. Vamos zerar a margem dele, porque o h1 tem uma margem. Vamos colocar que a cor dele eh branca, o tamanho de fonte. Ja estamos separando as propriedades CSS, usando o nosso estilo de separar por display e box-model e, depois, cores, depois, fontes Para o font-size, queremos 54 pixels,
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: ;
+}
+
+21. Inclusive, a gente esta desenvolvendo, vamos, ate, diminuir o tamanho da tela, porque a gente esta desenvolvendo Mobile First, entao, vamos fazer, primeiro, funcionando em dispositivos em telas menores, depois, a gente ajusta para telas maiores. 
+
+22. Entao, queremos que esse tamanho de fonte em h1 fique com 54 pixels. Entao, como que nos fazemos?
+
+23. 54 pixels, eh logico, quando nos falamos 54 pixels, eh logico, nao eh que nos estamos falando na medida fixa, mas nos falamos 54 pixels quando o tamanho da fonte eh padrao. Logicamente, se o Usuario aumentar o tamanho da fonte, isso vai ser alterado para cima ou para baixo, mas, considerando o padrao, nos gostariamos que fosse 54 pixels.
+
+24. Como nos sabemos que o nosso bloco contem 16 pixels, que eh 1.6rem, ou seja, 1.6 * 10px = 16px. Se, entao, nos queremos 54 pixels, qual a conta que nos fazemos? 54px / 16px. Aqui divide por 16 porque vai usar em, se fosse rem, iria dividir por 10, mas, como vamos usar rem, vamos dividir por 16, porque eh relativo ao elemento pai. Entao, 54 / 16 eh igual a 3.375em,
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+}
+
+25. Isso vai ser calculado como 54 pixels, considerando-se o tamanho padrao do navegador, ou seja, 16 pixels. Logico, se o usuario alterar, nas configuracoes do Chrome, o tamanho de fonte de medio para muito grande, ele vai recalcular automaticamente, porque esta tudo relativo, desde o arquivo base.css, esta tudo relativo, entao, vai recalcular automaticamente.
+
+26. Vamos recarregar a pagina para vermos como que ficou.
+
+27. Entao, nos colocamos 54 pixels, porque nos estamos considerando o tamanho de fonte padrao do navegador, a gente sempre desenvolve pensando no tamanho de fonte padrao do navegador, mas eh tudo relativo se o Usuario mudar.
+
+28. Alem disso, aqui no titulo, vamos colocar tambem um line-height, ou seja, altura da linha, vamos colocar, aqui, 1, por exemplo. Vamos recarregar a pagina para vermos como que ficou,
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+
+  line-height: 1;
+}
+
+, quando colocamos line-height 1, eh o proprio tamanho da fonte, entao, a altura da linha eh o proprio tamanho da fonte. Mas nos vamos colocar um pouquinho menos, para deixa-lo um pouco mais coladinho. Se formos ver na imagem da versao final do prototipo do projeto, aparece bem coladinho o titulo, nao tem muito espaco entre uma linha e a outra, entao, colocamos 0.9, para ficar mais colado
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+  line-height: 0.9;
+}
+
+29. Outra coisa que iremos colocar eh um text-shadow. Com essa propriedade text-shadow nos aplicamos sombras. Na versao final do prototipo do projeto, nos temos um pouquinho de sombra na fonte do titulo. Vamos colocar essa sombra aqui usando a propriedade text-shadow. Nos colocamos aqui, so para nos vermos, 10px 1px e vamos colocar uma sombra, aqui, de #313131, eh a cor que iremos colocar, so para nos vermos melhor na pagina, vamos recarregar a pagina para vermos como que ficou,
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+  line-height: 0.9;
+  text-shadow: 10px 1px #313131;
+}
+
+30. Ficou bem feio, mas isso aqui foi so um teste. Estamos vendo que a sombra ficou bem para a direita, da para vermos que ficou bem para a direita. Vamos inverter agora, vamos colocar 1px 10px #313131 e vamos recarregar a pagina.
+
+31. Agora, a sombra ficou bem para baixo. Isso quer dizer que 1px eh o eixo x e 10px eh o eixo y. Se alteramos o primeiro parametro, por exemplo, se colocarmos -10px, a sombra vai la para a exquerda, se colocamos positivo, a sombra vai para a direita. Mas, aqui, nos queremos pouquinha sombra, nos queremos quase imperceptivel, entao, vamos colocar 1px par o eixo x e y e colocamos esse cinza bem escuro, quase preto,
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+  line-height: 0.9;
+  text-shadow: 1px 1px #313131;}
+
+32. Recarregamos a pagina e vemos que ficou pouca sombra, so para dar o destaque, bem de leve, sobressair mais esse texto.
+
+33. O titulo, acreditamos que ja esta pronto. Falta ainda o resto, agora. Aqui, no arquivo html, em chamada__titulo, nos poderiamo ter definido o nome de classe ou nao, se nao colocassemos o nome de classe do elemento, nos teriamos que definir, na classe CSS, o seletor como,
+
+.chamada > h1 {
+  
+}
+
+, e vai funcionar do mesmo jeito, nao vai dar problema. A questao eh que nos temos que decidir, dependendo do caso. Se, nos, por algum motivo, colocamos, por exemplo, depois, um outro, no caso, h1, vai ser dificil, mas se tivesse uma outra tag aqui, por exemplo, h1, aqui dentro,
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1>As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <h1></h1>
+          <div class="chamada__acao">
+            Conheça os planos
+          </div>
+        </div>
+      </div>
+    </section>
+
+que, como dissemos, dificilmente, isso vai acontecer, ela tambem estaria sendo estilizada pelo que nos definimos no arquivo CSS, em 
+
+.chamada > h1 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+  line-height: 0.9;
+  text-shadow: 1px 1px #313131;  
+}
+
+34. Entao, colocar um nome de classe eh melhor. E outra coisa, se tiver um modificador, se, um dia, nos tivermos assim, por exemplo,
+
+.chamada__titulo--azul {
+  
+}
+
+, nos definimos um modificador e alteramos a cor para blue, 
+
+.chamada > h1 {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+  line-height: 0.9;
+  text-shadow: 1px 1px #313131;  
+}
+
+.chamada__titulo--azul {
+  color: blue;
+}
+
+, vamos ver o que que acontece? Vamos, ate, fazer um teste. Nunca se deve fazer isso, colocar cores ou tamanhos no nome do modificador, porque um nome de modificador teria que ser mais abstrato. Mas, aqui, eh somente um exemplo.
+
+<h1 class="chamada__titulo-azul">As finanças da sua empresa em ordem</h1>
+
+35. Ao recarregarmos a pagina, vemos que nao funciona, o titulo nao fica azul, nos queriamos usar um modificador que altera a cor do texto para azul, mas nao funciona. Ja se nos usassemos do jeito que nos estavamos fazendo, ou seja, sem usar seletores combinados daquela forma, 
+
+.chamada__titulo {
+  margin: 0;
+
+  color: #fff;
+
+  font-size: 3.375em;
+  line-height: 0.9;
+  text-shadow: 1px 1px #313131;
+}
+
+.chamada__titulo--azul {
+  color: blue;
+}
+
+, ai teriamos que definir diferente no html tambem, ou seja, colocamos o nome do elemento e o nome do modificador,
+
+<h1 class="chamada__titulo chamada__titulo-azul">As finanças da sua empresa em ordem</h1>
+
+36. Entao, eh um dos problemas tambem de selecionar por tags eh isso, aumenta a especificidade quando a gente coloca dois elementos, por exemplo, .chamada > h1, isso aqui eh mais especifico do que .chamada__titulo--azul, entao, a gente nao consegue substituir .chamada__titulo--azul pelo que esta definido dentro de .chamada > h1.
+
+37. Entao, o ideal mesmo eh colocar nome de classe. Entao, vamos deixar o nome de classe, nao vamos deixar por tag.
+
+38. Continuando, vamos defininir, agora, .chamada__subtitulo,
+
+.chamada__subtitulo {
+  
+}
+
+, vamos colocar, aqui, margem de 60 pixels superio e inferior, sem margem a esquerda e a direita, porque nos zeramos a margem esquerda e direita. Antes, quando nao tinha margem, estava muito perto tanto do titulo quanto do botao, entao, eh so para dar uma margem maior, conforme a versao final do prototipo do curso,
+
+.chamada__subtitulo {
+  margin: 60px 0; 
+}
+
+39. Mas nao acabou aqui nao. Aqui, nos ainda temos que colocar uma cor branca,
+
+.chamada__subtitulo {
+  margin: 60px 0; 
+
+  color: #fff;
+}
+
+40. O tamanho da fonte eh o tamanho da fonte do nosso bloco. Logicamente, poderiamos, ainda, colocar font-size: 1em, se quisessemos deixar isso explicito, nao vai mudar nada, vamos deixar assim,
+
+.chamada__subtitulo {
+  margin: 60px 0;
+
+  color: #fff;
+
+  font-size: 1em;
+}
+
+41. O proximo eh o chamada__acao, que eh o div do botao. Esse chamada__acao nos vamos, como ja esta centralizado o texto, nos nao precisamos nem centralizar, porque nos centralizamos no bloco chamada, se nos nao tivessemos centralizado no bloco chamada, ficaria tudo sem centralizar. Nos nao precisamos colocar nada nessa Regra CSS, entao,
+
+.chamada__acao {
+  
+}
+
+42. Na verdade, entao, talvez, nos nem precisariamos desse elemento chamada__acao, se bem que ele documenta o nosso codigo, se nos nao colocarmos nada, fica um negocio meio assim, que que eh isso?,
+
+<div>
+  Conheça os planos
+</div>
+
+, entao, se colocarmos um nome de classe, acaba documentando o que que ele eh, eh para colocar a acao aqui dentro da div.
+
+43. Nos vamos deixar assim por enquanto. Vamos fazer o seguinte, vamos colocar o font-size: 1em;, como nos estamos especificando, mesmo quando nao precisa, estamos deixando explicito o tamanho de fonte, deixamos tambem o 1em e nao fica vazia a Regra CSS, ia ficar estrano a Regra CSS vazia,
+
+.chamada__acao {
+  font-size: 1em; 
+}
+
+44. Nao teria problema se a Regra CSS ficasse vazia tambem.
+
+45. Agora, em telas pequenas, eh isso mesmo, fica desse tamanho a fonte, a gente nao vai diminuir mais do que isso. Agora, em telas maiores, a gente poderia aumentar um pouquinho mais para ficar mais proximo do que eh a ultima versao do prototipo do projeto do curso.
+
+46. E outra coisa, alem de aumentar um pouquinho mais a fonte, a gente pode dar um padding do lado direito do titulo, e tambem do lado esquerdo do titulo, quando a tela estiver maior, fica muito corrido o texto assim, nao esta muito bonito.
+
+47. Entao, o que que a gente vai fazer aqui? A gente vai usar @media, colocando, aqui, uma expressao, min-width, daqui um pouco a gente vai definir o tamanho,
+
+@media(min-width:) {
+  
+}
+
+, ou seja, nos queremos dizer o seguinte: 'Em telas pequenas, tudo bem, a gente ja fez, mas, a partir de um determinado tamanho, nos queremos alterar algumas propriedades'. Qual tamanho eh esse? Aqui, nos temos a pagina do Bootstrap, https://getbootstrap.com/docs/4.1/layout/grid/, com a documentacao, e a partir desse aqui, maior ou igual a 992 pixels para o tamanho da tela, que eh o tamanho de tela Grande, ou seja, Large, '.col-lg-', isto eh, para desktops com telas medias, a partir de desktop, entao, com 992 pixels. Vamos considerar que >=768 pixels e < 768 sao telas de dispositivos moveis. 
+
+48. Entao, vamos colocar aqui 992 pixels, a partir desse tamanho de tela,
+
+@media(min-width: 992px) {
+  
+}
+
+49. Nos vamos usar essa referencia, https://getbootstrap.com/docs/4.1/layout/grid/, porque, se ficassemos colocando qualquer coisa, inventassemos um numero qualquer, nao eh muito legal a gente criar breakpoints, o ideal eh a gente sempre usar o padronizado. Se, na pagina, https://getbootstrap.com/docs/4.1/layout/grid/, sao cinco breakpoints, Extra small, Small, Medium, Large, Extra large, sempre deve-se usar as cinco, nao se deve ficar inventando varios numeros magicos, aleatorios, porque, depois, fica dificil nos debugarmos, descobrirmos problemas. Sempre deve-se usar o padronizado no projeto.
+
+50. Agora, vamos colocar, aqui, .chamada, o nosso seletor, e vamos colocar um padding-left de 10%, medida relativa, padding-right de 10%, 10% de que? Do pai, ou seja, do container, nao da fonte, 10% referente ao tamanho da largura do pai, ou seja, do container.
+
+@media(min-width: 992px) {
+  .chamada {
+    padding-left: 10%;
+    padding-right: 10%;  
+
+    font-size:   
+  }
+}
+
+, e vamos colocar aqui, tambem, um font-size, vamos aumentar um pouco a fonte, vamos aumentar a fonte em 2.2rem. Quer descobrir quanto eh 2.2rem, eh so multiplicar 2.2 vezes 10 pixels, 22 pixels, muito simples.
+
+@media(min-width: 992px) {
+  .chamada {
+    padding-left: 10%;
+    padding-right: 10%;  
+
+    font-size: 2.2rem; 
+  }
+}
+
+51. So que, quando nos alteramos o tamanho aqui, para 22 pixels, na chamada, vai alterar tambem, vai ser tudo recalculado, tudo que eh em vai ser recalculado, entao, vai dar certinho.
+
+52. Recarregamos a pagina. Olha so, ficou grande o tamanho da fonte. Agora, nos vamos diminuindo o tamanho da tela e chega um ponto, um momento, em 991 pixels, em que diminui a fonte. Ao aumentar a tela, quando chega em 992 pixels, aumenta o tamanho da fonte, para nao ficar mais aquele texto corrido, ou seja, se nos tirassemos o padding-right, padding-left, ai fica feio, porque o texto do titulo fica corrido. Entao, vamos colocar um podding de 10% que eh para ele ocupar um espacamento interno, a esquerda e a direita e fica certinho, ou seja, nao fica um texto corrido.
+
+53. Aqui esta feito. Agora, vamos colocar o botao, 'Conheca os planos', vamos colocar o botao. Para o botao, vai ser facil, vamos colocar, aqui no arquivo html, uma ancora, <a href=, estamos vendo que nos temos um id=planos aqui, se nos colocamos #planos em href, quando nos clicarmos nesse botao, o navegador vai rolar a pagina ate aqui o final da pagina, para mostrar os planos. Entao, um link pode pode ser um link externo para algum lugar, por exemplo, nos temos o assine.html, que eh para outra pagina, mas, se a gente colocar um #ID, que eh o #planos, ai no navegador, automaticamente, vai rolar a tela ate o id. Se a tela tiver muitos conteudos entre um e outro, no nosso caso, ainda nem precisaria, porque esta um embaixo do outro, mas vai ter mais coisas aqui no meio entre a section layout-chamada e os planos, ai, entao, vai rolar a tela.
+
+<div class="chamada__acao">
+  <a href="#planos" class="botao">Conheça os planos</a>
+</div>
+
+54. A classe vamos colocar botao, 'Conheça os planos', e fechamos aqui o link.
+
+55. Okay, vamos recarregar a pagina para vermos o que que acontece.
+
+56. Okay, esta ali o botao, em cinza, porque eh o padrao, a gente nao colocou nenhum modificador nele. Vamos criar um modificador, botao--principal,
+
+<div class="chamada__acao">
+  <a href="#planos" class="botao botao--principal">Conheça os planos</a>
+</div>
+
+57. Em componentes.css, ja tem o bloco BOTAO, so vamos colocar o novo modificador,
+
+.botao--principal {
+  
+}
+
+58. Antes de colocar as propriedades, vamos criar tambem as pseudo-classes, hover e focus,
+
+.botao--principal:hover, .botao--principal:focus {
+  
+}
+
+e, agora, a gente coloca aqui qual que eh a cor padrao desse botao, vamos colocar #004b86, uma cor que o instrutor ja tem anotado, vai ficar um azul,
+
+.botao--principal {
+  background-color: #004b86;  
+}
+
+e, quando passamos o mouse em cima, background-color eh #003b6a. Vamos ver o que acontece, ou seja, vamos recarregar a pagina,
+
+.botao--principal:hover, .botao--principal:focus {
+  background-color: #003b6a;
+}
+
+59. O botao ficou azul, quando passamos o mouse em cima, escurece mais um pouquinho. A diferenca eh que esse botao, aqui, o botao sendo exibido na versao final do prototipo do projeto do curso esta com a borda arredondada, os outros nao estao com a borda arredondada, tudo quadradinho. Vamos colocar essa borda arredondada, so para mostrar mesmo que tem como a gente arredondar a borda. O instrutor acha que, nesse caso, nem precisaria arredondar a borda, ja que os outros botoes nao estao arredondados, nada a gente esta usando arredondado, nas caixas dos planos, tambem, a gente nao arredondou, entao, seria, talvez, interessante manter esse padrao de tudo mais quadrado, ou, se tiver arredondado, tudo mais arredondado. Mas, neste caso, vamos arredondar para mostrar que da para fazer, senao fica ruim tambem.
+
+60. Entao, aqui, nos vamos colocar, na classe modificador botao--principal, a propriedade border-radius, essa eh uma propriedade que nos atribuimos uma medida, por exemplo, vamos colocar aqui 10 pixels e ele vai arredondar todos os quatro cantos em 10 pixels,
+
+.botao--principal {
+  border-radius: 10px;
+
+  background-color: #004b86;
+}
+
+, olha so, ou seja, vamos recarregar a pagina. Vemos que, de fato arredondou o botao em 10 pixels.
+
+61. Entao, essa area de chamada esta pronta. Agora, so uma questao que achamos que nao foi falada na outra aula. Quando nos temos dois nomes de classes dentro da mesma propriedade, tudo juntinho, as vezes, pode acontecer de nos lermos isso aqui e ficarmos, lermos rapido e ficarmos meio confusos, porque fica muito pertinho e o nome das classes sao grandes, 
+
+<a href="#planos" class="botao botao--principal">Conheça os planos</a>
+
+, tem uma pratica e tem gente que gosta, tem gente que nao gosta, o intrutor acha legal, que eh colocar dois espacos entre uma classe e outra, nao muda nada, mas coloca-se dois espacos entre um nome de classe e outra, so para dar essa respirada na hora de ler, nos conseguimos ver mais facilmente. Entao, todo lugar que tiver duas classes colocamos mais um espaco. O instrutor tinha deixado isso para falar, mas em uma aula, talvez, tenha esquecido,
+
+<a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+
+, mas isso eh uma coisa que podemos decidir se queremos usar em nossos projetos ou nao. 
+
+62. Fim da Aula 07.003. Adicionando Chamada Principal.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <div class="chamada__acao">
+            <a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

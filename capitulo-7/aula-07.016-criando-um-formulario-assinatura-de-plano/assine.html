@@ -1,0 +1,313 @@
+<!-- 
+
+Aula 07.016. Criando um Formulario: Assinatura de Plano.
+
+
+15. Outra coisa, nos colocamos, aqui, a logomarca centralizada. Para coloca-la centralizada, nos criamos, aqui, um modificador navegacao--assinatura, 
+
+<nav class="navegacao  navegacao--assinatura">
+
+, mas eh tudo coisa simples que nos ja conhecemos, por isso, o instrutor achou que era melhor entregar isso pronto. E, em seguida, o rodape, exatamente igual, nao foi feito nada de diferente.
+
+16. Agora, nos vamos criar, aqui, o nosso formulario. Para isso, nos vamos colocar, aqui, um elemento <main>. Esse elemento main representa o conteudo principal do nosso documento, eh uma tag HTML5, e vamos colocar, aqui, um class, eh uma secao, na verdade, o que nos estamos criando aqui, nos temos o cabecalho, nos temos o principal e nos temos o rodape. Vamos criar, aqui, a classe CSS layout-assinatura,
+
+<main class="layout-assinatura">
+	
+</main>
+
+Essa classe CSS, o instrutor ja deixou-a definida no arquivo layout.css, como nao tem nenhuma novidade tambem, 
+
+.layout-assinatura {
+	padding: 40px 0;
+}
+
+, e vamos voltar para assine.html. Agora, a gente vai colocar, aqui, um container,
+
+<main class="layout-assinatura">
+    <div class="container">
+
+    </div>
+</main>
+
+, como sempre, e, agora, a gente vai colocar o nosso formulario aqui. E existe um elemento html chamado form. Esse elemento form representa o formulario que a gente vai submeter para algum lugar, que, geralmente, a gente vai subemter para onde? A gente vai submeter para um Back-end. Como o instrutor disse, neste caso, nesta aula, a gente nao vai fazer a submissao para um Back-end de verdade, processar, porque o foco, aqui, eh Front-end, nao eh Back-end. Mas o formulario tem que submeter para algum lugar. Que lugar eh esse? A gente especifica atraves dessa propriedade action,
+
+<main class="layout-assinatura">
+    <div class="container">
+		<form action="">
+		</form>
+    </div>
+</main>
+
+
+, entao, o desenvolver Back-End, o qual nos estamos trabalhando junto, vai nos passar o que que tem que ser informado aqui. Se aprendermos Back-End, nos vamos saber tambem, mas alguem vai nos informar o que nos precisamos colocar aqui. Como a gente nao tem nada de Back-End, nao temos nenhum software que vai processar esse formulario, so o Front-End, nos vamos colocar aqui jogo-da-velha, #, para ficar sem enviar para lugar nenhum, vai enviar, na verdade, para a propria pagina. 
+
+<main class="layout-assinatura">
+    <div class="container">
+		<form action="#">
+		</form>
+    </div>
+</main>
+
+17. E tambem existe uma outra propriedade muito importante, que eh o metodo  de envio. Esse metodo pode ser get e pode ser post. O desenvolvedor Back-end vai nos falar qual que eh esse metodo, e, um dia, se estudarmos sobre Back-end, ou sobre como implementar solucoes Back-end para processar formularios, por exemplo, nos vamos entender isso tambem.
+
+18. O instrutor acha que nao compensaria explicar isso agora, ou seja, o metodo post, get, sem estar falando de Back-end, ficaria bem complicado. Dentro do formulario, nos vamos colocar um titulo da pagina, h1, vamos colocar, aqui, um class, titulo-formulario. Esse titulo-formulario, o instrutor ja criou, eh um bloco, em componentes.css,
+
+/*=====================*\
+  TITULO-FORMULARIO
+\*=====================*/
+.titulo-formulario {
+  margin: 0;
+  margin-bottom: 40px;
+
+  border-bottom: 1px solid #ccc;
+
+  font-size: 2.6rem;
+  font-weight: normal;
+  color: #004b86;
+}
+
+19. Vejamos que nao tem nenhuma novidade aqui, eh simplesmente tirar margem, colocar margem embaixo, colocar uma borda em cinza, ai, alterar a cor de fonte, e o tamanho de fonte essas coisas todas.
+
+20. Entao, voltando em assine.html, agora, vamos recarregar a pagina para vermos o que que acontece.
+
+21. Vemos que esta faltando o titulo, vamos, entao, escrever um titulo dentro do h1, 'Sua assinatura do MyPilas', entao, o titulo do formulario fica com uma fonte que parece um azul, e uma bordinha cinza.
+
+22. Agora, aqui, a gente vai criar o nosso formulario com os nossos campos, embaixo do titulo.
+
+23. Vamos la. Nos vamos criar, aqui, um campo e, para isso, nos usamos o elemento input. Nos usamos o elemento input e especificamos uma propriedade chamada type, e, aqui, nos colocamos qual que eh o tipo do input. O input eh um campo de entrada. E um campo de entrada de que tipo? A gente vai comecar usando o tipo texto, ou seja, o campo de entrada de texto pode ser para usado para informar nome, pode ser para informar telefone, e-mail tambem, mas, depois, a gente vai ver que tem um tipo especifico para o e-mail, mas nos poderiamos usar o text tambem para input. Entao, eh o input do tipo texto, onde o usuario vai digitar um texto. Okay, vamos ver o que acontece aqui, ou seja, vamos recarregar a pagina,
+
+<main class="layout-assinatura">
+    <div class="container">
+		<form action="#">
+			<h1 class="titulo-formulario">Sua assinatura do MyPilas</h1>
+
+			<input type="text">
+		</form>
+    </div>
+</main>
+
+, o campinho apareceu, onde eh possivel digitar qualquer coisa.
+
+24. Mas esse campo precisa ser identificado, ele precisa ser rotulado de alguma forma. Como o usuario vai saber que aqui tem que informar o nome? Entao, vamos colocar aqui um elemento label e colocamos, aqui, Razao Social, a Razao Social da empresa esse input,
+
+<main class="layout-assinatura">
+    <div class="container">
+		<form action="#">
+			<h1 class="titulo-formulario">Sua assinatura do MyPilas</h1>
+
+			<label>Razao Social</label>
+			<input type="text">
+		</form>
+    </div>
+</main>
+
+25. Nos podemos, agora, vincular esse label com um input. Entao, nos vamos colocar, aqui, dentro desse input, uma propriedade id, e nos vamos chamar isso de razao-social, e, aqui no label, nos colocamos uma propriedade for, com razao-social, exatamento o mesmo nome que o id,
+
+			<label for="razao-social">Razao Social</label>
+			<input id="razao-social" type="text">
+
+26. Quando nos fazemos isso, agora, esta vinculado. E, nao so esta vinculado, nos poderiamos usar esse vinculo para alguma coisa, mas, principalmente, isso aqui tambem, nos clicamos no label Razao Social e ele da o foco ali no campo de entrada de Razao Social, entao, esta vinculado. Eh legal sempre nos vincularmos o label no campo, eh uma forma de deixar o nosso codigo mais legivel para quem vai le-lo tambem.
+
+27. Que mais que a gente pode fazer aqui? A gente ainda, esta bem feinho o campo, vai ficar totalmente diferente o campo, conforme o prototipo final, vai ficar maior, com bordas arredondadas um pouquinho, com o label em cima. Como que a gente pode fazer para esse label ficar em cima do campo?
+
+28. Nos vamos criar, aqui, um div para a gente agrupar label e input, 
+
+<div>
+	<label for="razao-social">Razao Social</label>
+	<input id="razao-social" type="text">
+</div>
+
+29. Isso aqui vai ser um bloco, esse div vai ser um bloco, vamos chamar de class e vamos chamar de grupo-entrada, 
+
+<div class="grupo-entrada">
+	<label for="razao-social">Razao Social</label>
+	<input id="razao-social" type="text">
+</div>
+
+entao, ou seja, nos temos um bloco agora que eh um grupo de entrada. O grupo de entrada, geralmente, vai ser um label e um input. Isso aqui ainda nao vai resolver nao. Mas, agora que nos temos esse bloco, grupo-entrada, nos vamos cria-lo no nosso arquivo CSS, componentes.css, como GRUPO-ENTRADA, e vamos colocar assim, .grupo-entrada > label, ou seja, um seletor de filho direto,
+
+.grupo-entrada > label {
+	
+}
+
+,  e vamos colocar, aqui, dsplay block. Quando nos colocamos display block no label, vejamos o que acontece, ao recarregarmos a pagina.
+
+30. Vemos que o label subiu e o campo de input ficou embaixo do label. Por que que isso acontece?
+
+31. Porque o padrao deles eh inline, o display eh inline, ou seja, ficam um na frente do outro. Quando nos colocamos que o Razao Social, que eh o label, como display block, automaticamente, ja quebra. A gente viu sobre o display em uma aula bem mais para tras neste curso.
+
+.grupo-entrada > label {
+	display: block;	
+}
+
+32. Ja vimos, ao recarregarmos a pagina, que quebrou, ficou legal, mas, tambem, nos queremos colocar o label com o peso da fonte, nos queremos colocar negrito,
+
+.grupo-entrada > label {
+	display: block;
+
+	font-weight: bold;
+}
+
+, entao, recarregamos a pagina e ficou negrito, que eh o que a gente vai usar aqui.
+
+33. Nos vamos criar, agora, no campo, nos queremos que o campo fique com 100% de espaco, nos queremos que ele sempre ocupe 100% da area que ele possui, sempre ocupar 100%.
+
+34. Nos vamos, entao, aqui, colocar uma classe CSS no input, e vamos chmar de campo,
+
+<div class="grupo-entrada">
+	<label for="razao-social">Razao Social</label>
+	<input id="razao-social" type="text" class="campo">
+</div>
+
+, esse aqui eh um outro bloco, campo. Nos poderiamos nao criar um outro bloco, uma opcao eh nao criar outro bloco, e definirmos que grupo-entrada > input, algo assim, ai nos damos 100% para ele, mas o instrutor acha melhor criar um outro bloco mesmo, que, ai, nao precisamos, obritariamente, criar usar esse GRUPO-ENTRADA sempre.
+
+35. Nos vamos definir como CAMPO, definindo display block e largura 100%,
+
+.campo {
+  display: block;
+
+  width: 100%;
+}
+
+
+36. Ai, sim, agora, ao recarregarmos a pagina, o campo, agora, esta ocupando 100% de largura da tela. 
+
+37. Agora, a gente vai criar mais um grupo de entrada aqui, vamos copiar e colar e vamos colocar, aqui, o CNPJ,
+
+<div class="grupo-entrada">
+	<label for="razao-social">Razao Social</label>
+	<input id="razao-social" type="text" class="campo">
+</div>
+
+<div class="grupo-entrada">
+	<label for="cnpj">CNPJ</label>
+	<input id="cnpj" type="text" class="campo">
+</div>
+
+, e vamos ver como que fica, ou seja, vamos recarregar a pagina. Legal, esta agora a Razao Social e o CNPJ.
+
+38. So que o CNPJ esta muito coladinho nesse campo de Razao Social, esta muito colado, tem que dar um espaco a mais, entao, nos vamos aqui no CSS, no grupo-entrada, nos vamos colocar margin-bottom de 15 pixels,
+
+.grupo-entrada {
+	margin-bottom: 15px;
+}
+
+39. Nos temos, na tela, dois campos com grupo-entrada, entao, eles sempre terao 15 pixels entre um campo e outro. Recarregamos e ficou legal, agora, ficou com um espacinho um pouco melhor. Se a gente for olhar aqui o nosso formulario no prototipo final, nao esta ainda 100% igual, porque os campos estao maiores.
+
+40. Vamos, agora, colocar o botao, os outros campos a gente coloca em outra aula, que, ai, a gente ja aproveita e ja estiliza tudo. Vamos criar esse botao para ver como que ficaria tambem.
+
+41. O botao nos vamos coloca-lo depois do div de CNPJ. E esse botao eh um botao de submissao de formulario. Quando eh um botao de submissao de formulario, nos usamos tambem um input, pode parecer estranho, como assim, nao eh uma entrada, mas, ai, nos definimos que o type eh submit, entao, eh uma entrada de submissao, parece estranho, mas eh assim,
+
+	<div class="grupo-entrada">
+		<label for="cnpj">CNPJ</label>
+		<input id="cnpj" type="text" class="campo">
+	</div>
+
+	<input type="submit" value="Assinar MyPilas">
+
+, para o value dele, vamos colocar 'Assinar MyPilas', e vamos ver o que acontece, vamos recarregar.
+
+
+42. Vemos que criou um botaozinho, esta bem feinho, mas eh um botao. Esse botao aqui ja submete o formulario para o action definido para o formulario. Entao, vamos, agora, estilizar esse botao,
+
+	<input type="submit" value="Assinar MyPilas" class="botao  botao--principal">
+
+, botao--principal eh o modificador, a gente ja tem esse modificador  botao--principal definido no arquivo CSS, entao vamos recarregar.
+
+
+43. Okay, o botao apareceu estilizado, mas o botao nao ficou muito legal nao, ele tem uma borda cinza. A questao eh que o input do tipo submit coloca essa borda, entao, o ideal, aqui, eh a gente zerar essa borda aqui,
+
+.botao {
+  display: inline-block;
+  padding: 0.8em 1.2em;
+
+  background-color: #bbb;
+  color: #fff;
+  border: none;
+
+  line-height: normal;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+44. Okay, recarregamos e vemos que, agora, tirou a borda, nao tem aquela borda feia. Vamos ver se a gente nao estragou nada nos outros botoes, ou seja, vamos visitar a pagina index.html. Esta tudo certo, entao, a gente tirou a borda.
+
+45. Aqui, nesse botao, a gente precisa centraliza-lo, para ficar da mesma forma como esta no prototipo final da pagina do projeto do curso. Vamos, para centralizar esse botao, colocar, no botao de submit, um div,
+
+				<div>
+					<input type="submit" value="Assinar MyPilas" class="botao  botao--principal">					
+				</div>
+
+46. Aqui, nos poderiamos criar uma classe CSS, mas, como eh uma coisa muito simples, vamos deixar o CSS inline, e nos tambem vamos dar uma margem top de 15 pixels,
+
+				<div style="text-align: center; margin-top: 15px">
+					<input type="submit" value="Assinar MyPilas" class="botao  botao--principal">					
+				</div>
+
+47. Okay, recarregamos e o botao ficou no centro da pagina. A margem nao esta legal ainda, vamos aumentar para 40 pixels.
+
+48. Bom, esta aqui o nosso primeiro formulario, ele, logicamente, vai funcionar em dispositivos com telas menores tambem, porque esta muito simples o formulario, so dois campos, mas, mais para frente, nos vamos ter esses campos um do lado do outro e, ai, entra a questao de responsividade, porque pode ser que nao fique tao legal em uma tela menor, mas a gente vai resolver isso nessa proxima aula.
+
+49. Fim da Aula 07.016. Criando um Formulario: Assinatura de Plano.
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="pr-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MyPillas</title>
+
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+	<header class="layout-cabecalho">
+		<div class="container">
+			
+			<nav class="navegacao  navegacao--assinatura">				
+				<a href="index.html"><img src="imagens/logo.png" width="100" height="35" alt="MyPillas"></a>
+			</nav>
+
+		</div>
+	</header>
+
+	<main class="layout-assinatura">
+		<div class="container">
+			<form action="#" method="post">
+				
+				<h1 class="titulo-formulario">Sua assinatura do MyPilas</h1>
+
+				<div class="grupo-entrada">
+					<label for="razao-social">Razão Social</label>
+					<input id="razao-social" type="text" class="campo">
+				</div>
+
+				<div class="grupo-entrada">
+					<label for="cnpj">CNPJ</label>
+					<input id="cnpj" type="text" class="campo">
+				</div>
+
+				<!--div style="text-align: center; margin-top: 15px"-->
+				<div style="text-align: center; margin-top: 40px">
+					<input type="submit" value="Assinar MyPilas" class="botao  botao--principal">					
+				</div>
+			</form>
+		</div>
+	</main>
+
+	<footer class="layout-rodape">
+		<div class="container">
+			<p>&copy; MyPillas. Todos os direitos reservados.</p>
+		</div>
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!-- 
+    Aula 06.001. Especificidade do CSS
+
+1. Nesta aula, nos vamos estudar sobre o conceito de Especificidade,
+que eh algo muito importante quando a gente trabalha com CSS e muitas
+pessoas nao conhecem isso, trabalham com CSS há muitos anos e, ainda,
+nao se aprofundaram sobre esse assunto.
+
+2. Entao, gostaria-se que ja aprendessemos agora, nesta aula, e o instrutor
+tem certeza de que isso vai evitar muitas dores de cabeca quando estivermos
+desenvolvendo as nossas paginas com estilo CSS.
+
+3. Entao, entender isso eh muito importante. Entao, para demonstrar,
+vamos fazer um codigo e, ai, a gente vai falando tambem sobre a teoria
+e, no meio, da pratica. 
+
+4. Nos temos, aqui, uma pagina html muito simples, com um h1. Esse h1
+nos colocamos um id para ele e tambem colocamos uma classe CSS, que
+chamamos de amarelo.
+
+5. Por enquanto, nao temos nenhum estilo, nos estamos usando, aqui, o
+exemplo1.css, 
+
+body {
+    font-size: 32px;
+}
+
+, na verdade, a unica regra que nos temos, aqui, eh aumentando o 
+tamanho da fonte para renderizarmos 'AlgaWorks'.
+
+6. Entao, vamos fazer um exemplo aqui. Se nos colocarmos h1, criando
+uma regra com o seletor pela tag h1, color: red, nenhuma novidade,
+
+h1 {
+    color: red;
+}
+
+, vai ficar vermelho.
+
+7. Se nos colocarmos uma outra regra CSS com o mesmo seletor h1 e colocar
+uma outra cor, blue,
+
+h1 {
+    color: blue;
+}
+
+, o que que vai acontecer? Qual cor que vai aplicar, o vermelho ou o azul?
+
+8. Ao recarregar a pagina, vemos que aplicou a cor azul. Por que que isso
+acontece?
+
+9. Quando a gente tem regras com seletores iguais, os mesmos seletores
+aplicando declaracoes, propriedades-valores diferentes, a mesma 
+propriedade com valores diferentes, a ultima regra eh a que vale, ela
+eh aplicada, a ultima regra eh aplicada. 
+
+10. Entao, se nos invertermos a ordem aqui, agora tem que ficar vermelho,
+
+h1 {
+    color: blue;
+}
+
+h1 {
+    color: red;
+}
+
+11. Ao recarregar a pagina, vemos que o titulo ficou vermelho, porque
+a ultima regra foi o h1 com a propriedade com o valor vermelho.
+
+12. Entao, quando tem o mesmo seletor, a ultima regra tem prioridade.
+
+13. Mas vamos comentar o primeiro seletor h1 com a propriedade 
+color: red, vai ficar azul agora o titulo e vamos, agora, continuar
+alguns exemplos aqui.
+
+14. Vamos, ate, colocar acima do seletor h1. E se nos colocarmos, agora,
+a classe amarelo e colocarmos a propriedade color com amarelo,
+
+.amarelo {
+    color: yellow;
+}
+
+, so lembrando que, no html, nos temos uma classe amarelo no h1, qual
+cor que vai aplicar?
+
+15. Talvez estejamos pensando que eh o azul, porque ele esta declarado
+depois. Sera?
+
+16. Vamos colocar a classe amarelo embaixo do seletor h1, entao,
+
+h1 {
+    color: blue;
+}
+
+.amarelo {
+    color: yellow;
+}
+
+17. Vai ser renderizado com o amarelo, entao, porque ele esta declarado depois, 
+eh isso?
+
+18. Bom, realmente, ao recarregar a pagina, foi renderizado o amarelo.
+
+19. Mas, e se colocarmos a classe amarelo acima do seletor h1? Colocamos
+a Regra CSS da classe amarelo acima do seletor h1. E, agora, o que que
+vai acontecer?
+
+.amarelo {
+    color: yellow;
+}
+
+h1 {
+    color: blue;
+}
+
+20. Ao recarregar a pagina, vemos que continua amarelo.
+
+21. Por que que isso acontece? Porque, nisso aqui, entra o conceito de
+especificidade. Quando nos temos um seletor especificando por uma classe
+CSS, eh mais especifico do que um seletor pela tag. Entao, independente,
+neste caso aqui, independente da ordem, nao muda, porque a classe CSS eh
+mais especifica do que o seletor pela tag.
+
+22. O que muda a ordem que nos tinhamos falado antes, eh quando a gente
+tem o mesmo seletor, a mesma tag, h1, por exemplo, no nosso caso, h1 e 
+outro h1 brigam, eles entram em conflito.
+
+23. Se nos colocarmos, aqui, uma outra Regra CSS, vamos colocar verde
+aqui,
+
+.amarelo {
+    color: yellow;
+}
+
+.amarelo {
+    color: green;
+}
+
+, entao, a gente viu que a classe amarelo eh mais especifico do que a tag
+h1, entao, ela ganhou, ficou amarelo. Mas e se nos colocamos dois seletores
+iguais, com a classe amarelo? mas, na verdade, na classe debaixo, a cor
+eh verde, nao eh amarelo. Vai ficar qual cor?
+
+24. Ao recarregar a pagina, vemos que ficou a cor verde. Ficou verde 
+porque quem foi declarado por ultimo? Entao, as classes entraram em 
+conflito e a que foi declarado por ultimo venceu.
+
+25. Entao, eh assim, sempre que o seletor eh exatamente igual ao outro,
+quem foi declarado por ultimo ganha. Mas, quando isso nao existe, nesse
+caso, por exemplo aqui,
+
+.amarelo {
+    color: yellow;
+}
+
+h1 {
+    color: blue;
+}
+
+, quem ganha eh quem eh mais especifico. 
+
+26. Vamos fazer mais um exemplo aqui, continuar este exemplo, na verdade,
+colocar mais uma regra CSS.
+
+27. Nos temos, aqui, um id logo. Vamos colocar, aqui, entao, o seletor
+pelo id logo,
+
+#logo {
+    color: green;
+}
+
+, vamos colocar uma cor verde.
+
+28. Entao, quem eh mais especifico agora? Agora, quem eh mais especifico
+eh o seletor pelo id 'logo'. Por que? Porque o id, na verdade, quando a
+gente tem um id, a gente so pode ter um, se nos temos um id 'logo', a
+gente nao pode ter um outro id 'logo', ou seja, um id nao pode repetir
+na mesma pagina. Entao, ele eh muito especifico, se nos formos pensar.
+
+29. Uma tag eh mais generica. Uma classe CSS eh um pouco mais especifica.
+Mas, um id eh muito mais especifico. 
+
+30. Entao, se nos estamos especificando uma propriedade CSS aqui na
+declaracao que tenha um seletor por id, nos estamos dizendo que isso
+aqui eh muito especifico,
+
+#logo {
+    color: green;
+}
+
+, mais especifico que isso,
+
+,amarelo {
+    color: yellow;
+}
+
+, e mais especifico que isso,
+
+h1 {
+    color: blue;
+}
+
+31. Entao, ele tem que vencer a batalha da especificidade, ele eh mais especifico. Se colocarmos aqui purple,
+
+#logo {
+    color: purple;
+}
+
+, ao recarregar a pagina, ficou roxo, so para a gente conferir que esta atualizando. Vamos voltar para verde,
+
+#logo {
+    color: green;
+}
+
+32. Entao, eh isso. Nos temos que saber essa ordem, o que que eh mais especifico que o que. Entao, comecando pelo que eh menos especifico, o menos especifico eh o seletor por tag. Depois, o seletor por classe. Depois, o seletor por id.
+
+33. Essa eh a ordem que a gente fala de especificidade. Entao, especificidade eh a forma como o navegador decide quais propriedades CSS vao ser aplicadas em um elemento. E essa especificidade tem um peso que eh aplicado em cada declaracao que a gente tem. O que eh declaracao?
+
+34. Declaracao refere-se a declaracao das propriedades, por exemplo, na Regra CSS abaixo,
+
+#logo {
+    color: green;
+}
+
+, color: green; eh a declaracao.
+
+35. Entao, cada declaracao dessas tem um peso. E esse peso pode ser calculado. Vamos calcular agora qual que eh o peso.
+
+36. Funciona da seguinte forma, nos vamos ter os seletores por ID, que eh o mais especifico, a gente vai ter o seletor por Classe, que eh um pouco menos especifico e, depois, por Tag. Entao, eh o seguinte, quando a gente pega um seletor por id, igual a esse caso aqui,
+
+#logo {
+    color: green;
+}
+
+, para calcular o peso, se nos encontramos um seletor por ID, nos vamos dar uma nota, um ponto, 
+
+ID          Classe          Tag
+1
+
+, se nos temos um seletor por Classe, nos vamos colocar 1,
+
+ID          Classe          Tag
+1                1
+
+, se nos temos um seletor por Tag, nos vamos colocar 1,
+
+ID          Classe          Tag
+1                1            1
+
+, se nos nao temos Tag, nos colocamos 0,
+
+ID          Classe          Tag
+1                1            0
+
+, se nos nao temos do ID, nos colocamos 0,
+
+ID          Classe          Tag
+0                1            1
+
+37. Vamos ver na pratica como que eh isso. Esse seletor eh por ID, entao vamos colocar aqui o numero 1,
+
+#logo {     /** 1 **/
+    color: green;
+}
+
+38. Ele eh um seletor por Classe? Nao, ele so tem por ID, entao, colocamos 0,
+
+#logo {     /** 10 **/
+    color: green;
+}
+
+39. Aqui neste seletor tem Tag, tem aguma Tag? Nao, so tem um ID, entao, colocamos 0,
+
+#logo {     /** 100 **/
+    color: green;
+}
+
+40. Vejamos que ele ganhou uma nota 100.
+
+41. Vamos pegar o seletor de classe amarelo, agora. Este seletor eh um seletor que tem ID? Tem um ID especificando no seletor? Nao, nao tem, entao, colocamos 0.
+
+.amarelo {  /** 0 **/
+    color: yellow;
+}
+
+42. Esse seletor tem um nome de uma classe CSS? Tem, entao, colocamos 1,
+
+.amarelo {  /** 01 **/
+    color: yellow;
+}
+
+43. Esse seletor tem por Tag? Nao, entao, colocamos 0,
+
+.amarelo {  /** 010 **/
+    color: yellow;
+}
+
+44. E, para o h1, a mesma coisa. O h1 eh um seletor por ID? Nao, entao colocamos 0,
+
+h1 { /** 0 **/
+    color: blue;
+}
+
+45. Ele eh por classe? Nao, entao, colocamos 0,
+
+h1 { /** 00 **/
+    color: blue;
+}
+
+46. Ele eh por Tag? Sim, entao, colocamos 1,
+
+h1 { /** 001 **/
+    color: blue;
+}
+
+47. Entao, vejamos que, nessa briga de especificidade, quem ganha eh por ID, porque 100 eh maior que 10 e eh maior do que 1. Se nao tivessemos por ID, quem ganha? Eh o seletor por Classe, porque 10 eh maior do que 1. 
+
+48. Entao, eh assim que a gente calcula. Aqui, foi um calculo bem basico. Eh claro que nos poderiamos, aqui, so tem o 100, 10 e 1? Nao, nos poderiamos ter 12, 13, mas como?
+
+49. Se nos tivessemos, por exemplo, aqui, uma outra classe aqui,
+
+.outraclasse .amarelo {
+    color: yellow;
+}
+
+50. .outraclasse e .amarelo, entao, seria, entao, o que? Ao inves de 1 para o seletor Classe, nos colocamos 2,
+
+.outraclasse .amarelo {     /** 020 **/
+    color: yellow;
+}
+
+51. Entao, na verdade, o numero equivale a quantidade, eh a quantidade de ID's ou Classes ou Tags que nos temos no nosso seletor.
+
+52. Se, por acaso, no seletor por classe, nos tivessemos, tambem, um seletor por ID,
+
+#artigo .amarelo {
+    color: yellow;
+}
+
+, nos teriamos, entao, 1 seletor por ID e 1 seletor por Classe,
+
+#artigo .amarelo {     /** 110 **/
+    color: yellow;
+}
+
+, ou seja, 110. Entao, essa Regra CSS seria mais especifica do que a Regra CSS com o seletor logo, porque ele tem peso 100 e a Regra CSS com seletores #artigo .amarelo tem o peso de 110.
+
+53. Porque nos temos, no seletor, um ID, que equivale a 1, e uma Classe, que equivale a 1, nao temos Tag, colocamos 0, entao, o numero 110 ganharia de todos.
+
+54. Mas, vejamos, h1 eh menos especifico, seletor por Classe eh um pouco mais especifico e seletor por ID eh mais especifico ainda.
+
+55. Nos estavamos explicando matematicamente como calcular isso. Neste caso, na verdade, nao precisaria nem calcular, porque eh muito simples, nao tem que fazer calculo, neste caso, porque nos sabemos o que eh mais especifico e o que nao eh.
+
+52. Vamos, agora, para o exemplo 2. Abrir exemplo2.html.
+
+56. Aqui, nos estamos com a cor verde para o elemento h1, por causa do seletor mais especifico, que eh o ID #logo, mas se nos quisermos forcar que seja aplicado o seletor de Tag h1?
+
+57. E se quisermos forcar o seletor de Tag h1 a ter maior prioridade?
+
+58. Nos podemos colocar, aqui, espaco, ponto de exclamacao e important. Nos dizemos que ele eh mais importante,
+
+h1 {
+    color: blue !important;
+}
+
+59. E, ai, quando nos carregamos a pagina, fica azul. Entao, eh so para mostrarmos, mesmo, essa palavrinha important, que coloca o seletor de Tag como o mais importante em termos de especificidade.
+
+60. Mas, important nao eh uma boa pratica, geralmente, eh uma ma pratica e deve ser evitado, porque eh dificil debugar, nos ficamos sobrescrevendo as coisas, entao, deve-se evitar ao maximo usar isso aqui, deve-se evitar ao maximo usar important. Ele existe, mas deve-se evitar de usar-se. O important sobrescreve todas as outras declaracoes, entao, por isso nos temos que evitar.
+
+61. Voltar para o arquivo exemplo2.html.
+
+
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/exemplo1.css">
+    </head>
+    <body>
+
+        <h1 id="logo" class="amarelo">AlgaWorks</h1>
+
+    </body>
+</html>

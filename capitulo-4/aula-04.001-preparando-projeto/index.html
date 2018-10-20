@@ -1,0 +1,59 @@
+<!-- 
+	Aula 04.01. Preparando o Projeto
+
+1. A partir de agora, a gente vai comecar a botar a mao na massa no codigo do nosso Projeto do Curso. E imagina-se que nao viamos a hora de isso comecar. Para falar a verdade, estava-se bastante ansioso, mas as aulas passadas foram muito importantes, porque, agora, nos temos uma base muito boa em HTML e CSS, para podermos comecar a iniciar o Projeto.
+
+2. E, claro, ainda vamos ensinar um monte de coisas daqui para frente. Entao, a gente vai comecar a preparar o nosso projeto. Nesta aula, eh apenas a preparacao do Projeto. Nos ja temos, aqui, uma pasta criada e, dentro dela, a pasta imagens e, dentro da pasta imagens, nos temos o logo png, que eh a logomarca do nosso Projeto.
+
+3. O nosso Projeto eh ficticio, mas ele tem uma logomarca, ele tem um nome, a logomarca eh MyPilas, eh um arquivo png, uma imagem png. Entao, vamos comecar.
+
+4. Nos vamos criar aqui, na raiz do projeto, um arquivo e vamos chama-lo de index.html. Geralmente, quando a gente esta criando algum web site ou algum sistema, a pagina inicial a gente chama de index.html, eh um padrao. Nao somos obrigados a colocar esse nome, mas eh um padrao.
+
+5. E nem eh feio se nao colocarmos index, isso depende muito tambem de onde vamos hospedar, alguns servidores em que vamos hospedar ja entendem que o index.html eh a pagina principal, mas, tudo bem, podemos colocar o nome que nos quisermos. Vamos, entao, criar o nosso documento. 
+
+6. Os elementos ja foram explanados em aulas anteriores, <!DOCTYPE, a tag <html>, o <head>, o <meta charset="utf-8">, o titulo do nosso documento nos vamos colocar MyPillas, que eh o nome do nosso Web Site. Em seguida, definir o corpo do documento e colocar, tambem, dentro de <head>, a tag link, apontando para o arquivo CSS.
+
+7. Vamos criar uma pasta css dentro da raiz do Projeto e, dentro da pasta css, nos vamos ter um novo arquivo, que nos vamos chamar de estilos.css, onde nos vamos colocar as nossas Regras CSS.
+
+8. A primeira coisa que faremos eh criar um seletor para para pegar todos os elementos, ou seja, *,
+
+* {
+	box-sizing: border:box;
+}
+
+, e definir a propriedade box-sizing, para a gente trabalhar com border-box.
+
+9. Se nao se sabe o que significa isso, eh porque esquecemos ou pulamos a aula em que falamos de border-box. Entao, deve-se procurar a aula onde se explica sobre box-model, que nos vamos entender o que significa isso.
+
+10. Entao, vamos continuar. No seletor da tag body, nos vamos resetar margem para zero. Nos lembramos tambem que, em uma aula especifica, nos mostramos que o body tem uma margem definida por padrao e, aqui, a gente, entao, limpa-a, coloca-a como zero o padrao,
+
+body {
+	margin: 0;
+}
+
+, para a gente nao ficar com aquela margem sobrando.
+
+11. A gente vai definir, ainda no body, uma familia de fonte: Arial, Helvetica, sans-serif. font-size como 14. Aqui, nos estamos definindo que o tamanho da fonte padrao deste documento eh 14 pixels.
+
+12. Agora, eh apenas direcionar aqui para carregar o arquivo CSS, css/estilos.css, e esta pronto. Claro que, se carregaros esta pagina, ainda esta vazia, nao tem nada. Se colocarmos alguma coisa, 'teste', so para a gente ver, vemos que esta com margem 0, tamanho de fonte 14. Entao, eh so isso que a gente precisa precisava nesta etapa. Daqui para a frente, a gente comeca a usar esses arquivos para comecar a adicionar os nossos elementos do layout.
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+12. Fim da Aula 04.01. Preparando o Projeto
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>MyPillas</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+teste
+</body>
+</html>

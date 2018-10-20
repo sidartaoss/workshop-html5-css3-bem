@@ -1,0 +1,202 @@
+<!-- 
+	Aula 04.03. Listas Ordenadas e Nao-Ordenadas
+
+1. Nesta aula, nos vamos estudar sobre as listas do html, que podem ser ordenadas e nao-ordenadas. Neste video, nao veremos nenhum desenvolvimento do Projeto do Workshop, mas, o que a gente aprender aqui nesta aula a gente vai usar em aulas futuras dentro deste Workshop. Entao, eh um conhecimento que vai servir para formar a base para o desenvolvimento do Projeto.
+
+2. E, para a gente comecar, vamos fazer uma lista nao ordenada. Entao, para a lista nao ordenada, a gente usa o elemento da tag <ul>. Entao, <ul> vem de Unordered List, ou seja, uma Lista Nao-Ordenada. E fechamos a tag. Dentro de <ul>, a gente coloca uma outra tag chamada <li>, que representa um item de uma lista, um List Item,
+<ul>
+	<li></li>
+</ul>
+
+3. Fechamos o </li> e vamos escrever o HTML, por exemplo. Vamos recarregar a pagina e vemos uma lista, entao, no caso de uma lista nao ordenada, eh quando aparece esses bullets do lado esquerdo, essa bolinha do lado esquerdo e o item em seguida. 
+
+4. Entao, se colocarmos um outro elemento aqui, CSS, JavaScript, nos temos, aqui, entao, uma lista nao ordenada,
+
+	<ul>
+		<li>HTML</li>
+		<li>CSS</li>		
+		<li>JavaScript</li>
+	</ul>
+
+5. A gente vai ver, daqui um pouquinho, algumas modificacoes no estilo dessa lista com CSS. Entao, daqui um pouquinho, a gente ve isso.
+
+6. Vamos criar, agora, uma lista ordenada. Uma lista ordenada eh quando a ordem tem sentido, faz diferenca. Entao, se usamos uma lista nao-ordenada, eh quando tanto faz a ordem. Agora, quando tem necessidade de ser uma ordem especifica, ai usamos o elemento <ol>, que eh Ordered List,
+
+<or>
+	<li>Front-end</li>
+	<li>Back-end</li>
+</or>
+
+, e funciona da mesma forma, colocamos, dentro do elemento <ol>, elementos <li>. Aqui, vamos colocar Front-End e Back-End.
+
+7. Recarregamos a pagina e vemos que, em uma lista ordenada, ao inves de bolinhas, aparece a numeracao em ordem: 1, 2, 3, etc., e ai continuaria a sequencia.
+
+8. Entao, nesse caso, eh quando a gente quer demonstrar que tem relevancia a ordem da lista. Esses bullets e esses numeros sao colocados automaticamente pelo renderizador. Entao, nao acabamos.
+
+9. Nessa parte de listas aqui, entao, de listas ordenadas, a gente pode criar sublistas, a gente pode aninhar uma lista dentro de outra. Por exemplo, dentro de Front-end, queremos colocar as tecnologias. Front-end eh uma area de desenvolvimento, que eh, por exemplo, nos estamos estudando, neste workshop, HTML e CSS, entao, esta dentro da area de de Front-end. 
+
+10. Back-end eh outra area que a gente trabalha com desenvolvimento para servidores. Entao, vamos colocar, aqui, a lista de tecnologias para cada uma dessas areas. No caso de Front-end, vejamos o que nos faremos. Vamos colocar, aqui, so para ficar mais legivel o codigo, nao muda nada na renderizacao, mas vamos colocar, dentro de <li>Front-end</li>, outra lista nao-ordenada, <ul>,
+
+<ol>
+	<li>
+		Front-end
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+		</ul>
+	</li>
+</ol>
+
+, poderia ser uma lista ordenada tambem, tanto faz, e, aqui, vamos colocar HTML, CSS e JavaScript.
+
+11. Vamos carregar aqui, para nos vermos e vemos que criou uma sub-lista, ou seja, foi aninhado uma lista dentro do item Front-end.
+
+12. No caso, colocamos uma lista nao-ordenada dentro de uma lista ordenada, poderia ser o contrario ou o mesmo tipo de lista, nao tem problema.
+
+13. Vamos criar no Back-end tambem, uma outra lista, com Java EE e Spring Framework.
+		<li>
+			Back-end
+			<ul>
+				<li>Java EE</li>
+				<li>Spring Framework</li>
+			</ul>
+		</li>
+
+14. Ao recarregar a pagina, vemos que criamos uma outra sub-lista.
+
+15. Entao, agora, nos sabemos como trabalhar com listas ordenadas e listas nao-ordenadas.
+
+16. Mas, as listas, a gente usa isso bastante tambem, para representar, na nossa pagina, listas que nao necessariamente vai mostrar com esses bullets ou com esses numeros. As vezes, a gente nao exibe com esses bullets e com esses numeros, mas a gente quer representar isso dentro do html como listas. Por exemplo, nos queremos colocar uma lista de itens do menu. Pode ser usado o <li> para representar cada item do menu.
+
+17. Entao, nos temos um menu de navegacao do nosso Web Site e cada item daquela pagina, cada item com um link pode ser um <li>, mas nos nao vamos mostrar os bullets, as bolinhas, nao queremos mostrar isso.
+
+18. Entao, vamos pegar aqui e colocar uma classe que vamos chamar de menu. No arquivo estilos.css, nao vamos criar um seletor por <ul>, porque, se criarmos usando <ul>, vai pegar o <ul> aninhado dentro do item Front-end tambem. 
+
+19. E, no caso, nos queremos selecionar apenas a primeira lista que nos criamos,
+<ul class="menu">
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+</ul>
+
+, a lista debaixo nos nao vamos mexer.
+
+
+20. Entao, criamos uma classe menu,
+
+.menu {
+	
+}
+
+, se quisermos especificar ul.menu, isso a gente ja estudou em aulas la no inicio, em aulas anteriores, quando falamos de seletores,
+
+ul.menu {
+	
+}
+
+21. Agora que nos temos a classe menu, vamos especificar que nos nao queremos aquelas bolinhas. Entao, definimos list-style como none,
+
+ul.menu {
+	list-style: none;
+}
+
+, ou seja, nos nao queremos a bolinha. Entao, ao recarregar a pagina, vemos que as bolinhas sumiram. Mas, ainda vemos que, apesar de a bolinha ter sumido, ficou esse espaco referente as bolinhas. Esse espaco eh um padding, entao, nos vamos zerar o padding,
+
+ul.menu {
+	list-style: none;
+	padding: 0;
+}
+
+, nos zeramos e, ao recarregar a pagina, os itens voltam para o lado esquerdo.
+
+22. Mas a lista esta, ainda, muito distante de cima e embaixo. Entao, nos podemos tirar a margem. O elemento <ul> tem margem, por padrao, ele ja vem com margem definida,
+
+ul.menu {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+23. Ao recarregar a pagina, vemos que nao tirou o espaco debaixo, porque o elemento debaixo <ol> tambem tem margem, entao, nesse caso, eh a margem dele que esta sendo usada para a distanciar um do outro. A gente nao vai mexer na lista debaixo, vamos deixar os dois separados mesmo.
+
+
+24. Vemos que a margem, pelo menos, ja chegou mais proximo da borda de cima da pagina. 
+
+25. Agora, vamos definir o seletor filho direto li da classe menu do elemento ul. 
+
+ul.menu > li {
+	
+}
+
+, e vamos definir uma borda de 3 pixels, solida e de cor vermelha,
+
+ul.menu > li {
+	border: 3px solid red;
+}
+
+26. Entao, nos temos, aqui, ao recarregar a pagina, cada elemento <li> com uma borda vermelha. Agora, nos vamos colocar display inline-block, ja estudamos isso tambem, em aulas anteriores,
+
+ul.menu > li {
+	display: inline-block;
+	border: 3px solid red;	
+}
+
+, e os elementos <li> vao ficar lado a lado. Lembrando que, quando a gente coloca inline-block, fica um espacinho entre os elementos automaticamente, fica um espaco mesmo que a gente nao tem muito controle sobre isso. Se a gente nao quisesse deixar esse espaco, a gente teria que juntar os elementos <li>, 
+
+<li>HTML</li><li>CSS</li>
+
+27. Mas, ai, fica um codigo html bem tumultuado. Mas, como sao itens de menu, nao vemos problema ficar o espaco, porque achamos que sera necessario.
+
+28. E, agora, esta muito colado na borda, a borda com o texto. O que que a gente pode fazer para dar um espacamento entre o texto e a borda superior da pagina? Qual a propriedade?
+
+29. Padding. Entao, vamos definir, aqui, 5 pixels para o padding, para dar um espacinho,
+
+ul.menu > li {
+	display: inline-block;
+	border: 3px solid red;	
+	padding: 5px;
+}
+
+30. Ao recarregar a pagina, poderiamos chamar isso de menu. Claro, ainda nao estamos colocando links. Poderia, dentro do elemento <li>, colocar links, sem problema algum,
+
+<ul>
+	<li><a href="#">HTML</a></li>
+	<li></li>
+</ul>
+
+31. Entao, da para fazer bastante coisas com as listas. Como dissemos, eh bastante usado para menu e a gente vai usar listas no nosso Projeto do Workshop, em algumas situacoes e nos iremos ver isso na pratica em um Projeto Simulado real, que eh a nossa pagina do sistema do MyPilas, que eh o Sistema do Workshop.
+
+32. Fim da Aula 04.03. Listas Ordenadas e Nao-Ordenadas.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<ul class="menu">
+		<li><a href="#">HTML</a></li>
+		<li>CSS</li>
+		<li>JavaScript</li>
+	</ul>
+	<ol>
+		<li>
+			Front-end
+			<ul>
+				<li>HTML</li>
+				<li>CSS</li>
+				<li>JavaScript</li>
+			</ul>
+		</li>
+		<li>
+			Back-end
+			<ul>
+				<li>Java EE</li>
+				<li>Spring Framework</li>
+			</ul>
+		</li>
+	</ol>
+</body>
+</html>

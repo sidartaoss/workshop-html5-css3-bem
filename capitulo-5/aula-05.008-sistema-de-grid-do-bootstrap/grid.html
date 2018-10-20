@@ -1,0 +1,479 @@
+<!-- 
+	Aula 05.008. Sistema de Grid do Bootstrap
+
+1. Como ja dissemos, a gente vai usar o Sistema de Grid do Bootstrap, a gente nao vai usar os componentes do Bootstrap, apenas o Sistema de Grid do Bootstrap. 
+
+2. Entao, nos estamos aqui na pagina do Bootstrap, http://getbootstrap.com e nos nao vamos fazer download aqui no botao de Download bootstrap, porque, se nos fizermos Download aqui, nos vamos baixar todo o Bootstrap, ele completo. A gente nao precisa disso. Entao, tem um link aqui em cima, na pagina do Bootstrap, chamado Customize, vamos clicar nele e a gente pode customizar o que que a gente quer baixar, entao olhemos quantas coisas tem.
+
+3. Entao, nos clicamos no botao Toggle all, para desmarcar tudo, e vamos marcar apenas Grid System.
+
+4. Mais embaixo, esses Plugins aqui, nos tiramos tudo, nos nao precisamos de nada disso. Como nos dissemos, nao eh objetivo deste curso falar de Bootstrap, mas a parte de Grid CSS a gente vai falar.
+
+5. Entao, nos vamos rolando, rolando, ate o final da pagina, onde vai ter um botao para Compilar e fazer o Download, nos clicamos nele, e ele vai baixar apenas o Grid CSS e abrir, logicamente, as regras CSS base do Bootstrap, que sempre tem.
+
+6. Bem, o que nos baixamos esta aqui na pasta downloads, eh um arquivo zip, bootstrap-4.1.3-dist, vamos descompacta-lo, okay, vamos abrir a pasta CSS, e o que a gente vai precisar eh somente desse arquivo bootstrap.min.css. Esse arquivo .min eh um arquivo mimificado do arquivo bootstrap.css. So para nos vermos o que que eh, o bootstrap.css tem todo o codigo. O arquivo .min eh o arquivo mimificado, ou seja, onde esta o codigo? Esta tudo aqui, tudo um do lado do outro.
+
+7. Entao, o arquivo mimificado eh um arquivo entre aspas compactado. Entao, tira todos os espacos e deixa tudo bem coladinho, para o arquivo ficar menor, mas eh a mesma coisa, funciona da mesma forma. Como a gente nao vai ficar lendo esse codigo, a gente poe o mimifcado mesmo, mas, para leitura, eh bom usarmos o arquivo bootstrap.css.
+
+8. Entao, vamos copiar o arquivo bootstrap.min.css e vamos colar na pasta css desta aula, 05.008. Nos vamos colocar um nome diferente, vamos renomear para bootstrap-grid.min.css, so para a gente saber que nao eh o bootstrap completo, eh so o sistema de grid dele.
+
+9. Agora, vamos importar o Bootstrap, 
+
+<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+
+10. A primeira coisa que devemos ter o cuidado de fazer eh importar acima dos nossos proprios estilos, porque, se nos tivermos que substituir alguma coisa, o que vem depois pode ter preferencia, se estivermos utilizando o mesmo seletor.
+
+11. Esse Bootstrap, quando a gente baixa o Bootstrap, na verdade, ate mesmo quando a gente baixa so um modulo, como o Grid CSS dele, ele vem com alguns estilos base, que nunca saem dali, por exemplo, os estilos do normalize.css. Entao, o Bootstrap, isso a gente ja viu sobre o normalize, em uma aula anterior, reset.css, normalize.css, lembremos disso.
+
+12, O Bootstrap usa o normalize.css, entao ele ja esta aqui o normalize tambem, so para nos sabermos depois, inclusive, quando a gente for voltar para o nosso projeto do curso, a gente tem que lembrar disso, porque la, a gente esta usando normalize, mas o Bootstrap ja tem normalize. Entao, nao precisa ter duas vezes.
+
+13. Mas, so mesmo um parenteses, vamos voltar aqui.
+
+14. Agora que a gente ja fez o Download e adicionamos o Bootstrap na nossa pagina, a pagina nos definimos com um fundo cinza, nos deixamos um estilo CSS com um fundo cinza, 
+
+body {
+	background-color: #ccc;
+}
+
+15. Isso aqui a gente ja vai utilizar daqui um pouquinho, eh so para colocar algumas cores nesses containers, a gente vai usar essas classes agora,
+
+.container, .container-fluid {
+	background-color: #fff;
+}
+
+h1 {
+	padding 20px 0;
+	margin: 0;
+}
+
+16. Vamos, agora, colocar, aqui, um div, antes de falar das classes e, dentro desse div, vamos colocar um titulo qualquer, com o elemento h1, AlgaWorks.
+
+<div>
+	<h1>AlgaWorks</h1>
+</div>
+
+17. Vamos recarregar a pagina.
+
+18. Okay, AlgaWorks foi renderizado na pagina. 
+
+19. Nos podemos colocar esse titulo AlgaWorks dentro de um div e definir que esse div eh um container. A gente, inclusive, ja criou um container na mao, a gente mesmo criou um container, de 1200 pixels, no projeto do curso, o qual nos lembramos, entao, quando a gente criou o nosso container, ficou fixo, a gente colocou-o centralizado. Entao, a gente coloca todo o conteudo da pagina dentro de um container fixo, porem centralizado.
+
+20. Entao, o proprio Bootstrap ja tem tambem containers. Entao, por exemplo, vamos comecar com esse container aqui, "container",
+
+<div class="container">
+	<h1>AlgaWorks</h1>
+</div>
+
+, inclusive, eh o mesmo nome container. Quando nos colocamos esse container, so para vermos que, em estilos.css, nos estamos definindo a classe container com uma cor de fundo branca, so mesmo para ficar didatico para nos conseguirmos enxergar a diferenca.
+
+21. Quando nos colocamos o container, olhemos o que aconteceu. O nosso elemento h1 ficou dentro do container, entao, o nosso titulo ficou dentro do container. O container eh o branco, eh a caixa com a cor branca.
+
+22. Vejamos, ficou bem parecido com o que a gente tinha feito, lembremos que a gente tinha feito o container com o tamanho da largura fixo, mas, aqui, a gente tem que ver qual que eh a medida dele de tamanho da largura.
+
+23. Mas olhemos o que acontece, vamos ver a medida dele de tamanho da largura, primeiro. Vamos inspecionar o div container. Estamos insepcionando, vamos ver o container e, aqui, nos podemos ver a medida que esta usando, a largura de 1140 pixels de largura. 
+
+
+24. Mas tem um detalhe. Quando nos vamos diminuindo a tela, o que aconteceu? Deu um salto a caixa com a cor branca. O que acontece eh que, agora, aqui, o container tinha 1170 pixels, ai foi diminuindo, chegou um momento nao tem mais 1170 pixels, ele tem, agora, 960 pixels. E nos vamos diminuindo, diminuindo mais, vamos ver o que acontece, dimunuiu a caixa branca mais um pouquinho.	Agora, o container tem 720 pixels, ou seja, o container eh fixo. Ele tem uma medida fixa?
+
+25. Sim, ele tem uma medida fixa, mas o proprio Bootstrap usa Media Query para diminuir o tamanho do container a medida que a largua da tela vai sendo reduzida. Entao, agora que a gente tem uma tela ainda menor, o container tem 720 pixels.
+
+26. Daqui a pouco, o que vai acontecer?
+
+27. Agora, o que acontece? Chegou nesse ponto aqui, quando diminuimos ainda mais a tela, a partir desse ponto, o container deixa de ser fixo e ele comeca a ser fluido, ou seja, ele ocupa o que tem de espaco.
+
+28. Ao aumentar a tela, a partir de um determinado momento, inclusive, quando nos estamos inspecionando o html, quando nos vamos diminuindo o tamanho da tela, vai sendo exibido pelo navegador a largura e altura no lado superior direito. A partir de 576 pixels do tamanho da tela, ja comeca a ser fixo, comeca a ter ja 540 pixels fixo no container, 
+
+29. E a gente pode ver aqui, na inspecao, a gente pode ver que eh exatamente isso que nos falamos, a partir de 576 pixels, com o Media Query, que a gente aprendeu, a partir da largura minima da tela de 576 pixels, a largura do container fica fixa com 540 pixels.
+
+30. Entao, no Bootstrap, tem varias Media Queries dessas, que vao redefinindo o tamanho do container. Na pagina do Bootstrap, se nos, ou melhor, essas paginas sempre vao alterar, mas sempre vai ter essa documentacao, no menu CSS e no link Grid System, Sistema de Grid, https://getbootstrap.com/docs/4.1/layout/grid/#grid-options, em tamanho do container, ou seja, Max Container width, a partir de 768 pixels de tamanho de tela, o tamanho do container fica 720 pixels, a partir de 992 pixels de tamanho de tela, vai ficar 970 pixels de tamanho de largura do container e, a partir de 1200 pixels de tamanho da largura de tela, o container fica com 1140 pixels de tamanho na sua largura. Ou seja, 1200 pixels eh a largura da tela, se a largura da tela for de 1200 pixels, o tamanho da largura do container fica com 1140 pixels. 
+
+31. O container fixo como esse eh um container fixo, porem, responsivo. O container fixo eh bom porque, se nos tivermos uma tela muito grande, que tem uma largura muito grande, ele fixa em 1140 pixels, que eh a ultima largura que ele pode definir aqui, nao tem mais que isso.
+
+32. Isso pode ser bom, porque nos temos o controle do tamanho do nosso container, nos sabemos que nao vai passar disso. Se nao vai passar disso, nos nao temos que pensar, 'Nossa, se a tela for muito grande, como que esses elementos vao ficar organizados nessa tela muito grande?'. Entao, nos deixamos fixo. O problema disso eh que nos nao usamos toda a tela se ela for muito grande, toda a resolucao. Vai ficar um espaco sobrando do lado direito e do lado esquerdo, como aqui ficou espaco sobrando do lado direito e do lado esquerdo, mas como a tela do instrutor eh bem pequena, eh tranquilo, em uma tela maior, vai ficar mais espaco sobrando, mas eh como funciona um layout fixo e responsivo como esse.
+
+33. Agora, vamos ver um outro tipo de container, o container-fluid, o container fluido.
+
+34. Esse container fluido sempre ocupa 100% da largura da tela, entao, independente se eh uma tela bem pequenininha ou uma tela muito grande, ele vai ocupar 100% da largura. Mas para que que nos precisamos de um container desse?
+
+35. Primeiramente, eh por causa da semantica, para dizer que eh um container, mas tambem porque, vejamos, ele da um padding de 15 pixels do lado esquredo e 15 pixels do lado direito da tela, a gente, obviamente, nao esta enxergando, porque nao ha componentes do lado direito, mas ele da um padding de ambos os lados direito e esquerdo. Quando nos falamos 15 pixels, eh o padrao, sempre essas coisas nos podemos customizar, caso queiramos. 
+
+36. Entao, nos ja usamos container, fixo, entao, e o container-fluid.
+
+37. Agora, vamos fazer o nosso exemplo. Na verdade, a gente vai fazer o ultimo exemplo que foi mostrado em slide pelo instrutor na aula anterior, em que foi exibido o Sistema de Grid para dispositivos com telas menores, para dispositivos moveis, por exemplo.
+
+38. Vamos comecar pensando em Mobile First, ou seja, para dispositivos moveis primeiro. Entao, ao inves de olharmos aqui o layout como a gente colocaria a disposicao dos elementos em uma tela Desktop ou em uma tela media, de um tablet, por exemplo, a gente vai olhar, primeiro, uma tela pequena, como ficaria uma tela pequena, Mobile First, Dispositivos Moveis primeiro.
+
+39. A gente pode ver que, em uma tela pequena, eh muito simples, do jeito que nos definimos aqui, poderia ser que nao, mas, do jeito que nos definimos aqui, eh tudo empilhado, um em cima do outro.
+
+40. Pode ser que, de repente, nos falemos, 'Nao, o Banner vai ser um do lado do outro', okay. Mas, neste caso aqui, eh tudo empilhado um em cima do outro. 
+
+41. Vai ser muito facil fazer isso. A gente cria, entao, os DIV's. Por exemplo, aqui, nos vamos criar um div aqui com h1, nomeado com o titulo Logo,
+
+<div>
+	<h1>Logo</h1>
+</div>
+
+, aqui, nos vamos colocar uma cor de fundo verde e uma cor de fonte branca,
+
+<div style="background-color: green; color: #fff">
+	<h1>Logo</h1>
+</div>
+
+
+42. Okay, entao, nos temos, aqui, o nosso div colorido com verde, ele esta ocupando todo o espaco, porque um div ja ocupa 100% da largura, por isso que ele chegou ate o final da tela, ou seja, do inicio do lado esquerdo ate o final do lado direito da tela.
+
+43. Mas nos nao dissemos quantas colunas que nos queremos ainda, mas nos vamos fazer isso agora. 
+
+44. Mas eh o seguinte, nos poderiamos, ate, fazer isso aqui,
+
+		<div style="background-color: green; color: #fff;">
+			<h1>Logo</h1>
+		</div>
+
+, mas quando nos queremos usar o sistema de Grid, nos sempre organizamos os elementos em linhas e colunas. Entao, nos vamos, primeiramente, colocar aqui um div que nos vamos chamar de row, ou seja, nos vamos nomear a classe desse div com row,
+<div class="row">	
+	<div style="background-color: green; color: #fff;">
+		<h1>Logo</h1>
+	</div>
+</div>
+
+, row eh uma classe CSS do Bootstrap que agrupa colunas. Entao, sempre que nos formos colocar colunas, nos quisermos separar em colunas, nos criamos, antes, uma linha, so para agrupar, row eh um agrupador de colunas.
+
+45. Agora, em seguida, nos vamos colocar um outro div e, aqui, sim, esse div nos vamos colocar que ele esta ocupando 12 colunas. E como que nos fazemos isso?
+
+46. Se a gente olhar, aqui, na documentacao do Bootstrap, 
+https://getbootstrap.com/docs/4.1/layout/grid, eh esse prefixo aqui, 
+'.col-'. Quando nos queremos que, em telas pequenas, <768 pixels, 
+nos queremos especificar, na verdade, em telas pequenas, dessa forma, 
+a nossa coluna, ela tem um prefixo, nos colocamos um nome de classe 
+CSS, nos colocamos '.col-'. Entao, nos definimos, aqui, no arquivo 
+html, <div class="col-12", ou seja, em uma tela extra-pequena, ou seja, 
+uma tela de telefone, geralmente, uma tela extra-pequena, use 12 
+colunas,
+
+<div class="row">	
+
+	<div class="col-12"
+		<div style="background-color: green; color: #fff;">
+			<h1>Logo</h1>
+		</div>
+	</div>
+
+</div>
+
+47. Ao recarregar a pagina, nao da para ver diferenca porque, so tem o elemento h1, que eh o titulo, entao, nao tem outra forma. Vamos colocar mais elementos, e vai ficar mais facil de enxergar isso.
+
+48. Vamos colocar, agora, os outros. Como eh tudo empilhado, todos usando as 12 colunas, a gente vai ficar com as demais colunas com essa classe 'col-12', depois a gente vai usar outras. Entao, agora, eh um trabalho bracal aqui.
+
+49. Vamos colocar o Menu. Para o Menu, vamos colocar a cor azul,
+
+	<div class="col-12"
+		<div style="background-color: blue; color: #fff;">
+			<h1>Menu</h1>
+		</div>
+	</div>
+
+50. Vamos colocar Banner 1, 2, 3. Para o Banner 1, vamos colocar darkblue. Para o Banner 2, vamos definir cor orange. E, para o Banner 3, vamos definir a cor vermelha.
+
+51. Falta 1, que eh o rodape. O rodape vai ficar com a cor preta.
+
+
+52. Okay, vamos ver o que acontece, ou seja, vamos recarregar a pagina.
+Temos aqui, entao, Logo, Menu, Banner 1, 2, 3 e Rodape. Ao diminuir e 
+aumentar o tamanho da largura da tela, vemos que eles estao fluidos, 
+porque estao ocupando as 12 colunas, entao, se estiver em uma tela 
+pequena, funciona, se estiver em uma tela grande, funciona.
+
+53. Mas, logicamente, um Web Site como esse, nao precisaria ficar 
+empilhado em uma tela maior, nem em uma tela media. Em uma tela 
+pequena, sim, o empilhado seria o ideal, para nao ficar nada 
+tumultuado, esprimido. Mas, uma tela media ou uma tela maior ja nao 
+precisaria ficar tudo empilhado, nos temos mais espaco para trabalhar 
+na largura. Entao, a gente comeca a fazer algumas customizacoes aqui,
+dizer, por exemplo, vamos dar uma olhada aqui no slide apresentado 
+pelo instrutor para o Sistema de Grid para Tela Media.
+
+54. No slide apresentado pelo instrutor para o Sistema de Grid para 
+Tela Media, a Logomarca e o Menu ocupam 3 colunas para a Logomarca
+e 9 colunas para o Menu. Entao, aqui no codigo do arquivo html,
+nos podemos configurar isso.
+
+55. Vamos dar uma olhada na documentacao do Bootstrap, ai nos temos que
+escolher a partir de quantos pixels que nos queremos mudar. Nos queremos
+colocar um do lado do outro a partir de quanto? A partir de da medida
+768? ou acima de 992 ou acima de 1200 pixels? Vamos colocar que, a partir
+de 768, nos ja queremos mudar essa disposicao.
+
+56. Se nos quisermos fazer isso, nos usarmos '.col-md-'.
+
+57. Entao, nos vamos colocar no div referente ao Logo, do lado da classe
+'col-12', nos nao apagamos 'col-12', porque, com 'col-12' nos estamos
+definindo que, no tamanho de tela muito pequeno (extra small), eh isso, 
+ou seja, vai ocupar 12 colunas. Mas, agora, nos colocamos col-md-3, 
+ou seja, em uma tela media, que tenha largura a partir de 768 pixels,
+ocupe 3 colunas, nao ocupe 12 colunas mais,
+
+<div class="col-12 col-md-3">				
+	<div style="background-color: green; color: #fff;">
+		<h1>Logo</h1>
+	</div>
+</div>
+
+58. Ao recarregar a pagina, vemos que ja esta ocupando apenas 3 colunas.
+Ao diminuir a largura da tela, entao, volta a ocupar 12 colunas. Entao,
+eh possivel ver onde 768 pixels fica ao aumentar ou diminuir a tela e
+ver onde muda de 3 colunas para 12 colunas a serem ocupadas pelo Logo.
+
+59. Nos podemos, inclusive, ir em Developer Tools para mostrar as medidas
+no canto superior direito do Chrome. Entao, com o DevTools do Chrome, 
+nos vemos que, a partir de 768 pixels, a Logomarca ja passa a ocupar
+apenas 3 colunas.
+
+60. E esse espaco em branco depois da Logomarca, por que que ficou 
+branco? Porque o Menu nao cabe nesse espaco em branco. Por que que
+nao cabe? Porque o menu a gente definiu que vai ocupar 12 colunas em
+uma tela pequena. Mas nos estamos em uma Tela Media, neste caso, por
+que que continua ocupando 12 colunas? 
+
+61. Eh porque o Menu, neste caso aqui, esta sem numero de colunas 
+especifico, a gente nao esta dizendo tambem para ele ocupar, por exemplo,
+3, para ele usar 9 colunas. Como a gente nao disse nada para esse 
+tamanho de Tela Media, ele vai, simplesmente, empilhar.
+
+62. Se a gente olhar na documentacao do Bootstrap, dispositivos extra
+pequenos sao ate 768 pixels. Aqui, a gente tem uma tela maior do que 
+isso. Como, aqui, a gente definiu que a classe eh para dispositivos
+extra pequenos, '.col-', as propriedades que vao preencher a coluna,
+as propriedades dessa classe '.col-' nao vao ser aplicadas no Menu.
+Algumas sim, algumas propriedades sao padrao, mas as propriedades que 
+nos dizemos de posicionamento que o Menu tem que ficar ao lado da
+Logomarca, nao, porque nao tem nada disso especificando, entao, ele
+vai jogar para baixo mesmo.
+
+63. Se nos quisermos colocar o Menu do lado direito, eh muito facil,
+do lado da Logomarca. Eh so nos definirmos que nos queremos fazer isso.
+Por exemplo, nos podemos definir aqui, 'col-md-9', 
+
+<div class="col-12 col-md-9">
+	<div style="background-color: blue; color: #fff;">
+		<h1>Menu</h1>
+	</div>
+</div>
+
+, 9 mais 3, igua a 12, entao, vai dar certinho.
+
+64. Recarregamos a pagina e pronto, o Menu esta do lado direito.
+
+65. Esse espaco em branco que a gente esta vendo aqui entre o Logo e 
+o Menu, eh o que? Eh o Gutter, de 15 pixels. Na verdade, 15 mais 15, 
+entao, sao 30 pixels. Se nos olharmos o div do Menu, ele tem, aqui,
+um padding-left de 15 pixels e o div do Logo tambem tem um padding-
+right de 15 pixels tambem. Esta certinho, ele deu esse espaco que eh o
+do Gutter.
+
+66. Vamos continuar aqui, o Banner 1. Para o Banner 1, nos queremos
+colocar que, a partir de uma Tela Media, ocupando 6 colunas,
+
+<div class="col-12 col-md-6">
+	<div style="background-color: darkblue; color: #fff;">
+		<h1>Banner 1</h1>
+	</div>
+</div>
+
+67. O Banner 2 tambem 6 colunas,
+
+<div class="col-12 col-md-6">
+	<div style="background-color: darkblue; color: #fff;">
+		<h1>Banner 2</h1>
+	</div>
+</div>
+
+
+68. E, de acordo com o slide para Telas Medias do instrutor, o Banner
+3 vao ser 12 colunas,
+
+<div class="col-12 col-md-12">
+	<div style="background-color: red; color: #fff;">
+		<h1>Banner 3</h1>
+	</div>
+</div>
+
+69. O Rodape continua com as 12 colunas. Vamos recarregar a pagina
+e vemos que: temos a Logomarca, o Menu, Banner 1, Banner 2. O Banner 3
+ficou com 100%, ocupando as 12 colunas. 
+Se nos vamos diminuindo a tela, empilha tudo. Se nos vamos aumentando
+a tela, em uma Tela Media, fica da forma que a gente ve no slide de
+Tela Media do instrutor.
+
+70. Entao, agora, vamos configurar para quando eh uma Tela Grande, 
+porque, quando nos temos uma tela maior, a gente pode colocar os 
+Banners um o lado do outro, nao tem necessidade de o Banner 3 ficar
+esticado aqui, no nosso caso ficticio, no nosso exemplo ficticio.
+
+71. Se a gente olhar aqui, na imagem do slide do instrutor para Tela
+Grande, a gente tem, aqui, entao, Banner 1, 2, e 3 lado a lado.
+
+72. Para isso, a gente vem aqui no Banner 1 e coloca 'col-' e, aqui,
+a gente tem que decidir a partir de quanto que a gente quer coloca-los
+lado a lado? A partir de 992 pixels ou a partir de 1200 pixels? 
+
+73. Vamos considerar 992 pixels, entao eh a classe '.col-lg-', ou seja,
+Tela Grande, Large,
+
+<div class="col-12 col-md-6 col-lg-4">
+	<div style="background-color: darkblue; color: #fff;">
+		<h1>Banner 1</h1>
+	</div>
+</div>
+
+, entao, definimos 'col-lg-3', por que? Porque sao 12 colunas no total,
+nos vamos, entao, usar 4 colunas para cada um dos Banner's, somando
+12 colunas.
+
+74. Vamos recarregar a pagina. Os Banners aparecem lado a lado, Logo
+e Menu tambem estao certinhos, vamos diminuindo o tamanho da largura
+da tela. Quando a tela esta maior, entao, esta pegando os estilos de
+Tela Media para frente, quando diminuimos mais a tela, ai ja pega o 
+preenchimento das Grids configurado para Tela Media. A gente vai 
+diminuindo o tamanho da largura da tela e fica tudo empilhado, que eh
+para Telas Pequenas.
+
+75. Entao, a gente configurou o posicionamento dos elementos de acordo
+com o tamanho de tela, usando um Sistema de Grid. 
+
+76. Vejamos que a gente nao precisou escrever nenhuma Media Query no
+nosso CSS, a gente so usou o Sistema de Grid do Bootstrap e as classes
+dele.
+
+77. Mais uma ultima coisa aqui. Vamos supor que a gente coloque, no Menu,
+um posicionamento de 3 colunas para a Tela Media,
+
+<div class="col-12 col-md-3">
+	<div style="background-color: blue; color: #fff;">
+		<h1>Menu</h1>
+	</div>
+</div>
+
+78. Se nos recarregarmos a pagina, nos vemos que o Banner 1 subiu.
+Entao, poderia acontecer um problema assim de nos errarmos, em algum
+momento, e acabar tendo um prolema desses.
+
+79. Entao, o Banner sobe ate empilhar tudo. Isso aqui aconteceu porque
+a gente nao tomou um cuidado aqui. O cuidado eh o seguinte.
+
+80. A gente colocou uma unica linha, ou seja, o div row. 
+O ideal eh que nos fechemos esse div row logo apos o div de Menu
+e abramos outro logo em seguida.
+
+81. Conforme o slide mostrado pelo instrutor para Tela Grande: Entao, 
+a gente entende que Logo e Menu estao dentro de uma Linha.
+A gente entende, tambem, que os 3 Banners estao dentro de outra Linha.
+Entao, nos colocamos que os tres Banners estao dentro de outra linha.
+E o rodape esta sozinho dentro de outra Linha.
+
+82. Entao, a gente sempre estrutura dessa forma. A gente tem a div de
+container, que pode ser fluido ou nao. Ai, dentro da div de container,
+a gente tem as linhas e, dentro das linhas, a gente tem as colunas. E,
+dentro das colunas, a gente tem os elementos de conteudo. Entao, dessa
+forma, ao recarregar a pagina, nos vemos que esta tudo certinho,
+o Banner 1 nao esta mais subindo para ficar ao lado de Menu. Ou seja,
+o Menu, agora, ficou certinho, o Logo ocupa 3, o Menu ocupa 3 colunas e
+nao interfere em nada nos Banners, ficou sem interferir, os Banners
+nao sobem.
+
+83. Entao, nao se deve nunca esquecer de colocar a linha, para nao 
+termos esse tipo de problema e, as vezes, nos nao vemos o problema, 
+porque nos estamos em uma resolucao, nos nao fomos para outra resolucao,
+entao, pode acontecer isso, sempre deve ser definido a linha, para
+evitar esses problemas.
+
+84. So para finalizar, vamos alterar de container-fluid para container,
+o container fixo, porem responsivo e vamos recarregar a tela. Vejamos o
+que aconteceu, diminuiu um pouquinho o tamanho do container, porque eh
+um tamanho fixo, ele coloca 1140 pixels, que a gente viu no comeco da
+aula.
+
+85. E nos vamos diminuindo, diminuindo e nao muda nada e, de repente,
+o tamanho da largura do container diminui mais. Eh fixo, porem, foi 
+definido de acordo com o tamanho da tela. Nos vamos diminuindo, vemos
+que os elementos nao mudam nada, de repente, muda de novo, vamos 
+diminuindo e, ai, fica fluido, agora, ocupando 100% do espaco, ou seja,
+os elementos ficam empilhados.
+
+86. Entao, espera-se que tenhamos, agora, aprendido a como usar o 
+Sistema de Grid do Bootstrap. Existem, na verdade, varios frameworks
+CSS que tem Sistemas de Grids proprios, existem outras bibliotecas
+CSS que nos baixamos, so de Sistemas de Grids, existem varias formas
+de nos fazermos isso, tem como nos fazermos o nosso proprio Sistema de
+Grid, mas a gente vai usar o Bootstrap, que eh algo muito conhecido
+e muito bom tambem o Sistema de Grid dele, a gente vai usa-lo no nosso
+Projeto.
+
+87. Fim da Aula 05.008. Sistema de Grid do Bootstrap.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+	<div class="container">
+	<!-- div class="container-fluid"-->
+		<!--h1>AlgaWorks</h1-->
+
+		<div class="row">
+			
+			<div class="col-12 col-md-3">
+				<div style="background-color: green; color: #fff;">
+					<h1>Logo</h1>
+				</div>
+			</div>
+
+			<!--div class="col-12 col-md-9"-->
+			<div class="col-12 col-md-3">
+				<div style="background-color: blue; color: #fff;">
+					<h1>Menu</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+
+			<div class="col-12 col-md-6 col-lg-4">				
+				<div style="background-color: darkblue; color: #fff;">
+					<h1>Banner 1</h1>
+				</div>
+			</div>		
+
+			<div class="col-12 col-md-6 col-lg-4">
+				<div style="background-color: orange; color: #fff;">
+					<h1>Banner 2</h1>
+				</div>
+			</div>	
+
+			<div class="col-12 col-md-12 col-lg-4">				
+				<div style="background-color: red; color: #fff;">
+					<h1>Banner 3</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">			
+
+			<div class="col-12">				
+				<div style="background-color: black; color: #fff;">
+					<h1>Rodapé</h1>
+				</div>
+			</div>			
+
+		</div>
+
+	</div>
+
+</body>
+</html>

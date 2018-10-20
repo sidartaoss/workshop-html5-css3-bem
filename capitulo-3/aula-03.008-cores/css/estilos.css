@@ -1,0 +1,105 @@
+/**1.
+.caixa1 {
+	background-color: blue;
+	color: white;
+}
+*/
+/**2.
+.caixa1 {
+	background-color: blue;
+	color: amarelo;
+}
+*/
+.caixa1 {
+	background-color: blue;
+	color: white;
+}
+
+/**3.
+.caixa2 {
+	background-color: rgb(255, 0, 0);
+	color: rgb(0, 0, 0);
+}
+*/
+
+/**4
+.caixa2 {	
+	background-color: rgb(255, 200, 0);
+	color: rgb(0, 0, 0);
+}
+*/
+
+/**5.
+.caixa2 {	
+	background-color: rgb(255, 255, 0);
+	color: rgb(0, 0, 0);
+}
+*/
+
+/**6.
+.caixa2 {	
+	background-color: rgb(255, 0, 150);
+	color: rgb(0, 0, 0);
+}
+*/
+
+
+.caixa2 {	
+	background-color: rgb(255, 0, 255);
+	color: rgb(0, 0, 0);
+}
+
+.caixa3 {
+	background-color: rgb(255, 200, 0);
+	color: rgb(255, 255, 255);
+}
+
+/**7.
+.caixa4 {
+	background-color: #FFC800;
+}
+*/
+
+/**8.
+.caixa4 {
+	background-color: #FF00C8;
+}
+*/
+
+.caixa4 {
+	background-color: #ff00c8;
+	color: #ddff00;
+}
+
+/**9.
+.caixa5 {
+	background-color: #ddff00;
+	color: 
+}
+*/
+
+/**10.
+.caixa5 {
+	background-color: #df0;
+	color: ;
+}
+*/
+
+/**11.
+.caixa5 {
+	background-color: #df0;
+	color: #ffffff;
+}
+*/
+
+/**
+.caixa5 {
+	background-color: #df0;
+	color: #000;
+}
+*/
+
+.caixa5 {
+	background-color: #66ff33;
+	color: #000;
+}

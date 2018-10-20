@@ -1,0 +1,443 @@
+<!-- 
+
+    Aula 05.003. Unidade de Medida: Percentual
+
+1. Agora, a gente vai estudar sobre a medida percentual, que eh uma medida relativa. 
+
+2. Mas, relativa, sobre o que? Isso a gente vai ver, porque depende.
+
+3. E, para isso, nos temos este html, que esta bem simples, temos dois DIV's, um 
+container, uma caixa, o h1 e o p.
+
+4. Ao carregar a pagina, renderiza a pagina sem estilos, por enquanto, nao tem nenhum arquivo
+CSS estilizando esta pagina.
+
+5. E vamos fazer alguns testes. Nos vamos pegar, aqui, o paragrafo, seletor p, e vamos colocar
+o font-size dele e, agora, nos vamos usar a medida que a gente vai estudar nesta aula, que eh
+o percentual. Vamos colocar o font-size dele de 200 por cento,
+
+p {
+    font-size: 200%;
+}
+
+6. Se nos definimos isso aqui, o que que nos estamos dizendo?
+
+7. Que nos queremos o tamanho da fonte do paragrafo 200 por cento em relacao ao tamanho da
+fonte do pai.
+
+8. Entao, eh relativo ao pai. E qual que eh o tamanho da fonte do pai? Qual que eh o tamanho
+da fonte padrao do navegador?
+
+9. Existe um consenso de que os navegadores, geralmente, tem essa fonte padrao que eh 16 
+pixels. Entao, quando nos colocamos 200%, nos estamos dizendo que nos queremos 200% em 
+relacao... vamos inspecionar o paragrafo, 200% em relacao a fonte do pai, que o pai eh esse
+div caixa. Mas o div caixa tem uma fonte padrao, que eh de 16 pixels. Entao, vai ficar...
+vamos inspecionar o p, na Guia Computed do Chrome DevTools, nos vamos procurar aqui por 
+font-size, e aparece 32 pixels, entao, dobrou.
+
+10. Se nos definirmos 100%, o tamanho da fonte do p eh 16 pixels,
+
+p {
+    100%;
+}  
+
+11. Verificamos, ao recarregar a pagina, na Guia Computed, inspecionando o p, que o 
+font-size eh de 16 pixels, ou seja, o tamanho padrao.
+
+12. Vamos mudar, novamente, para 200%,
+
+p {
+    200%;
+}
+
+, e, agora, vamos nas configuracoes do Chrome, que a gente viu isso na aula anterior e a 
+gente vai alterar a fonte padrao do Usuario. Ao inves de deixar Medio, vamos alterar para
+Muito grande.
+
+13. Agora, o tamanho do p, automaticamente, foi para 48 pixels, porque a fonte padrao do
+navegador, agora, nao da para vermos agora, aqui, mas eh 24 pixels, o tamanho padrao para
+'Muito grande'.
+
+14. Entao, nos estamos vendo que a medida em percentual eh relativa em relacao sempre ao pai.
+Agora, vejamos o seguinte, nos temos o div caixa. Se nos colocarmos font-size como 200% para
+o div caixa e tambem definimos que o p tem o tamanho da fonte como 200%,
+
+.caixa {
+    font-size: 200%;
+}
+
+p {
+    font-size: 200%;
+}
+
+, com o tamanho da fonte, nas Configuracoes do Chrome, definido como Medio, ou seja, o tamanho
+padrao... na hora de computar, o navegador vai para o pixel, mas, na hora que a gente 
+informa, eh em percentual, deixa o navegador fazer esse trabalho de calcular por pixel.
+
+15. Entao, gostariamos de saber: qual que vai ser o tamanho padrao da fonte do paragrafo?
+
+16. Para descobrir isso, nos temos que pensar o seguinte, o tamanho da fonte padrao do 
+documento vai ser 16 pixels, porque esta configurado, nas Configuracoes do Chrome, como 
+Tamanho Medio. O tamanho da fonte do div caixa a gente especificou que eh 200%, se eh 200%,
+eh o dobro de 16 pixels, entao vai dar 32 pixels.
+
+17. Quando nos especificamos o tamanho da fonte do paragrafo, que esta dentro dessa caixa,
+nos estamos especificando 200% em relacao ao que? Nao eh em relacao aos 16 pixels que eh o
+padrao do navegador, eh em relacao ao seu elemento pai. E o elemento pai tem o tamanho de
+fonte de 32 pixels. Entao vai para: 64 pixels.
+
+18. Recarregando a pagina e olhando na Guia Computed, verificamos que o font-size do paragrafo
+foi para 64 pixels.
+
+19. Dobrou. Agora, uma coisa que nos temos que ver tambem... nos vamos alterar aqui, no 
+arquivo pecentual.css, de caixa para container,
+
+.container {
+    font-size: 200%;
+}
+
+20. Entao, agora, ao inves de definir o tamanho da fonte da caixa para 200%, que, calculando,
+daria 32 pixels, nao, nos estamos alterando o tamanho da fonte do container, nao da caixa.
+
+21. E agora, qual que eh o tamanho do paragrafo?
+
+22. Entao, o container tem 32 pixels. Isso a gente ja entendeu, porque nos especificamos 
+aqui o font-size como 200% no container, ele vai fica com 32 pixels, porque nos definimos
+200%, que eh o dobro de 16 pixels. E o tamanho do paragro, 200% em relacao ao que?
+
+23. 200% eh em relacao ao div caixa. Qual que eh o tamanho do div caixa? Nao muda, porque
+existe a heranca das propriedades, vai continuar o p com 64 pixels por que? Porque o container
+que a gente especificou o tamanho, que ficou com 32 pixels, a gente especificou 200%, que 
+deu 32 pixels, mas a caixa a gente nao especificou nada. 
+
+24. Mas a gente pode ver, aqui, na Guia Styles do Chrome DevTools, ao inspecionar a 
+div caixa, que aparece o seletor de classe container e mostra a palavra em ingles Inherited, 
+ou seja, que foi herdado de div container.
+
+25. Entao, esse font-size de 200% foi aplicado ao container, que eh o pai do div caixa, mas
+ele herda, entao, as propriedades de fonte sao herdadas, como o tamanho da fonte, por exemplo.
+
+26. Entao, a div caixa tem os 200%, ou seja, a caixa tambem tem 32 pixels. E, se a caixa 
+tambem tem 32 pixels, o paragrafo, quando a gente especifica 200%, ela vai, na hora de calcular,
+dobrar o tamanho da fonte, ou seja, para 64 pixels.
+
+27. Entao, quando a gente fala que eh relativo ao tamanho da fonte do pai, eh importante
+lembrarmos que o pai, se nao tiver uma fonte definida, como aqui a gente nao definiu nada
+para o pai, ou seja, para a classe caixa, ele herda a propriedade de tamanho da fonte do
+seu pai que, se nao tiver nada, vai herdar do seu pai, ate, se nao tiver nada, por exemplo,
+
+.container {
+
+}
+
+p {
+    font-size: 200%;
+}
+
+vai chegar, por exemplo, vai pegar os 16 pixels, porque a classe caixa vai ficar com 16 pixels,
+o container com 16 pixels, o body vai ficar com 16 pixels, ate chegar no html, que tem 
+16 pixels,  ai vai calcular o dobro.
+
+28. Entao, eh importante saber esse conceito de heranca tambem para a gente poder calcular
+certinho quando a gente coloca a unidade de medida em percentual.
+
+29. Mas vamos fazer, aqui, mais alguns exemplos, o seletor container nos nao vamos colocar fonte,
+
+p {
+    font-size: 200%;
+}
+
+30. Supondo que queiramos definir o paragrafo com 30 pixels. Quando a gente esta trabalhando com unidades relativas, como o percentual, ainda assim, as vezes a gente pensa em pixels, porque eh uma medida que a gente tem na nossa cabeca, o tamanho, a gente sabe que 30 pixels eh pequenininho, 60 eh um pouco maior, a gente sabe, tem uma maior nocao. Entao, quando a gente esta desenvolvendo, a gente pode ate pensar um pouco em pixels, fazer as contas, mesmo colocando em percentual.
+
+31. O que a gente ve aqui, depois que o Usuario mudar nas configuracoes do navegador, eh uma questao de opcao do Usuario, se ele quiser alterar. Ele altera o tamanho de fonte nas configuracoes do navegador e os percentuais sao recalculados para os pixels, de acordo com a opcao do Usuario.
+
+32. Mas, entao, se quisermos colocar, aqui, no arquivo CSS, 30 pixels, mas nos nao queremos colocar fixo, porque, se colocarmos fixo, nos nao conseguimos, depois, redimensionar o tamanho da fonte de acordo com as preferencias do usuario, ou seja, ao alterar o tamanho de fonte nas configuracoes do navegador, entao, eh uma coisa que deve ser definida em percentual, relativo a 30 pixels.
+
+33. Como que nos fariamos?
+
+34. Nos colocamos aqui: 30 dividido por 16 pixels, 16 pixels eh o tamanho padrao do navegador, vai dar 1.875, vezes 100. Entao, 187.5. Se nos colocarmos 187.5% no paragrafo, nos vamos chegar a 30 pixels.
+
+p {
+    font-size: 187.5%;
+}
+
+35. Vamos recarregar a pagina para verificarmos. Vamos inspecionar o paragrafo, na Guia Computed, ou seja, Computado, vemos o font-size como 30 pixels.
+
+36. Entao, nos podemos fazer esse calculo quando estamos fazendo uma pagina e falamos, 'Aqui nos precisamos de 30 pixels'.
+
+37. Mas nos nao especificamos em 30 pixels, nos especificamos em percentual. Por que? Porque, agora, 30 pixels eh no Tamanho padrao, ou seja, Tamanho medio. Se o usuario alterar, nas configuracoes do browser, para um tamanho maior, o paragrafo nao eh mais 30 pixels. 
+
+38. Mas, ai, eh uma preferencia do Usuario. Se o Usuario alterar o Tamanho da fonte para Muito grande, o paragrafo fica, agora, com 45 pixels.
+
+39. Entao, nos fazemos de acordo com o normal, mas, se o Usuario quiser mudar para a preferencia, ou seja, mudar as configuracoes de tamanho de fonte do browser, automaticamente, as fontes se adaptam a isso.
+
+40. Agora, uma forma, se quisermos calcular isso de uma forma um pouco mais simples, sem precisar colocar esses quebradinhos, ou seja, .5 de 187.5%, uma alternativa eh colocarmos que html, ou seja, o primeiro elemento do documento, html... Nos sabemos que o padrao do html, nas Configuracoes do navegador, para o tamanho de fonte, quando esta em Tamanho medio, eh 16 pixels. Nos especificamos, aqui, com tamanho de 10 pixels, deixamos fixo 10 pixels,
+
+html {
+    font-size: 10px;
+}
+
+41. Quando nos colocamos fixo no documento, se nos quisermos 300 pixels, para paragrafo, o que que nos fazemos?
+
+42. Nos nao precisamos nem de calculadora. Eh so colocar 300% para o seletor p,
+
+p {
+    font-size: 300%;
+}
+
+, ou seja, 3 vezes os 10 pixels da 30 pixels. Vamos recarregar a pagina e inspecionar o paragrafo.
+
+43. So que, ai, a gente cai no problema de estar com a medida fixa e a gente nao conseguir mudar o tamanho, ao tentar mudar o tamanho da fonte nas configuracoes do browser.
+
+44. Entao, nao fica legal a gente definir html em pixel, se for esse o caso, a nao ser que seja um projeto especifico, mas, nesse caso aqui, como nos estamos falando de percentual, nao eh o caso aqui de colocar pixel.
+
+45. Mas e se nos quisermos ter 10 pixels para o seletor html?
+
+46. Ai, eh so fazer a conta: 10 dividido por 16 pixels vezes 100, que eh igual a 62.5%,
+
+html {
+    font-size: 62.5%;
+}
+
+47. Agora, se definirmos que o documento tem, no tamanho da fonte, 62.5%, isso eh relativo ao que, ja que nao existe pai?
+
+48. Quando a gente faz isso, eh relativo a fonte padrao do navegador, que eh 16 pixels. Por isso, nos fizemos a conta de 10 pixels dividido por 16 pixels vezes 100.
+
+49. Entao, fazendo isso, a gente define que o tamanho equivale a 10 pixels para o font-size do seletor html e fica facil fazer a conta para os demais elementos da pagina, por exemplo, nos queremos 24 pixels para o elemento p, fica 240%,
+
+p {
+    font-size: 240%;
+}
+
+50. Se quisermos 30 pixels, eh 300%,
+
+p {
+    font-size: 300%;
+}
+
+51. Fica bem facil. E tambem tem a vantagem de, quando a gente alterar nas configuracoes do browser o tamanho da fonte e vai tudo ser alterado automaticamente.
+
+52. Entao, continuando, vamos definir o CSS da classe caixa,
+
+.caixa {
+    
+}
+
+53. Nos queremos o tamanho de fonte, para a caixa, de 20 pixels,
+
+.caixa {
+    font-size: 200%;
+}
+
+54. Para o h1, nos queremos o tamanho de fonte de 50 pixels,
+
+h1 {
+    font-size: 500%;
+}
+
+55. Mas sera que isso vai funcionar? Vamos ver o que que acontece, ao recarregar a pagina.
+
+56. O h1 nos queriamos que ficasse com 50 pixels, 500% de 10 pixels. Ao inspecionar o h1 no navegador, o h1 ficou com 100 pixels. Por que?
+
+57. Vamos inspecionar o p. O p ficou com 60 pixels. Ou seja, dobrou tudo. 60 pixels eh o dobro de 30 pixels e h1 ficou com 100 pixels, ao inves de 50 pixels.
+
+58. Por que que isso aconteceu? 
+
+59. Porque o font-size eh o tamanho da fonte com percentual referente ao pai. No elemento pai, o div caixa, o tamanho da fonte eh 200% do elemento pai, que eh o elemento html, que tem 10 pixels, por padrao. A caixa, entao, tem o tamanho de fonte padrao de 20 pixels. Quando a gente especifica 500% do h1, eh 500% de 20 pixels, que vai dar 100 pixels, nao vai dar 50 pixels, como a gente pensou. Da mesma forma que vai dar 60 pixels para o paragrafo, nao vai dar 30 pixels, como a gente pensou.
+
+60. O font-size nunca eh referente a raiz, ou seja, do elemento html, quando eh percentual, eh sempre em relacao ao elemento pai. Entao, o que a gente tem que fazer agora, se a gente quiser, realmente, definir, 50 pixels, por exemplo, para h1, eh definir 250%,
+
+h1 {
+    font-size: 250%;
+}
+
+61. Ai vai ficar com 50 pixels. 250% em relacao ao elemento pai, que eh o div caixa. 
+
+62. A mesma coisa para o elemento paragrafo, se nos quisermos definir para ficar com 30 pixels, mudamos a porcentagem para 150%,
+
+p {
+    font-size: 150%;
+}
+
+63. Entao, tem que saber um pouco de matematica basica para ir calculando e ir deixando essas medidas relativas.
+
+64. Ao recarregar a pagina, verificamos que o h1 esta com 50 pixels e o paragrafo esta com 30 pixels, conforme o esperado.
+
+65. So para verificarmos, vemos, ao inspecionar o elemento html, que ele esta com o font-size de 10 pixels como tamanho de fonte padrao, pois nos definimos 62.5% para o seletor html.
+
+66. Agora, se nos especificamos um Tamanho muito grande nas configuracoes do browser, por exemplo, o tamanho de fonte do html fica com 15 pixels.
+
+67. Se o elemento html fica com o tamanho de fonte de 15 pixels, muda tudo. Como todas as medidas de tamanho de fonte dos elementos do documento html estao relativas, vai mudando tudo. Se mudarmos para um tamanho de fonte menor nas configuracoes do browser, muda tudo tambem.
+
+68. Entao, nos vimos o poder das medidas relativas usando o percentual.
+
+69. Agora, o que nos iremos fazer eh colocar medidas na caixa. Vamos, colocar, antes de colocar as medidas, uma cor de fundo cinza e vamos colocar uma borda de 5 pixels, solida, preta.
+
+.caixa {
+    font-size: 200%;
+    background-color: #ccc;
+    border: 5px solid black;
+}
+
+70. Vamos recarregar a pagina e nos temos, aqui, a nossa caixa cinza com a borda preta.
+
+71. Nos podemos especificar, aqui, nesta caixa, uma largura. Se nos colocarmos em pixels, fica fixo e, ai, a medida que nos vamos diminuindo a tela ou aumentando, nao muda nada o tamanho ou, ainda, nos podemos colocar em percentual, por exemplo, 50%,
+
+.caixa {
+    width: 50%;
+    font-size: 200%;
+    background-color: #ccc;
+    border: 5px solid black;
+}
+
+72. Quando nos colocamos, aqui, uma largura em percentual, isso aqui eh em relacao ao que?
+
+73. Nao eh em relacao a fonte, nao eh em relacao ao tamanho da fonte, eh em relacao ao tamanho de onde esse elemento esta inserido. No caso, esse elemento caixa esta inserido dentro do elemento div container. Esse elemento div container, na verdade, nos vamos remover, por enquanto. O elemento caixa, entao, agora, esta dentro de onde?
+
+74. Ele esta dentro do corpo do documento, ou seja, o elemento body. O corpo do documento eh toda a tela, da esquerda a direita, toda a tela. Entao, quando nos colocamos 50%, eh 50% da largura da tela.
+
+75. Quando, agora, nos vamos diminuindo o tamanho da tela, nos vemos que o tamanho da caixa vai acompanhando, 50% sempre da largura da tela. Entao, eh uma medida relativa, se nos tivermos uma tela pequenininha, a caixa fica pequenininha, se tivermos uma tela grande, a caixa fica maior, sempre 50% da largura da tela.
+
+76. Se nos colocarmos um padding de 10%, que eh o espacamento interno, nos vemos, entao, que o espacamento interno ficou com 10%,
+
+.caixa {
+    width: 50%;
+    padding: 10%;
+    font-size: 200%;
+    background-color: #ccc;
+    border: 5px solid black;
+}
+
+#1. Se colocarmos um padding de 10%, que eh o espacamento interno, 
+
+.caixa {
+    width: 50%;
+    padding: 10%;
+    font-size: 200%;
+    background-color: #ccc;
+    border: 5px solid black;
+}
+
+, ao recarregar a pagina, vemos, entao, que o espacamento interno ficou com 10%. Esse 10% 
+refere-se a 10% da largura em pixels do elemento pai.
+
+#2. Segundo o instrutor, aqui, nos vemos que a altura entre o titulo e o topo ficou um 
+pouco acima por causa do h1 e o h1 tem margem para cima, entao por isso que nos vemos assim.
+
+#3. Se a gente zerar a margem, nos vamos ver que vai ficar certinho.
+
+#4. Quando a gente colocou padding, a caixa aumentou, a caixa nao ficou so com 50% da tela.
+Isso nos ja deveriamos saber o que que eh, por que que a caixa nao ficou no meio da tela?
+
+#5. Nos devemos lembrar, quando a gente especificou, em uma outra aula, o seletor universal
+asterisco,
+
+* {
+
+}
+
+, colocamos box-sizing como border-box. Quando a gente coloca isso, vai ficar 50%. Isso ja
+foi explicado em uma aula anterior.
+
+#6. Entao, nos podemos ver tambem que, o padding, quando formos diminuindo a tela, 
+o espacamento interno vai diminuindo junto tambem.
+
+#7. Uma coisa que devemos notar eh que o padding esta com 10% nos quatro lados: superior,
+inferior, esquerda, direita, entao, quando nos vamos diminuindo a largura da tela, o padding
+superior, inferior vai mudando tambem, de todos os lados.
+
+#8. Isso quer dizer que, quando a gente especifica um tamanho de uma propriedade como largura,
+padding, margin, em percentual, eh sempre relativo a largura do elemento pai de onde ele 
+esta inserido.
+
+#9. Entao, neste caso, a largura de onde esta inserido o div caixa eh a largura do corpo do
+documento, ou seja, a largura da tela. Entao, a largura do padding refere-se a 10% dessa
+largura total da tela.
+
+#10. Se a gente inspecionar aqui, da para ver tambem. O valor computado da caixa, para o 
+padding-top, por exemplo, eh 126.391 pixels. Se diminuirmos a tela, o valor do padding
+de todos os lados diminui tambem, por exemplo, para 104.188 pixels, que eh 10% do tamanho
+da janela, do body, no caso.
+
+#11. Por que que todos tem o mesmo valor? Porque sao todos relativos a largura da janela.
+Inclusive, o superior e inferior pode parecer estranho, mas eh isso mesmo, o padding superior
+e inferior referem-se, sempre, a largura do elemento pai e nunca a altura.
+
+#12. Vamos, agora, coloca, aqui, um margin-top de 10% so para nos vermos, ficar mais claro
+ainda,
+
+.caixa {
+    width: 50%;
+    padding: 10%;
+    margin-top: 10%;
+    font-size: 200%;
+    background-color: #ccc;
+    border: 5px solid black;
+}
+
+#13. Se formos diminuindo a largura da tela, o margin-top vai diminuindo tambem. A valor 
+percentual da propriedade margin tambem refere-se a largura do elemento pai.
+
+#14. Quando a gente coloca a medida em percentual em propriedades de largura: width, padding, margin,
+essas coisas que nao sao relacionadas a fonte, porque fonte a gente sabe que eh relativo ao
+tamanho da fonte do pai, mas quando sao essas propriedades aqui, width, padding, margin,
+eh relativo a largura de onde ele esta inserido.
+
+#15. Quando falamos a largura de onde ele esta inserido, vamos voltar o div container no 
+arquivo html e vamos definir, no arquivo CSS, a classe CSS container com uma cor de fundo,
+background-color como amarelo e com uma largura em pixels mesmo, 1000 pixels.
+
+#16. Ao recarregar a pagina, vemos que, agora, a caixa esta usando metade do que? Da janela
+toda, da largura da janela? 
+
+#17. Nao, esta usando metade da caixa amarela, que eh o div container. Da mesma forma o 
+padding, esta calculado com 10% do tamanho do div container. Se formos inspecionar qual que
+eh o tamanho do padding do div caixa?
+
+#18. Vemos 99.9844 pixels, ou seja, quase 100 pixels, que eh 10% do valor de 1000 pixels. 
+Por que? Por que 100 pixels? Qual que eh o tamanho da largura do elemento pai, ou seja,
+o div container, onde esta inserido dentro de container, o div caixa? 1000 pixels. Quanto que
+eh 10% de 1000 pixels? 100 pixels. Entao, o padding ficou em 100 pixels. O browser, automaticamente,
+calcula isso. 
+
+#19. So para provar que essas medidas sao relativas a largura do container onde o elemento
+esta inserido.
+
+#20. Uma coisa tambem: borda nao aceita medidas em percentuais, por exemplo,
+ 
+.caixa {
+    border: 5% solid black;
+}
+
+, nao funciona.
+
+#21. Esse tipo de unidade de medida eh muito importante quando a gente esta desenvolvendo 
+sistemas responsivos, como nos podemos notar, porque, ao alterar o tamanho da tela, da 
+pagina do navegador, fica fluido, a gente pode ir diminuindo a tela, o conteudo vai diminuindo
+junto, entao, a gente, usando medidas relativas, fica muito mais facil, se torna possivel
+criar sistemas responsivos tambem gracas a essa medida relativa como o caso do percentual.
+
+#22. Fim da Aula 05.003. Unidade de Medida: Percentual.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/percentual.css">
+</head>
+<body>
+
+    <!--div class="container"-->
+        <div class="caixa">
+            <h1>Economize tempo com redeploy</h1>
+            <p>Já imaginou quanto tempo você economizaria se o redeploy não fosse
+                necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou 
+                anotação do seu framwork preferido?
+            </p>
+        </div>
+    <!--/div-->
+
+</body>
+</html>

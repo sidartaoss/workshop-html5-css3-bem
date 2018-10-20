@@ -1,0 +1,639 @@
+<!-- 
+    
+    Aula 07.001. Unidades de Medida: em E rem
+
+1. Nesta aula, a gente vai estudar sobre as unidades de medida em e rem,
+que sao unidades de medidas relativas e sao mais comumente usadas para
+tamanhos de fonte, ou seja, a propriedade font-size, mas tambem pode 
+ser usado em padding, margin, border e essas outras propriedades, que
+naos estao ligadas a tamanho de fonte.
+
+2. Entao, para comecar, a gente tem, aqui, ja, um documento html pronto,
+com div e com a classe texto, outro div com uma classe comentarios,
+e, dentro desse div, nesse primeiro, tem um h1 e um paragrafo, nesse
+segundo div, tem um paragrafo aqui.
+
+3. Entao, bem simples, nada de mais ate agora.
+
+4. O nosso CSs esta vazio. Entao, a gente vai trabalhar com essa duas
+unidades de medida, para a gente entende-las aqui no nosso CSs.
+
+5. Mas, antes de colocar codigo no CSS, vamos entender mais um pouquinho
+aqui sobre os tamanhos de fontes, qual que eh o tamanho de fonte padrao
+do nosso documento?
+
+6. Se a gente olhar aqui, nao sabemos qual que eh o tamanho de fonte
+padrao, mas, se a gente tentar inspecionar aqui, a gente tambem nao 
+vai ver nenhum tamanho de fonte definido no CSS, porque a gente nao 
+definiu nada de tamanho de fonte, e nem no Computado aqui, a gente vai
+conseguir enxergar. A gente consegue ver aqui o tamanho de fonte padrao,
+nas configuracoes do Chrome, por exemplo, todo navegador tem um tamanho
+de fonte padrao, que, geralmente, o padrao mesmo eh 16 pixels, entao,
+o Tamanho da fonte, aqui, o Tamanho Medio eh o padrao do Chrome, 
+quando a gente instala o Chrome, ja vem esse Tamanho Medio, se nos 
+olharmos em Custom Fonts, da para ver que esta 16 pixels. Se nos 
+aumentamos para Muito Grande, em Custom Fonts, foi para 24 pixels.
+
+7. Entao, vejamos, agora, que o texto esta maior na pagina carregada.
+
+8. Se alterarmos, nas Configuracoes do Chrome, para Muito pequeno, o 
+texto fica bem pequenininho. Entao, as Configuracoes do Chrome, em 
+Tamanho fonte, define o tamanho de fonte padrao do conteudo das nossas
+paginas, que a gente vai navegar, o usuario define isso aqui e o documento,
+geralmente, dependendo de como foi escrito o CSS, ele vai seguir isso.
+
+9. Neste caso aqui, a gente nao escreveu nenhum CSS ainda, entao, ele
+vai seguir isso.
+
+10. Se a gente usa uma unidade de medida fixa, como, por exemplo, um pixel,
+a gente substitui as Configuracoes do Chrome.
+
+11. Se nos definimos, no arquivo CSS, por exemplo, na classe texto,
+
+.texto {
+    font-size: 20px;
+}
+
+, entao, colocamos que eh 20 pixels, se colocarmos Muito pequeno nas
+Configuracoes do Chrome, continua com 20 pixels, ao recarregarmos a 
+pagina, ou seja, nos nao vemos a diferenca, ao nao ser 'Legal. Gostei!',
+que ja eh o outro div, que nos nao mudamos, nos mudamos, na verdade,
+o tamanho de fonte do div texto.
+
+12. Entao, quando nos colocamos isso, nos estamos ignorando do nosso
+Usuario, que, as vezes, nao vai gerar uma boa experiencia para ele,
+logicamente. Mas, por que que nos estamos falando isso? 
+
+13. Porque a gente vai, agora, trabalhar com as unidades em e rem, que
+elas podem depender das Configuracoes do Chrome, do que o Usuario definiu.
+O pixel nao, o pixel a gente coloca ali e ele eh fixo, mas unidades 
+relativas, tambem podem ser relativas ao que o Usuario definiu no 
+navegador dele.
+
+14. Entao, por exemplo, comecando, aproveitando que a gente ja colocou
+o texto com 20 pixels, vamos tirar esses 20 pixels aqui, vamos colocar
+unidade de medida em. Por exemplo, vamos colocar aqui 2em no texto,
+entao, vamos dar uma olhada aqui, ao recarregar a pagina, as Configuracoes
+do Chrome, em Tamanho fonte, esta como Tamanho Medio.
+
+15. Entao, vamos dar uma olhada aqui, esse aqui eh o h1, daqui um pouco,
+a gente entra no h1, vamos olhar o paragrafo primeiro, botao direito,
+inspecionar. Vamos pegar o div texto e ver Styles, na direita do
+Chrome DevTools, font-size dele eh 2em, que a gente acabou de definir,
+e qual que eh o tamanho Computado, o tamanho da fonte real, que foi
+Computado?, porque 2em eh uma unidade relativa, mas, no final das contas,
+ele vai conputar isso para uma unidade em pixels. E ele compoutou isso
+em 32 pixels. Por que ele computou para 32 pixels? Porque 2em eh relativo
+a duas vezes ao tamanho de fonte do pai. E, como aqui, o pai do div eh o
+body, o qual o pai eh o html.
+
+16. Ou seja, o div tem 32 pixels, que, no caso, eh 2em, ele eh relativo
+a duas vezes o tamanho do pai, que eh o body. E o body eh relativo ao 
+tamanho do documento, que eh o html. Quando a gente define, entao, o
+Tamanho Medio nas Configuracoes do Chrome, ou seja, 16 pixels, a gente
+esta dizendo, entao, que o div eh duas vezes isso, ou seja, 32 pixels.
+
+17. Entao, eh uma unidade relativa. Se a gente diminui, agora, para 
+Muito pequeno, nas Configuracoes do Chrome, vemos que, agora, o div 
+continua com 2em, mas a unidade, em pixels, computada, eh 18 pixels.
+
+18. Se eh 18 pixels, quer dizer que Muito pequeno, nas Configuracoes
+do Chrome, o tamanho dele eh 9 pixels. Entao, ele dobrou, foi para 18
+pixels.
+
+19. Entao, nos entendemos que 'em' eh relativo ao pai, e a gente vai
+continuar vendo isso.
+
+20. Entao, fica ai, dinamico, uma unidade de medida dinamica.
+
+21. Se nos colocarmos 1em, eh simplesmente, eh como se nao tivessemos
+colocado nada, eh o proprio tamanho de fonte do pai que ja vai, de qualquer
+forma, jogar para os filhos.
+
+22. Entao, se nos nao temos nada, nas Configuracoes do Chrome, nos voltamos 
+para Tamanho medio e nos tivermos 1em,
+
+.texto {
+    font-size: 1em;
+}
+
+, eh a mesma coisa.
+
+23. Vamos, agora, definir o tamanho do h1. Vamos deixar
+o font-size, na classe texto, com 1em e vamos inspecionar o h1.
+Veremos que ele tem um font-size de 2em e quem definiu foi o 
+proprio user agent, 
+
+user agent stylesheet
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+, foi o proprio navegador. O proprio navegador ja coloca alguns estilos
+padrao em alguns elementos, como, por exemplo, o h1. Entao, ele adiciona
+algumas margens, ele adiciona tambem o font-size 2em, porque o h1 eh um
+elemento muito importante, entao, naturalmente tem que exibi-lo em um
+tamanho maior, entao, ele ja coloca 2em, ou seja, ele ja usa aqui uma
+unidade relativa, que o computado eh 32 pixels, porque o tamanho de 
+fonte padrao eh 16 pixels.
+
+24. Vamos, agora, mudar para 2em no texto. O que que vai acontecer? O
+div com a classe texto vai ter qual tamanho de texto, ja que alteramos
+para 2em?
+
+25. Ao recarregarmos a pagina e inspecionarmos h1, vemos que alterou
+o tamanho computado para 64 pixels.
+
+26. O h1 vai ter o tamanho 32 pixels, claro, pensando no padrao de 16 pixels
+do Tamanho medio, sabendo que eh relativo, a gente nunca sabe exatamente
+qual que eh o tamanho, porque eh relativo, mas pensando no padrao,
+eh 16 pixels o padrao, qual que eh o padrao, entao, da fonte do texto?
+
+27. Eh 32 pixels,
+
+.texto {
+    font-size: 2em;     /** 32px **/
+}
+
+28. O h1, nos mostramos que ele tem, por padrao, um tamanho de fonte 
+2em que o proprio navegador ja definiu, 2em. Quer dizer que o h1 eh
+duas vezes o tamanho da fonte relativo a quem? Ao documento, que eh 
+16 pixels? 
+
+29. Nao, ele eh 2 vezes relativo ao tamanho do pai. Quem eh o pai dele?
+Eh o div texto. E qual que eh o tamanho da fonte do div? 32 pixels, que
+eh 2em, 32 pixels. 
+
+30. Se o pai dele tem 32, pixels e o h1 define que ele eh 2 vezes o pai,
+qual que eh o tamanho do h1?  
+
+30. 64 pixels, o tamanho Computado. Entao, se a gente inspecionar, aqui,
+o h1, a gente ve que continua com 2em, que eh o padrao, mas o Computado
+eh 64 pixels.
+
+31. Entao, isso aqui eh a mesma coisa, como se nos estivessemos escrevendo
+aqui,
+
+.texto h1 {
+    font-size: 2em;
+}
+
+32. Agora, se nos colocamos 1em no h1, ai nos estamos mudando aquele
+padrao, que era 2em.
+
+33. O que que acontece agora? 
+
+34. Recarregamos a pagina e vemos, agora, que o h1 tem o mesmo tamanho
+de fonte do pai, porque o pai eh o div texto e tem 32 pixels. Nos definimos
+que o h1 tem 1em, agora, ele tambem vai ter 32 pixels.
+
+35. Se a gente inspecionar aqui, a gente ve, em Styles, que o h1 
+tem 1em, mas, no Computado, o tamanho computado tem 32 pixels.
+
+36. Entao, vejamos que o em eh relativo ao pai. 
+
+37. Se nos colocarmos, agora, o seletor descendente p da classe texto,
+
+.texto p {
+
+}
+
+, o p, que eh filho de texto, o paragrafo, que eh filho de texto,
+se nos colocarmos que o font-size eh de 2em, o que que vai acontecer?
+
+38. O paragrafo ficou maior ate do que o titulo, porque nos colocamos
+que o paragrafo tem 2em, mas o tamanho computado vira 64 pixels. Por que?
+
+39. De novo, o paragrafo tem 2em, 2 vezes o pai. Quem eh o pai? Eh o div texto.
+E o div tem quanto? Tem 2em. 2em relativo ao pai, que eh 16 pixels. Entao,
+o div texto tem 32 pixels, que eh o dobro do pai, o paragrafo tem o dobro
+2em, entao, dobra relativo ao pai, ou seja, 64 pixels. Entao, eh sempre
+relativo ao pai. Nao eh relativo a raiz, ao documento, nao, eh sempre
+relativo ao pai.
+
+40. Vamos colocar, no seletor filho h1 de texto, no font-size, o valor
+3em,
+
+.texto h1 {
+    font-size: 3em;
+}
+
+, para ficar de uma forma mais natural, porque, geralmente, o titulo
+tem um tamanho maior mesmo, entao, vamos colocar 3em para o titulo.
+
+41. Ai, o titulo eh 3 vezes o tamanho do pai. 
+
+42. Nos podemos, tambem, colocar numeros quebrados, nos podemos colocar
+2.5em, 2.2em, 0.1em, podemos colocar tudo isso ai. Vamos deixar em
+unidades inteiras, por enquanto.
+
+43. Vamos colocar, agora, o seletor descendente span do elemento p da
+classe texto,
+
+.texto p span {
+
+}
+
+, porque nos temos, aqui, um span, dentro do paragrafo. O elemento span
+eh um elemento, entao, que a gente coloca para estilizar uma parte do 
+texto. Ele eh um elemento inline, que nao tem significado, nao tem 
+semantica, mas a gente usa-o para estilizar.
+
+44. Por exemplo, nos queremos estilizar essa palavra 'redeploy' aqui,
+colocar uma cor ou tamanho de fonte diferente, entao, nos colocamos
+um span ali e nos conseguimos seleciona-lo por aqui, no arquivo CSS e,
+aqui, agora, nos vamos colocar um font-size 0.5em,
+
+.texto p span {
+    font-size: 0.5em;
+}
+
+45. Quando nos colocamos 0.5em, entao, nos estamos dizendo que eh 
+0.5 relativo ao pai. Quem eh o pai? Eh o paragrafo. Qual que vai ser, entao,
+o tamanho do span aqui? Bom, nos podemos perceber que comeca a ficar um
+pouco mais dificil, fazer conta, quando a gente comeca a usar 'em' em 
+elementos que tem pais, que tambem usam em, que tem um pai que tambem
+usa 'em', fica mais complicado, comeca a ficar mais complicado, entao,
+isso eh algo a se pensar, se eh sempre que nos vamos usar.
+
+46. Geralmente, nao vamos ficar usando sempre, talvez, em. Nos vamos
+falar, depois, do 'rem', tambem, que facilita isso, mas eh muito bom 
+para fontes, mas tem esse pequeno problema ai de, as vezes, a gente
+se perder um pouquinho, a gente tem que tomar cuidado. 
+
+47. Vamos so ver aqui, o p eh 2em,
+
+.texto p {
+    font-size: 2em; /** 64px **/
+}
+
+, ele foi para 64 pixels. Se o span esta dentro do p, ele eh relativo
+a quem? Ao p. Entao, ele vai ser o que? 0.5 vezes 64, ele vai voltar,
+entao, para 32 pixels, 64 vezes 0.5 eh igual a 32 pixels. Entao, 
+vamos ver aqui, vamos inspecionar aqui, o tamanho computado eh 32 pixels.
+
+48. Entao, a gente fez a conta, certinho aqui. Nos temos que ir fazendo
+essas contas, entao. 
+
+49. Agora, vamos usar o em tambem, por exemplo, aqui, na propriedade border,
+
+.texto p {
+    border: 0.5em solid black;
+
+    font-size: 2em;
+}
+
+, qual que vai ser o tamanho dessa borda? Vamos recarregar, aqui, a 
+pagina e inspecionar a borda.
+
+50. A borda, na Guia Styles, esta com 0.5em. Entao, 0.5em, quem que eh
+o pai. O pai tem 32 pixels. A borda, entao, tem 16 pixels, porque 
+0.5, relativo ao pai, entao temos 16 pixels?
+
+51. Verificamos, ao inspecionar, que a largura da borda, border-right-width,
+esta com 32 pixels. 32 pixels, se nos colocamos 0.5em, nao seria relativo
+ao pai? Se eh relativo ao pai, nao teria que ser 16 pixels? 
+
+52. Nao, neste caso, quando a gente coloca esta unidade aqui em algo
+que nao eh uma fonte, por exemplo, a borda, o padding ou uma margem,
+eh referente ao tamanho do font-size do proprio elemento, entao, do 
+p, aqui, no caso. Entao, qual que eh o tamanho do p? 64 pixels.
+0.5 vezes 64 eh igual a 32 pixels. Entao, neste caso aqui em especifico,
+ele nao vai pegar relativo ao pai. O font-size sim, vai pegar relativo
+ao pai, mas, neste caso aqui, ele pega relativo ao estilo do font-size
+do proprio elemento. Entao, eh importante lembrar disso.
+
+53. Vamos colocar, aqui, mais algumas coisas, padding: 0.5em, 
+margin-right: 3em, entao, tudo isso vai pegar relativo ao font-size 
+do proprio elemento.
+
+.texto p {
+    padding: 0.5em;
+    margin-right: 3em;
+    border: 0.5em solid black;
+
+    font-size: 2em;
+}
+
+54. E o legal disso aqui, agora, eh que, se diminuimos aqui, nas
+Configuracoes do Chrome, tudo vai diminuindo, inclusive a espessura
+da borda, talvez nao de para perceber tanto, agora, ao mudar para
+Tamanho Muito grande, da para perceber a espessura bem mais grossa
+da borda, agora.
+
+55. Entao, esta tudo relativo.
+
+56. Agora, vamos estudar sobre a outra unidade de medida, que o instrutor
+falou que eh a unidade rem.
+
+57. E, para isso, nos vamos usar essa parte do div de comentarios aqui.
+
+58. Na verdade, nos vamos, tambem, estilizar o texto tambem, com ela, uma parte.
+
+59. Entao, vamos la, comentarios,
+
+.comentarios {
+
+}
+
+, nos vamos colocar aqui font-size: 2rem;
+
+.comentarios {
+    font-size: 2rem;
+}
+
+60. O que que significa isso aqui? Quando a gente coloca a unidade rem,
+nos estamos nos referindo nao ao pai, mas ao tamanho de fonte padrao
+do documento.
+
+61. Nesse caso aqui, na verdade, seria a mesma coisa, a gente colocar
+2em ou 2rem. So para lembrarmos que essa classe comentarios tem a 
+frase 'Legal. Gostei!', entao, a gente vai olhar sempre embaixo aqui
+na pagina.
+
+62. Entao, se a gente colocou, aqui, 2em,
+
+.comentarios {
+    font-size: 2em;
+}
+
+e recarregamos a pagina, verificamos a frase 'Legal. Gostei!' e, agora,
+mudamos para 2rem,
+
+.comentarios {
+    font-size: 2rem;
+}
+
+, recarregamos a pagina e, de novo, verificamos a frase 'Legal. Gostei!',
+verificamos que a frase ficou com o mesmo tamanho, 32 pixels.
+
+63. O que que eh isso? Qual que eh a diferenca, entao? Aqui, a gente nao
+consegue enxergar a diferenca aqui, porque quando a gente usa 'em', nos
+comentarios, vai usar relativo ao tamanho de quem? Ao pai, e o pai ja
+eh o proprio body, que, depois, ja eh o html, ou seja, nao tem nada aqui
+mudando o tamanho de fonte do padrao 16 pixels, por isso que a gente
+nao ve diferenca, quando a gente coloca 'em' ou 'rem', vai dar na mesma.
+
+64. Mas, vamos fazer um exemplo diferente aqui, entrar, na verdade,
+em mais um elemento que esta dentro de comentarios aqui, por exemplo.
+
+65. Se colocarmos, aqui, o seletor descendente p da classe comentarios,
+e colocarmos font-size com o valor 2em,
+
+.comentarios p {
+    font-size: 2em;
+}
+
+, quando nos colocamos o tamanho da fonte do p, que esta dentro de
+comentarios, vamos so colocar 1rem, em comentarios, para ficar mais
+facil essa conta,
+
+.comentarios {
+    font-size: 1rem;
+}
+
+, aqui, quando nos colocamos 1rem, eh 16 pixels, que eh o tamanho da 
+fonte padrao do navegador, claro, eh uma unidade relativa tambem,
+se mudar o tamanho da fonte do navegador, esse calculo tambem muda,
+mas vamos considerar 16 pixels, que eh o padrao.
+
+66. Se nos colocamos 2em aqui no p, nos lembramos disso, o que vai 
+acontecer. O que vai acontecer aqui?
+
+67. Vai ficar 32 pixels,
+
+.comentarios {
+    font-size: 1rem;        /** 16px **/
+}
+
+.comentarios p {
+    font-size: 2em;         /** 32px **/
+}
+
+68. Entao, so para confirmar, vamos insepcionar a pagina, no div
+comentarios da pagina e vemos que o elemento p, na div comentarios,
+esta com 32 pixels.
+
+69. Vamos, agora, mudar na div comentarios, o font-size para 2rem,
+que vai ficar com 32 pixels, entao.
+
+.comentarios {
+    font-size: 2rem;        /** 32px **/
+}
+
+70. Como vai ficar no seletor descendente p de comentarios? 64 pixels,
+
+.comentarios p {
+    font-size: 2em;     /** 64px **/
+}
+
+71. Mudamos para 2rem, porque nao ia dar certo, porque ia dar na mesma,
+nao ia mudar nada. 
+
+72. Agora, vamos inspecionar de novo, na guia Styles, se nos colocamos
+2em no p, 
+
+.comentarios p {
+    font-size: 2em;
+}
+
+, qual que eh o tamanho computado? Vemos que o font-size ficou com
+64 pixels.
+
+73. Por que 64 pixels? Porque eh duas vezes relativo ao pai. O pai tem
+quanto? 32 pixels. 
+
+74. Agora, se nos colocarmos 2rem, ao inves de 2em, no p? O que que 
+vai acontecer se colocarmos 2rem no p, que esta dentro de comentarios?
+
+75. Diminui o tamanho de fonte de p, o tamanho computado foi para 32 
+pixels, ou seja, o tamanho de fonte de p foi para 32 pixels tambem.
+
+76. Por que? Porque, como nos colocamos rem, nos estamos indo na raiz,
+nos estamos indo no tamanho de fonte do nosso documento. Inclusive, se 
+nos colocarmos aqui, mudarmos o tamanho de fonte do elemento html, se
+colocarmos o font-size como 10 pixels, aqui nos estamos alterando o 
+tamanho de fonte do nosso documento, entao, quando nos colocamos, aqui,
+agora, 2rem para o p de comentarios, o que que vai acontecer?
+
+77. Vamos inspecionar o p de comentarios na pagina, 
+o tamanho de fonte computado esta com 20 pixels agora. Por que? Porque,
+agora, a gente mudou o tamanho de fonte do documento para 10 pixels,
+entao, tanto a propriedade font-size na classe comentarios, quanto
+a propriedade font-size no seletor descendente p em comentarios foi
+direto buscar na raiz, ou seja, no seletor html. O rem nao vai buscar
+o tamanho de fonte do pai para se tornar relativo ao pai. Nao, ele
+vai direto no documento, nessa propriedade html, no caso, direto no 
+tamanho de fonte padrao do documento, no tamanho de fonte definido para
+o documento e eh aquela fonte que ela vai se tornar relativa, diferente
+do em, que sempre relativo ao pai.
+
+78. Entao, por exemplo, o span aqui pegou relativo ao pai, que eh o p,
+que pegou do pai, que eh o div, que pegou do pai, que eh o body, que, no
+final das contas, vai pegar do html, se nao alterar o tamanho de fonte
+em nada nos outros elementos. 
+
+79. Essa eh a diferenca, o rem vai direto ao elemento html. Eh logico,
+se nos definimos o seletor html,
+
+html {
+    font-size: 10px;
+}
+
+, nos estamos ignorando  as preferencias do Usuario, nas configuracoes
+do Chrome, no Tamanho do fonte. O Usuario pode colocar o tamanho que
+quiser nas configuracoes do navegador, que nao muda nada na pagina, porque
+a gente colocou o tamanho fixo, 10 pixels, do documento.
+
+80. Quando nos definimos o seletor html, com font-size de 10px,
+o em vai ser relativo ao html, porque aqui,
+
+.texto {
+    font-size: 2em;
+}
+
+, vai ser relativo ao pai, que vai acabar chegando ao html. Entao,
+quando nos colocamos um tamanho fixo, nos estamos ignorando as
+preferencias do Usuario, nao eh o recomendado, 
+
+/** remover do arquivo css
+html {
+    font-size: 10px;
+}
+*/
+
+geralmente, nao, principalmente para Web Sites, nos queremos que o 
+Usuario nao tenha esse problema, talvez um Usuario precise de uma fonte 
+maior, entao, nao eh legal fazer isso, colocar um tamanho fixo de fonte
+no site, ignorando as preferencias dele.
+
+81. Mas nos so queriamos entender isso, entao, o rem eh relativo ao
+tamanho de fonte do documento.
+
+82. E, claro, nos podemos usar os dois, se colocarmos, aqui, 2em,
+
+.comentarios p {
+    font-size: 2em;
+}
+
+, agora, nos estamos falando que eh relativo ao pai,
+
+.comentarios {
+    font-size: 2rem;
+}
+
+, vamos colocar, aqui, ate, 0.5rem;
+
+.comentarios {
+    font-size: 0.5rem;      /** 8px **/
+}
+
+, entao o pai eh relativo ao tamanho de fonte padrao do navegador,
+no caso, vai ser 16 pixels, entao, 0.5 * 16 eh igual a 8. E, aqui,
+
+.comentarios p {
+    font-size: 2em;     
+}
+
+, eh duas vezes o tamanho de fonte do pai, pois nos estamos usando
+em, entao, 2 * 8, igual a 16 pixels.
+
+83. Entao, vamos conferir na pagina, o div comentarios. Vamos inspecionar
+aqui e vemos que o computado eh 16 pixels.
+
+84. Matematica basica, eh so entendermos a diferenca entre 'em' e 'rem'. 
+
+85. Podemos colocar, tambem, na classe texto, o font-size com 2rem e,
+depois, para os seletores descendentes da classe texto, usar tudo em,
+eh ate uma pratica que o instrutor, as vezes, gosta de usar, definir,
+se estamos dentro de um bloco, nos colocamos o primeiro nivel, vamos 
+falar assim, o elemento que engloba tudo, o container, o elemento que
+coloca todos os outros elementos la dentro, como aqui, o texto eh o  
+nosso container, entao, nos podemos usar o rem nele, na classe texto,
+e, a partir dele, podemos comecar a usar em, porque ai, nos temos o 
+nosso contexto, nos nao nos perdemos tao facil se nos usarmos tudo
+em, em, em, em, etc., nos podemos nos perder muito facil,
+
+.texto {
+    font-size: 2rem;
+}
+
+.texto h1 {
+    font-size: 3em;
+}
+
+.texto p {
+    padding: 0.5em;
+    margin-right: 3em;
+    border: 0.5em solid black;
+
+    font-size: 2em;
+} 
+
+.texto p span {
+    font-size: 0.5em;
+}
+
+86. Quando nos usarmos o rem para definir um contexto, como o texto
+aqui,
+
+<div class="texto">
+</div>
+
+, nos definimos que eh rem, que eh duas vezes 16, que eh 32 pixels,
+
+.texto {
+    font-size: 2rem;  /** 32px **/
+}
+
+, entao, a partir de entao, para os proximos seletores descendentes 
+da classe texto, definimos tudo com em.
+
+87. Para a classe comentarios, tambem, a mesma coisa, nos definimos que,
+aqui, vai ser 8 pixels, para a classe comentarios,
+
+.comentarios {
+    font-size: 0.5rem;    /** 8px **/
+}
+
+, daqui para baixo, usamos em. Eh mais facil para nos calcularmos, nao
+nos perdemos tanto. Entao, poderemos, ate, fazer isso no nosso projeto
+do curso,
+
+.comentarios p {
+    font-size: 2em;     /** 16px **/
+}
+
+88. Fim da Aula 07.001. Unidades de Medida: em E rem.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <div class="texto">
+            <h1>Economizar tempo com redeploy</h1>
+            <p>
+                Já imaginou quanto tempo você economizaria se o <span>redeploy</span> não fosse
+                necessário ao adicionar um novo método em uma classe ou ao alterar
+                um XML ou anotação do seu framework preferido?
+            </p>
+        </div>
+
+        <div class="comentarios">
+            <p>
+                Legal. Gostei!
+            </p>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,403 @@
+<!-- 
+	Aula 06.002. Caos no CSS: Por que uma Metodologia eh Importante?
+
+1. Trabalhar com CSS parece, realmente, muito facil. Ainda mais em projetos pequenos e so com um desenvolvedor, as vezes so nos mesmos que estamos desenvolvendo um Web Site, ninguem mais vai mexer no codigo, entao, isso tudo deixa muito simples o desenvolvimento, nos sabemos o que nos estamos fazendo e nao tem muitos conflitos entre os nossos seletores, as nossas classes CSS.
+
+2. Mas, quando esse projeto crescer, ou, ainda, quando esses projetos comecam a ser desenvolvidos tambem por outros desenvolvedores, comeca a virar um verdadeiro caos, isso eh muito comum, nao eh nada dificil, na verdade, eh muito facil nos encontrarmos projetos por ai, onde fazer uma alteracao no CSS da uma dor de cabeca danada, que nos alteramos em um lugar, mexemos em outro ou nos alteramos nesse lugar e nao tem efeito nenhum, nos nao sabemos bem o que nos estamos fazendo e, ai, nos acabamos tendo que usar muito aquela expressao 'important' para sobrescrever regras e varias outras coisas nos temos que fazer para deixar as novas funcionalidades que nos estamos desenvolvendo funcionando, ou, as vezes, nos nem conseguimos muito bem e temos que refazer o que ja foi feito.
+
+3. Eh muito, muito comum esse tipo de coisa e o instrutor tem, aqui, um projeto muito simples, na verdade, uma pagina html com CSS para nos simularmos e vermos um pouquinho so desse caos, do que que poderia acontecer.
+
+4. Agora, podemos acreditar que, em projetos maiores, a coisa tende a ficar muito pior.
+
+5. O instrutor esta aqui para mostrar o problema, mas eh logico, em uma aula seguinte, nos vamos mostrar a solucao. 
+
+6. A pagina que o instrutor esta mostrando, nao devemos nos preocupar com o layout, nao esta muito bonito, mas eh so para simular o caos do CSS. Aqui eh o seguinte, a gente tem caixas que representam cursos, de HTML e CSS, Javascript e Java e Orientacao a Objetos, essas caixas representam cursos, essas caixas tambem podem ter ou nao uma Tag, um rotulo, na verdade, como esse aqui, Novo, ou seja, este curso Javascript eh recente, ele eh Novo. 
+
+7. A area cinza eh a area de conteudo e nos temos um Rodape e, nesse rodape, nos colocamos alguns Usuarios, os ultimos usuarios, que sao os ultimos usuarios que entraram nesta plataforma de curso. De novo, nao estamos falando que eh um layout muito bonito, eh horrivel, mas, para simular isso o caos CSS, a gente vai usa-lo.
+
+8. Nao eh nem responsivo, para nos termos uma ideia, eh so mesmo para a gente exemplificar. 
+
+9. Entao, vamos para o codigo html e, aqui, a gente ve, o codigo eh muito simples.
+
+10. Aparentemente, o nosso codigo eh muito simples, entao, como o instrutor pode estar falando que tem um problema, que tem um caos no CSS?
+
+11. Daqui um pouquinho, nos vamos ver. Realmente, este codigo esta muito simples, mas, logicamente, em uma pagina real, provavelmente, teria mais codigo aqui. 
+
+12. Mas, mesmo assim, olhemos so, nos olhamos este codigo html e sabemos o que significa isso aqui, esse ul? Tudo bem, eh uma lista nao ordenada, mas uma lista ordenada de que? Se nos olharmos na pagina sendo exibida pelo instrutor, nos podemos ver que eh uma lista nao ordenada de cursos, porque nao tem muito como errar, ja que o codigo esta muito pequeno, mas imaginemos um codigo gigante, onde ficaria um pouco mais complicado de descobrir. Nao eh impossivel, mas eh um pouco mais complicado de descobrir, nao eh impossivel, mas eh um pouco mais complicado.
+
+13. Vejamos como que isso, 
+
+<ul>
+	<li><a href="#">HTML e CSS</a></li>
+	<li class="novo"><a href="#">Javascript</a></li>
+	<li><a href="#">Java e Orientação a Objetos</a></li>
+</ul>
+
+esta recebendo o estilo dessas caixas aqui que estao sendo exibidas pelo instrutor.
+
+14. Nos colocamos esses estilos CSS que estao definidos no arquivo estilos.css e vejamos que temos o ID conteudo, colocando o seletor descendente de ul, entao, nos tiramos as propriedades da lista, isso a gente ja viu em uma aula anterior, 
+
+
+#conteudo ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+, tiramos o padding, o margin. 
+
+14. O ul tem li, entao, cada li vai representar uma caixinha do curso e, entao, nos colocamos, aqui, o tamanho da caixa, cor de fundo, colocamos-nas com float left, para colocar uma do lado da outra, 
+
+#conteudo ul li {
+	width: 300px;
+	height: 300px;
+	background-color: red;
+	margin-bottom: 20px;
+	float: left;
+	margin-right: 30px;
+	text-align: center;
+}
+
+15. O link, que eh a tag a, dentro de li, dentro de ul, dentro do seletor de classe conteudo, nos colocamos, aqui, sem text-decoration, para tirar o sublinhado e colocamos mais algumas coisinhas,
+
+#conteudo ul li a {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding-top: 20px;
+}
+
+16. E, aqui embaixo, nos temos o rodape, elemento tag rodape. Esse rodape tem a cor de fundo amarelo e um padding,
+
+footer {
+	padding: 20px;
+	background-color: yellow;
+}
+
+17. O ul, que esta dentro do rodape, neste caso, nos fizemos diferente e isso, podemos acreditar que isso acontece,
+
+		<ul class="usuarios">
+			<li><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul>
+
+18. Para o div com id conteudo, nos temos os cursos, poderia ter o ul com uma classe cursos,
+
+	<div id="conteudo">
+		<ul class="cursos">
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+	</div>
+
+, mas, o desenvolvedor fez assim. Isso acontece muito no mundo real, outro desenvolvedor, no rodape, ele quis fazer uma lista de de alunos, os ultimos alunos, mas ele preferiu colocar uma classe usuarios em ul, por algum motivo, ele quis chamar de usuarios, ele nao quis definir ul sem a classe, definir que existe o footer e, o que existir dentro do footer, o ul dentro do footer eh a lista de usuarios. Tem gente que faz assim, tem gente que nao, okay, o CSS deixa isso aberto para o desenvolvedor.
+
+19. Cada linha, entao, eh um usuario nessa lista nao ordenada de usuarios,
+
+		<ul class="usuarios">
+			<li><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul>
+
+20. Ate ai, tudo bem, como dissemos, nao achamos muito simples a leitura de um codigo desses, porque nos temos que ficar vasculhando o que que eh o ul, o que que eh o li aqui, o que que esta dizendo, na verdade, o que que eh, exatamente.
+
+21. Mas, este nem eh tanto o problema, neste caso aqui. Vamos fazer o seguinte, imaginemos que o nosso cliente pediu para nos levarmos uma parte de um codigo para um outro lugar da pagina. Na verdade, ele fala assim, 'Desenvolvedor, voce que desenvolveu essa pagina, tenta mover essas caixas dos cursos para um outro lugar. Nao queremos que fique mais no conteudo nao, nos queremos que fique no rodape'. 
+
+22. O usuario pede para que coloquemos isso no rodape,
+	<footer>
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>		
+		<ul class="usuarios">
+			<li><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul>
+	</footer>
+
+23. O conteudo vai ter, agora, um titulo, 
+
+<h1>Ola pessoal</h1>
+
+24. Supomos que o cliente pediu isso, 'Ola pessoal' dentro da div conteudo e ficou a lista de cursos para o rodape.
+
+25. Vejamos o que vai acontecer.
+
+26. Nossa, que bagunca. O titulo ficou aqui, 'Ola pessoal', dento do conteudo, que eh a area cinza, mas vejamos o que a lista de cursos virou, tem uma lista de cursos com caixa nenhuma, e o 'Novo', que era aquele rotulo, ficou bem deslocado para o lado da direita, nada a ver, nada a ver, baguncou totalmente o nosso layout.
+
+27. Isso ja comeca um caos, por que que nos nao podemos mover uma parte do codigo, nao deveria ser independente a lista de cursos para colocar em qualquer lugar? 
+
+28. Isso a gente fez em uma pagina, tirando de um lugar para outro, se nos quisessemos levar para uma outra pagina, tambem nao funcionaria. Por que? Porque essa lista de cursos precisa ficar dentro de um elemento, tem que ser filha de um elemento que tenha o ID conteudo, dessa forma,
+
+	<div id="conteudo">
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+	</div>
+
+29. Inclusive, tem que ser ID conteudo, nao pode ser outro ID. Entao, nao tem independencia esse codigo, eh totalmente acoplado, ou seja, eh totalmente fixo com esse div de conteudo, nao tem como sair disso. Esse eh um problema.
+
+30. Se removermos a lista nao ordenada da div de conteudo,
+
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+
+e movermos para fora da div, tambem vira outra bagunca, nada a ver tambem.
+
+31. Voltando, entao, se nos tentarmos mover a lista nao ordenada de usuarios para fora do footer, em cima do rodape, o que vai acontecer?
+
+32. Ao recarregarmos a pagina, vemos que ficou legal, ficou certinho. Quer dizer que esse foi feito da forma correta? Nao sabemos, Rodape esta funcionando, a lista de usuarios ficou para fora, legal.
+
+33. Mas, agora, vamos tentar tirar a lista de usuarios de antes do rodape e coloca-la dentro da lista de conteudo,
+
+	<div id="conteudo">
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+		<ul class="usuarios">
+			<li><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul>
+	</div>
+
+34. Ou seja, nos queremos que a lista de usuarios apareca aqui dentro da area cinza, na pagina html, abaixo das caixas dos cursos. Vamos ver o que que acontece.
+
+35. Nossa, entendeu como seu a minha lista de usuarios fossem cursos, cada usuario virou uma caixinha,
+como se fosse um curso, totalmente errado, nao era isso que nos queriamos.
+
+36. Vejamos, entao, que nos teriamos que mexer em um monte de coisas se nos quisessemos falar assim: 'Nossa, mas e agora, nos somos o desenvolvedor aqui e nos queremos colocar essa lista de usuarios aqui e esse codigo nao fomos nos que fizemos, e agora, o que que nos temos que fazer?'
+
+37. Nos temos que entender o que que a lista de conteudo esta fazendo, temos que entender o que esta fazendo quase o codigo inteiro. Nossa, vai dar um trabalho muito grande para podermos resolver isso aqui. Alem de entender essa parte da lista de usuarios, nos temos que comecar a entender, agora, o pai, ou seja, a div conteudo, esta fazendo, porque nos podemos ver que o problema aqui eh que usou um seletor descendente usando essa tag ul, todo ul filho de conteudo eh uma lista de cursos, todo li filho de ul, que eh filho de conteudo eh um curso, entao... mas, perai, o class aqui esta definindo que eh de usuarios. Tudo bem, o class esta definindo que eh de usuarios, mas vejamos aqui, no codigo do arquivo CSS, nao esta especificando nada na classe usuarios para o seletor li descendente de ul, esta especificando, simplesmente, li descendente de ul como descendente do seletor conteudo. Entao, eh um problema,
+
+#conteudo ul li {
+	width: 300px;
+	height: 300px;
+	background-color: red;
+	margin-bottom: 20px;
+	float: left;
+	margin-right: 30px;
+	text-align: center;
+}
+
+38. O ideal eh que nos espeificassemos nomes de classes, tivesse aqui o nome de classe cursos,
+porque, ai, ja limitava: ah, so o ul que eh cursos,
+
+<ul class="cursos">
+	<li><a href="#">HTML e CSS</a></li>
+	<li class="novo"><a href="#">Javascript</a></li>
+	<li><a href="#">Java e Orientação a Objetos</a></li>
+</ul>
+
+39. Mas sera que so isso resolve? Nao vai resolver bem, e a gente vai vendo formas melhores de fazer isso.
+
+40. Uma outra coisa, vamos, primeiramente, voltar o codigo.
+
+41. Vamos supor que a gente quer colocar quando o Usuario, o cliente pediu, quando o Usuario for novo, foi criado nas ultimas duas horas, por exemplo, nos queremos que marcamos-no escrito Novo junto ao nome do Usuario, poderia ser um estilo diferente qualquer. Queremos que os usuarios novos sejam marcados que eles sao novos.
+
+42. O que que a gente pode fazer? 
+
+43. A gente poderia colocar aqui uma classe novo,
+
+<li class="novo"><a href="#">João da Silva</a></li>
+
+, e, no arquivo CSS, a gente cria uma classe .novo. Vamos colocar aqui, tambem, um pseudo-elemento after, porque nos vamos escrever, na verdade,
+
+.novo::after {
+	content: " (Novo)";
+}
+
+
+44. Ao recarregar a pagina, mudou la em cima, na caixa Javascript, para Novo e, aqui embaixo, tambem, para Novo e o debaixo ainda ficou errado, porque deveria ficar do lado do nome 'Joao da Silva'. 
+
+45. Entao, vejamos, nao seria complicado resolver isso agora. Bem, na verdade, ja tem a definicao da classe novo no arquivo estilos.css,
+
+.novo::after {
+	content: "Novo";
+	display: block;
+	font-size: 24px;
+	margin: 0 20%;
+	margin-top: 30px;
+	background-color: yellow;
+}
+
+, ou seja, ja esta usando, quando um curso eh novo, definimos a classe como novo,
+
+<li class="novo"><a href="#">Javascript</a></li>
+
+46. Mas, vejamos, esse codigo esta pequeno, nos estamos enxergando, imaginemos se fosse um projeto maior, e imaginemos o seguinte, se nos estamos alterando uma pagina que tem isso daqui,
+
+<footer>
+	<ul class="usuarios">
+		<li><a href="#">João da Silva</a></li>
+		<li><a href="#">Maria Sebastiana</a></li>
+		<li><a href="#">João da Silva</a></li>
+	</ul>
+</footer>
+
+, e nao tem isso daqui,
+
+<div id="conteudo">
+	<ul>
+		<li><a href="#">HTML e CSS</a></li>
+		<li class="novo"><a href="#">Javascript</a></li>
+		<li><a href="#">Java e Orientação a Objetos</a></li>
+	</ul>
+</div>
+
+, vamos supor que estamos alterando a pagina e so tem o footer, com a lista de usuarios. Nos alteramos e, quando nos fazemos funcionar com a classe novo, pode ser que estejamos afetando coisas que nos nao estamos vendo, nos teriamos que testar todas as paginas do sistema, pois nos podemos alterar uma coisa que nos nao estamos vendo.
+
+47. Neste caso aqui, nos estamos vendo que esta alterando la em cima, na caixa Javascript tambem, mas pensemos que poderia estar alterando alguma coisa que nao estamos vendo.
+
+48. Ou seja, existiu aqui um problema aqui com a nomenclatura, como a gente nao tem um padrao de nomenclaturas, a gente usou o mesmo nome que acabou se colidindo e afetando, de forma que, algo imprevisivel, a gente nao sabia que ia acontecer isso. 
+
+49. Uma forma que nos podemos contornar isso, eh definir dessa forma,
+
+.usuarios li.novo::after {
+	content: " (Novo)";
+}
+
+, entao, a gente pode especificar aqui que, dentro da classe usuarios, a classe novo dentro da Tag li. Ao recarregar a pagina, vemos que corrigimos em cima, agora, Novo aparece sem os parenteses, mas nao corrigimos embaixo, que continua quebrando. Esta quebrando, na verdade, porque, se nos formos inspecionar esse elemento, a gente vai ver que ele tambem esta usando o estilo .novo::after. Esse estilo nao deveria chegar nesse elemento,
+
+<li class="novo"><a href="#">João da Silva</a></li>
+
+, porque esse estilo foi criado pensando no Novo da caixa Javascript, nao no Novo dos usuarios no rodape. Entao, esta pegando os dois estilos. 
+
+50. Bem, nao vai dar certo, entao. Ate a gente poderia fazer aqui, sair substituindo tudo, pegar o display, em .novo::after, colocar inline, substituindo todas as propriedades, poderia, ainda, acontecer de ter uma guerra de especificidade. Nos ja estudamos sobre especificidade e sabemos que os seletores podem ser mais especificos do que os outros, neste caso, .usuarios li.novo::after esta mais especifico do que .novo::after, mas poderia, ainda, acontecer casos de nos termos um problema de especificidade e, ainda, precisarmos colocar important.
+
+51. Geralmente, quando se coloca important, na maioria das vezes, os desenvolvedores que usam isso sem conhecer muito, fazem isso porque perderam totalmente o caminho, nao sabem mais o que estao fazendo e,
+para funcionar, tem que colocar, porque nao sabem o que que esta acontecendo. Entao, nao eh uma boa pratica.
+
+52. Mas teria que ficar substituindo as propriedades todas, ou seja, uma coisa substituindo outra, batalhando demais com as especificidades, nao ficaria muito legal.
+
+53. Uma solucao, aqui, seria colocar um outro nome. Vamos desistir disso tudo e vamos alterar o nome para nome2,
+
+.usuarios li.novo2::after {
+	content: " (Novo)";
+}
+
+54. Recarregamos a pagina e, agora, ufa, agora funcionou.
+
+55. Mas, gente nao resolveu aquele problema de colocar usuarios dentro da div de conteudo,
+
+	<div id="conteudo">
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+		<ul class="usuarios">
+			<li><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul>
+	</div>
+
+56. Continua entendendo como se usuarios fossem cursos, mas o Novo nem fica amarelo. Isso a gente nao vai resolver nesta aula tambem. Esta aula eh so para mostrarmos o caos, depois a gente resolve.
+
+57. Entao, eh muito complicado quando nos comecamos a escrever CSS ou os nossos colegas comecam a escrever CSS e, simplesmente: 'Ah, vamos colocando seletores ai e esta funcionando, esta tudo bem.'. E nao eh bem assim. Na verdade, vamos chegar em algum resultado assim: vamos acabar conseguindo, mas, eh logico, nos vamos perder prazo de projeto, porque vai dar mais trabalho, vai dar muita dor de cabeca, nao vamos conseguir dormir, ou, se dormirmos, vamos sonhar com codigo, porque vai, realmente, dar muito trabalho. Nos vamos perder toda a logica do nosso codigo nos nao vamos conseguir mais dar manutencao a medida que isso vai aumentando.
+
+58. Isso aqui, como dissemos, eh um exemplo muito pequeno, imaginemos um projeto grande, um portal grande de noticias, ou um Web Site grande, ou um sistema comercial que estamos fazendo, as paginas html, nos perdemos muito rapidamente o controle do nosso codigo se nos formos escrevendo assim sem uma metodologia, se nos formos escrevendo codigo dessa forma.
+
+59. Entao, os problemas disso aqui, vamos pensar em alguns problemas disso aqui, desse codigo. 
+
+60. A gente nao tem reusabilidade. O que que eh isso? Nos nao conseguimos reusar, reaproveitar, nos nao conseguimos pegar esse codigo e usa-lo em outro lugar, em outro lugar que nos precisarmos de uma lista de cursos, simplesmente, nos nao conseguimos usar isso aqui,
+
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+
+61. Nos podemos conseguir fazendo ajustes, mas, ai, fazendo ajustes ali, nos temos que voltar para ver se funcionou ali, ou seja, nos perdemos realmente o controle, nao tem reusabilidade, nao podemos reutilizar nada, nao da para compartilhar codigo, nao conseguimos pegar um codigo desse e nem levar para um outro projeto, um outro projeto que precisa de lista de cursos, nos podemos falar assim: 'Ah, pega esse aqui, pega o codigo CSS, coloca ai, que vai funcionar'. Nao, nao vai funcionar, porque precisa estar dentro de um div conteudo, tem todas essas questoes e, de novo, estamos falando de um exemplo simples, imaginemos exemplos mais complexos.
+
+62. Nao da para movermos um componente de um lugar da pagina para outro lugar da pagina porque eles nao sao independentes. Esse componente aqui,
+
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+
+, vamos chamar de componente, mas, neste momento que nos estamos desenvolvendo aqui, a cabeca do desenvolvedor nem pensa em componente, ele pensa como: 'Ah, vamos colocar o estilo'. Mas, vamos ver em outra aula que nos temos que pensar nisso como Componentes.
+
+63. Nos nao conseguimos deixar isso independente, a lista de cursos. A lista de cursos, que eh esse elemento de ul, ela nao eh independente, ela eh dependente do local que ela esta.
+
+64. Se nos temos algo que eh dependente do local em que esta, nos nao conseguimos mover isso para um outro lugar da pagina, esta fixo aqui, nao conseguimos mudar rapidamente o layout sem quebrar nada, nao conseguimos fazer isso.
+
+65. Entao, qual que eh a causa disso, desse caos?
+
+66. Eh porque nao existe uma metodologia para escrever o codigo. Escrevemos o codigo na forma que nos queremos. Escrevemos um codigo e, funcionando, esta tudo bem, mas, esse funcionando esta tudo bem, em um futuro nao muito longo, vai nos gerar problemas, porque nos vamos precisar dar manutencao, nos nao vamos entender o codigo, os nossos colegas nao vao entender, ou, se pegarmos um codigo de um colega, nos nao vamos entender, nao vamos conseguir dar manutencao. Quando conseguirmos, vai ser uma dor de cabeca ate fazer funcionar.
+
+67. Nao existe uma convencao de nomenclatura das classes CSS, simplesmente, o desenvolvedor chega aqui, no codigo CSS, e poe o nome que ele quiser: 'Ah, vou colocar o nome como "Novo", se nao der certo, vou renomear para "Novo2". Se nao der certo, poe "Novidade"'. Nao tem padrao nenhum, colocamos o nome que quisermos. 
+
+68. Outra coisa eh usar, talvez, neste caso, nem foi tanto o problema, mas usar seletores com ID. Isso pode ser uma causa de problemas. Por que? Nos estudamos ja sobre especificidade e sabemos que, quando tem um ID, o peso no calculo da especificidade, aumenta muito. Entao, usar ID nao eh uma boa pratica quando formos usar uma metodologia, porque nos comecamos a criar uma batalha, uma guerra de especificidade e, dependendo do caso, nos podemos estar tentando alterar um estilo e nos nao estamos conseguindo alterar esse estilo porque tem um outro seletor que tem um ID e ele esta ganhando no peso. Se ele esta ganhando no peso, nos nao vamos conseguir alterar e, ai, comeca aquela historia de ter que usar o important para sobrescrever uma propriedade, ou seja, nos estamos perdendo controle do nosso codigo. 
+
+69. Entao, tambem eh uma questao que poderia estar afetando, aqui, neste exemplo, achamos que nao esta afetando tanto assim, mas, com um pouco mais de codigo aqui, ja comecaria a afetar. 
+
+70. Esperamos que tenha-se entendido, entao, que escrever codigo CSS sem uma metodologia, sem uma convencao de nomenclatura, nao eh muito legal. Para sistemas pequenos, nos podemos conseguir para uma pagina, se formos criar uma pagina para uma loja, talvez, alguem que nos conhecemos, tem uma lojinha e nos queremos fazer uma pagina para ele, so para colocar um portfolio ali, ou colocar uma lista de produtos, tudo bem, vai funcionar, nos vamos conseguir dar manutencao, para um projeto pequenininho.
+
+71. Mas, se estivermos pensando em escrever Projetos grandes, projetos que mais desenvolvedores de paginas coloquem a mao no codigo, nos precisamos conhecer e usar uma metodologia CSS. Temos certeza de que vai valer muito, muito a pena. E eh isso que a gente vai falar nas proximas aulas.
+
+72. Fim da Aula 06.002. Caos no CSS: Por que uma Metodologia eh Importante?
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<div id="conteudo">
+		<ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul>
+		<!--ul class="usuarios">
+			<li class="novo2"><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul-->		
+		<!--h1>Olá pessoal</h1-->
+	</div>
+
+		<!--ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul-->
+		<!--ul class="usuarios">
+			<li><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul-->
+	<footer>
+		<!--ul>
+			<li><a href="#">HTML e CSS</a></li>
+			<li class="novo"><a href="#">Javascript</a></li>
+			<li><a href="#">Java e Orientação a Objetos</a></li>
+		</ul-->		
+		<ul class="usuarios">
+			<li class="novo2"><a href="#">João da Silva</a></li>
+			<li><a href="#">Maria Sebastiana</a></li>
+			<li><a href="#">João da Silva</a></li>
+		</ul>
+		<!-- Rodapé -->
+	</footer>
+</body>
+</html>

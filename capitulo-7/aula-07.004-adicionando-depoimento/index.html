@@ -1,0 +1,413 @@
+<!-- 
+  Aula 07.004. Adicionando Depoimento
+
+1. Vamos, agora, adicionar essa secao aqui, a secao de Depoimentos, essa secao cinza aqui na versao final do protitipo do projeto e tambem um bloco aqui, que eh o proprio depoimento.
+
+2. Entao, vamos para o codigo.
+
+3. Aqui, debaixo da chamada, ou seja, da section layout-chamada, que eh a area verde, a gente tem que colocar, entao, o depoimento. 
+
+4. Nos vamos, entao, abrir, aqui, abaixo da secao layout-chamada, a tag do elemento div e vamos colocar a classe layout-depoimento,
+
+<div class="layout-depoimento">
+</div> 
+
+, entao, esse sera o nosso bloco do layout.
+
+5. Vamos, em seguida, colocar uma classe container,
+
+<div class="layout-depoimento">
+  <div class="container">
+  </div>
+</div> 
+
+6. Nos podemos estar nos perguntando: "Por que esta usando div e nao esta usando section?". Poderia usar section tambem, mas a section, o ideal eh que ela sempre tem que ter um heading, h1, h2, ate o h6, o ideal eh que ela tenha isso. Entao, isso eh o que a especificacao diz. Para nao quebrar isso, nao seria um erro, mas, para nao quebrar isso, nos vamos usar div mesmo.
+
+7. Mas nao teria problema, se usasse section. Sim, funcionar, iria funcionar, mas nao ficaria 100% de acordo com a especificacao. Iremos colocar uma palavra Teste e, claro, a gente nao tem ainda o estilo CSS desse layout-depoimento, entao, a gente vai criar aqui agora, no arquivo layout.css,
+
+.layout-depoimento {
+  
+}
+
+8. Essa classe eh bem parecida com o que a gente ja fez, entao, nos vamos fazer, ate, um pouco mais rapido, porque, nas outras aulas, a gente fez exatamente isso aqui,
+
+.layout-depoimento {
+  padding: 80px 0;
+
+  background-color: #e7e7e7;
+}
+
+, entao, nao vamos passar muito tempo aqui, porque eh um trabalho repetitivo. Vamos colocar, aqui, background-color: #e7e7e7, essa eh uma cor cinza.
+
+9. Vamos recarregar a pagina para vermos como ficou.
+
+10. Okay, entao, a gente tem, aqui, a area, ja, do depoimento. Agora, vamos colocar, aqui, o nosso bloco. O nosso bloco vai ser um div,
+
+<div class="layout-depoimento">
+  <div class="container">
+
+    <div class="depoimento">
+      <blockquote>
+      </blockquote>
+    </div>
+
+  </div>
+</div> 
+
+, eh o bloco do depoimento. Vamos chamar o nome do bloco de depoimento. Aqui, vamos usar a tag <blockquote>, que a gente usa para quando a gente tem uma citacao e nos vamos digitar um texto dentro dessa tag,
+
+<div class="layout-depoimento">
+  
+  <div class="container">
+
+    <div class="depoimento">
+      <blockquote>
+        Eu tinha perdido totalmente o controle da minha empresa.
+        Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+      </blockquote>
+    </div>
+
+  </div>
+
+</div>
+
+, que eh o texto da citacao, que o Joao da Silva falou aqui, sobre o nosso software. Agora que nos temos o blockquote, nos poderiamos colocar, aqui um nome de classe CSS, como nos ja falamos outras vezes, por exemplo, depoimento__citacao, ou, ainda nao, ou seja, como o blockquote eh bem semantico, ele ja diz que eh uma citacao, nos vamos deixar assim, sem a definicao de uma classe, mas nao teria problema colocar, mas nos vamos fazer diferente desta vez.
+
+11. Em seguida ao <blackquote>, vamos abrir uma div e colocar depoimento__autor, ou seja, eh um elemento do depoimento, eh o autor do depoimento e vamos colocar uma imagem aqui,
+
+  <div class="container">
+
+    <div class="depoimento">
+      <blockquote>
+        Eu tinha perdido totalmente o controle da minha empresa.
+        Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+      </blockquote>
+
+      <div class="depoimento__autor">
+        <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="Joao da Silva">
+      </div>
+
+    </div>
+
+  </div>
+
+</div> 
+
+, essa imagem vai estar em imagens/joao-da-silva.jpg, o tamanho dela eh 180 pixels, a altura eh 180 pixels tambem, e o texto alternativo, o alt, eh 'Joao da Silva', o nome de quem deu o depoimento. 
+
+12. Okay, muito simples ate agora. Nos vamos ter um paragrafo, em seguida, com o nome Joao da Silva,
+
+      <div class="depoimento__autor">
+        <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="Joao da Silva">
+        <p>João da Silva</p>
+      </div>
+
+
+13. Okay, criamos a estrutura html do nosso bloco de depoimento.
+
+14. Agora, nos vamos estiliza-lo. Vamos, aqui, para o arquivo componentes.css, vamos copiar o comentario e abrir um novo bloco, DEPOIMENTO, e vamos comecar,
+
+/*=====================*\
+  DEPOIMENTO
+\*=====================*/
+.depoimento {
+  
+}
+
+, depoimento, eh o nome do nosso bloco, o nosso bloco vamos coloca-lo com um tamanho de fonte de 22 pixels, entao, qual que eh a base? A base eh 10 pixels, entao, 2.2rem, 
+
+.depoimento {
+  font-size: 2.2rem;    /** 22 pixels **/
+}
+
+15. Agora, nos vamos colocar o seletor filho direto blockquote da classe depoimento,
+
+.depoimento > blockquote {
+  
+}
+
+, nos vamos especificar dessa forma porque nos nao especificamos um nome de classe para a tag blockquote, no arquivo html. Se tivessemos colocado, nos ja saberiamos como definir no arquivo CSS. 
+
+16. Primeiramente, nos vamos zerar a margem, colocar um padding de superior/inferior 0, esquerda/direita de 60 pixels, e vamos definir text-align como center, para centralizar o texto. Vamos ver como esta ficando,
+
+.depoimento > blockquote {
+  margin: 0;
+  padding: 0 60px;
+
+  text-align: center;
+}
+
+, o texto esta centralizado, tem um padding, podemos ver que tem um espacinho, ate porque a imagem comecou aqui na esquerda e tem um espacinho entre o inicio da imagem na esquerda e o inicio do texto.
+
+17. O tamanho da fonte do blockquote vai ficar padrao, font-size: 1em, vamos deixar explicito aqui,
+
+.depoimento > blockquote {
+  margin: 0;
+  padding: 0 60px;
+
+  text-align: center;
+  font-size: 1em;
+}
+
+18. .depoimento__autor, que eh o elemento onde temos o div do autor, nos vamos colocar margin-top de 40 pixels, para a gente dar um espacinho entre a imagem e o texto centralizado do depoimento, ou seja, descolar um pouco do texto.
+
+.depoimento__autor {
+  margin-top: 40px;
+
+  text-align: center;
+}
+
+19. Vamos colocar, tambem, um text-align como center, porque precisamos 
+centralizar a imagem, e font-size, nos queremos uma fonte do tamanho de 
+20 pixels, entao, para calcular 20 pixels, fazemos 
+20 pixels / 22 pixels do elemento pai, que eh 0.9090em,
+
+.depoimento__autor {
+  margin-top: 40px;
+
+  text-align: center;
+  font-size: 0.9090em;
+}
+
+, vamos ver como que fica, ou seja, vamos recarregar a pagina. 
+Diminuiu um pouquinho apenas. Vamos ver 18 pixels, quanto que 
+ficaria 18 pixels, ou seja, 18 pixels / 22 pixels, que eh igual a 
+0.8181em,
+
+.depoimento__autor {
+  margin-top: 40px;
+
+  text-align: center;
+  font-size: 0.8181em;
+}
+
+20. Vamos ver como esta a imagem da versao final do prototipo 
+do projeto do curso. Na imagem, esta um pouquinho menor, mas esta bom,
+vamos deixar assim.
+
+21. Okay, a gente esta aqui no depoimento__autor, aqui nao tem mais nada,
+agora, o seletor img filho direto de depoimento__autor,
+
+depoimento__autor > img {
+
+}
+
+, para img, nos tambem nao colocamos um nome de classe, poderia tambem,
+mas nao colocamos. Vamos colocar, aqui, o border-radius, quando nos
+colocamos, aqui, 50%, no border-radius, o que era quadrado, fica um 
+circulo. Legal, ne, entao, a imagem eh quadrada, nao eh um circulo, 
+mas a gente consegue deixa-la em circulo assim,
+
+.depoimento__autor > img {
+  border-radius: 50%;
+}
+
+, para ficar mais bonitinho, neste caso aqui.
+
+22. E o seletor p filho direto de depoimento__autor,
+
+.depoimento__autor > p {
+  margin-top: 10px;
+}
+
+, vamos definir margin-top de 10 pixels. Para que? Eh para deixar o espaco 
+entre o nome Joao da Silva e a imagem dele so de 10 pixels, deixar mais
+coladinho, deixando 10 pixels de distancia.
+
+23. Isso aqui a gente esta fazendo pensando em Mobile First, ou seja,
+dispositivos moveis. Quando a gente aumentar a tela, nao queremos esse
+texto corrido todo da frase do depoimento. Queremos que a frase fique
+mais centralizada, com 3 linhas. Essa aspas, que aparece na versao
+final do prototipo do curso, nos vamos fazer depois, a gente ainda
+nao viu como faze-la, a gente vai faze-la depois, a gente vai colocar
+so o texto por enquanto. Entao, o que que a gente vai fazer aqui agora?
+
+24. Vamos colocar um Media Query aqui, 
+
+@media(min-width: ) {
+
+}
+
+, de largura minima, vamos colocar 992px, que eh o breakpoint para a partir
+de desktop, 
+
+@media(min-width: ) {
+  .depoimento {
+    padding-left: 10%;
+    padding-right: 10%;
+
+    font-size: 
+  }
+}
+
+, padding-left de 10% da largura do container, a gente fez isso, inclusive,
+para a area de chamada, aquela area verde, a gente fez a mesma coisa.
+
+25. E o font-size, nos queremos 2.8rem. Entao, no caso, quando for 
+desktop, aumenta a fonte do bloco, que era 22 pixels, aumenta para
+28 pixels.
+
+26. Vamos recarregar a pagina. Entao, ao diminuir a tela, a fonte esta
+menor e, ao aumentar a tela, o tamanho da fonte fica maior.
+
+27. Verificando na imagem da versao final do prototipo do curso, vemos
+que a frase do depoimento tem um tamanho de largura menor, ou seja,
+tem menos espaco para o texto. Para isso, vamos colocar, aqui, 15% para
+padding-left e para padding-right,
+
+@media(min-width: ) {
+  .depoimento {
+    padding-left: 15%;
+    padding-right: 15%;
+
+    font-size: 
+  }
+}
+
+28. Okay, ao recarregarmos a pagina, vemos que ficou igual a versao
+final do prototipo do curso.
+
+29. Para o nome Joao da Silva, iremos diminui-lo um pouco. Vamos ver
+quanto ficaria 16 pixels, ou seja, vamos fazer a conta 16 / 22, que he
+igual a 0.7272, entao, vamos alterar para 0.7272em em font-size para
+depoimento__autor,
+
+.depoimento__autor {
+  margin-top: 40px;
+
+  text-align: center;
+  font-size: 0.7272em;    /** 16 pixels **/
+}
+
+30. Ao recarregarmos a pagina, vemos que diminui o nome do autor do
+depoimento.
+
+31. Bom, eh isso ai, entoa, nos ja temos a nossa secao de depoimentos,
+que a gente organiza o layout e tambem a gente ja tem o nosso bloco
+de depoimentos, somente sem essa aspas que aparece na versao final do
+prototipo do curso, que eh um detalhe que a gente vai fazer depois,
+em uma aula mais para a frente.
+
+32. Fim da Aula 07.004. Adicionando Depoimento.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+      </div>
+    </header>
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <div class="chamada__acao">
+            <a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-depoimento">
+
+      <div class="container">
+
+        <div class="depoimento">
+
+          <blockquote>
+            Eu tinha perdido totalmente o controle da minha empresa.
+            Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+          </blockquote>
+
+          <div class="depoimento__autor">
+            <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="João da Silva">
+            <p>João da Silva</p>
+          </div>         
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!-- 
+ Aula 06.001. Especificidade do CSS
+
+53. Neste exemplo 2, nos temos um header, com id cabecalho e, dentro do header, nos temos o h1, com uma classe logo.
+
+54. No CSS, a gente vai comecar aqui a fazer alguns exemplos.
+
+55. Antes de definir o CSS aqui, vamos voltar para o exemplo1.css, porque estavamos esquecendo de uma coisa. Ver exemplo1.html.
+
+62. Voltando para onde estavamos, no exemplo 2, onde temos o header e o h1, vamos comecar a definir o estilo CSS com,
+
+.logo {
+	color: blue;
+}
+
+63. Recarregamos a pagina e o titulo esta em azul.
+
+64. Vamos, agora, para o header, vamos criar um seletor descendente, header, espaco, ponto logo,
+
+header .logo {
+	color: green;
+}
+
+65. Qual cor vai ficar o titulo, azul ou verde? Quem eh mais especifico aqui? Vamos fazer a continha? Para o seletor de classe logo,
+
+logo {
+	color: blue;
+}
+
+, tem um ID nesse seletor? Nao. Entao, colocamos 0,
+
+logo { /** 0 **/
+	color: blue;
+}
+
+, tem um seletor de classe? Sim. Entao, colocamos 1,
+
+logo { /** 01 **/
+	color: blue;
+}
+
+, tem um seletor de Tag? Nao. Entao, colocamos 0,
+
+logo { /** 010 **/
+	color: blue;
+}
+
+, entao, ganhou 10 pontos.
+
+66. E no seletor descendente de header?,
+
+header .logo {
+	color: green;
+}
+
+, tem seletor por ID? Nao, entao colocamos 0,
+
+header .logo {  /** 0 **/
+	color: green;
+}
+
+, tem seletor por Classe? Sim, entao, colocamos 1,
+
+header .logo {  /** 01 **/
+	color: green;
+}
+
+, tem seletor por Tag? Sim, entao, colocamos 1,
+
+header .logo {  /** 011 **/
+	color: green;
+}
+
+, entao, ganhou 11 pontos.
+
+67. Quem ganha no peso da especificidade? 11 eh maior do que 10, entao, tem que ficar a cor verde. Ao recarregarmos a pagina, vemos que o titulo ficou verde.
+
+68. Entao, eh dessa forma que nos conseguimos descobrir.
+
+69. Vamos, agora, pegar um outro, ao inves de pegar pela Tag, vamos pegar pelo ID cabecalho, vamos colocar a cor vermelha,
+
+#cabecalho .logo {
+	color: red;
+}
+
+70. Vai substituir tudo? Vamos ver, vamos recarregar a pagina. Vai ficar vermelho ou nao?
+
+71. Ficou. Por que ficou vermelho? Vamos fazer a conta aqui para descobrir qual que eh a especificidade disso, o peso disso,
+
+#cabecalho .logo { /**  **/
+	color: red;
+}
+
+, tem o seletor por ID? Tem, entao, colocamos 1,
+
+#cabecalho .logo { /** 1 **/
+	color: red;
+}
+
+, tem seletor por classe? Tem, entao, colocamos 1,
+
+#cabecalho .logo { /** 11 **/
+	color: red;
+}
+
+, tem seletor por Tag? Nao, entao, colocamos 0,
+
+#cabecalho .logo { /** 110 **/
+	color: red;
+}
+
+, o peso, entao, do seletor descendente do ID cabecalho eh 110. Como 110 eh maior do que todo mundo, fica vermelho, realmente, o titulo.
+
+72. Isso independe da ordem em que estiver disposto a Regra CSS no arquivo CSS, depende do peso da especificidade.
+
+73. Se nos colocarmos assim, 
+
+header#cabecalho .logo {
+	
+}
+
+? Eh bem parecido com,
+
+#cabecalho .logo {
+	color: red;
+}
+
+, so que nos estamos especificando uma coisinha a mais, estamos definindo que nao adianta so o elemento ter o ID cabecalho, alem de ter o ID cabecalho, ele tem que ser um header, ou seja, so de olhar aqui, nao precisa nem fazer conta, so de olhar aqui, nos sabemos que eh mais especifico do que o seletor descendente do ID cabacalho,
+
+#cabecalho .logo {
+	color: red;
+}
+
+, porque nos estamos dizendo que, alem de ser um ID cabecalho, ele tem que ter um header, porque, se nao fosse um header, se, por exemplo, fosse um div, o seletor descendente do ID cabecalho pegaria,
+
+<div id="cabecalho">
+	<h1 class="logo">AlgaWorks</h1>
+</div>
+
+, porque ele nao especifica que tem que ser um div ou nao. Mas o seletor descendente do ID cabecalho para a Tag header especifica que tem que ser um header, entao, ele eh mais especifico, nao precisa nem fazer conta.
+
+74. A conta ajuda, mesmo, so quando tem alguma coisa muito complicada mesmo, nao estamos entendendo bem, entao ajuda. 
+
+75. Entao, vamos la,
+
+header#cabecalho .logo {
+	color: purple;	
+}
+
+76. E, ao recarregar a pagina, o titulo ficou roxo. Entao, vamos fazer a continha aqui,
+
+header#cabecalho .logo { /**  **/
+	color: purple;	
+}
+
+, tem o seletor de ID? Sim, entao, colocamos 1,
+
+header#cabecalho .logo { /** 1 **/
+	color: purple;	
+}
+
+, tem um seletor de Classe? Sim, entao, colocamos 1,
+
+header#cabecalho .logo { /** 11 **/
+	color: purple;	
+}
+
+, tem um seletor de Tag? Sim, entao, colocamos 1,
+
+header#cabecalho .logo { /** 111 **/
+	color: purple;	
+}
+
+, entao, o peso total eh 111, maior do que 110, que eh o peso do seletor descendente do ID cabecalho, por isso, entao, venceu a Regra CSS com peso 111.
+
+77. Mais um exemplo para finalizarmos,
+
+header#cabecalho h1.logo {
+	
+}
+
+, entao, nao adianta so ser uma classe logo, tem que ser uma classe logo em um elemento h1. So de olharmos, isso aqui eh mais especifico do que header#cabecalho .logo, nao tem como ser diferente, eh essa a Regra CSS que vai pegar, que vai vencer.
+
+78. Entao, definimos a propriedade como color: yellow,
+
+header#cabecalho h1.logo {
+	color: yellow;
+}
+
+79. Ao recarregarmos a pagina, vemos que o titulo ficou amarelo. Vamos so colocar qual que eh o peso disso aqui,
+
+header#cabecalho h1.logo { /** **/
+	color: yellow;
+}
+
+, tem um seletor de ID? Sim, entao, colocamos 1,
+
+header#cabecalho h1.logo { /** 1 **/
+	color: yellow;
+}
+
+, tem um seletor de Classe? Sim, entao, colocamos 1,
+
+header#cabecalho h1.logo { /** 11 **/
+	color: yellow;
+}
+
+, tem um seletor de Tag? Sim, temos 2, h1 e header, entao, colocamos 2,
+
+header#cabecalho h1.logo { /** 112 **/
+	color: yellow;
+}
+
+, entao, nos pegamos o numero de ocorrencias e colocamos ali na numeracao do peso, ficou 112, que eh maior do que 111, entao, essa Regra CSS ficou mais especifica. 
+
+80. Entao, imaginamos que, agora, depois de tantos exemplos, nos ja conseguimos identificar como que a gente calcula o peso. 
+
+81. Isso aqui pode ficar muito complexo, entao, se nos comecamos a usar muitos seletores combinados e mais complexos, dessa forma,
+
+header#cabecalho h1.logo {
+	color: yellow;
+}
+
+, principalmente, quando comeca a usar ID, fica muito complexo, principalmente, porque o ID ganha um peso muito grande, entao, comeca a ficar complexo dar manutencao no nosso CSS, quando comecamos a usar muito ID, quando comecamos a usar algumas coisas com mais combinacoes assim.
+
+82. Vamos mostrar uma forma de facilitar isso em uma outra aula, que eh uma boa pratica, que acreditamos que iremos gostar, mas eh bom conhecer isso, principalmente, porque, quando nos formos pegar codigo de outras pessoas, nos podemos ter problemas com isso.
+
+83. Vamos ver mais uma coisinha, antes de terminar, que eh se nos colocarmos, aqui, um estilo inline,
+
+<h1 class="logo" style="color: orange;">AlgaWorks</h1>
+
+, se nos colocarmos, aqui, um estilo inline, ele sempre substitui, prioridade maxima, neste caso. Ao recarregar a pagina, vemos que ficou, de fato, laranja.
+
+84. Porque o estilo inline eh algo que esta sendo aplicado diretamente no elemento, no proprio codigo html, entao, ele sobrescreve qualquer outra coisa que estiver especificado no arquivo CSS. 
+
+85. Mas, eh logico, o estilo inline, geralmente, nao eh recomendavel ficar usando, eh melhor colocar no arquivo CSS. Se conseguirmos fazer de uma forma que nao entremos em parafuso, neste caso, com varios seletores confusos, nao baguncar demais a nossa cabeca, da tranquilo para trabalhar com os arquivos CSS, nao precisa ficar substituindo com estilos inline, nao precisa ficar usando important.
+
+86. Entao, deve-se tentar evitar tanto important quanto estilos inline, conhecendo bem, entao, como funciona a especificidade do CSS, um assunto muito, muito importante e, agora, nos ja conhecemos.
+
+87. Fim da Aula 06.001. Especificidade do CSS.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/exemplo2.css">
+    </head>
+    <body>
+    	<header id="cabecalho">
+    		<h1 class="logo">AlgaWorks</h1>
+    	</header>
+
+    </body>
+</html>

@@ -1,0 +1,180 @@
+<!-- 
+	Aula 05.002. Unidade de Medida: Pixel
+
+1. Ate agora, neste workshop, a gente estava usando a unidade de medida pixel e, se voce nao sabe ainda o que eh um pixel, um pixel eh cada ponto na tela do seu computador. 
+
+2. Entao, as resolucoes sao divididas em pontos, por exemplo, a resolucao do instrutor eh 1280 pixels na horizontal e 800 pixels na vertical. E, hoje em dia, existem varias resolucoes, dependendo do dispositivo. Entao, tem dispositivos com mais ou menos pixels do que o desktop do instrutor.
+
+3. Entao, lembrando, cada pixel eh um pontinho, onde pode ser colorido. Entao, todas as imagens, as fotos, ate mesmo as ferramentas que a gente esta vendo aqui, tudo que esta disposto na tela foi desenhado com pixels.
+
+4. Entao, um pixel depois de outro pixel, cada pixel colorido vai formando as imagens aqui na tela. Entao, sabendo desse conceito, a gente, agora, vai falar de pixel, mas nao so isso, mas vamos falar de uma outra unidade de medida, que eh o percentual.
+
+5. Existem outras, que a gente vai ver em uma aula mais para a frente, mas, aqui, a gente vai focar apenas nessas duas unidades: pixel e percentual.
+
+6. Mas, antes de comecar a falar de unidades de medida e do pixel, vamos mostrar uma coisa que eh importante para entendermos isso, o que nos sera explicado nesta aula.
+
+7. Esta pagina aqui eh muito simples, temos, no html, um div, nao tem nenhum estilo definido ainda no arquivo css/pixel.css e tem os elementos h1 e p.
+
+8. Vamos ver o seguinte, se nos configurarmos aqui, no botao de 3 barras do browse e acessarmos as configuracoes do Browser, vamos procurar por fonte e vemos que o padrao do navegador Chrome eh uma fonte de tamanho medio. Se nos tivermos algum problema de vista e quisermos enxergar um pouco maior a fonte, nos selecionamos Muito Grande e aumentou o tamanho da fonte da pagina. Voltando para o tamanho Medio, volta para o tamanho padrao de fonte. Se selecionarmos Muito Pequeno, o tamanho de fonte da pagina fica bem pequenininho.
+
+9. Entao, isso vai de acordo com as preferencias do usuario. Nos vimos que o tamanho da fonte da nossa pagina foi afetado pelas configuracoes do Usuario.
+
+10. Por que que isso acontece? Porque o navegador tem um tamanho de fonte padrao. E esse tamanho de fonte padrao vai ser aplicado em todos os textos da pagina. E qual que eh o tamanho de fonte padrao? 
+
+11. Quando a gente especifica Medio (recomendado), o padrao eh 16 pixels. Como que sabemos disso?
+
+12. Daqui um pouco iremos mostrar. Mas o que que eh 16 pixels? O h1 ou o paragrafo? A gente pode ver que o h1 esta maior. Na verdade, quem eh tem 16 pixels eh o texto padrao, ou seja, o paragrafo. Mas, como o h1 tem uma semantica de ser algo mais importante, o titulo principal da pagina, o navegador automaticamente, no Chrome, dobra esse tamanho. Colocou, aqui, 32 pixels no caso do h1, ele dobrou o tamanho.
+
+13. Mas, sabendo que o padrao eh 16 pixels, ele, simplesmente, vai dobrar.
+
+14. Quando a gente define, aqui, nas configuracoes do Chrome, Tamanho da Fonte como Pequena, ai ja nao eh mais 16 pixels o tamanho padrao, eh um outro, o qual o instrutor nao recorda. Selecionando Muito pequeno, fica menor ainda.
+
+15. Vamos colocar aqui, no pixel.css, uma Regra CSS dessa para o seletor html, dessa forma:
+
+html {
+	font-size: 100%;
+}
+
+, apesar que ainda nao comecamos a falar sobre unidade de medida e percentual, neste caso, nos precisamos especifica isso para mostrar uma questao.
+
+16. Quando nos colocamos font-size como 100%, nos estamos dizendo que o tamanho da fonte eh 100% dela mesma, ou seja, nao estamos alterando nada.
+
+17. Mas, so de colocar isso, o Chrome vai nos permitir, quando inspecionarmos o elemento, por exemplo, o paragrafo, no painel de Styles, no Chrome DevTools, nos mudamos para a guia Computed, 
+que nos permite visualizar o tamanho computado, verificamos o font-size como 16 pixels.
+
+18. Entao, nos sabemos que o tamanho padrao para o paragrafo eh 16 pixels.
+
+19. Vamos, agora, inspecionar o paragrafo. Verificando na Guia Computed do Chrome DevTools, temos font-size como 32 pixels.
+
+20. Agora, nos vamos, nas Configuracoes do Chrome, alterar para Muito Grande. Inspecionando, de novo, o paragrafo, temos, agora, 24 pixels, nao eh mais 16 pixels. E o h1 tem 48 pixels, dobrou, conforme dito, ele dobra o tamanho para o elemento h1.
+
+21. O que queriamos mostrar, aqui, eh que o Usuario tem a possibilidade de alterar o tamanho de fonte, dependendo da necessidade dele. Tem usuarios que conseguem enxergar letras miudas, muito pequenas, e tem outros usuarios que nao conseguem. Entao, o navegador da essa opcao para o Usuario.
+
+22. Vamos, agora, ver o seguinte. Se nos alteramos, aqui, no seletor body, um tamanho de fonte, font-size como 10 pixels, nos alteramos o tamanho do documento inteiro para 10 pixels,
+
+body {
+	font-size: 10px;
+}
+
+23. Vamos inspecionar o paragrafo, no Chrome DevTools, e vemos que o paragrafo esta com 10 pixels e o h1 esta com tamanho de 20 pixels.
+
+24. Entao, a gente substituiu o tamanho da fonte do documento inteiro.
+
+25. Vamos voltar para 10 pixels so no body e o html com tamanho padrao,
+
+html {
+	font-size: 100%;
+}
+
+body {
+	font-size: 10px;
+}
+
+26. Se inspecionarmos, com o Chrome DevTools, a tag html, nos vemos que o tamanho padrao continua 16 pixels, porque o navegador aplica o tamanho de fonte no html. Ai, o que acontece eh que o body, que eh o corpo do documento, nos alteramos para 10 pixels, porque, se nos nao alterassemos para 10 pixels, o que aconteceria eh a heranca das propriedades. No caso da fonte, quando nos nao epecificamos o font-size do body, por exemplo, nos removemos agora, o font-size, ao inspecionarmos o body com o Chrome DevTools, torna-se de 16 pixels.
+
+27. Mas nos nao especificamos nenhum tamanho para o body agora, 
+
+body {
+	
+}
+
+, por que que ele esta com 16 pixels? Porque existe a heranca. Como o html tem tamanho fonte de 16 pixels, o body vai receber o tamanho de fonte de 16 pixels. Como o body tem tamanho de fonte de 16 pixels, os filhos dele tambem vao receber o tamanho de fonte de 16 pixels, ate que alguem altere.
+
+28. Quando nos alteramos para 10 pixels no body,
+
+body {
+	font-size: 10px;
+}
+
+, essa caixa, ou seja, o div com a classe caixa, qual que eh o tamanho de fonte dela?
+
+29. 10 pixels. Sendo que nos nem especificamos nada, nos nao especificamos tamanho de fonte para o div, mas eh 10 pixels.
+
+30. O p tambem eh 10 pixels. O h1 nao eh 10 pixels, eh o dobro, porque, aqui, em algum lugar, no Chrome DevTools, na Guia Styles, em use agent stylesheet, ou seja, os estilos do navegador, diz que o tamanho de fonte eh o dobro, 2em, que nao eh ainda o assunto desta aula, entao, vai ser em uma aula ainda mais para a frente, a gente vai estudar essa outra unidade de medida.
+
+31. Mas so para nos ja ficarmos sabendo, 2em significa que eh o dobro, duas vezes acima, entao, por isso que ele dobrou.
+
+32. Mas nao devemos nos preocupar, por enquanto, com essa unidade de medida.
+
+33. Entao, foi so para nos entendermos, essa introducao, que o usuario tem as configuracoes de tamanho de fonte e que existe a heranca quando nos especificamos o tamanho de fonte em um elemento, os filhos desse elemento, os descendentes vao herdando esse tamanho de fonte ate que nos alteramos em algum momento.
+
+34. Feito isso, vamos, agora, fazer o nosso exemplo de pixel.
+
+35. Entao, pixel eh uma unidade de medida fixa. Por que? Porque eh em pixel. Entao, se nos falarmos em 10 pixels, sao 10 pontinhos, entao, uma unidade fixa.
+
+36. Nos vamos colocar, aqui, criar uma Regra CSS caixa, que eh para selecionar, com o seletor caixa, a classe caixa do elemento div.
+
+37. E nos vamos colocar uma cor de fundo cinza e uma borda de 5 pixels, solida, black,
+
+.caixa {
+	background-color: #ccc;
+	border: 5px solid black;
+}
+
+, vamos ver o que acontece, ou seja, vamos recarregar a pagina.
+
+38. Certinho, era isso mesmo. E nos vamos colocar, aqui, uma largura de 600 pixels. Quando nos colocamos uma largura de 600 pixels, nos estamos especificando, entao, a largura da nossa caixa, ela vai ficar, exatamente, com uma largura de 600 pixels. Vemos que, se nos diminuirmos o tamanho da nossa janela, ou seja, da nossa pagina, ou aumentarmos, nada muda nessa caixa, ela eh fixa, ela nao eh relativa em relacao ao tamanho da janela, nada disso, ela eh fixa mesmo. Entao, se diminuirmos bem a largura da pagina, vai dar scroll na pagina,
+
+.caixa {
+	width: 600px;
+	background-color: #ccc;
+	border: 5px solid black;
+}
+
+39. Mais uma propriedade que nos vamos colocar eh o padding, de 20 pixels,
+
+.caixa {
+	width: 600px;
+	padding: 20px;
+	background-color: #ccc;
+	border: 5px solid black;
+}
+
+40. Se nos colocamos o padding de 20 pixels, nos vemos que deu um espacinho a mais interno, ao recarregar a pagina. Tambem movendo tamanho da janela, nao muda nada. Entao, eh um tamanho fixo, porque eh pixel.
+
+41. E vamos colocar um font-size de 12 pixels. Antes disso, so para confirmar, nas Configuracoes do Chrome, em Tamanho da fonte, quando selecionamos Muito grande, o tamanho da fonte fica maior e, quando selecionamos, no Tamanho da fonte, Medio, a fonte fica menor.
+
+42. Agora, vamos colocar a fonte de 12 pixels. 
+
+.caixa {
+	width: 600px;	
+	padding: 20px;
+	font-size: 12px;
+	background-color: #ccc;
+	border: 5px solid black;
+}
+
+43. Nos estamos especificando que a fonte desta caixa tem 12 pixels. Se estamos especificando, ao recarregar a pagina, vemos que a fonte ficou menor, com 12 pixels. Mas, ai, o usuario fala: 'Eu quero Muito grande', ou seja, o Usuario vai nas Configuracoes e seleciona a opcao Muito grande no Tamanho da fonte. Entao, nada muda. Se o Usuario muda para Muito pequeno, nada muda na nossa pagina com 12 pixels. Por que nada muda?
+
+44. Porque nos especificamos o tamanho da fonte. Entao, nos nao estamos dando essa opcao para o Usuario alterar o tamanho da fonte, nos deixamos-na fixa. Entao, esse eh um reflexo de a gente usar pixels para tamanhos de fonte. No caso de largura, nao afeta nem afetaria, porque eh pixels, mesmo se estivessemos utilizando percentual, nao afetaria a medida. Mas nos estamos alterando o tamanho de fonte, nos estamos falando do tamanho da fonte. O tamanho da fonte, como nos definimos em pixels, nos estamos forcando, entao, para sempre usar o que nos especificamos. Se nos especificamos que eh 12 pixels, nao tem como o usuario alterar isso.
+
+45. Entao, sabendo disso, a gente chega na conclusao de que pixel eh uma medida que deve ser evitada em layouts responsivos.
+
+46. Quando nos quisermos um layout que funcione bem em telas com resolucoes grandes, pequenas e, tambem, quando nos queremos dar essa opcao para o usuario, e, geralmente eh uma boa ideia o usuario poder escolher o tamanho de fonte que ele quer ter, entao, nao eh uma boa ideia utilizar pixel para o tamanho de fonte, principalmente.
+
+47. Para tamanho de caixas, por exemplo, como aqui, por exemplo, a largura, o padding, eh ruim para a responsividade, porque, se nos temos uma caixa fixa aqui e nos acessamos pelo celular, que tem uma tela bem pequena, eh muito ruim para a responsividade, o tamanho da caixa fica fixo e a pagina gera scroll. Usar pixels em tamanhos de fonte, eh muito ruim para a acessibilidade do usuario, para o Usuario conseguir alterar a fonte. 
+
+48. Entao, pixel eh uma unidade de medida que deve ser evitada. Nao quer dize que nunca poderemos utilizar, nao. Em alguns casos, nos iremos utilizar, se nos vermos que nao vai impactar na usabilidade do usuario, tanto em relacao ao tamanho de tela, quanto o tamanho de fonte, se nao vai impactar nisso, nao vemos problema, mas nos temos sempre que pensar bem antes de usarmos pixel.
+
+49. Pixel pode ser muito util quando nos queremos criar layouts com o conceito de Pixel Perfect, que eh quando o nosso Cliente, por exemplo, nos passa uma imagem de um site e ele fala que ele quer exatamente daquele jeito, as medidas exatas. Hoje em dia, nao se usa tanto assim, mas, se caso for necessario para fazer Pixel Perfect, ai, usa-se bastante unidade de pixels. E eh a mais conhecida hoje, pixel eh a medida que as pessoas mais usam, ate por falta de conhecimento das outras unidades de medida.
+
+50. Agora, vamos para a unidade percentual.
+
+51. Fim da Aula 05.002. Unidade de Medida: Pixel.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/pixel.css">
+</head>
+<body>
+
+	<div class="caixa">
+		<h1>Economizar tempo com redeploy</h1>
+		<p>Já imaginou quanto tempo você economizaria se o redeploy não fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+	</div>
+
+</body>
+</html>

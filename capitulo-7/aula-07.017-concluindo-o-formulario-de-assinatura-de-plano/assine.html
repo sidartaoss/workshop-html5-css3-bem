@@ -1,0 +1,354 @@
+<!-- 
+
+Aula 07.017. Concluindo o Formulario de Assinatura do Plano
+
+1. Vamos, agora, concluir este formulario para deixar bem parecido com esse aqui que o instrutor esta exibindo como prototipo final de dormulario do projeto do curso.
+
+2. Aqui no codigo html, o instrutor ja colocou os outros campos, porque eh um trabalho muito repetitivo, e, eh logico, as diferencas o instrutor isra mostrar uma por uma.
+
+3. Entao, o instrutor ja preecheu, colocou todos os campos, e vejamos que esta tudo aqui. Vamos, entao, para as diferencas, coisas que a gente ainda nao viu aqui no codigo.
+
+4. A primeira coisa que a gente vai ver, aqyum yn bivi canoim Data de fundacao, do tipo, ao inves de text, vejamos que o tipo nos colocamos date. Vamos ver a diferenca, se nos colocarmos text e recarregarmos a pagina, nos podemos digitar qualquer coisa, mas se nos colocarmos date e recarregarmos, nos nao podemos digitar qualquer coisa, nos temos que selecionar uma data, nos podemos digitar uma data, ou, ainda, nos 	podemos usar aqui o seletor de data que o proprio navegador coloca.
+
+5. Eh muito comum, quando a gente quer colocar componentes de datas assim,a gente pegar alguma biblioteca Javascript, porque esse tipo de coisa aqui precisaria de Javascript, mas esse tipo date eh nativo do navegador, a gente nao precisa disso. So que tem um porem, alguns navegadores nao suportam ainda, ele eh um tipo do HTML5 e alguns navegadores ainda nao suportam, entao, nos temos que contar com a possibilidade de coloca-lo, mas, memso assim, o nosso usuario nao te-lo para informar essa data, nos devemos contar com isso, porque nao sao todos os navegadores que, ainda, suportam-no.
+
+6. Outro tipo eh o email. A gente coloca, aqui, no type, email, tambem, eh um tipo do HTML5, e o que que muda?
+
+7. E-mail nao eh mascara, porque e-mail nao tem uma mascara que nos consigamos ir preenchendo como data, em que sao dois digitos, barra, dois digitos, barra, quatro digitos, e-mail nao. Mas, o que acontece eh que e-mail, quando a gente coloca o tipo e-mail, ao submeter os dados, o proprio navegador valida pra gente, ele fala: esse nao eh um e-mail valido, porque voce nao informou o @, entao, se colocarmos, aqui, aaa@bbb.com, um nome que kparece um e-mail, ai o navegador, ao submetermos os dados, nao reclama mais.
+
+8. Mas, agora, o navegador ja esta reclamando de outra coisa, em que nos vamos chegar la, esta reclamando que o campo Senha eh requerido.
+
+9. Vamos para o campo de Senha, vejamos, os campos Senha e Confirme senha sao de senha. Vejamos que, quando digitamos, nao aparece o que nos estamos digitando, aparece umas bolinhas para o usuario nao ver a senha esta digitando, por questao de seguranca. Para isso, nos so precisamos colocar o type como password, porque, se nos colocarmos o type como text, nos vemos a senha que estamos digitando, se nos colocarmos password, a unica coisa que ele faz eh visualmente nao mostrar, so isso, visualmente, nos iremos ver umas bolinhas.
+
+10. Entao, nos vimos os tipos date, email, password, tem outros tipos tambem, mas, os que nos iremos usar sao esses, aqui neste formulario.
+
+11. Se nos nao preenchermos, por exemplo, o campo Razao Social e clicamos no botao Assinar, quando nos definimos required em Razao Social e CNPJ, nos estamos dizendo que esses campos sao requeridos, e, se nos tentarmos submeter o formulario sem preencher esses campos, o proprio navegador vai validar para nos, vai falar: 'Opa, aqui voce tem que preencher', ele eh requerido. Entao, o navegaodr nao deixa nos submetermos o formulario sem preencher o campo. Entao, em varios campos, nos colocamos esse required. 
+
+12. Ou seja, entao, os tipos dos inputs tambem validam, o tipo date, email, eles validam a informacao, required vai validar se esse campo foi informado ou nao.
+
+13. Agora, se nos quisermos validacoes mais complexas, com uma logica nossa, principalmente, ai nos devemos fazer isso com Javascript, ou, ainda, pelo Back-end, pela linguagem de programacao, la no Back-end, Java, PHP, Python, essas coisas, no Back-end, tambem nos podemos fazer. Ou em Javascript.
+
+14. Nenhum desses dois, Back-end ou Javascript, eh foco deste curso, entao, a gente vai ficar so com essas validacoes aqui do proprio HTML5.
+
+15. Agora que a gente ja viu alguns tipos de campos, e tambem sobre as validacoes de requerido, e as proprias validacoes dos tipos de campos, vamos ver aqui, uma caixa de selecao, como que a gente coloca uma caixa de selecao.
+
+16. Essa caixa de selecao eh muito simples, a gente coloca usando esse elemento select. Entao, select a gente vai colocar, dentro do select, algumas opcoes, e cada opcao eh um option, cada opcao eh um elemento option. E, se o usuario, por exemplo, vamos pegar a caixa de selecao de Cidade, se o Usuario selecionar a opcao, por exemplo, Uberlandia, para a cidade, o que a gente vai submeter para o nosso back-end, para o nosso servidor, eh esse valor que a gente coloca na propriedade value do option,
+
+<option value="1">Uberlândia</option>
+
+17. Entao, se o Usuario submeter Uberlandia, se ele selecionar Uberlandia e submeter esse formulario, a gente vai mandar la para o servidor um numero 1 como valor, poderia escrever qualquer valor em value, poderia, por exemplo, escrever 'UDIA', que ele submeteria tambem o que esta aqui,
+
+<option value="UDIA">Uberlândia</option>
+
+18. Se, na caixa de selecao de Estado, por exemplo, o Usuario selecionar Minas Gerais, nos vamos enviar MG, 
+
+<option value="MG">Minas Gerais</option>
+
+19. Se selecionar São Paulo, vamos enviar SP, ou CE, para o Ceará. Entao, eh dessa forma que funciona.
+
+20. Ah, uma coisa, como a gente nao esta submetendo o formuladio, nao colocamos aqui, mas, geralmente, nos formularios, a gente tem uma propriedade name, por exemplo, razaoSocial, um nome para esse campo,
+
+<input id="razao-social" name="razaoSocial" type="text" class="campo" required>
+
+, todos os campos do formulario poderiam ter essa propriedade name, geralmente, vao ter essa propriedade name. Vamos alterar o metodo do formulario para get e vamos entender o que vai acontecer,
+
+<form action="#" method="get">
+
+21. Vamos preencher o campo Razao Social com AlgaWorks, um CNPJ 111, como eh obrigatorio o campo Data de fundacao, nos temos que informar qualquer coisa, 05/12/2016, Responsavel, aaa, E-mail aa@aa.com, Estado Minas Gerais, Cidade Uberlandia, Senha 0, Confirme a senha 0, e clicar em Assinar. 
+
+22. Vejamos que, quando nos submetemos o formulario, nos vemos que, na URL, 
+
+file:///C:/Users/SEMPR/workshop-html5-css3-bem/capitulo-7/aula-07.017-concluindo-o-formulario-de-assinatura-de-plano/assine.html?razaoSocial=AlgaWorks#
+
+, assine.html?razaoSocial=AlgaWorks, o que acontece?
+
+23. Esse razaoSocial eh o nome do nosso input, o name do input, e o AlgaWorks eh o valor que nos informamos. Vamos fazer isso aqui, agora, tambem, para o campo estado,
+
+<div class="grupo-entrada">
+	<label for="estado">Estado</label>
+	<select id="estado" name="estado" class="campo">
+		<option>Selecione</option>
+		<option value="MG">Minas Gerais</option>
+		<option value="SP">São Paulo</option>
+		<option value="CE">Ceará</option>
+	</select>
+</div>
+
+24. Nao iremos colocar o name para todos os campos, mas, so para nos vermos. Vamos recarregar a pagina e preencher novamente. Vejamos que, na URL, nao ha Query Strings, 
+
+file:///C:/Users/SEMPR/workshop-html5-css3-bem/capitulo-7/aula-07.017-concluindo-o-formulario-de-assinatura-de-plano/assine.html,
+
+, que nos podemos entender como parametros, colocamos o estado de Sao paulo, quando nos clicamos no botao Assinar, vejamos o que acontece,
+
+?razaoSocial=AlgaWorks&estado=SP#
+
+, razaoSocial eh igual a AlgaWorks, &, E Comercial, ou seja, e tambem o estado eh igual a SP.
+
+25. Cada campo que nos preenchemos, vai colocando, aqui, na URL. Acontece que, se nos colocarmos no action do formularioi, o endereco que o desenvolvedor do Back-end nos informou, nos iremos passar as informacoes para ele dessa forma, pela URL, com interrogacao, ?, iremos passando as informacoes dessa forma. 
+
+26. A nao ser que coloquemos post. Ai, o post envia as mesmas informacoes, da mesma forma, so que nao pela URL, ele envia isso pelo corpo do protocolo HTTP, que, ai, nao vem ao caso para a gente estudar neste curso, ai nos nao iremos ver os campos na URL, mas, mesmo assim, ele esta enviando as informacoes. 
+
+27. Mas o instrutor quis mostrar so paa nos entendermos que existe essa prorpiedade name e ela tambem eh muito importante, entao, nos deveriamos colocar o name em CNPJ, Data de fundacao, nao tem nada a ver com o ID, o name eh um nome que, inclusive, quem vai nos passar qual o nome que nos temos que informar aqui eh o desenvolvedor Back-end. Se nos nao formos um desenvolvedor Back-end, ele eh que vai ter que nos passar essa informacao. Vamos definir tambem o name para o campo responsavel.
+
+28. Ou seja, o desenvolvedor Back-end vai nos passar qual que eh o action, qual que eh o metodo do formulario, e quais sao os nomes de cada campo, ele que vai nos passar isso.
+
+29. Agora, vamos ara a estilizacao desse formulario. A gente ja viu todos os tipos de campos que a gente usou aqui, vamos para a estilizacao, porque ele ainda nao esta muito parecido com a versao final do prototipo do projeto do curso.
+
+30. Vamos aumentar o tamanho dos campos, colocar uma bordinha redonda, entao, vamos la.
+
+31. Aqui no nosso CSS componentes.css, no nosso bloco CAMPO, nos vamos colocar a altura do nosso campo deve ser de 2.8em. Vamos colocar um font-size de 1.4rem,
+
+.campo {
+  display: block;
+
+  width: 100%;
+  height: 2.8em;
+
+  font-size: 1.4rem;
+}
+
+, ou seja, 14 pixels para o tamanho da fonte e, para a altura do campo, 2.8 vezes o tamanho da fonte.
+
+32. Vamos, agora, colocar, aqui, um padding de 5 pixels, depois a gente vai ajustando, se precisar. Vamos recarregar,
+
+.campo {
+  display: block;
+
+  width: 100%;
+  height: 2.8em;
+
+  padding: 5px;
+
+  font-size: 1.4rem;
+}
+
+33. Vamos deixar os campos grandoes assim mesmo, porque, no prototipo final do curso, os campos tambem aparecem grandoes.
+
+34. Vamos, agora, colocar um border de 1 pixel, solido, e cinza,
+
+.campo {
+  display: block;
+
+  width: 100%;
+  height: 2.8em;
+
+  padding: 5px;
+  border: 1px solid #ccc;
+
+  font-size: 1.4rem;
+}
+
+, e o border-radius de 5 pixels, para dar a curva nos cantos.
+
+.campo {
+  display: block;
+
+  width: 100%;
+  height: 2.8em;
+
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  font-size: 1.4rem;
+}
+
+35. Recarregamos, e agora, nos temos os campos grandes, com curvas, os campos de caixa de selecao estao um pouquinho cinzas, vamos ver se a gente consegue alterar isso com background-color,
+
+.campo {
+  display: block;
+
+  width: 100%;
+  height: 2.8em;
+
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
+  background-color: #fff;
+
+  font-size: 1.4rem;
+}
+
+36. Recarregamos e, agora sim, eles estao brancos.
+
+37. Okay, agora que a gente ja estilizou os campos, a gente quer colocar um do lado do outro, como esses casos aqui, CNPJ e Data de fundacao, Estado e Cidade, a gente precisa coloca-los um do lado do outro. A gente pode usar o sistema de Grid do bootstrap que a gente esta usando neste curso.
+
+38. Entao, a gente vai colocar, vejamos, CNPJ e Data de fundacao, no campo CNPJ, a primeira coisa que faremos eh colocar um div, com a classe da linha, row, depois um div com a classe da coluna, e, aqui, nos vamos colocar a partir de qual momento, porque, em telas pequenas, vai ficar assim, tudo em cima do outro mesmo, ou seja, os campos empilhados, nao achamos interessante ficar um do lado do outro, mas, a partir de um certo momento, ai nos ja colocamos um do lado do outro, o CNPJ e Data de fundacao.
+
+39. A partir de qual momento, ou seja, de qual breakpoint que a gente quer colocar um do lado do outro?
+
+40. A parti do breakpoint col-sm-3, ou seja, a partir do breakpoint de telas pequenas, small, nos vamos colocar esse grupo de entrada aqui em 3 colunas,
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="grupo-entrada">
+							<label for="cnpj">CNPJ</label>
+							<input id="cnpj" name="cnpj" type="text" class="campo" required>
+						</div>
+					</div>
+				</div>
+
+, e, agora, esse grupo de entrada de Data de fundacao, tambem nos definimos 3 colunas,
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="grupo-entrada">
+							<label for="cnpj">CNPJ</label>
+							<input id="cnpj" name="cnpj" type="text" class="campo" required>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="grupo-entrada">
+							<label for="data-nascimento">Data de fundação</label>
+							<input id="data-nascimento" name="dataFundacao" type="date" class="campo" required>
+						</div>
+					</div>					
+				</div>
+
+41. Ou seja, nos criamos uma linha, row, e nos temos, dentro, duas colunas, uma ocupando 3 espacos e outra ocupando 3 espacos, a partir de uma tela pequena.
+
+42. Recarregamos, diminuimos a tela e, quando vamos aumentando o tamanho da tela, a partir de um breakpoint especifico, separou, 3 colunas para o CNPJ, e 3 colunas para o campo Data de fundacao.
+
+43. Se nos quisermos colocar meio a meio, nos colocamos col-sm-6 para CNPJ e col-sm-6 para Data de fundacao, salvamos, recarregamos, e os campos ficam meio-a-meio na tela.
+
+44. De repente, chega em um determinado breakpoint onde o CNPJ e Data de fundacao ficam empilhados, quando diminuimos o tamanho da tela.
+
+45. Mas vamos voltar para 3 e 3. Pode-se mudar para 6 e 6, ou 4 e 4, o que se quiser, o que se achar melhor, o importante eh somar 12, ou, tambem, 4 e 8, que soma 12, tambem poderia, onde CNPJ ficaria menor e Data de fundacao ficaria um campo de tamanho maior.
+
+46. Agora, vamos copiar e fazer a mesma coisa para os campos de Estado e Cidade.
+
+47. E, para os campos Senha e Confirme senha, tambem, a mesma coisa.
+
+48. Entao, temos o nosso formulario pronto.
+
+49. Fim da Aula 07.017. Concluindo o Formulario de Assinatura do Plano.
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="pr-BR">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MyPillas</title>
+
+	<link rel="stylesheet" href="css/bootstrap-grid.min.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/layout.css">
+	<link rel="stylesheet" href="css/componentes.css">
+</head>
+<body>
+
+	<header class="layout-cabecalho">
+		<div class="container">
+			
+			<nav class="navegacao  navegacao--assinatura">				
+				<a href="index.html"><img src="imagens/logo.png" width="100" height="35" alt="MyPillas"></a>
+			</nav>
+
+		</div>
+	</header>
+
+	<main class="layout-assinatura">
+		<div class="container">
+			<!--form action="#" method="post"-->
+			<form action="#" method="get">
+				
+				<h1 class="titulo-formulario">Sua assinatura do MyPilas</h1>
+
+				<div class="grupo-entrada">
+					<label for="razao-social">Razão Social</label>
+					<input id="razao-social" name="razaoSocial" type="text" class="campo" required>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+					<!--div class="col-sm-6"-->
+						<div class="grupo-entrada">
+							<label for="cnpj">CNPJ</label>
+							<input id="cnpj" name="cnpj" type="text" class="campo" required>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+					<!--div class="col-sm-6"-->
+						<div class="grupo-entrada">
+							<label for="data-nascimento">Data de fundação</label>
+							<input id="data-nascimento" name="dataFundacao" type="date" class="campo" required>
+						</div>
+					</div>					
+				</div>
+
+				<div class="grupo-entrada">
+					<label for="responsavel">Responsável</label>
+					<input id="responsavel" name="responsavel" type="text" class="campo" required>
+				</div>
+
+				<div class="grupo-entrada">
+					<label for="email">E-mail</label>
+					<input id="email" type="email" class="campo">
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="grupo-entrada">
+							<label for="estado">Estado</label>
+							<select id="estado" name="estado" class="campo">
+								<option>Selecione</option>
+								<option value="MG">Minas Gerais</option>
+								<option value="SP">São Paulo</option>
+								<option value="CE">Ceará</option>
+							</select>
+						</div>						
+					</div>
+
+					<div class="col-sm-3">	
+						<div class="grupo-entrada">
+							<label for="cidade">Cidade</label>
+							<select id="cidade" class="campo">
+								<option>Selecione</option>
+								<option value="1">Uberlândia</option>
+								<option value="2">São Paulo</option>
+								<option value="3">Fortaleza</option>
+							</select>
+						</div>						
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="grupo-entrada">
+							<label for="senha">Senha</label>
+							<input id="senha" type="password" class="campo" required>
+						</div>
+					</div>
+
+					<div class="col-sm-3">
+						<div class="grupo-entrada">
+							<label for="confirmacao-senha">Confirme a senha</label>
+							<input id="confirmacao-senha" type="password" class="campo" required>
+						</div>						
+					</div>
+				</div>	
+
+				<!--div style="text-align: center; margin-top: 15px"-->
+				<div style="text-align: center; margin-top: 40px">
+					<input type="submit" value="Assinar MyPilas" class="botao  botao--principal">					
+				</div>
+			</form>
+		</div>
+	</main>
+
+	<footer class="layout-rodape">
+		<div class="container">
+			<p>&copy; MyPillas. Todos os direitos reservados.</p>
+		</div>
+	</footer>
+
+</body>
+</html>

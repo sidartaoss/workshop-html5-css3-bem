@@ -1,0 +1,103 @@
+/** 9. **/
+/**
+html {
+    font-size: 10px;
+}
+*/
+
+/**1. 
+.texto {
+    font-size: 20px;
+}
+*/
+
+/**2.
+.texto {
+    font-size: 1em;
+}
+*/
+/**14.
+.texto {
+    font-size: 2em;
+}
+*/
+.texto {
+    font-size: 2rem;
+}
+/**3.
+.texto h1 {
+    font-size: 1em;
+}
+*/
+.texto h1 {
+    font-size: 3em;
+}
+
+/**4.
+.texto p {
+    border: 0.5em solid black;
+
+    font-size: 2em;
+}
+*/
+.texto p {
+    padding: 0.5em;
+    margin-right: 3em;
+    border: 0.5em solid black;
+
+    font-size: 2em;
+}
+
+.texto p span {
+    font-size: 0.5em;
+}
+
+/**5. 
+.comentarios {
+    font-size: 2rem;
+}
+*/
+/**6.
+.comentarios {
+    font-size: 1rem;    /** 16px **
+}
+*/
+/**11
+.comentarios {
+    font-size: 2rem;    /** 32px **
+}
+*/
+/**12.
+.comentarios {
+    font-size: 2rem;    /** 20px **
+}
+*/
+.comentarios {
+    font-size: 0.5rem;    /** 8px **/
+}
+
+/**7.
+.comentarios p {
+    font-size: 2em;     /** 32px **
+}
+*/
+
+/**8.
+.comentarios p {
+    font-size: 2em;     /** 64px **
+}
+*/
+
+/**10.
+.comentarios p {
+    font-size: 2rem;     /** 32px **
+}
+*/
+/**13.
+.comentarios p {
+    font-size: 2rem;     /** 20px **
+}
+*/
+.comentarios p {
+    font-size: 2em;     /** 16px **/
+}

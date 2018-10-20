@@ -1,0 +1,86 @@
+/**2.
+body {
+    font-size: 32px;
+}
+*/
+/**3.
+body {
+    font-size: 32px;
+    margin: 0px;
+}
+*/
+/**4.
+body {
+    font-size: 32px;
+}
+*/
+body {
+    font-size: 32px;
+    margin: 0px;
+}
+.frase1, .frase2 {
+    text-align: justify;
+    width: 500px;
+    padding: 20px;
+
+    border: 3px solid red;
+    background-color: yellow;
+}
+
+/**1. 
+.frase1 {
+    margin-left: 200px;
+}
+*/
+/**5.
+.frase1 {
+    margin-left: 0px;
+}
+*/
+/**6.
+.frase1 {
+    margin: 10px;
+}
+*/
+/**7.
+.frase1 {
+    margin: 10px 100px;
+}
+*/
+/**8.
+.frase1 {
+    margin: 10px 0 100px 50px;
+}
+*/
+/**9.
+.frase1 {
+    margin: 10px 0 100px 50px;
+    margin-top: 200px;
+}
+*/
+/**10.
+.frase1 {
+    margin: 10px 0 100px 50px;
+    margin-top: -100px;
+}
+*/
+.frase1 {
+    margin: 10px 0 100px 50px;
+}
+
+p {
+    margin: 0;
+}
+/**11.
+.frase2 {
+    margin: 0;
+}
+*/
+/**12.
+.frase2 {
+    margin: 0 100px;
+}
+*/
+.frase2 {
+    margin: 0 auto;
+}

@@ -1,0 +1,143 @@
+<!-- 
+	Aula 03.15. Box model e a propriedade box-sizing
+
+1. O conteudo desta aula eh muito importante e temos certeza de que, se entendermos o que sera explicado aqui, vai nos ajudar bastante na hora que estivermos fazendo os nossos proprios layouts, porque, se nos nao conhecermos o box-model, que eh o que sera ensinado nesta aula, nos nao vamos conseguir colocar alguns elementos na nossa pagina, nos vamos fazer de uma forma achando que deveria renderizar de determinada maneira e, na verdade, o navegador vai renderizar de outra maneira.
+
+2. Mas eh muito simples, eh so entender e prestar bastante atencao ao que sera ensinado agora. Entao, nesta aula, nos temos alguns codigos aqui, bem basicos tambem, nos temos tres paragrafos, um paragrafo com uma frase qualquer, outro paragrafo com uma frase qualquer e outra classe CSS e nos temos um paragrafo ao qual chamamos de 'referencia'.
+
+3. Isso eh para renderizarmos as tres caixas que sao visualizadas ao carregarmos a pagina. Entao, nos temos a primeira caixa, com uma frase, outra caixa em seguida com uma frase e uma ultima caixa azul, que nos so colocamos para termos como referencia, nos vamos entender melhor por que iremos utiliza-la, so para termos como referencia o tamanho da caixa, porque iremos falar aqui de calculo de tamanho de caixas. 
+
+4. E, por falar em caixa, sabemos que todos os elementos em uma pagina sao retangulos, ja falamos isso em uma aula anterior, todos os elementos de uma caixa sao retangulos. Entao, eh importante saber disso.
+
+5. Aqui no codigo CSS, nos temos definidos estilos muito simples, nada de novidade tambem. A gente tem o tamanho da largura de caixa de 500 pixels todas as caixas, por isso mesmo vemos todas exatamente do mesmo tamanho. Definimos, entao, frase1, frase2 e a caixa referencia com cor de fundo amarelo, com excecao da caixa referencia, que definimos como azul. E definimos uma altura tambem para o seletor 'referencia'.
+
+6. E definimos uma margem tambem para o paragrafo de 10 pixels para os tres paragrafos, porque, na verdade, essas caixas sao paragrafos. 
+
+7. Muito simples, essa parte do codigo ja estamos trazendo pronta, agora, vamos ao que interessa nesta aula. 
+
+8. Vamos pegar, aqui, a primeira caixa, que eh a frase1 e vamos adicionar uma borda nessa caixa frase1,
+
+.frase1 {
+	border: 3px solid red;
+}
+
+9. Vamos ver o que vai acontecer. Ao recarregar pagina, vemos que temos a primeira caixa com uma borda, mas, se percebermos, vemos que essa caixa com borda esta, agora, maior que a caixa debaixo. Isso fica, ainda, mais perceptivel se nos tivermos uma borda com um tamanho maior,
+
+.frase1 {
+	border: 10px solid red;
+}
+
+10. Ao recarregar a pagina, fica bastante perceptivel que a caixa de cima esta maior que a caixa debaixo. Talvez ainda nao tenhamos entendido por que estamos dizendo isso. Podemos pensar: 'Se colocarmos a borda, tem que ficar maior mesmo.'
+
+11. Mas, nos nao especificamos que as caixas tem 500 pixels de largura? Por que que, entao, as caixas debaixo tem 500 pixels e a caixa de cima esta maior? Ela nao deveria ter 500 pixels tambem?
+
+12. Vamos voltar a borda para 3 pixels,
+
+.frase1 {
+	border: 3px solid red;
+}
+
+13. Vamos colocar mais uma coisa, alem da borda, vamos colocar um padding, de 20 pixels,
+
+.frase1 {
+	padding: 20px;
+	border: 3px solid red;
+}
+
+14. Sabemos o que o padding faz, ele adiciona um espacamento interno, eh um preenchimento interno para nao ficar colado o texto na borda. O que que vai acontecer? Colocamos o padding de 20 pixels. Vai aumentar, entao, o espacamento interno e o texto vai ficar todo certinho e a caixa nao vai aumentar de tamanho? Ou sera que a caixa vai aumentar o tamanho? Nos definimos 500 pixels para a acaixa. A caixa vai aumentar? Estamos falando tamanho, mas vamos considerar, aqui, a largura, porque a altura nos nao especificamos nenhum tamanho fixo. O que vai acontecer?
+
+15. Vamos recarregar a pagina e percebemos que a caixa aumentou ainda mais. O navegador colocou o espacamento interno, mas a caixa tambem aumentou e, ai, parece estranho, porque, se colocamos o tamanho da caixa de 500 pixels, a gente esta sem o controle do tamanho da caixa, eh o que parece.
+
+16. Mas, isso tem uma logica e so nos entendermos isso e, entao, eh so nos entendermos isso, que nos nao vamos ter problema.
+
+17. A questao eh o seguinte, quando a gente nao especifica uma propriedade aqui, ela tem um valor padrao e essa propriedade se chama box-sizing. E o valor padrao dela eh content-box. Se definirmos 'box-sizing: content-box', nao vai mudar nada ao recarregarmos a pagina,
+
+.frase1 {
+	box-sizing: content-box;
+	padding: 20px;
+	border: 3px solid red;
+}
+
+18. E vamos explicar, entao, como funciona esse valor padrao content-box. Essa imagem que nos criamos aqui ilustra muito bem como funciona as medidas usando content-box, a medida de uma caixa. Entao, vamos comecar de dentro para fora. Nos vemos, na area branca, escrito Conteudo. Quando a gente especifica que a nossa caixa eh de 500 pixels, a gente esta dizendo que o tamanho desse conteudo tem 500 pixels. Se a gente tivesse especificado uma altura, que nao foi o caso nesse exemplo, a gente nao especificou, seria a mesma coisa, a gente esta especificando a altura tambem dessa area de Conteudo, a area branca.
+
+19. Quando a gente pega e adiciona um padding, um espacamento, que eh a parte laranja que estamos vendo ou, ainda, uma borda, que eh a parte vermelha que nos estamos vendo, quando a gente adiciona isso, o navegador, na hora de renderizar, ele joga isso para fora do tamanho que a gente definiu para a area de Conteudo.
+
+20. Ou seja, aquela largura que a gente especificou ou se a gente especificasse uma altura, a gente esta se referindo a area de Conteudo. Ja o Padding e a Borda, isso eh a parte, isso eh fora da area de Conteudo. As vezes, isso pode ser confundido, porque, quando a gente coloca uma cor de fundo no nosso elemento, essa cor de fundo se estende nao so pela area do Conteudo, que eh a area branca, mas ela se estende tambem pelo Padding, entao, parece que a gente esta especificando a medida daquilo tudo, mas nao, eh so da area de Conteudo.
+
+21. Entao, nao podemos confundir, porque, na verdade, todo mundo que esta comecando confunde por isso mesmo, porque a cor de fundo se estende para o Padding tambem. Entao, o que nos acabamos de ver eh quando o box-sizing tem o valor content-box, ou quando esse valor eh padrao.
+
+22. Agora, vamos fazer um outro exemplo. Vamos pegar o seletor frase2, que eh a caixa debaixo e vamos colocar uma borda de 20 pixels, depois diminuimos para 3 pixels,
+
+.frase2 {
+	border: 20px solid red;
+}
+
+23. Recarregamos a pagina. Nos podemos ver que aumentou o tamanho da caixa quando colocamos a borda. Mas, se nos tivermos uma propriedade chamada box-sizing com um valor diferente, o valor de border-box, podemos ver que nos tiramos a borda, entao, por isso, nos vamos comecar a entender a ultima caixa, a caixa azul, que colocamos como referencia, para a gente nao se perder, nos estamos vendo que a segunda caixa esta do mesmo tamanho de largura que a ultima caixa de referencia,
+
+.frase2 {
+	border-sizing: border-box;
+}
+
+24. Agora que nos colocamos o border-box, se colocarmos uma borda de 20 pixels e recarregarmos, nos vemos que continua o mesmo tamanho de largura da segunda caixa, em comparacao ao tamanho de largura da caixa de referencia, ou seja, 500 pixels,
+
+.frase2 {
+	border-sizing: border-box;
+	border: 20px solid red;
+}
+
+25. Entao, quer dizer que aquela largura de 500 pixels que nos especificamos para a caixa continua, a borda foi para dentro da caixa. E, se colocarmos, aqui, um padding de 20 pixels, a segunda caixa continua exatamente do mesmo tamanho, em relacao ao tamanho de largura da caixa de referencia, ou seja, 500 pixels,
+
+.frase2 {
+	border-sizing: border-box;
+	border: 20px solid red;
+	padding: 20px;
+}
+
+26. Agora, vamos mostrar uma imagem para esclarecer, se tiver ficado qualquer duvida, para esclarecermos sobre o box-sizing e o valor border-box.
+
+27. Para o border-box, quando a gente especifica largura ou altura do nosso elemento, a gente esta especificando uma altura que vai la do inicio da borda ate o final da outra extremidade da altura ou largura da borda no elemento, entao, engloba as areas da Borda, do Padding e a area do Conteudo. Entao, quando a gente especifica uma largura de 500 pixels, isso inclui a espessura da Borda, isso inclui o Padding e inclui tambem a area de Conteudo, ou seja, o Conteudo vai ser diminuido, vai ficar menor, na area de Conteudo, logicamente, se a gente quer que fique com os 500 pixels, mas, pelo menos, a gente tem a exata ideia do tamanho da caixa que a gente esta especificando. 
+
+28. A area da Margem ja eh por fora. Entao, quando a gente define uma margem, de 20 pixels, 100 pixels, ela ja esta fora, ela nao faz parte dos calculos da area da caixa. Entao, a margem sempre eh um valor que a gente especifica que esta fora da caixa, ou seja, nao faz parte da largura e altura da caixa.
+
+29. Vamos, agora, inspecionar esses elementos aqui, na pagina. No Chrome, vamos inspecionar o primeiro paragrafo. Se olharmos na Aba Styles, a esquerda do Chrome DevTools, embaixo, o navegador mostra uma imagem, um desenho de como que foram calculadas as medidas da nossa caixa. Entao, a gente pode ver que, no primeiro paragrafo, ele tem uma margem de 10 pixels em todos os lados, ele tem uma borda de 3 pixels, tem um padding de 20 pixels e, aqui, o Conteudo tem 500 pixels. Lembrando que a gente especificou apenas a largura, a gente nao especificou a altura. Como a gente nao especificou a altura, a altura eh de acordo com o tamanho do texto, nesse caso, ficou em 225.600 pixels. Entao, vamos focar somente na largura.
+
+30. A largura, entao, ficou em 500 pixels, que foi o que a gente especificou. 20 pixels do padding a gente especificou tambem e 3 pixels da borda a gente tambem especificou, conforme vemos no arquivo estilos.css.
+
+31. Entao, vemos que os 500 pixels que a gente especificou para a largura ficou dentro da area de Conteudo. Entao, o proprio Chrome ja mostra isso para a gente. Se a gente pegar outra caixa e inspecionar, o segundo paragrafo, vamos dar uma olhada no Chrome DevTools.
+
+32. O que que aconteceu? A segunda caixa tambem tem 500 pixels, essa caixa tambem foi especificada em estilos.css para ter 500 pixels, mas, lembrando, essa segunda caixa eh border-box, a primeira que vimos anteriormente eh content-box, a segunda eh border-box. E, com border-box, quando a gente coloca que o tamanho dela eh 500 pixels, ela ate se manteve com 500 pixels, olhando a caixa de referencia. Se formos olhar na Guia Styles, nos podemos ver que a margem nao mudou, continua 10 pixels. Em seguida, temos 20 pixels de borda, 20 pixels de padding. Entao, se nos somarmos 20 mais 20, 40 pixels do lado esquerdo. Se nos somarmos, tambem, do lado direito, 20 mais 20, 40 pixels. Somando lados esquerdo e direito, da 80 pixels. Agora, somamos 420 pixels, da area de Conteudo, com esses 80 pixels e chegamos em 500 pixels. Entao, nos vemos que a area de Conteudo eh calculada automaticamente com o que sobrar, porque a gente pediu. A area mais escura, mais grossa, preta, essa caixa, que abrange as areas de Borda, Padding e Conteudo, essa caixa possui 500 pixels. Entao, depois, vem a Borda, o Padding, ai vem o Conteudo com o que sobrar. 
+
+33. Dessa forma, fica mais facil a gente ter a exata ideia do tamanho que a caixa vai ficar. Entao, quando a gente quer colocar coisas um do lado do outro, a gente quer definir certinho o nosso layout, as vezes nao usar o border-box pode ficar um pouco complicado, usando content-box, porque nos temos que comecar a somar, de cabeca, usar uma calculadora para ficar somando: area de Conteudo mais o Padding mais a Borda, dos dois lados, entao, complica um pouco as vezes. Entao, o border-box, geralmente, eh mais facil de usar.
+
+34. E, por ser mais facil de usar, nos podemos colocar aqui um seletor que pega todos os elementos e coloca ele border-box,
+
+* {
+	box-sizing: border-box;
+}
+
+35. Entao, esse asterisco aqui eh um seletor que pega todos os elementos da pagina e define box-sizing como border-box.
+
+36. Dessa forma, a gente nao precisaria mais definir box-sizing como border-box, no seletor frase2. No seletor frase1, vamos remover box-sizing como border-content.
+
+37. Vamos deixar tudo border-box agora. Agora, ficou tudo do mesmo tamanho, tudo border-box.
+
+38. Entao, nos estudamos o box-sizing como content-box, como que ele funciona, como eh calculado na renderizacao, a gente estudou box-sizing como border-box. E essa forma de medida das caixas eh o que a gente chama de CSS Box Model. Muito importante isso e, agora para frente, nos nao temos mais esses problemas fazer layout e nao conseguir ajustar as medidas da forma correta.
+
+39. Fim da Aula 03.15. Box model e a propriedade box-sizing.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<p class="frase1">Já imaginou quanto tempo você economizaria se o redeploy nao fosse necessário ao adicionar um novo método em uma classe ou ao alterar um XML ou anotação do seu framework preferido?</p>
+
+	<p class="frase2">Em Maio de 2015, no evento Voxxed Days Istanbul, conversei com Reza Rahman, que eh evangelista Java EE na Oracle Corporation.</p>
+
+	<p class="referencia"></p>
+</body>
+</html>

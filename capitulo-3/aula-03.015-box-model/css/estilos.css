@@ -1,0 +1,90 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 32px;
+	margin: 0;
+}
+
+.frase1, .frase2, .referencia {
+	width: 500px;
+	text-align: justify;
+	background-color: yellow;
+}
+
+p {
+	margin: 10px;
+}
+
+.referencia {
+	background-color: blue;
+	height: 20px;
+}
+
+/**1.
+.frase1 {
+	border: 3px solid red;
+}
+*/
+
+/**2.
+.frase1 {
+	border: 10px solid red;
+}
+*/
+
+/**3.
+.frase1 {
+	border: 3px solid red;
+}
+*/
+
+/**4.
+.frase1 {
+	padding: 20px;
+	border: 3px solid red;
+}
+*/
+
+/**8
+.frase1 {
+	box-sizing: content-box;
+	padding: 20px;
+	border: 3px solid red;
+}
+*/
+.frase1 {
+	padding: 20px;
+	border: 3px solid red;
+}
+
+/**5.
+.frase2 {
+	border: 20px solid red;
+}
+*/
+
+/**6.
+.frase2 {
+	box-sizing: border-box;
+}
+*/
+
+/**7.
+.frase2 {
+	box-sizing: border-box;
+	border: 20px solid red;
+}
+*/
+/**9.
+.frase2 {
+	box-sizing: border-box;
+	border: 20px solid red;
+	padding: 20px;
+}
+*/
+.frase2 {
+	border: 20px solid red;
+	padding: 20px;
+}

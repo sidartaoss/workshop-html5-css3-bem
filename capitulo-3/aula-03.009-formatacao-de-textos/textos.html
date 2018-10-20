@@ -1,0 +1,230 @@
+<!-- 
+Aula 03.09. Formatacao de textos
+
+1. Nesta aula, a gente vai trabalhar um pouco com a formatacao de textos. A gente ja viu algumas coisas ainda ja nas primeiras aulas anteriores deste workshop, a gente ja viu algumas coisas de formatacao de texto, mas, nesta aula, a gente vai ver um pouco mais. 
+
+2. Nos temos, aqui, um documento html, com dois paragrafos. Cada paragrafo, nos colocamos um nome de classe CSS diferente, para a gente poder trabalhar com esses nomes de classes.
+
+3. O primeiro eh o nome de classe CSS empresa e o segundo nome de classe CSS nos chamamos de segmento. O arquivo estilos.css esta vazio. A gente vai comecar, entao, do zero, o arquivo estilos.css.
+
+4. A primeira coisa em estilos.css, nos vamos colocar ponto, ., nome, eh o seletor com o nome da classe, para ser aplicado ao paragrafo com o nome da empresa.
+
+5. Nos estamos usando paragrafo, nao estamos usando um h1, ou heading, ou seja, esses elementos de titulos, porque eles ja vem, por padrao, os browsers ja trazem uma formatacao com a fonte um pouco maior, negrito, entao, nos nao queremos isso, nos queremos algo mais simples.
+
+6. O padrao, ao verificarmos a pagina, eh logico, o browser ja esta com uma formatacao padrao, geralmente, os navegadores ja colocam aqui a fonte padrao, com tamanho, por exemplo, de 16 pixels, mas eh mais basico. 
+
+7. Entao, vamos la. Nos temos, aqui, o nome da classe .nome, entao, o seletor .nome. A primeira coisa que iremos fazer eh comecar com color. E o color, nos nao vamos explicar de novo, porque nos ja usamos em varios lugares, teve ate uma aula sobre cores, entao, isso, a principio, esta muito tranquilo, nao precisamos falar novamente sobre isso, mas faz parte da formatacao de textos, o color a gente formata o texto do nosso elemento aqui. Entao, vamos colocar aqui uma cor #f00, so para exercitarmos.
+
+.nome {
+	color: #f00;
+}
+
+8. Que cor que eh essa? Ou sabemos identificar? Se falamos vermelho, esta correto, porque nos estamos falando aqui em 255 para vermelho, 0 para verde e 0 para azul.
+
+9. Agora, uma outra propriedade vai ser o font-family. O font-family tambem a gente ja usou em uma aula anterior, mas nos nao explicamos com detalhes sobre isso. O font-family define, especifica uma lista de nomes de fontes por prioridade. Entao, a gente pode colocar, por exemplo, uma fonte Arial e salvar. Vamos recarregar a pagina e verificamos que mudou a fonte do primeiro paragrafo para Arial.
+
+10. Esta, na verdade, muito pequeno aqui. Antes de falarmos de font-family, daqui a pouco nos voltamos a font-family.
+
+11. Vamos falar, agora, de outra propriedade para ficar, ate, mais facil visualizar aqui. Vamos falar, antes, do font-size. O font-size eh o tamanho da fonte. A gente pode especificar usando algumas unidades de medida, mas, nesta aula, a gente nao vai falar, ainda, de unidades, deixa essas unidades para uma outra aula. A gente vai falar, aqui, sobre uma unidade especifica chamada pixel.
+
+12. Cada pontinho da tela que a gente tem, na resolucao da nossa tela, ela eh medida em pixel. Entao, por exemplo, 1280 por 800 pixels, 1080 por alguma coisa, entao, sempre eh medido em pixels, porque a gente pode especificar aqui. Nos vamos colocar aqui, por exemplo, um tamanho de 24 pixels, 24px, o sufixo de px indica pixel.
+
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: Arial;
+}
+
+13. O padrao, como ja dissemos, nos navegadores, usa 16 pixels, por padrao, para o tamanho da fonte. Ao recarregar a pagina, verificamos que aumentou um pouco o tamanho da fonte.
+
+14. Okay, era so para isso, ja explicamos o font-size, eh muito simples, eh so isso mesmo, usando a unidade de pixel.
+
+15. Voltando para o font-family, a gente tem, entao, a fonte Arial, que nos ja alteramos. Antes, estava o padrao. 
+
+16. A gente pode especificar algumas fontes tambem que tem espaco no nome. Por exemplo, Trebuchet MS. Quando a gente tem uma fonte que tem um espaco no nome, nos devemos sempre usar aspas duplas para agrupar esse nome de fonte em um so. Nao se deve deixar sem aspas duplas, porque podemos ter problemas.
+
+17. Usando aspas duplas, nos estamos com a fonte Trebuchet MS.
+
+18. Mas, nos dissemos que, para o font-family, nos podemos especificar uma lista de nomes de fontes prioritarios. Entao, quer dizer que a gente pode colocar, aqui, por exemplo, , Arial. O que que nos queremos dizer com isso? Nos queremos dizer que vai buscar a fonte 'Trebuchet MS', o navegador, quando for formatar a pagina, vai buscar essa fonte. So que, se essa fonte nao existir, se, por algum motivo, o navegador nao encontrar essa fonte, ele vai seguir a ordem de prioridade. Entao, ele vai para a segunda fonte, Arial.
+
+19. Se ele nao encontrar, ele vai para a terceira, se tiver, se nao tiver, nada, ele nao encontrou nenhuma, ele vai colocar a fonte padrao. Entao, ate por isso, eh importante a gente colocar, por precaucao, algum nome generico. Entao, por exemplo aqui, nos vamos colocar so duas opcoes, poderia colocar tres, mas vai ficar so duas. Para o nome generico, vamos colocar sans-serif. Isso seria uma fonte sem serifa.
+
+20. No segundo paragrafo, eh uma fonte com serifa, como o Times New Roman. O que eh a serifa? O C, por exemplo, em 'Cursos', no segundo paragrafo, quando ele fecha, ele tem as pontinhas, eh serifado, a gente fala fonte serifada.
+
+21. No primeiro paragrafo nao, nao eh uma fonte serifada, ela nao tem serifa nas pontas, entao, eh uma fonte sem serifa.
+
+22. Mas, so para deixar mais claro, vamos trocar para uma fonte com serifa,
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", serif;
+}
+
+23. Entao, vejamos. Eh uma lista de prioridades, como dissemos anteriormente. serif nao eh o nome especifico de uma fonte, eh um nome generico, esta especificando: eh com serifa, nao se sabe qual eh o fonte, mas eh com serifa.
+
+24. Entao, carregamos a pagina, okay, esta sendo aplicado a fonte que especificamos, "Trebuchet MS". Supondo que essa fonte nao exista, para ela nao existir, vamos inventar um nome qualquer, vamos colocar alguns numeros para forca-la a nao existir. Se ela nao existe, o navegador nao vai encontrar e vai passar para a proxima da lista.
+
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebu22222chet MS", serif;
+}
+
+25. So que a proxima da lista nao eh um nome de fonte especifico, eh um nome generico. Ai, o navegador vai falar assim: "Ah, nao achei a fonte Trebu22222Chet MS", mas quem desenvolveu esta pagina gostaria que mostrasse uma fonte com serifa.
+
+26. Claro que, neste caso, eh so um exemplo. Ao recarregar a pagina, mostrou a fonte com serifa, u seja, Times New Roman.
+
+27. Entao, eh o que nos chamamos de fallback. O CSS tenta, se ele nao encontrar a primeira fonte, ai ele cai para o proximo, se ele nao encontrar, ele cai para o proximo, que eh o ultimo. Eh logico que, aqui, nao segue muito uma logica, porque, se o 'Trebuchet' eh uma fonte sem serifa, eh logico que o desenvolvedor tem que definir, para o nome generico, sem serifa, ou seja, sans-serif. Nao faz sentido, se nao encontrar a fonte, mudar totalmente a fonte para outra fonte com serifa. Entao, se nao encontrar "Trebuchet MS", fica Arial, que eh sem serifa.
+
+28. Agora, vamos definir para o navegador encontrar a fonte e vamos ver a diferenca. A diferenca eh pequena, mas, pelo menos, sao fontes sem serifa, se nao encontrou uma, a diferenca nao eh tao grande assim do que se fosse uma fonte sem e com serifa.
+
+29. Entao, o que nos fazemos, geralmente, quando se coloca uma fonte, eh sempre terminar com um nome generico, porque o navegador vai tentando, nos podemos colocar outras, se quisermos, tenta uma, tenta outra, como Arial, mas sempre nos terminamos com um nome generico para nao ter problema de nao encontrar nenhuma fonte e, ai o nosso site ficar totalmente diferente do que nos esperavamos.
+
+30. Vamos definir, agora, segmento, que a classe do nosso outro paragrafo. E vamos colocar, aqui, um font-family Palatino, serif,
+
+.segmento {
+	font-family: Palatino, serif;
+}
+
+31. Entao, ao recarregar a pagina, verificamos que Palatino eh um fonte com serifa tambem, mas nos verificamos que essa fonte eh um pouco mais arredondada.
+
+32. Agora, vamos forcar a fonte Palatino a nao ser reconhecida pelo browser,
+
+.segmento {
+	font-family: Pala22222tino, serif;
+}
+
+33. Ao recarregar a pagina, verificamos que mudou a fonte para Times New Roman.
+
+34. Como Palatino eh uma fonte com serifa, termina o nome generico com serif. E, na classe nome, sem serifa.
+
+35. Uma outra propriedade para o nosso bloco de declaracoes do nome, uma outra propriedade eh o font-style. O font-style a gente pode ter 'normal', que eh o que a gente esta vendo na pagina, nao muda nada, eh normal. Ou a gente pode ter tambem o italico. Eh o que a gente vai estudar, o normal ou o italico. Entao, deixamos a fonte do texto em italico.
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+}
+
+36. Outra propriedade que a gente vai ver eh o font-weight. Eh o peso da fonte. Eh quando a gente quer a fonte em negrito ou nao, entao a gente pode ter normal, que nao muda nada, ainda esta em italico, nos nao mexemos ainda. Agora, vamos mudar font-weight para bold,
+.nome {
+	color: #f00;
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+	font-weight: bold;
+}
+, nos vamos ver so essas duas propriedades. Ao recarregar a pagina, vemos que o primeiro paragrafo ficou em negrito.
+
+37. Entao, nos aumentamos o peso da fonte e, ai, automaticamente, o navegador ja deixa em negrito. Isso aqui, entao,
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+	font-weight: bold;
+
+, sao propriedades especificas para cada caracteristica, por tamanho, familia, estilo, peso. A gente pode, tambem, usar um atalho. Existe uma propriedade chamada font, so font e, aqui, eh um atalho para a gente colocar tudo isso aqui,
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+	font-weight: bold;
+
+, dentro dessa propriedade font. E, agora, nos definimos, primeiro, o estilo,
+font: italic
+
+, depois, nos colocamos o peso, bold,
+font: italic bold
+
+, depois nos colocamos o tamanho da fonte, 24px,
+
+font: italic bold 24px
+
+, e, depois, nos vamos colocar a familia, a lista de prioridades da familia de fontes. Deixamos para o final, porque pode ter varias fontes definidas.
+
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif
+}
+
+
+38. Vamos recarregar a pagina. Okay, o primeiro paragrafo voltou a ficar como antes. Eh um atalho para colocarmos tudo isso,
+	font-size: 24px;
+	font-family: "Trebuchet MS", sans-serif;
+	font-style: italic;
+	font-weight: bold;
+
+, em uma linha so.
+
+39. Podemos escolher especificar as propriedades ou colocar diretamente com o atalho com a propriedade font.
+
+40. Agora, outras propriedades. Vamos pegar, aqui, uma outra propriedade chamada text-decoration,
+.nome {
+	color: #f00;
+	font: italic bold 24px "Trebuchet MS", sans-serif;
+	text-decoration: 
+}
+
+, entao, a decoracao do texto. Para text-decoration, nos vamos ver duas propriedades, line-through, que vai riscar o texto,
+
+text-decoration: line-through;
+
+41. Outra propriedade de text-decoration que vamos ver eh o underline. underline vai sublinhar a palavra AlgaWorks. 
+
+text-decoration: underline;
+
+42. Nos temos outra propriedade tambem para o text-decoration, que eh o none,
+
+text-decoration: none;
+
+, ou seja, none eh nada, eh o padrao, ou seja, nao tem nada.
+
+43. Mas, se eh o padrao, porque precisa definir? Porque, uma hora ou outra, nos podemos precisar substituir de uma fonte que esta sublinhada e nos queremos tirar o sublinhado, nos queremos colocar nenhum.
+
+44. Vamos deixar definido underline.
+
+45. Agora, mais uma propriedade, text-align. text-align eh o alinhamento do texto em relacao ao bloco onde ele se encontra. No nosso caso aqui, o nosso texto, o nosso paragrafo se encontra no documento, no proprio documento, entao eh o alinhamento do texto do paragrafo em relacao ao corpo do documento. Nos vamos definir aqui left,
+
+text-align: left;
+
+, nao vai mudar nada ao recarregarmos a pagina, porque ja esta alinhado a esquerda.
+
+46. Se colocarmos right, o paragrafo vai ficar alinhado a direita,
+
+text-align: right;
+
+47. E, claro, se definirmos center, o paragrafo vai ficar alinhado ao centro do documento. Ao recarregarmos a pagina, verificamos que o paragrafo ficou alinhado ao centro do documento.
+
+
+48. Ainda tem a propriedade justify, que nao tem como testar aqui, que eh, quando estamos usando ferramentas de edicao de texto, como o Word, tem la a opcao de justificar o texto, eh exatamente a mesma coisa para nos justificarmos o texto. Quando nos colocamos somente left ou deixar o padrao do texto, nao fica justificado. Se colocar justify, ai justifica.
+
+49. Vamos deixar center para deixar o paragrafo centralizado. Vemos que esta centralizado em relacao ao documento. So para fazermos um teste aqui, para entendermos melhor, vamos colocar um div no primeiro paragrafo. O div, como ja vimos, eh um container generico.
+
+50. Vamos definir, para o div, um estilo in-line mesmo, porque eh so um teste. Para testes, nao tem problema ficar colocando estilos in-line. Vamos colocar, aqui, a largura desse div como 500px, 
+
+<div style="width=500px; background-color: yellow">
+	<p class="nome">AlgaWorks</p>
+</div>
+
+, entao, width eh a propriedade da largura, de 500 pixels e background-color como yellow. So para a gente poder enxergar onde esta esse div.
+
+51. Ao recarregar a pagina, nos vemos que, agora que o nosso div tem 500 pixels, nos vemos que o paragrafo foi centralizado em relacao ao bloco, ao div. Agora, nao foi em relacao ao documento, foi em relacao ao pai dele, que eh o bloco div, eh o container. Entao, ele sempre olha em relacao ao pai.
+
+52. Entao, eh isso, color nos ja conheciamos, vimos as propriedades font-size, font-family, font-style, font-weight, font, o shortcut, um atalho, text-decoration, text-align. Com isso, nos ja podemos fazer algumas formatacoes nos nossos textos, nos nossos documentos html. 
+
+53. Fim da Aula 03.09. Formatacao de textos.
+
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Sobre nós</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<div style="width: 500px; background-color: yellow;">
+		<p class="nome">AlgaWorks</p>
+	</div>	
+	<p class="segmento">Cursos Online</p>
+</body>
+</html>

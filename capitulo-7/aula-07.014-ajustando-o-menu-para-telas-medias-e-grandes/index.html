@@ -1,0 +1,287 @@
+<!-- 
+  Aula 07.014. Ajustando o Menu para Telas Medias e Grandes.
+
+1. Nesta aula, a gente vai fazer alguns ajustes no codigo CSS para que o menu nao fique so aqui do lado esquerdo. Quando a tela estiver grande, ele tem que ficar como na imagem sendo exibida pelo instrutor da versao final do prototipo do curso, onde aparece o menu no canto superior direito da tela, na verdade, dentro do nosso cabecalho.
+
+2. Somente quando a nossa tela estiver menor, que o menu esquerdo deve aparecer de forma como um menu vertical do lado esquerdo. Ainda nesta aula, a gente nao vai implementar a acao do botao de chaveamento, simplesmente a gente vai colocar o menu do jeito que esta aqui, agora ou, quando a tela estiver maior, o menu fica no canto superior direito.
+
+3. A primeira coisa que vamos fazer eh criar uma Media Query, falando que ate a largura maxima de 991 pixels, nos vamos aplicar as regras CSS .menu__item, .menu__item--botao,
+
+@media(max-width: 991px) {
+  .menu__item {
+    display: block;
+
+    line-height: 3;
+  }
+
+  .menu__item--botao {
+    margin-top: 20px; 
+  }
+}
+
+, vamos criar mais uma regra CSS daqui a pouco, e uma outra Media Query que, a partir de 992 pixels, ou seja, min-width, nos vamos aplicar outras regras, que eh o que a gente vai implementar,
+
+@media(min-width: 992px) {
+  
+}
+
+4. So que, aqui, nos nao podemos aplicar todas as propriedades definidas no bloco .menu para quando formos colocar o menu que vai ficar no canto superior direito. Por exemplo, ele nao eh fixo, ele nao tem top, left, ele nao tem largura, entao, a gente vai fazer o seguinte, nos vamos copiar toda regra CSS do bloco .menu e vamos colocar aqui dentro da Media Query de max-width,
+
+@media(max-width: 991px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 200px;
+    margin: 0;
+    padding: 20px;
+    border-right: 1px solid #eee;
+
+    font-size: 1.4rem;      /** 14 px **/
+
+    background-color: #fbfbfb;
+
+    list-style: none;
+  }
+  
+  .menu__item {
+    display: block;
+
+    line-height: 3;
+  }
+
+  .menu__item--botao {
+    margin-top: 20px; 
+  }  
+}
+
+, ou seja, dentro da Media Query para telas menores, ate 991 pixels, sao telas menores, celulares, tablets. E nos vamos tirar, aqui, a propriedade margin do bloco menu, vamos tirar o font-size e vamos tirar tambem o list-style. Por que que nos estamos tirando isso? Porque, tanto o menu na lateral esquerda como o menu no canto superior direito, eles vao ter essas propriedades, entao, nos vamos mante-las na definicao da regra CSS do bloco de .menu que esta fora das Media Queries,
+
+.menu {
+  margin: 0;
+  
+  font-size: 1.4rem;      /** 14 px **/
+
+  list-style: none;
+}
+
+@media(max-width: 991px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+
+    width: 200px;
+    padding: 20px;
+    border-right: 1px solid #eee;
+
+    background-color: #fbfbfb;
+  }
+  
+  .menu__item {
+    display: block;
+
+    line-height: 3;
+  }
+
+  .menu__item--botao {
+    margin-top: 20px; 
+  }  
+}
+
+, ou seja, o bloco menu, fora das Media Queries, sempre vai ter as propriedades margin, font-size e list-style, so que, quando estivermos em uma tela menor, ai a gente aplica essas outras propriedades definidas no Media Query max-width, por isso que nos retiramos as 3 propriedades e jogamos para fora das Medias Queries, porque isso eh padrao, indiferente da forma do menu.
+
+5. Vamos so dar uma olhada aqui, ou seja, vamos recarregar a pagina. Vejamos que, ao aumentar o tamanho da tela, o menu fica do lado direito, ele esta errado ainda, nos vamos corrigir, vamos melhorar isso, quando a gente vai diminuindo o tamanho da tela, o menu fica do lado esquerdo e some do lado direito. Entao, quando a tela esta pequena, a gente manteve o menu do lado esquerdo, o que a gente precisa fazer agora e fazer eh o menu se ajeitar melhor aqui para ficar da forma que eh com o menu no canto superior direito, de forma horizontal, ou seja, dentro do cabecalho no canto superior direito.
+
+6. Entao, vamos colocar essas regras dentro do Media query para telas maiores, ou seja, min-width, quando a largura minima da tela for 992 pixels, sao telas medias para grandes. Vamos colocar, entao, que, para .menu__item, temos o display inline-block, e vamos ver o que que acontece, ou seja, vamos recarregar a pagina,
+
+@media(min-width: 992px) {
+  .menu__item {
+    display: inline-block;
+  }
+}
+
+7. Os itens do menu ja ficaram um do lado do outro de forma horizontal, e dentro do cabecalho.
+
+8. So que ficou, ainda, muito coladinho os links. Entao, vamos colocar, aqui, com padding-right de 20 pixels, 
+
+@media(min-width: 992px) {
+  .menu__item {
+    display: inline-block;
+    padding-right: 20px;
+  }
+}
+
+, ou seja, um espacamento a direita de 20 pixels, e vamos recarregar.
+
+9. Legal, ja ficou bom. So que o botao de Login, quando a gente deu 20 pixels de padding-right, o Login tambem foi um pouco para a esquerda, porque o padding-right foi aplicado ao Login tambem. Mas o Login, como ele eh o ultimo elemento, nao precisamos dar padding-right, ele nao precisa ficar seprado de nada, porque nao tem nada la para frente dele, entao, o que nos fazemos, aqui, eh colocar assim, .menu__item:last-of-type, isso aqui eh uma pseudo-classe para a gente usar em um seletor que ele seleciona o ultimo do tipo menu__item, entao, ele vai selecionar o ultimo elemento que tenha a classe .menu__item, e a gente vai colocar, aqui, o padding-right de 0 pixels, 
+
+.menu__item:last-of-type {
+  padding-right: 0;
+}
+
+
+, ou seja, so no ultimo, e quem eh o ultimo? O Login. Entao, vamos recarregar a pagina.
+
+10. Entao, a gente nao tirou o padding dos outros menu__item's, nem de Como funciona, nem de Planos e precos, nem de Contato, mas de Login a gente tirou o padding-right, com a pseudo-classe last-of-type.
+
+11. Vejamos, entao, que o menu do canto superior direito esta da forma como a gente queria e nos vamos diminuindo a tela e, de repente, o menu fica posicionado do lado esquerdo de forma vertical, oiu seja, ficou do jeito que a gente queria, so que para telas menores. 
+
+12. O que falta, agora, eh a gente implementar esse chaveador aqui, ou seja, a acao do botao de 3 barras, para exibir ou ocultar o menu lateral esquerdo.
+
+13. Fim da Aula 07.014. Ajustando o Menu para Telas Medias e Grandes.
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MyPilas</title>
+
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+  </head>
+  <body>
+
+    <header class="layout-cabecalho">
+      <div class="container">
+        
+        <nav class="navegacao">
+          <img src="imagens/logo.png" width="100" height="35" alt="MyPilas">
+          
+          <div class="navegacao__menu">
+            <!--Botão-->
+            <button class="botao-chaveador"></button>
+            
+            <ul class="menu">
+              <li class="menu__item">
+                <a href="#">Como funciona</a>
+              </li>
+              <li class="menu__item">
+                <a href="#planos">Planos e preços</a>
+              </li>
+              <li class="menu__item">
+                <a href="#">Contato</a>
+              </li>
+              <li class="menu__item  menu__item--botao">
+                <a href="#" class="botao  botao--login">Login</a>
+              </li>
+            </ul>            
+          </div>
+
+        </nav>
+
+      </div>
+    </header>
+
+    <section class="layout-chamada">
+      <div class="container">
+        <div class="chamada">
+          <h1 class="chamada__titulo">As finanças da sua empresa em ordem</h1>
+          <p class="chamada__subtitulo">Software de gestão simples e prático para pequenos negócios</p>
+          <div class="chamada__acao">
+            <a href="#planos" class="botao  botao--principal">Conheça os planos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-depoimento">
+
+      <div class="container">
+
+        <div class="depoimento">
+
+          <blockquote>
+            Eu tinha perdido totalmente o controle da minha empresa.
+            Depois que comecei a usar o MyPilas, me sinto muito mais organizado e confiante no futuro.
+          </blockquote>
+
+          <div class="depoimento__autor">
+            <img src="imagens/joao-da-silva.jpg" width="180" height="180" alt="João da Silva">
+            <p>João da Silva</p>
+          </div>         
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div id="planos" class="layout-planos">
+      <div class="container">
+        <div class="row">
+          <!--div class="col-sm-4" style="margin-bottom: 40px"-->
+          <div class="col-sm-4">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Autônomo</h2>
+              <div class="plano__preco">R$59/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>2 usuários</strong></li>
+                <li><strong>500MB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4">
+            <article class="plano plano--mais-popular">              
+              <h2 class="plano__cabecalho">Micro</h2>
+              <div class="plano__preco">R$89/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>6 usuários</strong></li>
+                <li><strong>1GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+          <div class="col-sm-4  ultima-coluna">
+
+            <article class="plano">
+              <h2 class="plano__cabecalho">Pequena</h2>
+              <div class="plano__preco">R$99/mês</div>
+              <ul class="plano__caracteristicas">
+                <li>Até <strong>10 usuários</strong></li>
+                <li><strong>5GB</strong> de armazenamento</li>
+                <li>Lançamentos ilimitados</li>
+                <li>Acesso seguro</li>
+                <li>Sem fidelidade</li>
+              </ul>
+              <footer class="plano__rodape">
+                <a href="assine.html" class="botao  botao--assinar">Assinar</a>
+              </footer>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="layout-rodape">
+      <div class="container">
+        &copy; MyPilas. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </body>
+</html>

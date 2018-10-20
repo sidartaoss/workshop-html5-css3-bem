@@ -1,0 +1,18 @@
+/**1. 
+article .importante {
+    color: red;
+}*/
+
+/**2.
+article > .importante {
+    color: red;
+}*/
+
+/**3.
+article > .importante > strong {
+    color: red;
+}
+*/
+article .importante > strong {
+    color: red;
+}

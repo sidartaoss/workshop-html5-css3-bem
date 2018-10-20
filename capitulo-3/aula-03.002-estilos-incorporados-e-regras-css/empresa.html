@@ -1,0 +1,129 @@
+<!--
+ Aula 03.02. Estilos incorporados e Regras CSS.
+
+ 1. Ate agora, a gente comecou usando CSS com estilos in-line, que eh aquele que a gente coloca dentro do elemento, por exemplo, <h1 style="">, dentro do proprio elemento e coloca a propriedade e valor.
+
+ 2. Agora, nesta aula, nos vamos aprender como colocar um estilo incorporado. Esse estilo incorporado tem a vantagem, em relacao ao estilo in-line, porque, vejamos, o estilo in-line, quando a gente tem alguma coisa definida, a gente nao consegue reaproveita-lo. Se a gente tem, 'Sobre a empresa', em vermelho, e a gente quer aproveitar isso para uma outra coisa, fica dificil, quer dizer, eh impossivel.
+
+ 3. Vamos pegar um exemplo melhor. Temos dois paragrafos. O primeiro paragrafo, nos definimos como vermelho, 
+ <p style="color: red"> e queremos que o paragrafo debaixo tambem seja vermelho. E, ai, nos temos que duplicar codigo.
+
+ 4. Entao, o estilo in-line nao eh muito bom por isso. E, tambem, ele comeca a tumultuar demais o nosso html. O html foi feito para estruturar o documento e colocar conteudo e nao para ficar formatando, cada elemento ficarmos formatando as coisas dentro do html, nao fica legal isso.
+
+ 5. Para o estilo in-line, deve-se evitar usa-lo deve-se pensar bem antes de falar que eh necessario definir em certo ponto. As vezes, para algum teste, para alguma coisa muito especifica, mas deve-se evitar sempre usar o in-line e deve-se usar os outros que a gente vai ver ainda neste workshop.
+
+ 6. Para o estilo incorporado, a gente abre, dentro do <head>, a tag <style> e fechamos o elemento </style>. Dentro do corpo desse elemento, a gente vai escrever as nossas regras CSS.
+
+7. Vamos mudar o Esquema de Cor do sublime-text porque o que estamos usando, que eh fundo branco, nao esta muito legal com o estilo CSS incorporado. Vamos ficar com padrao, que eh o fundo preto, so porque a formatacao dele nao esta muito legal com fundo branco.
+
+8. Como funciona? Aqui, dentro da tag <syle>, nos vamos colocar a nossa regra CSS. E comecamos com um seletor.
+
+9. O seletor eh algo que vai selecinar algum elemento no nosso documento. Entao, por exemplo, nos queremos alterar a cor de elementos h1. Entao, vamos colocar h1, vamos dar um espaco, nao eh obrigatorio dar um espaco, mas vamos dar um espaco e vamos abrir e fechar chaves,
+<style>
+	h1 {
+	
+	}
+</style>
+
+10. E, dentro dessas chaves, nos vamos colocar a nossa declaracao. Ou seja, nos declaramos quais sao as propriedades e valores que queremos para elementos h1.
+
+11. Entao, vamos colocar: color, dois pontos, :, e o valor blue,
+color: blue;, geralmente, a gente da um espaco depois de dois pontos, :.
+
+12. Colocamos tudo na mesma linha, mas nao precisava,
+<style>
+	h1: color: blue;
+</style>
+
+13. Ao recarregar a pagina, vemos que o titulo ficou azul.
+
+14. Entao, vemos que era a mesma coisa que a gente fez, se a gente colocasse in-line, 
+<h1 style="color: blue">Sobre a empresa</h1>, seria a mesma coisa.
+
+15. So que, agora, h1 color blue, nao estamos especificando que eh somente o primeiro h1 que aparece na pagina html, eh qualquer h1 que, no caso, tenha na pagina html. Vamos adicionar <h1>Teste</h1> para testar.
+
+16. Ao recarregar a pagina, da mesma forma que em 'Sobre a empresa', 'Teste' ficou azul.
+
+17. Para organizarmos melhor o CSS, damos um <enter> entre as chaves,
+<style>
+	h1: {
+		color: blue;
+	}
+</style>
+
+18. Cuidar tambem com a identacao para sempre deixar o codigo mais organizado.
+
+19. Entao, h1, dentro da tag <style>, representa o seletor. Dentro das chaves, esta a nossa declaracao. color representa a propriedade e blue representa o valor.
+
+20. Tudo isso,
+h1 {
+	color: blue
+}
+, a gente chama de regra CSS, uma regra CSS. 
+
+21. Dentro da nossa tag <style>, a gente pode ter mais coisas, a gente pode ter, por exemplo, o paragrafo, p. Queremos colocar uma propriedade para o p. Vamos criar uma regra, selecionando o p. Entao, seletor p, vamos colocar color: red;.
+
+22. Ao recarregar a pagina, vemos que os dois paragrafos foram renderizados em vermelho.
+
+23. Uma coisa que precisamos notar eh que definimos que quem eh vermelhor eh o p. Vejamos que a palavra 'transformar', que esta dentro do elemento <strong>, que, ao renderizar, ficou um pouco em negrito, pois, com o <strong>, os navegadores, automaticamente, ja colocam um pouco em negrito, vejamos que esta em negrito tambem. Mas por que? Nos nao definimos que o <strong> tem que estar vermelho tambem, nos definimos que o p tem que estar vemelho. Isso eh o que a gente chama de heranca no CSS. Entao, algumas propriedades, como, color, eh assim, os elementos filhos vao herdando essas caracteristicas. Entao, o <strong> herdou essa caracteristica do color, que tem que ser vermelho e, por isso, ele fica vermelho.
+
+24. Caso quisessemos especificar uma cor mais especifica para o <strong>, nos poderiamos,
+<style>
+	strong {
+		color: green;
+	}
+</style>
+, vamos definir a cor como verde. E, agora sim, estamos especificando que o <strong> tem que ser verde.
+
+
+25. Ao renderizar, vemos que a cor da palavra 'transformar' ficou verde.
+
+26. Entao, nos vimos como criar regras CSS, nos podemos ter varias delas, usando estilo incorporado. Se estivermos nos perguntando: 'Colocamos cor vermelha no p, nos queriamos colocar vermelho so no primeiro paragrafo, e nao no segundo'. Isso nos veremos depois como fazer isso. Nesta aula, o objetivo era fazer uma introducao ao estilo incorporado e criando regras CSS simples, como essa aqui.
+
+27. Uma coisa que estavamos esquecendo. Nos podemos tambem, dentro da nossa declaracao, ter mais de uma propriedade. Inclusive, o ponto e virgula nao eh obrigatorio quando temos so uma propriedade, nao eh obrigatorio. Mas recomenda-se sempre colocar o ponto-e-virgula. Se quisermos mais uma propriedade, ai o ponto-e-virgula se torna obrigatorio e, nos, na linha de baixo, normalmente, nao tem problema colocar na frente, mas eh melhor colocar na linha debaixo, para ficar mais organizado, podemos colocar outra propriedade. Nos vamos colocar aqui, no seletor p, outra propriedade para alterar a fonte. A fonte esta como Times New Roman, que eh o padrao do navegador. Vamos definir uma fonte Arial, com a propriedade CSS font-family e valor Arial.
+
+28. Nos veremos sobre essas propriedades de fonte mais adiante. font-family define a familia da fonte. Agora, ao recarregar a pagina, vemos que mudou a fonte dos paragrafos.
+
+29. Entao, alem de vermelho, o paragrafo esta, tambem, com uma fonte Arial. Nos podemos definir duas propriedades dentro da mesma declaracao, ou seja, entre as chaves. Nao so duas, mas varias.
+
+30. Neste workshop, a gente vai usar bastante isso, a gente esta, ainda, so em uma introducao do CSS.
+
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Sobre nós</title>
+
+	<!-- Estilo incorporado -->
+	<style>
+		h1 { 
+			color: blue;  
+		}
+
+		p {
+			color: red;
+			font-family: Arial;
+		}
+
+		strong {
+			color: green;
+		}
+	</style>
+
+</head>
+<body>
+	<h1>Sobre a empresa</h1>
+
+	<h1>Sobre a empresa</h1>
+	
+	<!-- Estilo in-line -->
+	<!--p style="color: red">Estamos no mercado desde 2014.</p>
+
+	<p style="color: red">Nossa missão é transformar a vida de milhares de alunos.</p-->
+
+	<p>Estamos no mercado desde 2014.</p>
+
+	<p>Nossa missão é <strong>transformar</strong> a vida de milhares de alunos.</p>	
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!--
+ Aula 03.03. Estilos em Arquivos Externos.
+
+ 1. Nos ja aprendemos a usar estilo CSS in-line, 
+<h1 style="">Sobre a empresa</h1>
+
+, o estilo CSS incorporado, que eh a forma:
+
+<head>
+	<meta charset="utf-8">
+	<title>Sobre nós</title>
+
+	<!-- Estilo incorporado --
+	<style>
+		h1 { 
+			color: blue;  
+		}
+
+		p {
+			color: red;
+			font-family: Arial;
+		}
+
+		strong {
+			color: green;
+		}
+	</style>
+
+</head>
+
+, e, agora, a gente vai a forma com arquivo externo, que eh a melhor forma, porque a gente consegue reaproveitar muito mais.
+
+Nos vimos que a forma in-line, 
+
+<h1 style="">Sobre a empresa</h1>
+
+, fica muito especifico para o elemento, a gente nao consegue reaproveitar nada. 
+
+2. Da forma incorporada, que eh o que a gente fez,
+
+<head>
+	<meta charset="utf-8">
+	<title>Sobre nós</title>
+
+	<!-- Estilo incorporado --
+	<style>
+		h1 { 
+			color: blue;  
+		}
+
+		p {
+			color: red;
+			font-family: Arial;
+		}
+
+		strong {
+			color: green;
+		}
+	</style>
+
+</head>
+
+, ja na ultima aula, a gente ainda consegue reaproveitar, como vimos, a gente define o p, que vai valer para todos os p's, ou seja, paragrafos, do documento. Tem como reaproveitar, sim.
+
+3. Mas fica somente especifico para esta pagina. Quando se tem uma outra pagina, aqui neste caso, nos temos somente um arquivo, empresa.html, mas, se tivermos um outro arquivo, uma outra pagina, que precisa reaproveitar essas regras CSS, nao tem jeito, porque esta dentro da pagina. Entao, melhor eh colocarmos isso em um arquivo externo.
+
+4. Fica ate mais organizado, na verdade, deixamos o arquivo html somente para a estrutura do documento e conteudo mesmo. E colocamos em um arquivo CSS, um arquivo externo, todos os estilos com a formatacao das paginas que nos temos no nosso site, na nossa aplicacao web.
+
+5. A primeira coisa que iremos fazer eh criar uma pasta chamada css. E, agora, vamos criar um arquivo CSS dento da pasta css, que vamos chamar de estilos.css.
+
+6. Poderia dar qualquer outro nome. As vezes, podemos ter varios arquivos, poderia estar com um nome mais especifico, base, botoes, fontes, tipografia, pode-se dar varios nomes, podem haver varios arquivos css dentro da pasta css. Nos vamos usar somente um, porque eh bem simples este exemplo
+
+7. O que nos vamos fazer? Nos vamos tirar o estilo incorporado daqui, do arquivo empresa.html e vamos colocar no arquivo estilo.css.
+
+8. Entao, nos removemos o nosso estilo incorporado. Agora, eh claro, se recarregarmos a pagina, volta tudo ao normal, preto, sem cores mais.
+
+9. Como que fazemos para importar esse arquivo estilo.css dentro da pagina empresa.html?
+
+10. A gente, dentro do <head>, usa uma tag chamada <link>. Essa tag a gente nao precisa fecha-la, nao tem tag de fechamento, e a gente coloca o atributo 'rel', com o valor 'stylesheet'. Ou seja, nos indicamos que nos queremos especificar um 'stylesheet', um arquivo CSS. E nos definimos o atributo 'href', com o nome do arquivo, so que, como o arquivo esta dentro da pasta css, nos vamos coloca-lo relativo a pasta, 'css/estilos.css'. Aqui, poderiamos ter, ainda, se estivermos usando um estilo que nao esta na nossa pasta, que esta na internet, por algum motivo, nos podemos colocar, em href, 'http://...', a URL completa, com protocolo http, 'http://www.algaworks.com/css/estilos.css'. Mas, como esta no mesmo lugar, eh uma pasta CSS dentro do mesmo projeto, entao definimos 'css/estilos.css'.
+
+11. Entao, por padrao, a extensao eh .css e so isso.
+
+12. Ao recarregar a pagina, esta funcionando. Entao, a gente ja tem, agora, uma pagina que a gente nao ve quais estilos que ela tem, fica tudo no arquivo CSS. Eh assim que, geralmente, a gente faz, principalmente em projetos maiores. Ate os menores mesmo, fica muito mais organizado, mais facil reaproveitar tambem os estilos CSS.
+
+13. Fim da  Aula 03.03. Estilos em Arquivos Externos.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="utf-8">
+	<title>Sobre nós</title>
+
+	<!-- Estilo incorporado --
+	<style>
+		h1 { 
+			color: blue;  
+		}
+
+		p {
+			color: red;
+			font-family: Arial;
+		}
+
+		strong {
+			color: green;
+		}
+	</style>	
+-->
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<h1 style="">Sobre a empresa</h1>
+
+	<p>Estamos no mercado desde 2014.</p>
+
+	<p>Nossa missão é <strong>transformar</strong> a vida de milhares de alunos.</p>	
+</body>
+</html>

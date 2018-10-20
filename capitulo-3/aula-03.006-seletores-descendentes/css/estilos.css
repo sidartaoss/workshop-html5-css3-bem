@@ -1,0 +1,202 @@
+/** 
+Aula 03.06. Seletores Descendentes
+
+4. Supondo que queiramos colocar a palavra 'transformar', que esta, no arquivo empresa.html,
+envolvida na tag <strong>, ou seja, tem um elemento <strong> com o conteudo 'transformar',
+suponha que nos queiramos colocar isso em vermelho. Agora, esta tudo preto. Vamos colocar, entao,
+em vermolho o 'transformar'.
+
+5. Claro, nos poderiamos colocar:
+strong {
+    color: red;
+}
+, mas, ficou em vermelho as duas ocorrencias do elemento <strong>.
+
+6. Nos tambem poderiamos colocar uma classe CSS dentro do elemento <strong>,
+<strong class="importante">transformar</strong>
+, para especificar, definir como 'importante' e especificamos somente a palavra 'transformar',
+mas nao eh o caso do que queremos mostrar agora.
+
+7. Com os seletores descendentes, a gente pode fazer o seguinte. A gente pode especificar
+aqui que: ponto missao espaco strong, a cor vai ser vermelha.
+.missao strong {
+    color: red;
+}
+
+8. Isso nos queremos dizer o seguinte: os elementos com a tag <strong> que forem descendentes,
+ou seja, que forem filhos de missao, nao so filhos. Quando a gente descendente, pode ser 
+filho, neto, bisneto, etc.
+
+9. Lembrando que o documento html tem uma hierarquia de elementos. Entao, quando nos falamos
+que eh filho, <strong> eh filho de <p>, ou seja, <strong> esta dentro de <p>. E <strong> eh
+neto de <article>. Ou seja, <strong> eh descendente de <article>. E ele eh bisneto de <body>.
+
+10. Entao, assim vai. Eh uma hierarquia. Entao, voltando no codigo CSS, nos estamos dizendo
+que <strong>, descendente da classe missao, vai ter a cor vermelha.
+
+11. Entao, agora, ao recarregar a pagina, somente 'transformar' ficou em vermelho, porque tem
+a classe missao.
+
+12. 'introducao' nao foi, porque nos nao definimos 'introducao'. Se definirmos:
+
+.introducao strong {
+    color: red;
+}
+, entao, o vermelho vai para 'desde 2014', na pagina empresa.html.
+
+
+13. Entao, quando nos definimos uma classe, pode ser um ID tambem, poderia ser uma tag,
+
+p strong {
+    color: red;
+}
+, ou seja, todos os paragrafos que tiverem <strong> dentro, vai ficar vermelho.
+
+14. Entao, isso eh o seletor descendente. Nos dizemos que tudo que for descendente do 
+primeiro seletor, vai pegar o CSS.
+
+15. Entao, eh muito facil. Eh so dar um espaco para fazer isso.
+
+16. Vamos voltar, agora, para a classe .missao,
+.missao strong {
+    color: red;
+}
+
+17. Inclusive, para comentar codigo no CSS, a gente colocar /* e fecha com asterisco barra.
+Entao, isso eh para a gente colocar um comentario. Tudo que a gente coloca dentro de um 
+comentario eh ignorado pelo navegador. O navegador ate baixa esse codigo, mas ele ignora.
+
+18. Vamos comentar a classe .missao.
+
+19. Vamos, agora, definir que todos os <strong>'s, dentro de <article>, nos vamos querer a cor
+azul, blue,
+
+article strong {
+    color: blue;
+}
+
+20. Perae. Nos temos alguma coisa <strong> dentro de <article> no arquivo html? 
+
+21. Se formos ver, nos nao temos nenhum filho direto em <article> que seja <strong>, ou seja,
+o que nos queremos dizer com isso?
+
+22. A gente nao tem isso aqui, no arquivo empresa.html:
+<article>
+    <strong>teste</strong>
+</article>
+, aqui teriamos um elemento <strong> que seria filho direto de <article>. 
+
+23. Mas, nao tem problema, porque, como nos dissemos, nos estamos dizendo, quando definimos 
+um espaco, em:
+article strong {
+    color: blue;
+}
+, que o <strong> tem que ser apenas um descendente de <article>. Nao precisa ser um filho
+direto, pode ser um neto, bisneto, dai para frente na hierarquia.
+
+24. E, olhando empresa.html, nos temos <strong> dentro do primeiro paragrafo e <strong> dentro
+do segundo paragrafo. Embora esteja dentro de paragrafo, eh descendente de <article>, nao
+deixa de ser.
+
+25. Entao, vamos salvar e recarregar a pagina html. Ficou azul em <strong>, nos dois paragrafos.
+
+26. Entao, mais uma forma. Vamos para mais um exemplo. Vamos definir:
+article strong {
+    color: green;
+}
+, mas, no meio, entre article e strong, vamos colocar .missao. Isso aqui eh so para podermos
+ver que nos nao ficamos limitados a apeans colocarmos uma tag e outra tag, nao. Nos podemos
+colocar tres seletores, com classes, com tags, com ID's, nos podemos ir colocando mais, vai
+separando por espacos.
+
+27. Quando nos separamos por espaco, nos estamos dizendo que article encontra <article>, no
+arquivo html. Ele tem um descendente missao? Sim, article tem um descendente missao, que eh
+o paragrafo, que, por sua vez, tem um descendente strong. 
+article .missao strong {
+    color: green;
+}
+
+28. Entao, nos podemos ir especificando para deixarmos algo mais especifico, para nao pegar 
+coisas que estao em uma pagina grande.
+Por exemplo, imaginemos o cenario em que haja dois artigos, article's, mas, no segundo 
+artigo, nao temos a definicao das classes nos paragrafos.
+        <article>
+            <h1 id="titulo">Sobre a empresa</h1>
+            <p class="introducao">Estamos no mercado <strong> desde 2014</strong>.</p>
+            <p class="missao">
+                Nossa missão é <strong>transformar</strong> a vida de 
+                milhares de alunos.
+            </p>
+        </article>
+
+        <article>
+            <h1 id="titulo">Sobre a empresa</h1>
+            <p>Estamos no mercado <strong> desde 2014</strong>.</p>
+            <p>
+                Nossa missão é <strong>transformar</strong> a vida de 
+                milhares de alunos.
+            </p>
+        </article>
+
+e definimos, no CSS, algo assim:
+article strong {
+    color: green;
+}
+
+29. A definicao do CSS acima vai ser aplicado em todas partes onde aparece <strong> na 
+pagina html. Mas, supondo que queiramos que o CSS va pegar somente no segundo paragrafo
+do primeiro artigo, no paragrafo onde aparece a classe missao.
+
+30. Entao, poderia definir assim:
+article .missao strong {
+    color: green;
+}
+
+31. Entao, nos definimos que a missao tem que ser um descendente de article e, por sua vez,
+tem que ter um descendente strong dentro da classe missao. So separando por espaco, nos
+podemos ir definindo assim tambem.
+
+32. Entao, acabamos de aprender um seletor que a gente chama de Seletor Descendente.
+
+33. Fim da Aula 03.06. Seletores Descendentes.
+**/
+
+/**1.
+.missao strong {
+    color: red;
+}
+*/
+
+/**2.
+.introducao strong {
+    color: red;
+}
+*/
+
+/**3.
+p strong {
+    color: red;
+}
+*/
+
+/**4.
+.introducao strong {
+    color: red;
+}
+*/
+
+/**5. 
+.missao strong {
+    color: red;
+}
+*/
+
+/**6.
+article strong {
+    color: blue;
+}
+*/
+
+article .missao strong {
+    color: green;
+}
